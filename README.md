@@ -13,7 +13,7 @@ After compilation the exported dll/dylib file is automatically copied into the e
 
 ## Requirements
 
-In order to compile for Windows/macOS you are required to [download the EpicOnlineSerives SDK v1.150](https://devportal.gog.com/welcome) and place it inside `source/GOG_sdk/`
+In order to compile for Windows/macOS you are required to [download the GOG Galaxy SDK v1.150](https://devportal.gog.com/welcome) and place it inside `source/GOG_sdk/`
 
 ## Documentation
 
