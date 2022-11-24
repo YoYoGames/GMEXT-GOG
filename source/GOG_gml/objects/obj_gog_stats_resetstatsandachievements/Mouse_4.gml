@@ -1,0 +1,2 @@
+
+GOG_Stats_ResetStatsAndAchievements()

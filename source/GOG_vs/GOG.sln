@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GOG", "GOG\GOG.vcxproj", "{406C05B1-4FC3-482E-A707-E0C988DD861D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{406C05B1-4FC3-482E-A707-E0C988DD861D}.Debug|x64.ActiveCfg = Debug|x64
+		{406C05B1-4FC3-482E-A707-E0C988DD861D}.Debug|x64.Build.0 = Debug|x64
+		{406C05B1-4FC3-482E-A707-E0C988DD861D}.Debug|x86.ActiveCfg = Debug|Win32
+		{406C05B1-4FC3-482E-A707-E0C988DD861D}.Debug|x86.Build.0 = Debug|Win32
+		{406C05B1-4FC3-482E-A707-E0C988DD861D}.Release|x64.ActiveCfg = Release|x64
+		{406C05B1-4FC3-482E-A707-E0C988DD861D}.Release|x64.Build.0 = Release|x64
+		{406C05B1-4FC3-482E-A707-E0C988DD861D}.Release|x86.ActiveCfg = Release|Win32
+		{406C05B1-4FC3-482E-A707-E0C988DD861D}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8F7D77B5-1D17-4137-9C6D-A6BBA14F976B}
+	EndGlobalSection
+EndGlobal
