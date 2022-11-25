@@ -11,9 +11,20 @@ XCODE SOURCE: `source/GOG_xcode/`
 
 After compilation the exported dll/dylib file is automatically copied into the extension folder inside the included GameMaker project folder.
 
+
+---
+
+## Important
+
+Do not download from the **main branch** this branch is a work in place branch and probably has features that might be broken or not working properly, please download from the releases panel (right side instead).
+
+---
+
 ## Requirements
 
 In order to compile for Windows/macOS you are required to [download the GOG Galaxy SDK v1.150](https://devportal.gog.com/welcome) and place it inside `source/GOG_sdk/`
+
+---
 
 ## Documentation
 
