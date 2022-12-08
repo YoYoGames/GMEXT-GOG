@@ -3,6 +3,8 @@
 
 YYEXPORT void GOG_Apps_IsDlcInstalled(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	int64 productID = YYGetInt64(arg, 0);
 
 	Result.kind = VALUE_BOOL;
@@ -11,6 +13,8 @@ YYEXPORT void GOG_Apps_IsDlcInstalled(RValue& Result, CInstance* selfinst, CInst
 
 YYEXPORT void GOG_Apps_GetCurrentGameLanguage(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_INT64
+
 	int64 productID = YYGetInt64(arg, 0);
 
 	const char* GameLanguage = galaxy::api::Apps()->GetCurrentGameLanguage((galaxy::api::ProductID)productID);

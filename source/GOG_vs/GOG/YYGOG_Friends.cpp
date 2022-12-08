@@ -8,12 +8,16 @@
 
 YYEXPORT void GOG_Friends_GetDefaultAvatarCriteria(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_REAL
+
 	Result.kind = VALUE_REAL;
 	Result.val = galaxy::api::Friends()->GetDefaultAvatarCriteria();
 }
 
 YYEXPORT void GOG_Friends_SetDefaultAvatarCriteria(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	double defaultAvatarCriteria = YYGetReal(arg, 0);
 
 	galaxy::api::Friends()->SetDefaultAvatarCriteria(defaultAvatarCriteria);
@@ -49,6 +53,8 @@ public:
 
 YYEXPORT void GOG_Friends_RequestUserInformation(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	RValue* pV = &(arg[0]);
 
 	galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
@@ -61,6 +67,8 @@ YYEXPORT void GOG_Friends_RequestUserInformation(RValue& Result, CInstance* self
 
 YYEXPORT void GOG_Friends_IsUserInformationAvailable(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_REAL
+
 	RValue* pV = &(arg[0]);
 
 	galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
@@ -71,6 +79,8 @@ YYEXPORT void GOG_Friends_IsUserInformationAvailable(RValue& Result, CInstance* 
 
 YYEXPORT void GOG_Friends_GetPersonaName(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_STRING
+
 	RValue* pV = &(arg[0]);
 
 	galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
@@ -85,12 +95,16 @@ YYEXPORT void GOG_Friends_GetPersonaName(RValue& Result, CInstance* selfinst, CI
 
 YYEXPORT void GOG_Friends_GetPersonaState(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_REAL
+
 	Result.kind = VALUE_REAL;
 	Result.val = galaxy::api::Friends()->GetPersonaState();
 }
 
 YYEXPORT void GOG_Friends_GetFriendPersonaName(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_STRING
+
 	RValue* pV = &(arg[0]);
 
 	galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
@@ -105,6 +119,8 @@ YYEXPORT void GOG_Friends_GetFriendPersonaName(RValue& Result, CInstance* selfin
 
 YYEXPORT void GOG_Friends_GetFriendPersonaState(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_REAL
+
 	RValue* pV = &(arg[0]);
 
 	galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
@@ -115,6 +131,8 @@ YYEXPORT void GOG_Friends_GetFriendPersonaState(RValue& Result, CInstance* selfi
 
 YYEXPORT void GOG_Friends_GetFriendAvatarUrl(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_STRING
+
 	RValue* pV = &(arg[0]);
 	double avatarType = YYGetReal(arg, 1);
 
@@ -130,6 +148,8 @@ YYEXPORT void GOG_Friends_GetFriendAvatarUrl(RValue& Result, CInstance* selfinst
 
 YYEXPORT void GOG_Friends_GetFriendAvatarImageID(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_REAL
+
 	RValue* pV = &(arg[0]);
 	double avatarType = YYGetReal(arg, 1);
 
@@ -141,6 +161,8 @@ YYEXPORT void GOG_Friends_GetFriendAvatarImageID(RValue& Result, CInstance* self
 
 YYEXPORT void GOG_Friends_GetFriendAvatarImageRGBA(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_REAL
+
 	RValue* pV = &(arg[0]);
 	double avatarType = YYGetReal(arg, 1);
 
@@ -172,6 +194,8 @@ YYEXPORT void GOG_Friends_GetFriendAvatarImageRGBA(RValue& Result, CInstance* se
 
 YYEXPORT void GOG_Friends_IsFriendAvatarImageRGBAAvailable(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	RValue* pV = &(arg[0]);
 	double avatarType = YYGetReal(arg, 1);
 
@@ -205,12 +229,16 @@ public:
 };
 YYEXPORT void GOG_Friends_RequestFriendList(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	YYIFriendListListener* callback = new YYIFriendListListener();
 	galaxy::api::Friends()->RequestFriendList(callback);
 }
 
 YYEXPORT void GOG_Friends_IsFriend(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	RValue* pV = &(arg[0]);
 
 	galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
@@ -221,12 +249,16 @@ YYEXPORT void GOG_Friends_IsFriend(RValue& Result, CInstance* selfinst, CInstanc
 
 YYEXPORT void GOG_Friends_GetFriendCount(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_REAL
+
 	Result.kind = VALUE_REAL;
 	Result.val = galaxy::api::Friends()->GetFriendCount();
 }
 
 YYEXPORT void GOG_Friends_GetFriendByIndex(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_STRUCT
+
 	double index = YYGetReal(arg, 0);
 
 	galaxy::api::GalaxyID userID = galaxy::api::Friends()->GetFriendByIndex(index);
@@ -268,6 +300,8 @@ public:
 
 YYEXPORT void GOG_Friends_SendFriendInvitation(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	RValue* pV = &(arg[0]);
 
 	galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
@@ -299,6 +333,8 @@ public:
 };
 YYEXPORT void GOG_Friends_RequestFriendInvitationList(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	YYIFriendInvitationListRetrieveListener* callback = new YYIFriendInvitationListRetrieveListener();
 	galaxy::api::Friends()->RequestFriendInvitationList(callback);
 	//IFriendInvitationListRetrieveListener
@@ -328,6 +364,8 @@ public:
 };
 YYEXPORT void GOG_Friends_RequestSentFriendInvitationList(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	YYISentFriendInvitationListRetrieveListener *callback = new YYISentFriendInvitationListRetrieveListener();
 	galaxy::api::Friends()->RequestSentFriendInvitationList(callback);
 	//ISentFriendInvitationListRetrieveListener
@@ -335,12 +373,16 @@ YYEXPORT void GOG_Friends_RequestSentFriendInvitationList(RValue& Result, CInsta
 
 YYEXPORT void GOG_Friends_GetFriendInvitationCount(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_REAL
+
 	Result.kind = VALUE_REAL;
 	Result.val = galaxy::api::Friends()->GetFriendInvitationCount();
 }
 
 YYEXPORT void GOG_Friends_GetFriendInvitationByIndex(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_STRUCT
+
 	double index = YYGetReal(arg, 0);
 
 	galaxy::api::GalaxyID userID;
@@ -389,6 +431,8 @@ public:
 };
 YYEXPORT void GOG_Friends_RespondToFriendInvitation(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	RValue* pV = &(arg[0]);
 	double accept = YYGetReal(arg, 0);
 
@@ -425,6 +469,8 @@ public:
 };
 YYEXPORT void GOG_Friends_DeleteFriend(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	RValue* pV = &(arg[0]);
 
 	galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
@@ -460,6 +506,8 @@ public:
 };
 YYEXPORT void GOG_Friends_SetRichPresence(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	const char* key = YYGetString(arg, 0);
 	const char* value = YYGetString(arg, 1);
 
@@ -470,6 +518,8 @@ YYEXPORT void GOG_Friends_SetRichPresence(RValue& Result, CInstance* selfinst, C
 
 YYEXPORT void GOG_Friends_DeleteRichPresence(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	const char* key = YYGetString(arg, 0);
 	
 	YYIRichPresenceChangeListener* callback = new YYIRichPresenceChangeListener();
@@ -479,6 +529,8 @@ YYEXPORT void GOG_Friends_DeleteRichPresence(RValue& Result, CInstance* selfinst
 
 YYEXPORT void GOG_Friends_ClearRichPresence(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	YYIRichPresenceChangeListener* callback = new YYIRichPresenceChangeListener();
 	callback->event = "GOG_Friends_ClearRichPresence";
 	galaxy::api::Friends()->ClearRichPresence(callback);
@@ -511,6 +563,8 @@ public:
 };
 YYEXPORT void GOG_Friends_RequestRichPresence(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	RValue* pV = &(arg[0]);
 
 	galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
@@ -521,6 +575,8 @@ YYEXPORT void GOG_Friends_RequestRichPresence(RValue& Result, CInstance* selfins
 
 YYEXPORT void GOG_Friends_GetRichPresence(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_STRING
+
 	const char* key = YYGetString(arg, 0);
 	RValue* pV = &(arg[1]);
 
@@ -536,6 +592,8 @@ YYEXPORT void GOG_Friends_GetRichPresence(RValue& Result, CInstance* selfinst, C
 
 YYEXPORT void GOG_Friends_GetRichPresenceCount(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	RValue* pV = &(arg[0]);
 
 	galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
@@ -546,6 +604,8 @@ YYEXPORT void GOG_Friends_GetRichPresenceCount(RValue& Result, CInstance* selfin
 
 YYEXPORT void GOG_Friends_GetRichPresenceByIndex(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_STRUCT
+
 	int index = YYGetReal(arg, 0);
 	RValue* pV = &(arg[1]);
 	galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
@@ -567,6 +627,8 @@ YYEXPORT void GOG_Friends_GetRichPresenceByIndex(RValue& Result, CInstance* self
 
 YYEXPORT void GOG_Friends_GetRichPresenceKeyByIndex(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_STRING
+
 	double index = YYGetReal(arg, 0);
 	RValue* pV = &(arg[1]);
 
@@ -582,6 +644,8 @@ YYEXPORT void GOG_Friends_GetRichPresenceKeyByIndex(RValue& Result, CInstance* s
 
 YYEXPORT void GOG_Friends_ShowOverlayInviteDialog(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	const char* connectionString = YYGetString(arg, 0);
 
 	galaxy::api::Friends()->ShowOverlayInviteDialog(connectionString);
@@ -621,6 +685,8 @@ public:
 };
 YYEXPORT void GOG_Friends_SendInvitation(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	RValue* pV = &(arg[0]);
 
 	galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
@@ -658,6 +724,8 @@ public:
 };
 YYEXPORT void GOG_Friends_FindUser(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	const char* userSpecifier = YYGetString(arg, 0);
 
 	YYIUserFindListener* callback = new YYIUserFindListener();
@@ -666,6 +734,8 @@ YYEXPORT void GOG_Friends_FindUser(RValue& Result, CInstance* selfinst, CInstanc
 
 YYEXPORT void GOG_Friends_IsUserInTheSameGame(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	RValue* pV = &(arg[1]);
 
 	galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);

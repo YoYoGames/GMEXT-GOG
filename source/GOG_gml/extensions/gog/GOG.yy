@@ -16,7 +16,7 @@
   "packageId": "",
   "productId": "",
   "author": "",
-  "date": "2022-06-22T14:21:28.204955+01:00",
+  "date": "2022-06-22T06:21:28.204955-07:00",
   "license": "",
   "description": "",
   "helpfile": "",

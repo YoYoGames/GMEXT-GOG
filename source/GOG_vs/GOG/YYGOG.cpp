@@ -3,6 +3,7 @@
 #include "IniOptionsLibrary.h"
 #include "DesktopExtensionTools.h"
 
+bool GOG_isInitialised = false;
 void OldPreGraphicsInitialisation()
 {
 	std::string clientID = extOptGetString("GOG", "clientID");
@@ -10,15 +11,21 @@ void OldPreGraphicsInitialisation()
 	
 	galaxy::api::InitOptions options(clientID.c_str(), clientSecret.c_str());
 	galaxy::api::Init(options);
+
+	GOG_isInitialised = true;
 }
 
 YYEXPORT void GOG_ProcessData(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_BOOL
+
 	galaxy::api::ProcessData();
 }
 
 YYEXPORT void GOG_GetError(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
+	GOG_NotInitialisedReturn_STRUCT
+
 	const galaxy::api::IError *error = galaxy::api::GetError();
 
 	RValue Struct = { 0 };
