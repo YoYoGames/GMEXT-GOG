@@ -36,6 +36,7 @@
     {"id":{"name":"Obj_GOG_Stats_ResetStatsAndAchievements","path":"objects/Obj_GOG_Stats_ResetStatsAndAchievements/Obj_GOG_Stats_ResetStatsAndAchievements.yy",},"order":9,},
     {"id":{"name":"Spr_YoYo_button","path":"sprites/Spr_YoYo_button/Spr_YoYo_button.yy",},"order":1,},
     {"id":{"name":"Obj_GOG_User_EncryptedAppTicket","path":"objects/Obj_GOG_User_EncryptedAppTicket/Obj_GOG_User_EncryptedAppTicket.yy",},"order":4,},
+    {"id":{"name":"changelog","path":"notes/changelog/changelog.yy",},"order":0,},
     {"id":{"name":"Obj_GOG_Telemetry_SendTelemetryEvent","path":"objects/Obj_GOG_Telemetry_SendTelemetryEvent/Obj_GOG_Telemetry_SendTelemetryEvent.yy",},"order":1,},
     {"id":{"name":"Room_GOG_Utils","path":"rooms/Room_GOG_Utils/Room_GOG_Utils.yy",},"order":0,},
     {"id":{"name":"Obj_GOG_Friends_Controller","path":"objects/Obj_GOG_Friends_Controller/Obj_GOG_Friends_Controller.yy",},"order":1,},
@@ -84,6 +85,6 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"GOG_Extension_Documentation.pdf","CopyToMask":0,"filePath":"datafiles",},
   ],
   "MetaData": {
-    "IDEVersion": "2023.100.0.259",
+    "IDEVersion": "2023.100.0.269",
   },
 }

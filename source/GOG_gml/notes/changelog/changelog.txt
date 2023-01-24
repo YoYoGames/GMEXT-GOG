@@ -1,0 +1,2 @@
+v0.0.2
+- Added 'changelog' file (further development should be logged here)
