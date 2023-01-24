@@ -3,6 +3,13 @@
 set Utils="%~dp0\scriptUtils.bat"
 
 :: ######################################################################################
+:: Macros
+
+call %Utils% pathExtractDirectory "%~0" SCRIPT_PATH
+call %Utils% pathExtractBase "%~0" EXTENSION_NAME
+call %Utils% toUpper "%EXTENSION_NAME%" EXTENSION_NAME
+
+:: ######################################################################################
 :: Script Logic
 
 :: Version locks
@@ -52,16 +59,13 @@ exit /b 0
    echo "Copying macOS (64 bit) dependencies"
    if "%YYTARGET_runtime%" == "VM" (
       :: This is used from VM compilation
-      call %Utils% fileExtract "%YYprojectName%.zip" "_temp\"
-      call %Utils% fileCopyTo %SDK_SOURCE% "_temp\assets\libGalaxy64.dylib"
-      call %Utils% folderCompress "_temp\*" "%YYprojectName%.zip"
-      
-      rmdir /s /q _temp
+      call %Utils% logError "This extension is not compatible with VM export, disable extension to proceed!"
+      exit 1
 
    ) else (
 
       :: This is used from YYC compilation
-      call %Utils% fileCopyTo %SDK_SOURCE% "%YYprojectName%\%YYprojectName%\Supporting Files\libGalaxy64.dylib"
+      call %Utils% fileCopyTo %SDK_SOURCE% "%YYprojectName%\%YYprojectName%\Supporting Files\libGalaxy.dylib"
    )
 
 exit /b 0
