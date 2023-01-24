@@ -44,21 +44,6 @@
     {"id":{"name":"Font_YoYo_20","path":"fonts/Font_YoYo_20/Font_YoYo_20.yy",},"order":0,},
     {"id":{"name":"Room_GOG_Menu","path":"rooms/Room_GOG_Menu/Room_GOG_Menu.yy",},"order":1,},
   ],
-  "Options": [
-    {"name":"Android","path":"options/android/options_android.yy",},
-    {"name":"HTML5","path":"options/html5/options_html5.yy",},
-    {"name":"iOS","path":"options/ios/options_ios.yy",},
-    {"name":"Linux","path":"options/linux/options_linux.yy",},
-    {"name":"macOS","path":"options/mac/options_mac.yy",},
-    {"name":"PlayStation 4","path":"options/ps4/options_ps4.yy",},
-    {"name":"PlayStation 5","path":"options/ps5/options_ps5.yy",},
-    {"name":"Switch","path":"options/switch/options_switch.yy",},
-    {"name":"tvOS","path":"options/tvos/options_tvos.yy",},
-    {"name":"Windows","path":"options/windows/options_windows.yy",},
-    {"name":"Xbox Series XS","path":"options/xboxseriesxs/options_xboxseriesxs.yy",},
-    {"name":"operagx","path":"options/operagx/options_operagx.yy",},
-    {"name":"Main","path":"options/main/options_main.yy",},
-  ],
   "defaultScriptType": 1,
   "isEcma": false,
   "configs": {
@@ -99,6 +84,6 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"GOG_Extension_Documentation.pdf","CopyToMask":0,"filePath":"datafiles",},
   ],
   "MetaData": {
-    "IDEVersion": "2022.11.1.56",
+    "IDEVersion": "2023.100.0.259",
   },
 }
