@@ -7,3 +7,5 @@ switch(async_load[?"type"])
 		room_goto(Room_GOG_Menu)
 	break
 }
+
+

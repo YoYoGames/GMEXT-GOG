@@ -307,15 +307,65 @@ YYEXPORT void GOG_User_IsLoggedOn(RValue& Result, CInstance* selfinst, CInstance
     Result.val = galaxy::api::User()->IsLoggedOn();
 }
 
-//YYEXPORT void GOG_User_RequestEncryptedAppTicket(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-//{
-//    galaxy::api::User()->RequestEncryptedAppTicket();
-//}
 
-//YYEXPORT void GOG_User_GetEncryptedAppTicket(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-//{
-//    galaxy::api::User()->GetEncryptedAppTicket();
-//}
+
+class YYIEncryptedAppTicketListener : public galaxy::api::IEncryptedAppTicketListener
+{
+public:
+    std::string event;
+    virtual void OnEncryptedAppTicketRetrieveSuccess()
+    {
+        int map = CreateDsMap(0, 0);
+        DsMapAddString(map, "type", event.c_str());
+        DsMapAddDouble(map, "success", 1.0);
+        CreateAsyncEventWithDSMap(map, 70);
+    }
+
+    virtual void OnEncryptedAppTicketRetrieveFailure(FailureReason failureReason)
+    {
+        int map = CreateDsMap(0, 0);
+        DsMapAddString(map, "type", event.c_str());
+        DsMapAddDouble(map, "success", 0.0);
+        CreateAsyncEventWithDSMap(map, 70);
+    }
+};
+
+YYEXPORT void GOG_User_RequestEncryptedAppTicket(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+    double bufferId = YYGetReal(arg, 0);
+
+    unsigned char* buffer_data;
+    int buffer_size;
+
+    if (!BufferGetContent(bufferId, (void**)(&buffer_data), &buffer_size))
+    {
+        DebugConsoleOutput("steam_user_request_encrypted_app_ticket() - error: specified buffer not found\n");
+        Result.kind = VALUE_BOOL;
+        Result.val = false;
+
+        return;
+    }
+
+    YYIEncryptedAppTicketListener* callback = new YYIEncryptedAppTicketListener();
+
+    callback->event = "GOG_User_RequestEncryptedAppTicket";
+
+    galaxy::api::User()->RequestEncryptedAppTicket(buffer_data, buffer_size, callback);
+}
+
+YYEXPORT void GOG_User_GetEncryptedAppTicket(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+    char ticket[1024] = { };
+    /*unit32_t*/ unsigned int ticketSize;
+    galaxy::api::User()->GetEncryptedAppTicket(ticket,1024, ticketSize);
+    DebugConsoleOutput("Ticket size: %u\n", ticketSize);
+
+    YYCreateString(&Result, ticket);
+
+    //char b64string[1024] = { };
+    //Base64Encode(ticket, ticketSize, b64string, sizeof b64string);
+    //YYCreateString(&Result, b64string);
+}
 
 YYEXPORT void GOG_User_GetSessionID(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
