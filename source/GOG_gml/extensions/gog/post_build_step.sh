@@ -44,7 +44,7 @@ setupmacOS() {
 checkMinVersion "$YYruntimeVersion" $RUNTIME_VERSION_STABLE $RUNTIME_VERSION_BETA $RUNTIME_VERSION_RED runtime
 
 # Resolve the SDK path (must exist)
-SDK_PATH=$YYEXTOPT_Steamworks_sdkPath
+SDK_PATH=$YYEXTOPT_GOG_sdkPath
 pathResolveExisting "$YYprojectDir" "$SDK_PATH" SDK_PATH
 
 # Ensure we are on the output path
