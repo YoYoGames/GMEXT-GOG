@@ -1,88 +1,60 @@
 #!/bin/bash
-set echo off
 
-# Useful for printing all variables
-# ( set -o posix ; set ) | less
+source "$(dirname "$0")/scriptUtils.sh"
 
-# ############################################## WARNING ##############################################
-#      THIS FILE IS SHOULD NOT BE CHANGED AND THE OPTIONS SHOULD BE CONTROLLED THROUGH THE IDE.
-# #####################################################################################################
+# ######################################################################################
+# Macros
 
-function error_incorrect_EOS_path () {
-    echo ""
-    echo "################################################# ERROR #################################################"
-    echo "The specified EOS SDK path doesn't exist please edit the extension options from the IDE extension window."
-    echo "#########################################################################################################"
-    echo ""
-    exit 1
-}
+pathExtractDirectory "$0" SCRIPT_PATH
+pathExtractBase "$0" EXTENSION_NAME
+toUpper "$EXTENSION_NAME" EXTENSION_NAME
 
-function error_macOS_VM_EOS_run () {
-    echo ""
-    echo "######################################################## ERROR ########################################################"
-    echo "This version of EOS extension is not compatible with the macOS VM export, please use the YYC export instead"
-    echo "#######################################################################################################################"
-    echo ""
-    exit 1
-}
+export SCRIPT_PATH
+export EXTENSION_NAME
 
-function macOS_copy_dependencies () {
+# Version locks
+set RUNTIME_VERSION_STABLE="2023.1.0.0"
+set RUNTIME_VERSION_BETA="2023.100.0.0"
+set RUNTIME_VERSION_DEV="9.9.1.293"
 
+# SDK version v1.150
+set SDK_HASH_WIN="8CB1FD6411D449784DC06BF6D9C7456415CE0A017430C952D51CDCCC410FD88A"
+set SDK_HASH_OSX="3A4AF40D2404A03897CB3F25CF8359F91048B608E375E123C489C15635E183FE"
+
+# ######################################################################################
+# Script Functions
+
+setupmacOS() {
+
+    SDK_SOURCE="$SDK_PATH/Libraries/libGalaxy64.dylib"
+    assertFileHash $SDK_SOURCE $SDK_HASH_OSX "GOG SDK"
+    
     echo "Copying macOS (64 bit) dependencies"
     if [[ "$YYTARGET_runtime" == "VM" ]]; then
-        error_macOS_VM_EOS_run
+        fileCopyTo $SDK_SOURCE "libGalaxy64.dylib"
     else
-        cp "${EOS_SDK_PATH}Bin/libEOSSDK-Mac-Shipping.dylib" "${YYprojectName}/${YYprojectName}/Supporting Files/libEOSSDK-Mac-Shipping.dylib"
+        fileCopyTo $SDK_SOURCE "${YYprojectName}/${YYprojectName}/Supporting Files/libGalaxy64.dylib"
     fi
 }
 
-function Linux_copy_dependencies () {
+# ######################################################################################
+# Script Logic
 
-    echo "Copying Linux (64 bit) dependencies"
-    unzip ${YYprojectName}.zip -d ./_temp
+# Checks IDE and Runtime versions
+checkMinVersion "$YYruntimeVersion" $RUNTIME_VERSION_STABLE $RUNTIME_VERSION_BETA $RUNTIME_VERSION_RED runtime
 
-    if [[ ! -f "_temp/assets/libEOSSDK-Linux-Shipping.so" ]]; then
-        cp "${EOS_SDK_PATH}Bin/libEOSSDK-Linux-Shipping.so" "_temp/assets/libEOSSDK-Linux-Shipping.so"
-        cd _temp; zip -FS -r ../${YYprojectName}.zip *
-        cd ..
-    fi
-    rm -r _temp
-}
-
-# Read extension options or use default (development) value
-if [[ "${YYEXTOPT_EpicOnlineServices_sdkPath}" == "" ]]; then
-    EOS_SDK_PATH=$(dirname "$0")/../../../EOS_sdk
-    EOS_SDK_PATH=$(builtin cd "$EOS_SDK_PATH"; pwd)
-else
-    EOS_SDK_PATH=${YYEXTOPT_EpicOnlineServices_sdkPath}
-fi
-
-# Ensure the provided path ends with a slash
-if [[ "$EOS_SDK_PATH" !=  */ ]]; then
-    EOS_SDK_PATH=${EOS_SDK_PATH}/
-fi
-
-# Ensure the path exists
-if [[ ! -d "$EOS_SDK_PATH" ]]; then
-    error_incorrect_EOS_path
-fi
+# Resolve the SDK path (must exist)
+SDK_PATH=$YYEXTOPT_Steamworks_sdkPath
+pathResolveExisting "$YYprojectDir" "$SDK_PATH" SDK_PATH
 
 # Ensure we are on the output path
-pushd "$YYoutputFolder" 1>/dev/null
+pushd "$YYoutputFolder" >/dev/null
 
 # Call setup method depending on the platform
-# NOTE: the setup method can be (:MacOS_copy_dependencies or :Linux_copy_dependencies)
-{ # try
-    ${YYPLATFORM_name}_copy_dependencies 2>/dev/null
-} || { # catch
-    echo ""
-    echo "################################### INFORMATION ###################################"
-    echo "EOS Extension is not available in this target: $YYPLATFORM_name (no setup required)"
-    echo "###################################################################################"
-    echo ""
-}
+# NOTE: the setup method can be (:setupmacOS)
+setup$YYPLATFORM_name
 
-popd 1>/dev/null
+popd >/dev/null
 
-# exit
 exit 0
+

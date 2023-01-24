@@ -1,99 +1,68 @@
 @echo off
 
-:: Useful for printing all variables
-:: set
+set Utils="%~dp0\scriptUtils.bat"
 
-:: ############################################## WARNING ##############################################
-::       THIS FILE IS SHOULD NOT BE CHANGED AND THE OPTIONS SHOULD BE CONTROLLED THROUGH THE IDE.
-:: #####################################################################################################
+:: ######################################################################################
+:: Script Logic
 
+:: Version locks
+set RUNTIME_VERSION_STABLE="2023.1.0.0"
+set RUNTIME_VERSION_BETA="2023.100.0.0"
+set RUNTIME_VERSION_DEV="9.9.1.293"
 
-:: Read extension options or use default (development) value
-if "%YYEXTOPT_EpicOnlineServices_sdkPath%" == "" (
-   set GOG_SDK_PATH=%~dp0\..\..\..\GOG_sdk\
-) else (
-   set GOG_SDK_PATH=%YYEXTOPT_GOG_sdkPath%
-)
+:: SDK version v1.150
+set SDK_HASH_WIN="8CB1FD6411D449784DC06BF6D9C7456415CE0A017430C952D51CDCCC410FD88A"
+set SDK_HASH_OSX="3A4AF40D2404A03897CB3F25CF8359F91048B608E375E123C489C15635E183FE"
 
-:: Ensure the path ends with a backslash
-if not %GOG_SDK_PATH:~-1% == \ (
-   set SDK_PATH=%GOG_SDK_PATH%\
-) else (
-   set SDK_PATH=%GOG_SDK_PATH%
-)
+:: Checks IDE and Runtime versions
+call %Utils% checkMinVersion "%YYruntimeVersion%" %RUNTIME_VERSION_STABLE% %RUNTIME_VERSION_BETA% %RUNTIME_VERSION_DEV% runtime
 
-:: Ensure the directory exists
-if not exist "%SDK_PATH%" call :error_incorrect_GOG_path
+:: Resolve the SDK path (must exist)
+set SDK_PATH=%YYEXTOPT_GOG_sdkPath%
+call %Utils% pathResolveExisting "%YYprojectDir%" "%SDK_PATH%" SDK_PATH
 
 :: Ensure we are on the output path
 pushd "%YYoutputFolder%"
 
 :: Call setup method depending on the platform
-:: NOTE: the setup method can be (:Windows_copy_dependencies or :MacOS_copy_dependencies)
-call :%YYPLATFORM_name%_copy_dependencies
-if ERRORLEVEL 1 (
-    echo ""
-    echo "#################################### INFORMATION #####################################"
-    echo "GOG Extension is not available in this target: %YYPLATFORM_name% (no setup required)"
-    echo "######################################################################################"
-    echo ""
-)
+:: NOTE: the setup method can be (:setupWindows or :setupMacOS)
+call :setup%YYPLATFORM_name%
+
 popd
 
-:exit
+exit %ERRORLEVEL%
+
+:: ----------------------------------------------------------------------------------------------------
+:setupWindows
+
+   set SDK_SOURCE="%SDK_PATH%\Libraries\Galaxy64.dll"
+   call %Utils% assertFileHash %SDK_SOURCE% %SDK_HASH_WIN% "GOG SDK"
+
+   echo "Copying Windows (64 bit) dependencies"
+   if not exist "Galaxy64.dll" call %Utils% fileCopyTo %SDK_SOURCE% "Galaxy64.dll"
+
 exit /b 0
 
 :: ----------------------------------------------------------------------------------------------------
-:Windows_copy_dependencies
-   if "%YYPLATFORM_option_windows_use_x64%" == "" (
-      echo "Copying Windows (64 bit) dependencies"
-      if not exist "Galaxy64.dll" copy "%SDK_PATH%Libraries\Galaxy64.dll" "Galaxy64.dll"
-   ) 
-   if "%YYPLATFORM_option_windows_use_x64%" == "True" (
-      echo "Copying Windows (64 bit) dependencies"
-      if not exist "Galaxy64.dll" copy "%SDK_PATH%Libraries\Galaxy64.dll" "Galaxy64.dll"
-   )
-   if ERRORLEVEL 1 call :exitError
-goto :eof
+:setupMacOS
 
-:: ----------------------------------------------------------------------------------------------------
-:macOS_copy_dependencies
+   set SDK_SOURCE="%SDK_PATH%\Libraries\libGalaxy64.dylib"
+   call %Utils% assertFileHash %SDK_SOURCE% %SDK_HASH_OSX% "GOG SDK"
+
    echo "Copying macOS (64 bit) dependencies"
    if "%YYTARGET_runtime%" == "VM" (
-
-      call :error_macOS_VM_GOG_run
+      :: This is used from VM compilation
+      call %Utils% fileExtract "%YYprojectName%.zip" "_temp\"
+      call %Utils% fileCopyTo %SDK_SOURCE% "_temp\assets\libGalaxy64.dylib"
+      call %Utils% folderCompress "_temp\*" "%YYprojectName%.zip"
+      
+      rmdir /s /q _temp
 
    ) else (
 
       :: This is used from YYC compilation
-      copy "%SDK_PATH%Libraries\libGalaxy64.dylib" "%YYprojectName%\%YYprojectName%\Supporting Files\libGalaxy64.dylib"
+      call %Utils% fileCopyTo %SDK_SOURCE% "%YYprojectName%\%YYprojectName%\Supporting Files\libGalaxy64.dylib"
    )
-   if ERRORLEVEL 1 call :exitError
-goto :eof
 
-:: ----------------------------------------------------------------------------------------------------
-:exitError
-   echo ""
-   echo "######################################################## ERROR #########################################################"
-   echo "The setup script was unable to copy dependencies"
-   echo "########################################################################################################################"
-   echo ""
-exit 1
+exit /b 0
 
-:error_macOS_VM_GOG_run
-    echo ""
-    echo "######################################################## ERROR ########################################################"
-    echo "This version of GOG extension is not compatible with the macOS VM export, please use the YYC export instead"
-    echo "#######################################################################################################################"
-    echo ""
-exit 1
-
-:: ----------------------------------------------------------------------------------------------------
-:: If the steamworks SDK path doesn't exit ask the user to edit this file
-:error_incorrect_GOG_path
-   echo ""
-   echo "######################################################## ERROR #####################################################"
-   echo "The specified GOG SDK path doesn't exist please edit the curresponding extension options within the extension window"
-   echo "####################################################################################################################"
-   echo ""
-exit 1
