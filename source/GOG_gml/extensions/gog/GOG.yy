@@ -315,7 +315,7 @@
         {"name":"GOG_Stats_GetRequestedLeaderboardEntry","path":"extensions/GOG/GOG.yy",},
         {"name":"GOG_Stats_FindOrCreateLeaderboard","path":"extensions/GOG/GOG.yy",},
       ],},
-    {"resourceType":"GMExtensionFile","resourceVersion":"1.0","name":"","filename":"libGalaxy64.dylib","origname":"","init":"","final":"","kind":1,"uncompress":false,"functions":[],"constants":[],"ProxyFiles":[],"copyToTargets":-1,"usesRunnerInterface":false,"order":[],},
+    {"resourceType":"GMExtensionFile","resourceVersion":"1.0","name":"","filename":"libGalaxy.dylib","origname":"","init":"","final":"","kind":1,"uncompress":false,"functions":[],"constants":[],"ProxyFiles":[],"copyToTargets":-1,"usesRunnerInterface":false,"order":[],},
   ],
   "classname": "",
   "tvosclassname": null,

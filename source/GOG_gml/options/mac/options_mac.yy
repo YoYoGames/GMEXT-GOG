@@ -29,7 +29,7 @@
   "option_mac_enable_steam": false,
   "option_mac_disable_sandbox": false,
   "option_mac_x86_64": true,
-  "option_mac_arm64": false,
+  "option_mac_arm64": true,
   "option_mac_apple_sign_in": false,
   "option_mac_min_version": "10.10",
 }

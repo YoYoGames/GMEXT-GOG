@@ -31,9 +31,9 @@ setupmacOS() {
     
     echo "Copying macOS (64 bit) dependencies"
     if [[ "$YYTARGET_runtime" == "VM" ]]; then
-        fileCopyTo $SDK_SOURCE "libGalaxy64.dylib"
+        fileCopyTo $SDK_SOURCE "libGalaxy.dylib"
     else
-        fileCopyTo $SDK_SOURCE "${YYprojectName}/${YYprojectName}/Supporting Files/libGalaxy64.dylib"
+        fileCopyTo $SDK_SOURCE "${YYprojectName}/${YYprojectName}/Supporting Files/libGalaxy.dylib"
     fi
 }
 

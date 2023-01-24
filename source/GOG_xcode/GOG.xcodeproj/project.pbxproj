@@ -70,7 +70,7 @@
 
 /* Begin PBXFileReference section */
 		2B9DED2E28639F8F0090BDEF /* libGOG.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libGOG.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B9DEDE82863A4030090BDEF /* libGalaxy64.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGalaxy64.dylib; path = ../GOG_sdk/Libraries/libGalaxy64.dylib; sourceTree = "<group>"; };
+		2B9DEDE82863A4030090BDEF /* libGalaxy64.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGalaxy64.dylib; path = ../GOG_sdk/Libraries/libGalaxy64.dylib; sourceTree = SOURCE_ROOT; };
 		2B9DEDEA2863A41F0090BDEF /* DELETED_stdint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DELETED_stdint.h; path = ../../GOG_sdk/Include/galaxy/DELETED_stdint.h; sourceTree = "<group>"; };
 		2B9DEDEB2863A41F0090BDEF /* IListenerRegistrar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IListenerRegistrar.h; path = ../../GOG_sdk/Include/galaxy/IListenerRegistrar.h; sourceTree = "<group>"; };
 		2B9DEDEC2863A41F0090BDEF /* GalaxyGameServerApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GalaxyGameServerApi.h; path = ../../GOG_sdk/Include/galaxy/GalaxyGameServerApi.h; sourceTree = "<group>"; };
@@ -378,7 +378,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -437,6 +437,7 @@
 		2B9DED3A28639F8F0090BDEF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C9E7J7HL3D;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -456,6 +457,7 @@
 		2B9DED3B28639F8F0090BDEF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C9E7J7HL3D;
 				DYLIB_COMPATIBILITY_VERSION = 1;
