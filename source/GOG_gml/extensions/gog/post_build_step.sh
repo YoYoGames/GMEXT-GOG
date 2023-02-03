@@ -31,7 +31,7 @@ setupmacOS() {
     
     echo "Copying macOS (64 bit) dependencies"
     if [[ "$YYTARGET_runtime" == "VM" ]]; then
-        logError "This extension is not compatible with VM export, disable extension to proceed!"
+        logError "This extension is not compatible with VM export, use YYC or disable extension to proceed!"
         exit 1
     else
         fileCopyTo $SDK_SOURCE "${YYprojectName}/${YYprojectName}/Supporting Files/libGalaxy.dylib"

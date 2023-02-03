@@ -59,7 +59,7 @@ exit /b 0
    echo "Copying macOS (64 bit) dependencies"
    if "%YYTARGET_runtime%" == "VM" (
       :: This is used from VM compilation
-      call %Utils% logError "This extension is not compatible with VM export, disable extension to proceed!"
+      call %Utils% logError "This extension is not compatible with VM export, use YYC or disable extension to proceed!"
       exit 1
 
    ) else (

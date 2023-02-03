@@ -1,2 +1,6 @@
+
+v1.0.0
+- Initial public stable release
+
 v0.0.2
 - Added 'changelog' file (further development should be logged here)

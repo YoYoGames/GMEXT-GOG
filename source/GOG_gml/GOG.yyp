@@ -2,6 +2,35 @@
   "resourceType": "GMProject",
   "resourceVersion": "1.6",
   "name": "GOG",
+  "AudioGroups": [
+    {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
+  ],
+  "configs": {
+    "children": [],
+    "name": "Default",
+  },
+  "defaultScriptType": 1,
+  "Folders": [
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"GOG Demo","folderPath":"folders/GOG Demo.yy","order":9,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Friends","folderPath":"folders/GOG Demo/Friends.yy","order":5,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stats","folderPath":"folders/GOG Demo/Stats.yy","order":3,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Storage","folderPath":"folders/GOG Demo/Storage.yy","order":4,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Telemetry","folderPath":"folders/GOG Demo/Telemetry.yy","order":6,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"User","folderPath":"folders/GOG Demo/User.yy","order":8,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Utils","folderPath":"folders/GOG Demo/Utils.yy","order":7,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"GOG","folderPath":"folders/GOG.yy","order":10,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"YoYo Extensions Assets","folderPath":"folders/YoYo Extensions Assets.yy","order":11,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Font","folderPath":"folders/YoYo Extensions Assets/Font.yy","order":1,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/YoYo Extensions Assets/Objects.yy","order":2,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/YoYo Extensions Assets/Sprites.yy","order":3,},
+  ],
+  "IncludedFiles": [
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"GOG_Extension_Documentation.pdf","CopyToMask":0,"filePath":"datafiles",},
+  ],
+  "isEcma": false,
+  "MetaData": {
+    "IDEVersion": "2023.1.0.58",
+  },
   "resources": [
     {"id":{"name":"Room_GOG_Stats","path":"rooms/Room_GOG_Stats/Room_GOG_Stats.yy",},"order":0,},
     {"id":{"name":"Obj_GOG_Stat_Float","path":"objects/Obj_GOG_Stat_Float/Obj_GOG_Stat_Float.yy",},"order":7,},
@@ -45,12 +74,6 @@
     {"id":{"name":"Font_YoYo_20","path":"fonts/Font_YoYo_20/Font_YoYo_20.yy",},"order":0,},
     {"id":{"name":"Room_GOG_Menu","path":"rooms/Room_GOG_Menu/Room_GOG_Menu.yy",},"order":1,},
   ],
-  "defaultScriptType": 1,
-  "isEcma": false,
-  "configs": {
-    "name": "Default",
-    "children": [],
-  },
   "RoomOrderNodes": [
     {"roomId":{"name":"Room_GOG_Start","path":"rooms/Room_GOG_Start/Room_GOG_Start.yy",},},
     {"roomId":{"name":"Room_GOG_Menu","path":"rooms/Room_GOG_Menu/Room_GOG_Menu.yy",},},
@@ -61,30 +84,7 @@
     {"roomId":{"name":"Room_GOG_User","path":"rooms/Room_GOG_User/Room_GOG_User.yy",},},
     {"roomId":{"name":"Room_GOG_Stats","path":"rooms/Room_GOG_Stats/Room_GOG_Stats.yy",},},
   ],
-  "Folders": [
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"GOG Demo","folderPath":"folders/GOG Demo.yy","order":9,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Friends","folderPath":"folders/GOG Demo/Friends.yy","order":5,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stats","folderPath":"folders/GOG Demo/Stats.yy","order":3,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Storage","folderPath":"folders/GOG Demo/Storage.yy","order":4,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Telemetry","folderPath":"folders/GOG Demo/Telemetry.yy","order":6,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"User","folderPath":"folders/GOG Demo/User.yy","order":8,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Utils","folderPath":"folders/GOG Demo/Utils.yy","order":7,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"GOG","folderPath":"folders/GOG.yy","order":10,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"YoYo Extensions Assets","folderPath":"folders/YoYo Extensions Assets.yy","order":11,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Font","folderPath":"folders/YoYo Extensions Assets/Font.yy","order":1,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/YoYo Extensions Assets/Objects.yy","order":2,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/YoYo Extensions Assets/Sprites.yy","order":3,},
-  ],
-  "AudioGroups": [
-    {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
-  ],
   "TextureGroups": [
-    {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","isScaled":true,"compressFormat":"bz2","loadType":"default","directory":"","autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,},
+    {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},
   ],
-  "IncludedFiles": [
-    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"GOG_Extension_Documentation.pdf","CopyToMask":0,"filePath":"datafiles",},
-  ],
-  "MetaData": {
-    "IDEVersion": "2023.100.0.269",
-  },
 }
