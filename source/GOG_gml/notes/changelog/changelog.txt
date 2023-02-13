@@ -1,4 +1,8 @@
 
+v1.0.1
+- Fixed bug in the demo project
+- Marketplace synced version
+
 v1.0.0
 - Initial public stable release
 

@@ -13,10 +13,10 @@
   "author": "",
   "classname": "",
   "copyToTargets": 66,
-  "date": "2022-06-22T06:21:28.204955-07:00",
+  "date": "2022-06-22T14:21:28.204955+01:00",
   "description": "",
   "exportToGame": true,
-  "extensionVersion": "1.0.0",
+  "extensionVersion": "1.0.1",
   "files": [
     {"resourceType":"GMExtensionFile","resourceVersion":"1.0","name":"","constants":[
         {"resourceType":"GMExtensionConstant","resourceVersion":"1.0","name":"GOG_AVATAR_TYPE_NONE","hidden":false,"value":"0",},
