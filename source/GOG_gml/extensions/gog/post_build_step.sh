@@ -1,25 +1,7 @@
 #!/bin/bash
 
+chmod +x "$(dirname "$0")/scriptUtils.sh"
 source "$(dirname "$0")/scriptUtils.sh"
-
-# ######################################################################################
-# Macros
-
-pathExtractDirectory "$0" SCRIPT_PATH
-pathExtractBase "$0" EXTENSION_NAME
-toUpper "$EXTENSION_NAME" EXTENSION_NAME
-
-export SCRIPT_PATH
-export EXTENSION_NAME
-
-# Version locks
-set RUNTIME_VERSION_STABLE="2023.1.0.0"
-set RUNTIME_VERSION_BETA="2023.100.0.0"
-set RUNTIME_VERSION_DEV="9.9.1.293"
-
-# SDK version v1.150
-set SDK_HASH_WIN="8CB1FD6411D449784DC06BF6D9C7456415CE0A017430C952D51CDCCC410FD88A"
-set SDK_HASH_OSX="3A4AF40D2404A03897CB3F25CF8359F91048B608E375E123C489C15635E183FE"
 
 # ######################################################################################
 # Script Functions
@@ -27,32 +9,50 @@ set SDK_HASH_OSX="3A4AF40D2404A03897CB3F25CF8359F91048B608E375E123C489C15635E183
 setupmacOS() {
 
     SDK_SOURCE="$SDK_PATH/Libraries/libGalaxy64.dylib"
-    assertFileHash $SDK_SOURCE $SDK_HASH_OSX "GOG SDK"
+    assertFileHashEquals $SDK_SOURCE $SDK_HASH_OSX $ERROR_SDK_HASH
     
     echo "Copying macOS (64 bit) dependencies"
     if [[ "$YYTARGET_runtime" == "VM" ]]; then
-        logError "This extension is not compatible with VM export, use YYC or disable extension to proceed!"
+        logError "Extension is not compatible with the macOS VM export, please use YYC."
         exit 1
     else
-        fileCopyTo $SDK_SOURCE "${YYprojectName}/${YYprojectName}/Supporting Files/libGalaxy.dylib"
+        itemCopyTo $SDK_SOURCE "${YYprojectName}/${YYprojectName}/Supporting Files/libGalaxy.dylib"
     fi
 }
 
 # ######################################################################################
 # Script Logic
 
+# Always init the script
+scriptInit
+
+# Version locks
+optionGetValue "versionStable" RUNTIME_VERSION_STABLE
+optionGetValue "versionBeta" RUNTIME_VERSION_BETA
+optionGetValue "versionDev" RUNTIME_VERSION_DEV
+
+# SDK Hash
+optionGetValue "sdkHashWin" SDK_HASH_WIN
+optionGetValue "sdkHashMac" SDK_HASH_OSX
+
+# SDK Path
+optionGetValue "sdkPath" SDK_PATH
+optionGetValue "sdkVersion" SDK_VERSION
+
+# Error String
+ERROR_SDK_HASH="Invalid GOG SDK version, sha256 hash mismatch (expected v$SDK_VERSION)."
+
 # Checks IDE and Runtime versions
-checkMinVersion "$YYruntimeVersion" $RUNTIME_VERSION_STABLE $RUNTIME_VERSION_BETA $RUNTIME_VERSION_RED runtime
+versionLockCheck "$YYruntimeVersion" $RUNTIME_VERSION_STABLE $RUNTIME_VERSION_BETA $RUNTIME_VERSION_RED
 
 # Resolve the SDK path (must exist)
-SDK_PATH=$YYEXTOPT_GOG_sdkPath
 pathResolveExisting "$YYprojectDir" "$SDK_PATH" SDK_PATH
 
 # Ensure we are on the output path
 pushd "$YYoutputFolder" >/dev/null
 
 # Call setup method depending on the platform
-# NOTE: the setup method can be (:setupmacOS)
+# NOTE: the setup method can be (:setupmacOS or :setupLinux)
 setup$YYPLATFORM_name
 
 popd >/dev/null

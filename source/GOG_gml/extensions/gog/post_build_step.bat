@@ -1,72 +1,70 @@
 @echo off
-
 set Utils="%~dp0\scriptUtils.bat"
-
-:: ######################################################################################
-:: Macros
-
-call %Utils% pathExtractDirectory "%~0" SCRIPT_PATH
-call %Utils% pathExtractBase "%~0" EXTENSION_NAME
-call %Utils% toUpper "%EXTENSION_NAME%" EXTENSION_NAME
 
 :: ######################################################################################
 :: Script Logic
 
-:: Version locks
-set RUNTIME_VERSION_STABLE="2023.1.0.0"
-set RUNTIME_VERSION_BETA="2023.100.0.0"
-set RUNTIME_VERSION_DEV="9.9.1.293"
+:: Always init the script
+call %Utils% scriptInit
 
-:: SDK version v1.150
-set SDK_HASH_WIN="8CB1FD6411D449784DC06BF6D9C7456415CE0A017430C952D51CDCCC410FD88A"
-set SDK_HASH_OSX="3A4AF40D2404A03897CB3F25CF8359F91048B608E375E123C489C15635E183FE"
+:: Version locks
+call %Utils% optionGetValue "versionStable" RUNTIME_VERSION_STABLE
+call %Utils% optionGetValue "versionBeta" RUNTIME_VERSION_BETA
+call %Utils% optionGetValue "versionDev" RUNTIME_VERSION_DEV
+
+:: SDK Hash
+call %Utils% optionGetValue "sdkHashWin" SDK_HASH_WIN
+call %Utils% optionGetValue "sdkHashMac" SDK_HASH_OSX
+
+:: SDK Path
+call %Utils% optionGetValue "sdkPath" SDK_PATH
+call %Utils% optionGetValue "sdkVersion" SDK_VERSION
+
+:: Error String
+set ERROR_SDK_HASH="Invalid GOG SDK version, sha256 hash mismatch (expected v%SDK_VERSION%)."
 
 :: Checks IDE and Runtime versions
-call %Utils% checkMinVersion "%YYruntimeVersion%" %RUNTIME_VERSION_STABLE% %RUNTIME_VERSION_BETA% %RUNTIME_VERSION_DEV% runtime
+call %Utils% versionLockCheck "%YYruntimeVersion%" %RUNTIME_VERSION_STABLE% %RUNTIME_VERSION_BETA% %RUNTIME_VERSION_DEV%
 
 :: Resolve the SDK path (must exist)
-set SDK_PATH=%YYEXTOPT_GOG_sdkPath%
 call %Utils% pathResolveExisting "%YYprojectDir%" "%SDK_PATH%" SDK_PATH
 
 :: Ensure we are on the output path
 pushd "%YYoutputFolder%"
 
 :: Call setup method depending on the platform
-:: NOTE: the setup method can be (:setupWindows or :setupMacOS)
+:: NOTE: the setup method can be (:setupWindows, :setupMacOS or :setupLinux)
 call :setup%YYPLATFORM_name%
 
 popd
 
-exit %ERRORLEVEL%
+exit %errorlevel%
 
 :: ----------------------------------------------------------------------------------------------------
 :setupWindows
 
    set SDK_SOURCE="%SDK_PATH%\Libraries\Galaxy64.dll"
-   call %Utils% assertFileHash %SDK_SOURCE% %SDK_HASH_WIN% "GOG SDK"
+   call %Utils% assertFileHashEquals %SDK_SOURCE% %SDK_HASH_WIN% %ERROR_SDK_HASH%
 
    echo "Copying Windows (64 bit) dependencies"
-   if not exist "Galaxy64.dll" call %Utils% fileCopyTo %SDK_SOURCE% "Galaxy64.dll"
+   if not exist "Galaxy64.dll" call %Utils% itemCopyTo %SDK_SOURCE% "Galaxy64.dll"
 
-exit /b 0
+exit /b %errorlevel%
 
 :: ----------------------------------------------------------------------------------------------------
 :setupMacOS
 
    set SDK_SOURCE="%SDK_PATH%\Libraries\libGalaxy64.dylib"
-   call %Utils% assertFileHash %SDK_SOURCE% %SDK_HASH_OSX% "GOG SDK"
+   call %Utils% assertFileHashEquals %SDK_SOURCE% %SDK_HASH_OSX% %ERROR_SDK_HASH%
 
    echo "Copying macOS (64 bit) dependencies"
    if "%YYTARGET_runtime%" == "VM" (
       :: This is used from VM compilation
-      call %Utils% logError "This extension is not compatible with VM export, use YYC or disable extension to proceed!"
-      exit 1
-
+      call %Utils% logError "Extension is not compatible with the macOS VM export, please use YYC."
    ) else (
-
       :: This is used from YYC compilation
-      call %Utils% fileCopyTo %SDK_SOURCE% "%YYprojectName%\%YYprojectName%\Supporting Files\libGalaxy.dylib"
+      call %Utils% itemCopyTo %SDK_SOURCE% "%YYprojectName%\%YYprojectName%\Supporting Files\libGalaxy.dylib"
    )
 
-exit /b 0
+exit /b %errorlevel%
 
