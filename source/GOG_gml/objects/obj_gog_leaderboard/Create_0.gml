@@ -1,4 +1,6 @@
 
+api_key ??= "ERROR";
+
 name = GOG_Stats_GetLeaderboardDisplayName(api_key)
 type = GOG_Stats_GetLeaderboardDisplayType(api_key)
 sort = GOG_Stats_GetLeaderboardSortMethod(api_key)

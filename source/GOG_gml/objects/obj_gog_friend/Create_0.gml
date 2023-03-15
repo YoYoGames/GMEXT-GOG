@@ -1,5 +1,5 @@
 
-//userID
+userID ??= {};
 
 surf = noone
 show_debug_message(userID)
