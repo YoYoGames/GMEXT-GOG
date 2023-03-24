@@ -30,7 +30,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.2.0.71",
+    "IDEVersion": "2023.2.1.75",
   },
   "resources": [
     {"id":{"name":"Room_GOG_Stats","path":"rooms/Room_GOG_Stats/Room_GOG_Stats.yy",},},
@@ -39,13 +39,13 @@
     {"id":{"name":"Obj_YoYo_textbox","path":"objects/Obj_YoYo_textbox/Obj_YoYo_textbox.yy",},},
     {"id":{"name":"Obj_GOG_Utilis","path":"objects/Obj_GOG_Utilis/Obj_GOG_Utilis.yy",},},
     {"id":{"name":"Obj_GOG_User_DeleteUserData","path":"objects/Obj_GOG_User_DeleteUserData/Obj_GOG_User_DeleteUserData.yy",},},
-    {"id":{"name":"Object17","path":"objects/Object17/Object17.yy",},},
     {"id":{"name":"Obj_GOG_User_SetUserData","path":"objects/Obj_GOG_User_SetUserData/Obj_GOG_User_SetUserData.yy",},},
     {"id":{"name":"Spr_YoYo_background","path":"sprites/Spr_YoYo_background/Spr_YoYo_background.yy",},},
     {"id":{"name":"GOG","path":"extensions/GOG/GOG.yy",},},
     {"id":{"name":"Room_GOG_Telemetry","path":"rooms/Room_GOG_Telemetry/Room_GOG_Telemetry.yy",},},
     {"id":{"name":"Room_GOG_Start","path":"rooms/Room_GOG_Start/Room_GOG_Start.yy",},},
     {"id":{"name":"Obj_GOG_Telemetry_SendAnonymousTelemetryEvent","path":"objects/Obj_GOG_Telemetry_SendAnonymousTelemetryEvent/Obj_GOG_Telemetry_SendAnonymousTelemetryEvent.yy",},},
+    {"id":{"name":"STORAGE_MODULE_NOT_WORKING","path":"notes/STORAGE_MODULE_NOT_WORKING/STORAGE_MODULE_NOT_WORKING.yy",},},
     {"id":{"name":"Font_YoYo_50","path":"fonts/Font_YoYo_50/Font_YoYo_50.yy",},},
     {"id":{"name":"Obj_GOG_Utils_ShowOverlayWithWebPage","path":"objects/Obj_GOG_Utils_ShowOverlayWithWebPage/Obj_GOG_Utils_ShowOverlayWithWebPage.yy",},},
     {"id":{"name":"Obj_GOG_Leaderboard","path":"objects/Obj_GOG_Leaderboard/Obj_GOG_Leaderboard.yy",},},

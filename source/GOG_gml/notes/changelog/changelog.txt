@@ -1,4 +1,8 @@
 
+v1.1.0
+- Updated script control system to version 2.0
+- ISSUES: Storage module is not working at the moment
+
 v1.0.1
 - Fixed bug in the demo project
 - Marketplace synced version
