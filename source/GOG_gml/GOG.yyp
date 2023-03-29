@@ -30,7 +30,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.2.1.75",
+    "IDEVersion": "9.9.1.303",
   },
   "resources": [
     {"id":{"name":"Room_GOG_Stats","path":"rooms/Room_GOG_Stats/Room_GOG_Stats.yy",},},
