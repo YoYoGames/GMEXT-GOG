@@ -1,0 +1,14 @@
+[
+    {
+        "projectFile": "source/GOG_gml/GOG.yyp",
+        "extensionFile": "source/GOG_gml/extensions/gog/gog.yy",
+        "packageId": "com.yoyogames.gogext",
+        "packageName": "GOG Ext",
+        "packageVersion": "1.2.0",
+        "includeFolders": null,
+        "includeResources": null,
+        "excludeFolders": null,
+        "excludeResources": null,
+        "format": "LTS22"
+    }
+]
