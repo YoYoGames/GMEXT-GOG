@@ -1,6 +1,3 @@
-
-#include <stdint.h>
-
 //
 // Copyright (C) 2020 Opera Norway AS. All rights reserved.
 //
@@ -27,30 +24,6 @@
 
 class	IBuffer;
 
-struct RValue;
-class YYObjectBase;
-class CInstance;
-struct YYRunnerInterface;
-struct HTTP_REQ_CONTEXT;
-typedef int (*PFUNC_async)(HTTP_REQ_CONTEXT* _pContext, void* _pPayload, int* _pMap);
-typedef void (*PFUNC_cleanup)(HTTP_REQ_CONTEXT* _pContext);
-typedef void (*PFUNC_process)(HTTP_REQ_CONTEXT* _pContext);
-
-typedef void (*TSetRunnerInterface)(const YYRunnerInterface* pRunnerInterface, size_t _functions_size);
-typedef void (*TYYBuiltin)(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg);
-typedef long long int64;
-typedef unsigned long long uint64;
-typedef int32_t int32;
-typedef uint32_t uint32;
-typedef int16_t int16;
-typedef uint16_t uint16;
-typedef int8_t int8;
-typedef uint8_t uint8;
-
-typedef void* HYYMUTEX;
-typedef void* HSPRITEASYNC;
-
-//#ifdef GDKEXTENSION_EXPORTS
 enum eBuffer_Format {
 	eBuffer_Format_Fixed = 0,
 	eBuffer_Format_Grow = 1,
@@ -59,10 +32,6 @@ enum eBuffer_Format {
 	eBuffer_Format_VBuffer = 4,
 	eBuffer_Format_Network = 5,
 };
-//#else
-/* For eBuffer_Format */
-//#include <Files/Buffer/IBuffer.h>
-//#endif
 
 struct RValue;
 class YYObjectBase;
@@ -83,22 +52,6 @@ typedef int16_t int16;
 typedef uint16_t uint16;
 typedef int8_t int8;
 typedef uint8_t uint8;
-
-#ifdef GDKEXTENSION_EXPORTS
-enum eBuffer_Format {
-	eBuffer_Format_Fixed = 0,
-	eBuffer_Format_Grow = 1,
-	eBuffer_Format_Wrap = 2,
-	eBuffer_Format_Fast = 3,
-	eBuffer_Format_VBuffer = 4,
-	eBuffer_Format_Network = 5,
-};
-
-class IBuffer;
-#else
-/* For eBuffer_Format */
-//#include <Files/Buffer/IBuffer.h>
-#endif
 
 typedef void* HYYMUTEX;
 typedef void* HSPRITEASYNC;
@@ -232,9 +185,9 @@ struct YYRunnerInterface
 	bool (*WhiteListIsFilenameIn)(const char* _pszFilename);
 	void (*WhiteListAddTo)(const char* _pszFilename, bool _bIsDir);
 	bool (*DirExists)(const char* filename);
-	IBuffer* (*BufferGetFromGML)(int ind);
-	int (*BufferTELL)(IBuffer* buff);
-	unsigned char* (*BufferGet)(IBuffer* buff);
+	::IBuffer* (*BufferGetFromGML)(int ind);
+	int (*BufferTELL)(::IBuffer* buff);
+	unsigned char* (*BufferGet)(::IBuffer* buff);
 	const char* (*FilePrePend)(void);
 
 	void (*StructAddInt32)(RValue* _pStruct, const char* _pKey, int32 _value);
@@ -277,6 +230,8 @@ struct YYRunnerInterface
 	void (*extOptGetRValue)(RValue& result, const char* _ext, const  char* _opt);
 	const char* (*extOptGetString)(const char* _ext, const  char* _opt);
 	double (*extOptGetReal)(const char* _ext, const char* _opt);
+
+	bool (*isRunningFromIDE)();
 };
 
 #define __YYDEFINE_EXTENSION_FUNCTIONS__
@@ -418,9 +373,9 @@ inline bool WhiteListIsFilenameIn(const char* _pszFilename) { return g_pYYRunner
 inline void WhiteListAddTo(const char* _pszFilename, bool _bIsDir) { return g_pYYRunnerInterface->WhiteListAddTo(_pszFilename, _bIsDir); }
 inline bool DirExists(const char* filename) { return g_pYYRunnerInterface->DirExists(filename); }
 
-inline IBuffer* BufferGetFromGML(int ind) { return g_pYYRunnerInterface->BufferGetFromGML(ind); }
-inline int BufferTELL(IBuffer* buff) { return g_pYYRunnerInterface->BufferTELL(buff); }
-inline unsigned char* BufferGet(IBuffer* buff) { return g_pYYRunnerInterface->BufferGet(buff); }
+inline ::IBuffer* BufferGetFromGML(int ind) { return g_pYYRunnerInterface->BufferGetFromGML(ind); }
+inline int BufferTELL(::IBuffer* buff) { return g_pYYRunnerInterface->BufferTELL(buff); }
+inline unsigned char* BufferGet(::IBuffer* buff) { return g_pYYRunnerInterface->BufferGet(buff); }
 inline const char* FilePrePend(void) { return g_pYYRunnerInterface->FilePrePend(); }
 
 inline void YYStructAddInt32(RValue* _pStruct, const char* _pKey, int32 _value) { return g_pYYRunnerInterface->StructAddInt32(_pStruct, _pKey, _value); }
@@ -431,6 +386,9 @@ inline int YYStructGetKeys(RValue* _pStruct, const char** _keys, int* _count) { 
 inline void extOptGetRValue(RValue& result, const char* _ext, const char* _opt) { return g_pYYRunnerInterface->extOptGetRValue(result, _ext, _opt); };
 inline const char* extOptGetString(const char* _ext, const char* _opt) { return g_pYYRunnerInterface->extOptGetString(_ext, _opt); }
 inline double extOptGetReal(const char* _ext, const char* _opt) { return g_pYYRunnerInterface->extOptGetReal(_ext, _opt); };
+
+inline bool isRunningFromIDE() { return g_pYYRunnerInterface->isRunningFromIDE(); };
+
 
 #define g_LiveConnection	(*g_pYYRunnerInterface->pLiveConnection)
 #define g_HTTP_ID			(*g_pYYRunnerInterface->pHTTP_ID)

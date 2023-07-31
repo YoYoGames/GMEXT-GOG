@@ -274,6 +274,7 @@ YYEXPORT void GOG_Stats_GetLeaderboardDisplayName(RValue& Result, CInstance* sel
 //	//galaxy::api::Stats()->GetLeaderboardDisplayNameCopy
 //}
 
+
 YYEXPORT void GOG_Stats_GetLeaderboardSortMethod(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
 	GOG_NotInitialisedReturn_BOOL
@@ -296,10 +297,9 @@ YYEXPORT void GOG_Stats_GetLeaderboardDisplayType(RValue& Result, CInstance* sel
 
 void _SW_SetArrayOfRValue(RValue* _array, std::vector<RValue> values)
 {
-	for (int i = 0; i < values.size(); i++)
+	for (int i = values.size() - 1; i >= 0; --i)
 	{
 		RValue tag = values[i];
-
 		SET_RValue(_array, &tag, NULL, i);
 		FREE_RValue(&tag);
 	}
@@ -326,26 +326,25 @@ public:
 			//galaxy::api::Stats()->GetRequestedLeaderboardEntry(index, rank, score, userID);
 
 			std::vector<uint8_t> data;
-			const int limit_size = 3071;
-			data.reserve(limit_size);//limit size
-			uint8_t* d = data.data();
+			const int detailsSize = 3071;
+			data.reserve(detailsSize);//limit size
+			uint8_t* details = data.data();
 			//galaxy::api::Friends()->GetFriendAvatarImageRGBA(userID, (galaxy::api::AvatarType)avatarType, d, size);
-			uint32_t outSize;
-			galaxy::api::Stats()->GetRequestedLeaderboardEntryWithDetails(index, rank, score, d, limit_size, outSize, userID);
+			uint32_t outDetailsSize;
+			galaxy::api::Stats()->GetRequestedLeaderboardEntryWithDetails(index, rank, score, details, detailsSize, outDetailsSize, userID);
 
-			if (outSize > 0)
+			if (outDetailsSize > 0)
 			{
-				int bufferID = CreateBuffer(limit_size, eBuffer_Format_Fixed, 1);
-				BufferWriteContent(bufferID, 0, d, outSize);
-				YYStructAddDouble(&Struct, "buffer", bufferID);
+				int dataSize = (int)(outDetailsSize * 4 / 3) + 1;
+				void* pData = YYAlloc(dataSize);
+				Base64Encode(details, outDetailsSize, pData, dataSize);
+				YYStructAddString(&Struct, "data", (const char*)pData);
+				YYFree(pData);
 			}
 
 			YYStructAddInt64(&Struct, "index", index);
 			YYStructAddDouble(&Struct, "rank", rank);
-			YYStructAddDouble(&Struct, "score_", score);
-
-			
-			
+			YYStructAddDouble(&Struct, "score", score);
 
 			RValue _struct = getStructFromGalaxyID(userID);
 			YYStructAddRValue(&Struct, "userID", &_struct);
@@ -412,34 +411,6 @@ YYEXPORT void GOG_Stats_RequestLeaderboardEntriesAroundUser(RValue& Result, CIns
 //{
 //	//galaxy::api::Stats()->RequestLeaderboardEntriesForUsers();
 //}
-
-//Deleted... moved to YYILeaderboardsRetrieveListener
-//YYEXPORT void GOG_Stats_GetRequestedLeaderboardEntry(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-//{
-//	uint32_t index = YYGetReal(arg, 0);
-//	uint32_t rank;// = YYGetReal(arg, 1);
-//	int32_t score;// = YYGetReal(arg, 2);
-//
-//	galaxy::api::GalaxyID userID;
-//
-//	galaxy::api::Stats()->GetRequestedLeaderboardEntry(index,rank,score,userID);
-//
-//	RValue Struct = { 0 };
-//	YYStructCreate(&Struct);
-//
-//	YYStructAddDouble(&Struct, "rank", rank);
-//	YYStructAddDouble(&Struct, "score", score);
-//	RValue _struct = getStructFromGalaxyID(userID);
-//	YYStructAddRValue(&Struct, "userID", &_struct);
-//
-//	COPY_RValue(&Result, &Struct);
-//	FREE_RValue(&Struct);
-//}
-
-YYEXPORT void GOG_Stats_GetRequestedLeaderboardEntryWithDetails(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-{
-	//galaxy::api::Stats()->GetRequestedLeaderboardEntryWithDetails();
-}
 
 class YYILeaderboardScoreUpdateListener : public galaxy::api::ILeaderboardScoreUpdateListener
 {

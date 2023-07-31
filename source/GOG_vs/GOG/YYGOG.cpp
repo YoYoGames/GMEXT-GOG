@@ -1,7 +1,6 @@
 
 #include "YYGOG.h"
-#include "IniOptionsLibrary.h"
-#include "DesktopExtensionTools.h"
+#include <string>
 
 bool GOG_isInitialised = false;
 void OldPreGraphicsInitialisation()

@@ -1,6 +1,5 @@
 
 #include "YYGOG.h"
-
 #include <vector>
 #include <string>
 
