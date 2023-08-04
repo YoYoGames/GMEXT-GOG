@@ -300,7 +300,6 @@
         {"name":"GOG_Storage_GetDownloadedSharedFileCount","path":"extensions/GOG/GOG.yy",},
         {"name":"GOG_Storage_GetDownloadedSharedFileByIndex","path":"extensions/GOG/GOG.yy",},
         {"name":"GOG_Stats_SetLeaderboardScoreWithDetails","path":"extensions/GOG/GOG.yy",},
-        {"name":"GOG_Stats_GetRequestedLeaderboardEntry","path":"extensions/GOG/GOG.yy",},
         {"name":"GOG_Stats_FindOrCreateLeaderboard","path":"extensions/GOG/GOG.yy",},
       ],"origname":"","ProxyFiles":[
         {"resourceType":"GMProxyFile","resourceVersion":"1.0","name":"libGOG.dylib","TargetMask":1,},
