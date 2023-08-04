@@ -351,3 +351,4 @@ MigrationBackup/
 
 # Mac files
 .DS_Store
+output/
