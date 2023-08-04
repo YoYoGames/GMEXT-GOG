@@ -16,7 +16,7 @@ setupmacOS() {
         logError "Extension is not compatible with the macOS VM export, please use YYC."
         exit 1
     else
-        itemCopyTo $SDK_SOURCE "${YYprojectName}/${YYprojectName}/Supporting Files/libGalaxy.dylib"
+        itemCopyTo $SDK_SOURCE "${YYprojectName}/${YYprojectName}/Supporting Files/libGalaxy64.dylib"
     fi
 }
 

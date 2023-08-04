@@ -318,23 +318,21 @@ public:
 			RValue entryStruct = { 0 };
 			YYStructCreate(&entryStruct);
 
-			std::vector<uint8_t> data;
-			const int detailsSize = 3071;
-			data.reserve(detailsSize);//limit size
-			uint8_t* details = data.data();
+            const int detailsSize = 3071;
+            char pDetails[detailsSize];
 
 			uint32_t outDetailsSize;
-			galaxy::api::Stats()->GetRequestedLeaderboardEntryWithDetails(index, rank, score, details, detailsSize, outDetailsSize, userID);
-
+			galaxy::api::Stats()->GetRequestedLeaderboardEntryWithDetails(index, rank, score, pDetails, detailsSize, outDetailsSize, userID);
+            
 			if (outDetailsSize > 0)
 			{
-				int dataSize = (int)(outDetailsSize * 4 / 3) + 1;
-				void* pData = YYAlloc(dataSize);
-				Base64Encode(details, outDetailsSize, pData, dataSize);
-				YYStructAddString(&entryStruct, "data", (const char*)pData);
-				YYFree(pData);
+                int dataSize = (int)(outDetailsSize * 4.0 / 3.0) + 1;
+                void* pData = YYAlloc(dataSize);
+				Base64Encode(pDetails, outDetailsSize, static_cast<char*>(pData), detailsSize);
+                YYStructAddString(&entryStruct, "data", static_cast<char*>(pData));
+                YYFree(pData);
 			}
-
+            
 			YYStructAddDouble(&entryStruct, "rank", rank);
 			YYStructAddDouble(&entryStruct, "score", score);
 
@@ -436,7 +434,7 @@ YYEXPORT void GOG_Stats_SetLeaderboardScore(RValue& Result, CInstance* selfinst,
 	
 	YYILeaderboardScoreUpdateListener* callback = new YYILeaderboardScoreUpdateListener();
 	callback->event = "GOG_Stats_SetLeaderboardScore";
-	galaxy::api::Stats()->SetLeaderboardScore(name, static_cast<uint32_t>(score), forceUpdate,callback);
+	galaxy::api::Stats()->SetLeaderboardScore(name, static_cast<uint32_t>(score), forceUpdate, callback);
 }
 
 YYEXPORT void GOG_Stats_SetLeaderboardScoreWithDetails(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -450,7 +448,6 @@ YYEXPORT void GOG_Stats_SetLeaderboardScoreWithDetails(RValue& Result, CInstance
 	double score = YYGetReal(arg, 1);
 	bool forceUpdate = YYGetBool(arg, 2);
 	int32_t buffer = YYGetInt32(arg, 3);
-	//int32 size = YYGetInt32(arg, 1);
 
 	unsigned char* buffer_data;
 	int buffer_size;
@@ -460,7 +457,8 @@ YYEXPORT void GOG_Stats_SetLeaderboardScoreWithDetails(RValue& Result, CInstance
 		DebugConsoleOutput("GOG_Stats_SetLeaderboardScoreWithDetails - error: specified buffer not found\n");
 		return;
 	}
-	galaxy::api::Stats()->SetLeaderboardScoreWithDetails(name, static_cast<uint32_t>(score), buffer_data, buffer_size,forceUpdate);
+    
+    galaxy::api::Stats()->SetLeaderboardScoreWithDetails(name, static_cast<uint32_t>(score), buffer_data, buffer_size,forceUpdate, callback);
 }
 
 YYEXPORT void GOG_Stats_GetLeaderboardEntryCount(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)

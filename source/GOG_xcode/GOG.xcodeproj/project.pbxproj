@@ -48,10 +48,6 @@
 		2B9DEE8C2863A4970090BDEF /* Extension_Interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B9DEE892863A4970090BDEF /* Extension_Interface.h */; };
 		2B9DEE8D2863A4970090BDEF /* Ref.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B9DEE8A2863A4970090BDEF /* Ref.h */; };
 		2B9DEE8F2863BB460090BDEF /* SimpleDesktopExample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B9DEE8E2863BB460090BDEF /* SimpleDesktopExample.cpp */; };
-		2BC97930287F626E0079F3E2 /* DesktopExtensionTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9792E287F626E0079F3E2 /* DesktopExtensionTools.mm */; };
-		2BC97931287F626E0079F3E2 /* DesktopExtensionTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC9792F287F626E0079F3E2 /* DesktopExtensionTools.h */; };
-		2BC97934287F62810079F3E2 /* IniOptionsLibrary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2BC97932287F62810079F3E2 /* IniOptionsLibrary.mm */; };
-		2BC97935287F62810079F3E2 /* IniOptionsLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC97933287F62810079F3E2 /* IniOptionsLibrary.h */; };
 		6AEBD9C0292E870500765F3E /* libGOG.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B9DED2E28639F8F0090BDEF /* libGOG.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -71,29 +67,29 @@
 /* Begin PBXFileReference section */
 		2B9DED2E28639F8F0090BDEF /* libGOG.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libGOG.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9DEDE82863A4030090BDEF /* libGalaxy64.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGalaxy64.dylib; path = ../GOG_sdk/Libraries/libGalaxy64.dylib; sourceTree = SOURCE_ROOT; };
-		2B9DEDEA2863A41F0090BDEF /* DELETED_stdint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DELETED_stdint.h; path = ../../GOG_sdk/Include/galaxy/DELETED_stdint.h; sourceTree = "<group>"; };
-		2B9DEDEB2863A41F0090BDEF /* IListenerRegistrar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IListenerRegistrar.h; path = ../../GOG_sdk/Include/galaxy/IListenerRegistrar.h; sourceTree = "<group>"; };
-		2B9DEDEC2863A41F0090BDEF /* GalaxyGameServerApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GalaxyGameServerApi.h; path = ../../GOG_sdk/Include/galaxy/GalaxyGameServerApi.h; sourceTree = "<group>"; };
-		2B9DEDED2863A41F0090BDEF /* GalaxyApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GalaxyApi.h; path = ../../GOG_sdk/Include/galaxy/GalaxyApi.h; sourceTree = "<group>"; };
-		2B9DEDEE2863A41F0090BDEF /* GalaxyExceptionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GalaxyExceptionHelper.h; path = ../../GOG_sdk/Include/galaxy/GalaxyExceptionHelper.h; sourceTree = "<group>"; };
-		2B9DEDEF2863A41F0090BDEF /* ITelemetry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ITelemetry.h; path = ../../GOG_sdk/Include/galaxy/ITelemetry.h; sourceTree = "<group>"; };
-		2B9DEDF02863A41F0090BDEF /* IFriends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFriends.h; path = ../../GOG_sdk/Include/galaxy/IFriends.h; sourceTree = "<group>"; };
-		2B9DEDF12863A41F0090BDEF /* IUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IUser.h; path = ../../GOG_sdk/Include/galaxy/IUser.h; sourceTree = "<group>"; };
-		2B9DEDF22863A41F0090BDEF /* INetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INetworking.h; path = ../../GOG_sdk/Include/galaxy/INetworking.h; sourceTree = "<group>"; };
-		2B9DEDF32863A41F0090BDEF /* InitOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitOptions.h; path = ../../GOG_sdk/Include/galaxy/InitOptions.h; sourceTree = "<group>"; };
-		2B9DEDF42863A41F0090BDEF /* IStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IStorage.h; path = ../../GOG_sdk/Include/galaxy/IStorage.h; sourceTree = "<group>"; };
-		2B9DEDF52863A41F0090BDEF /* GalaxyThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GalaxyThread.h; path = ../../GOG_sdk/Include/galaxy/GalaxyThread.h; sourceTree = "<group>"; };
-		2B9DEDF62863A41F0090BDEF /* ILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILogger.h; path = ../../GOG_sdk/Include/galaxy/ILogger.h; sourceTree = "<group>"; };
-		2B9DEDF72863A41F0090BDEF /* GalaxyAllocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GalaxyAllocator.h; path = ../../GOG_sdk/Include/galaxy/GalaxyAllocator.h; sourceTree = "<group>"; };
-		2B9DEDF82863A41F0090BDEF /* IUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IUtils.h; path = ../../GOG_sdk/Include/galaxy/IUtils.h; sourceTree = "<group>"; };
-		2B9DEDF92863A41F0090BDEF /* ICustomNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICustomNetworking.h; path = ../../GOG_sdk/Include/galaxy/ICustomNetworking.h; sourceTree = "<group>"; };
-		2B9DEDFA2863A41F0090BDEF /* IChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IChat.h; path = ../../GOG_sdk/Include/galaxy/IChat.h; sourceTree = "<group>"; };
-		2B9DEDFB2863A41F0090BDEF /* GalaxyID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GalaxyID.h; path = ../../GOG_sdk/Include/galaxy/GalaxyID.h; sourceTree = "<group>"; };
-		2B9DEDFC2863A41F0090BDEF /* IApps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IApps.h; path = ../../GOG_sdk/Include/galaxy/IApps.h; sourceTree = "<group>"; };
-		2B9DEDFD2863A41F0090BDEF /* IMatchmaking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMatchmaking.h; path = ../../GOG_sdk/Include/galaxy/IMatchmaking.h; sourceTree = "<group>"; };
-		2B9DEDFE2863A41F0090BDEF /* IStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IStats.h; path = ../../GOG_sdk/Include/galaxy/IStats.h; sourceTree = "<group>"; };
-		2B9DEDFF2863A41F0090BDEF /* GalaxyExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GalaxyExport.h; path = ../../GOG_sdk/Include/galaxy/GalaxyExport.h; sourceTree = "<group>"; };
-		2B9DEE002863A41F0090BDEF /* Errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Errors.h; path = ../../GOG_sdk/Include/galaxy/Errors.h; sourceTree = "<group>"; };
+		2B9DEDEA2863A41F0090BDEF /* DELETED_stdint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DELETED_stdint.h; sourceTree = "<group>"; };
+		2B9DEDEB2863A41F0090BDEF /* IListenerRegistrar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IListenerRegistrar.h; sourceTree = "<group>"; };
+		2B9DEDEC2863A41F0090BDEF /* GalaxyGameServerApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyGameServerApi.h; sourceTree = "<group>"; };
+		2B9DEDED2863A41F0090BDEF /* GalaxyApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyApi.h; sourceTree = "<group>"; };
+		2B9DEDEE2863A41F0090BDEF /* GalaxyExceptionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyExceptionHelper.h; sourceTree = "<group>"; };
+		2B9DEDEF2863A41F0090BDEF /* ITelemetry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITelemetry.h; sourceTree = "<group>"; };
+		2B9DEDF02863A41F0090BDEF /* IFriends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFriends.h; sourceTree = "<group>"; };
+		2B9DEDF12863A41F0090BDEF /* IUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUser.h; sourceTree = "<group>"; };
+		2B9DEDF22863A41F0090BDEF /* INetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetworking.h; sourceTree = "<group>"; };
+		2B9DEDF32863A41F0090BDEF /* InitOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitOptions.h; sourceTree = "<group>"; };
+		2B9DEDF42863A41F0090BDEF /* IStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IStorage.h; sourceTree = "<group>"; };
+		2B9DEDF52863A41F0090BDEF /* GalaxyThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyThread.h; sourceTree = "<group>"; };
+		2B9DEDF62863A41F0090BDEF /* ILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILogger.h; sourceTree = "<group>"; };
+		2B9DEDF72863A41F0090BDEF /* GalaxyAllocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyAllocator.h; sourceTree = "<group>"; };
+		2B9DEDF82863A41F0090BDEF /* IUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUtils.h; sourceTree = "<group>"; };
+		2B9DEDF92863A41F0090BDEF /* ICustomNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICustomNetworking.h; sourceTree = "<group>"; };
+		2B9DEDFA2863A41F0090BDEF /* IChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IChat.h; sourceTree = "<group>"; };
+		2B9DEDFB2863A41F0090BDEF /* GalaxyID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyID.h; sourceTree = "<group>"; };
+		2B9DEDFC2863A41F0090BDEF /* IApps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IApps.h; sourceTree = "<group>"; };
+		2B9DEDFD2863A41F0090BDEF /* IMatchmaking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMatchmaking.h; sourceTree = "<group>"; };
+		2B9DEDFE2863A41F0090BDEF /* IStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IStats.h; sourceTree = "<group>"; };
+		2B9DEDFF2863A41F0090BDEF /* GalaxyExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyExport.h; sourceTree = "<group>"; };
+		2B9DEE002863A41F0090BDEF /* Errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Errors.h; sourceTree = "<group>"; };
 		2B9DEE6E2863A4630090BDEF /* YYGOG_Friends.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = YYGOG_Friends.cpp; path = ../../GOG_vs/GOG/YYGOG_Friends.cpp; sourceTree = "<group>"; };
 		2B9DEE6F2863A4630090BDEF /* YYGOG_Storage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = YYGOG_Storage.cpp; path = ../../GOG_vs/GOG/YYGOG_Storage.cpp; sourceTree = "<group>"; };
 		2B9DEE702863A4630090BDEF /* YYGOG_Telemetry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = YYGOG_Telemetry.cpp; path = ../../GOG_vs/GOG/YYGOG_Telemetry.cpp; sourceTree = "<group>"; };
@@ -111,10 +107,6 @@
 		2B9DEE892863A4970090BDEF /* Extension_Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Extension_Interface.h; path = ../GOG_vs/GOG/Extension_Interface.h; sourceTree = "<group>"; };
 		2B9DEE8A2863A4970090BDEF /* Ref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ref.h; path = ../GOG_vs/GOG/Ref.h; sourceTree = "<group>"; };
 		2B9DEE8E2863BB460090BDEF /* SimpleDesktopExample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpleDesktopExample.cpp; path = ../../GOG_vs/GOG/SimpleDesktopExample.cpp; sourceTree = "<group>"; };
-		2BC9792E287F626E0079F3E2 /* DesktopExtensionTools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = DesktopExtensionTools.mm; path = ../GOG_vs/GOG/DesktopExtensionTools.mm; sourceTree = "<group>"; };
-		2BC9792F287F626E0079F3E2 /* DesktopExtensionTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DesktopExtensionTools.h; path = ../GOG_vs/GOG/DesktopExtensionTools.h; sourceTree = "<group>"; };
-		2BC97932287F62810079F3E2 /* IniOptionsLibrary.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = IniOptionsLibrary.mm; path = ../GOG_vs/GOG/IniOptionsLibrary.mm; sourceTree = "<group>"; };
-		2BC97933287F62810079F3E2 /* IniOptionsLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IniOptionsLibrary.h; path = ../GOG_vs/GOG/IniOptionsLibrary.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +143,7 @@
 			path = ../GOG_vs/GOG;
 			sourceTree = SOURCE_ROOT;
 		};
-		2B744CFD292B4D2300482223 /* SDK */ = {
+		2B744CFD292B4D2300482223 /* galaxy */ = {
 			isa = PBXGroup;
 			children = (
 				2B9DEDEA2863A41F0090BDEF /* DELETED_stdint.h */,
@@ -178,19 +170,15 @@
 				2B9DEDF12863A41F0090BDEF /* IUser.h */,
 				2B9DEDF82863A41F0090BDEF /* IUtils.h */,
 			);
-			name = SDK;
-			path = ../GOG_sdk/Include;
+			name = galaxy;
+			path = ../GOG_sdk/Include/galaxy;
 			sourceTree = SOURCE_ROOT;
 		};
 		2B9DED2528639F8F0090BDEF = {
 			isa = PBXGroup;
 			children = (
-				2B744CFD292B4D2300482223 /* SDK */,
+				2B744CFD292B4D2300482223 /* galaxy */,
 				2B744CFC292B4CFB00482223 /* GOG */,
-				2BC97933287F62810079F3E2 /* IniOptionsLibrary.h */,
-				2BC97932287F62810079F3E2 /* IniOptionsLibrary.mm */,
-				2BC9792F287F626E0079F3E2 /* DesktopExtensionTools.h */,
-				2BC9792E287F626E0079F3E2 /* DesktopExtensionTools.mm */,
 				2B9DEDE82863A4030090BDEF /* libGalaxy64.dylib */,
 				2B9DEE892863A4970090BDEF /* Extension_Interface.h */,
 				2B9DEE8A2863A4970090BDEF /* Ref.h */,
@@ -217,14 +205,12 @@
 				2B9DEE0B2863A41F0090BDEF /* IStorage.h in Headers */,
 				2B9DEE122863A41F0090BDEF /* GalaxyID.h in Headers */,
 				2B9DEE112863A41F0090BDEF /* IChat.h in Headers */,
-				2BC97931287F626E0079F3E2 /* DesktopExtensionTools.h in Headers */,
 				2B9DEE022863A41F0090BDEF /* IListenerRegistrar.h in Headers */,
 				2B9DEE0C2863A41F0090BDEF /* GalaxyThread.h in Headers */,
 				2B9DEE152863A41F0090BDEF /* IStats.h in Headers */,
 				2B9DEE142863A41F0090BDEF /* IMatchmaking.h in Headers */,
 				2B9DEE042863A41F0090BDEF /* GalaxyApi.h in Headers */,
 				2B9DEE162863A41F0090BDEF /* GalaxyExport.h in Headers */,
-				2BC97935287F62810079F3E2 /* IniOptionsLibrary.h in Headers */,
 				2B9DEE8C2863A4970090BDEF /* Extension_Interface.h in Headers */,
 				2B9DEE092863A41F0090BDEF /* INetworking.h in Headers */,
 				2B9DEE102863A41F0090BDEF /* ICustomNetworking.h in Headers */,
@@ -306,14 +292,12 @@
 				2B9DEE802863A4630090BDEF /* YYGOG_User.cpp in Sources */,
 				2B9DEE872863A4630090BDEF /* YYGOG_CustomNetworking.cpp in Sources */,
 				2B9DEE7E2863A4630090BDEF /* YYGOG_Apps.cpp in Sources */,
-				2BC97930287F626E0079F3E2 /* DesktopExtensionTools.mm in Sources */,
 				2B9DEE852863A4630090BDEF /* YYGOG_Chat.cpp in Sources */,
 				2B9DEE7B2863A4630090BDEF /* YYGOG_Friends.cpp in Sources */,
 				2B9DEE7F2863A4630090BDEF /* YYGOG.cpp in Sources */,
 				2B9DEE8F2863BB460090BDEF /* SimpleDesktopExample.cpp in Sources */,
 				2B9DEE7C2863A4630090BDEF /* YYGOG_Storage.cpp in Sources */,
 				2B9DEE822863A4630090BDEF /* YYGOG_Logger.cpp in Sources */,
-				2BC97934287F62810079F3E2 /* IniOptionsLibrary.mm in Sources */,
 				2B9DEE842863A4630090BDEF /* YYGOG_Utils.cpp in Sources */,
 				2B9DEE7D2863A4630090BDEF /* YYGOG_Telemetry.cpp in Sources */,
 				2B9DEE812863A4630090BDEF /* YYGOG_Networking.cpp in Sources */,

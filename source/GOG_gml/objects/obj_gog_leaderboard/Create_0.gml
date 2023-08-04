@@ -20,5 +20,3 @@ show_debug_message(buffer_get_size(buffer))
 //GOG_Stats_SetLeaderboardScore(api_key,100,true)
 GOG_Stats_SetLeaderboardScoreWithDetails(api_key,100,true,buffer)
 
-GOG_Stats_RequestLeaderboardEntriesGlobal(api_key,0,4)
-

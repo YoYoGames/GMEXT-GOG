@@ -306,7 +306,7 @@
       ],"origname":"","ProxyFiles":[
         {"resourceType":"GMProxyFile","resourceVersion":"1.0","name":"libGOG.dylib","TargetMask":1,},
       ],"uncompress":false,"usesRunnerInterface":true,},
-    {"resourceType":"GMExtensionFile","resourceVersion":"1.0","name":"","constants":[],"copyToTargets":-1,"filename":"libGalaxy.dylib","final":"","functions":[],"init":"","kind":1,"order":[],"origname":"","ProxyFiles":[],"uncompress":false,"usesRunnerInterface":false,},
+    {"resourceType":"GMExtensionFile","resourceVersion":"1.0","name":"","constants":[],"copyToTargets":-1,"filename":"libGalaxy64.dylib","final":"","functions":[],"init":"","kind":1,"order":[],"origname":"","ProxyFiles":[],"uncompress":false,"usesRunnerInterface":false,},
   ],
   "gradleinject": "",
   "hasConvertedCodeInjection": true,
@@ -329,7 +329,7 @@
   "macsourcedir": "",
   "options": [
     {"resourceType":"GMExtensionOption","resourceVersion":"1.0","name":"__extOptLabel","defaultValue":"BUILD OPTIONS:","description":"","displayName":"","exportToINI":false,"extensionId":null,"guid":"f30200cb-19f4-4283-a67a-b41f8442d220","hidden":false,"listItems":[],"optType":5,},
-    {"resourceType":"GMExtensionOption","resourceVersion":"1.0","name":"sdkPath","defaultValue":"","description":"","displayName":"SDK Path","exportToINI":false,"extensionId":null,"guid":"ae07ed10-ff76-4337-a79e-b7d2fe47e528","hidden":false,"listItems":[],"optType":4,},
+    {"resourceType":"GMExtensionOption","resourceVersion":"1.0","name":"sdkPath","defaultValue":"../GOG_sdk","description":"","displayName":"SDK Path","exportToINI":false,"extensionId":null,"guid":"ae07ed10-ff76-4337-a79e-b7d2fe47e528","hidden":false,"listItems":[],"optType":4,},
     {"resourceType":"GMExtensionOption","resourceVersion":"1.0","name":"__extOptLabel1","defaultValue":"APP OPTIONS:","description":"","displayName":"","exportToINI":false,"extensionId":null,"guid":"d131fae1-3d41-4646-a93f-b1641bd3d960","hidden":false,"listItems":[],"optType":5,},
     {"resourceType":"GMExtensionOption","resourceVersion":"1.0","name":"clientID","defaultValue":"","description":"","displayName":"Client ID","exportToINI":false,"extensionId":null,"guid":"a49b6820-bac4-4df9-a09e-e5538ddcb1c8","hidden":false,"listItems":[],"optType":2,},
     {"resourceType":"GMExtensionOption","resourceVersion":"1.0","name":"clientSecret","defaultValue":"","description":"","displayName":"Client Secret","exportToINI":false,"extensionId":null,"guid":"a9040ffd-7cf5-4888-acfa-7cbb31e7325a","hidden":false,"listItems":[],"optType":2,},
@@ -342,7 +342,7 @@
     {"resourceType":"GMExtensionOption","resourceVersion":"1.0","name":"sdkVersion","defaultValue":"1.150","description":"","displayName":"","exportToINI":false,"extensionId":null,"guid":"50d97d8c-9192-41ff-b92f-69e698da6356","hidden":true,"listItems":[],"optType":2,},
     {"resourceType":"GMExtensionOption","resourceVersion":"1.0","name":"sdkHashWin","defaultValue":"8CB1FD6411D449784DC06BF6D9C7456415CE0A017430C952D51CDCCC410FD88A","description":"","displayName":"","exportToINI":false,"extensionId":null,"guid":"42755059-0ee5-4c67-a0a2-3ae683b630e1","hidden":true,"listItems":[],"optType":2,},
     {"resourceType":"GMExtensionOption","resourceVersion":"1.0","name":"sdkHashMac","defaultValue":"3A4AF40D2404A03897CB3F25CF8359F91048B608E375E123C489C15635E183FE","description":"","displayName":"","exportToINI":false,"extensionId":null,"guid":"34e451ee-a9cf-4258-ab88-6ea00ddaf680","hidden":true,"listItems":[],"optType":2,},
-    {"resourceType":"GMExtensionOption","resourceVersion":"1.0","name":"versionLTS","defaultValue":"2022.0.1.30","description":"","displayName":"","exportToINI":false,"extensionId":null,"guid":"49906e7b-8524-4091-804c-2fcf91afbd9f","hidden":false,"listItems":[],"optType":2,},
+    {"resourceType":"GMExtensionOption","resourceVersion":"1.0","name":"versionLTS","defaultValue":"2022.0.1.30","description":"","displayName":"","exportToINI":false,"extensionId":null,"guid":"49906e7b-8524-4091-804c-2fcf91afbd9f","hidden":true,"listItems":[],"optType":2,},
     {"resourceType":"GMExtensionOption","resourceVersion":"1.0","name":"versionStable","defaultValue":"2023.1.0.0","description":"","displayName":"","exportToINI":false,"extensionId":null,"guid":"8696afda-9ca9-43d7-b129-504665d9dedc","hidden":true,"listItems":[],"optType":2,},
     {"resourceType":"GMExtensionOption","resourceVersion":"1.0","name":"versionBeta","defaultValue":"2023.100.0.0","description":"","displayName":"","exportToINI":false,"extensionId":null,"guid":"c7a71195-8354-4ef8-acca-15c865685edb","hidden":true,"listItems":[],"optType":2,},
     {"resourceType":"GMExtensionOption","resourceVersion":"1.0","name":"versionDev","defaultValue":"9.9.1.293","description":"","displayName":"","exportToINI":false,"extensionId":null,"guid":"51f60fec-841f-4992-9c95-58b7c4f09fbb","hidden":true,"listItems":[],"optType":2,},
