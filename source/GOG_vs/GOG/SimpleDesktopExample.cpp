@@ -6,7 +6,6 @@ YYRunnerInterface gs_runnerInterface;
 YYRunnerInterface* g_pYYRunnerInterface;
 
 
-
 char PreGraphicsInitialisation_argument[1024];
 double val = 0;
 
