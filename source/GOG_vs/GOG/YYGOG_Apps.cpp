@@ -3,7 +3,7 @@
 
 YYEXPORT void GOG_Apps_IsDlcInstalled(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	int64 productID = YYGetInt64(arg, 0);
 
@@ -13,7 +13,7 @@ YYEXPORT void GOG_Apps_IsDlcInstalled(RValue& Result, CInstance* selfinst, CInst
 
 YYEXPORT void GOG_Apps_GetCurrentGameLanguage(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_INT64
+	GOG_NotInitialisedReturn_INT64;
 
 	int64 productID = YYGetInt64(arg, 0);
 

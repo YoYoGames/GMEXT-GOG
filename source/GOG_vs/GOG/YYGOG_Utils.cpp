@@ -4,12 +4,12 @@
 
 YYEXPORT void GOG_Utils_GetImageSize(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_STRUCT
+	GOG_NotInitialisedReturn_STRUCT;
 
-	int32_t imageID= YYGetReal(arg, 0);
+	double imageID = YYGetReal(arg, 0);
 	int32_t width;
 	int32_t height;
-	galaxy::api::Utils()->GetImageSize(imageID,width,height);
+	galaxy::api::Utils()->GetImageSize(static_cast<uint32_t>(imageID), width, height);
 
 	RValue Struct = { 0 };
 	YYStructCreate(&Struct);
@@ -23,16 +23,16 @@ YYEXPORT void GOG_Utils_GetImageSize(RValue& Result, CInstance* selfinst, CInsta
 
 YYEXPORT void GOG_Utils_GetImageRGBA(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_REAL
+	GOG_NotInitialisedReturn_REAL;
 
-	uint32_t imageID = YYGetReal(arg, 0);
+	double imageID = YYGetReal(arg, 0);
 
 	uint32 size = 32 * 32 * 4;
 	std::vector<uint8_t> data;
 	data.reserve(size);
 	uint8_t* d = data.data();
 
-	galaxy::api::Utils()->GetImageRGBA(imageID, d, size);
+	galaxy::api::Utils()->GetImageRGBA(static_cast<uint32_t>(imageID), d, size);
 
 	int bufferID = CreateBuffer(size, eBuffer_Format_Fixed, 1);
 	BufferWriteContent(bufferID, 0, d, size);
@@ -43,7 +43,7 @@ YYEXPORT void GOG_Utils_GetImageRGBA(RValue& Result, CInstance* selfinst, CInsta
 
 YYEXPORT void GOG_Utils_RegisterForNotification(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* type = YYGetString(arg, 0);
 
@@ -52,7 +52,7 @@ YYEXPORT void GOG_Utils_RegisterForNotification(RValue& Result, CInstance* selfi
 
 YYEXPORT void GOG_Utils_GetNotification(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	uint64_t notificationID = YYGetInt64(arg, 0);
 	bool consumable;
@@ -67,7 +67,7 @@ YYEXPORT void GOG_Utils_GetNotification(RValue& Result, CInstance* selfinst, CIn
 
 YYEXPORT void GOG_Utils_ShowOverlayWithWebPage(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* url = YYGetString(arg, 0);
 
@@ -76,7 +76,7 @@ YYEXPORT void GOG_Utils_ShowOverlayWithWebPage(RValue& Result, CInstance* selfin
 
 YYEXPORT void GOG_Utils_IsOverlayVisible(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	Result.kind = VALUE_BOOL;
 	Result.val = galaxy::api::Utils()->IsOverlayVisible();
@@ -84,7 +84,7 @@ YYEXPORT void GOG_Utils_IsOverlayVisible(RValue& Result, CInstance* selfinst, CI
 
 YYEXPORT void GOG_Utils_GetOverlayState(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_REAL
+	GOG_NotInitialisedReturn_REAL;
 
 	Result.kind = VALUE_REAL;
 	Result.val = (int) galaxy::api::Utils()->GetOverlayState();
@@ -92,7 +92,7 @@ YYEXPORT void GOG_Utils_GetOverlayState(RValue& Result, CInstance* selfinst, CIn
 
 YYEXPORT void GOG_Utils_DisableOverlayPopups(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* popupGroup = YYGetString(arg, 0);
 
@@ -101,7 +101,7 @@ YYEXPORT void GOG_Utils_DisableOverlayPopups(RValue& Result, CInstance* selfinst
 
 YYEXPORT void GOG_Utils_GetGogServicesConnectionState(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_REAL
+	GOG_NotInitialisedReturn_REAL;
 
 	Result.kind = VALUE_REAL;
 	Result.val = (int) galaxy::api::Utils()->GetGogServicesConnectionState();

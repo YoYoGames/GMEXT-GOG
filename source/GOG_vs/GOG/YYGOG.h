@@ -13,5 +13,5 @@ extern bool GOG_isInitialised;
 #define GOG_NotInitialisedReturn_STRING if (!GOG_isInitialised) {Result.kind = VALUE_STRING; YYCreateString(&Result, ""); return; }
 #define GOG_NotInitialisedReturn_STRUCT if (!GOG_isInitialised){ YYStructCreate(&Result); return; }
 #define GOG_NotInitialisedReturn_INT32 if (!GOG_isInitialised) { Result.kind = VALUE_INT32; Result.val = 1; return; }
-#define GOG_NotInitialisedReturn_INT64 if (!GOG_isInitialised) { Result.kind = VALUE_INT64; Result.v64 = 0.0; return; }
+#define GOG_NotInitialisedReturn_INT64 if (!GOG_isInitialised) { Result.kind = VALUE_INT64; Result.v64 = 0; return; }
 #define GOG_NotInitialisedReturn_REAL if (!GOG_isInitialised) { Result.kind = VALUE_REAL; Result.val = 0.0; return; }

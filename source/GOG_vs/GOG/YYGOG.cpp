@@ -16,14 +16,14 @@ void OldPreGraphicsInitialisation()
 
 YYEXPORT void GOG_ProcessData(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	galaxy::api::ProcessData();
 }
 
 YYEXPORT void GOG_GetError(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_STRUCT
+	GOG_NotInitialisedReturn_STRUCT;
 
 	const galaxy::api::IError *error = galaxy::api::GetError();
 
@@ -59,7 +59,7 @@ RValue getStructFromGalaxyID(galaxy::api::GalaxyID ID)
 
 galaxy::api::GalaxyID GalaxyIDFromStruct(RValue* _struct)
 {
-	int type = YYStructGetMember(_struct, "IDType")->val;
+	double type = YYStructGetMember(_struct, "IDType")->val;
 	uint64_t value = YYStructGetMember(_struct, "ID")->v64;
 
 	return galaxy::api::GalaxyID::FromRealID((galaxy::api::GalaxyID::IDType)type, value);

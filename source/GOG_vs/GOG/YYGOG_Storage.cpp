@@ -4,18 +4,17 @@
 
 YYEXPORT void GOG_Storage_FileWrite(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* fileName = YYGetString(arg, 0);
 	double buffer = YYGetReal(arg, 1);
-	//int32 size = YYGetInt32(arg, 1);
 
 	DebugConsoleOutput("GOG_Storage_FileWrite buffer: %i\n", buffer);
 
 	unsigned char* buffer_data;
 	int buffer_size;
 
-	if (!BufferGetContent(buffer, (void**)(&buffer_data), &buffer_size))
+	if (!BufferGetContent(static_cast<int32_t>(buffer), (void**)(&buffer_data), &buffer_size))
 	{
 		DebugConsoleOutput("GOG_Storage_FileWrite - error: specified buffer not found\n");
 		return;
@@ -25,11 +24,13 @@ YYEXPORT void GOG_Storage_FileWrite(RValue& Result, CInstance* selfinst, CInstan
 	//	size = buffer_size;
 	DebugConsoleOutput("GOG_Storage_FileWrite size: %i\n", buffer_size);
 	galaxy::api::Storage()->FileWrite(fileName, buffer_data, buffer_size);
+
+	YYFree(buffer_data);
 }
 
 YYEXPORT void GOG_Storage_FileRead(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_REAL
+	GOG_NotInitialisedReturn_REAL;
 
 	const char* fileName = YYGetString(arg, 0);
 	DebugConsoleOutput("GOG_Storage_FileRead\n");
@@ -63,7 +64,7 @@ YYEXPORT void GOG_Storage_FileRead(RValue& Result, CInstance* selfinst, CInstanc
 
 YYEXPORT void GOG_Storage_FileDelete(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* fileName = YYGetString(arg, 0);
 	galaxy::api::Storage()->FileDelete(fileName);
@@ -71,7 +72,7 @@ YYEXPORT void GOG_Storage_FileDelete(RValue& Result, CInstance* selfinst, CInsta
 
 YYEXPORT void GOG_Storage_FileExists(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* fileName = YYGetString(arg, 0);
 	Result.kind = VALUE_BOOL;
@@ -80,7 +81,7 @@ YYEXPORT void GOG_Storage_FileExists(RValue& Result, CInstance* selfinst, CInsta
 
 YYEXPORT void GOG_Storage_GetFileSize(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 	
 	const char* fileName = YYGetString(arg, 0);
 	Result.kind = VALUE_REAL;
@@ -89,7 +90,7 @@ YYEXPORT void GOG_Storage_GetFileSize(RValue& Result, CInstance* selfinst, CInst
 
 YYEXPORT void GOG_Storage_GetFileTimestamp(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* fileName = YYGetString(arg, 0);
 	Result.kind = VALUE_REAL;
@@ -98,7 +99,7 @@ YYEXPORT void GOG_Storage_GetFileTimestamp(RValue& Result, CInstance* selfinst, 
 
 YYEXPORT void GOG_Storage_GetFileCount(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	Result.kind = VALUE_REAL;
 	Result.val = galaxy::api::Storage()->GetFileCount();
@@ -106,10 +107,10 @@ YYEXPORT void GOG_Storage_GetFileCount(RValue& Result, CInstance* selfinst, CIns
 
 YYEXPORT void GOG_Storage_GetFileNameByIndex(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
-	int index = YYGetReal(arg, 0);
-	YYCreateString(&Result, galaxy::api::Storage()->GetFileNameByIndex(index));
+	double index = YYGetReal(arg, 0);
+	YYCreateString(&Result, galaxy::api::Storage()->GetFileNameByIndex(static_cast<uint32_t>(index)));
 }
 
 //YYEXPORT void GOG_Storage_GetFileNameCopyByIndex(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -143,7 +144,7 @@ public:
 };
 YYEXPORT void GOG_Storage_FileShare(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* fileName = YYGetString(arg, 0);
 
@@ -177,7 +178,7 @@ public:
 };
 YYEXPORT void GOG_Storage_DownloadSharedFile(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	uint64_t sharedFileID = YYGetInt64(arg, 0);
 
@@ -187,7 +188,7 @@ YYEXPORT void GOG_Storage_DownloadSharedFile(RValue& Result, CInstance* selfinst
 
 YYEXPORT void GOG_Storage_GetSharedFileName(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_STRING
+	GOG_NotInitialisedReturn_STRING;
 
 	uint64_t sharedFileID = YYGetInt64(arg, 0);
 	YYCreateString(&Result, galaxy::api::Storage()->GetSharedFileName(sharedFileID));
@@ -200,7 +201,7 @@ YYEXPORT void GOG_Storage_GetSharedFileName(RValue& Result, CInstance* selfinst,
 
 YYEXPORT void GOG_Storage_GetSharedFileSize(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_REAL
+	GOG_NotInitialisedReturn_REAL;
 
 	uint64_t sharedFileID = YYGetInt64(arg, 0);
 	Result.kind = VALUE_REAL;
@@ -209,7 +210,7 @@ YYEXPORT void GOG_Storage_GetSharedFileSize(RValue& Result, CInstance* selfinst,
 
 YYEXPORT void GOG_Storage_GetSharedFileOwner(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_STRUCT
+	GOG_NotInitialisedReturn_STRUCT;
 
 	uint64_t sharedFileID = YYGetInt64(arg, 0);
 	galaxy::api::GalaxyID userID = galaxy::api::Storage()->GetSharedFileOwner(sharedFileID);
@@ -223,7 +224,7 @@ YYEXPORT void GOG_Storage_GetSharedFileOwner(RValue& Result, CInstance* selfinst
 
 YYEXPORT void GOG_Storage_SharedFileRead(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_REAL
+	GOG_NotInitialisedReturn_REAL;
 
 	uint64_t sharedFileID = YYGetInt64(arg, 0);
 	
@@ -244,7 +245,7 @@ YYEXPORT void GOG_Storage_SharedFileRead(RValue& Result, CInstance* selfinst, CI
 
 YYEXPORT void GOG_Storage_SharedFileClose(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	uint64_t sharedFileID = YYGetInt64(arg, 0);
 	galaxy::api::Storage()->SharedFileClose(sharedFileID);
@@ -252,7 +253,7 @@ YYEXPORT void GOG_Storage_SharedFileClose(RValue& Result, CInstance* selfinst, C
 
 YYEXPORT void GOG_Storage_GetDownloadedSharedFileCount(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_REAL
+	GOG_NotInitialisedReturn_REAL;
 
 	Result.kind = VALUE_REAL;
 	Result.val = galaxy::api::Storage()->GetDownloadedSharedFileCount();
@@ -260,10 +261,10 @@ YYEXPORT void GOG_Storage_GetDownloadedSharedFileCount(RValue& Result, CInstance
 
 YYEXPORT void GOG_Storage_GetDownloadedSharedFileByIndex(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_INT64
+	GOG_NotInitialisedReturn_INT64;
 
-	int index = YYGetReal(arg, 0);
+	double index = YYGetReal(arg, 0);
 
 	Result.kind = VALUE_INT64;
-	Result.v64 = galaxy::api::Storage()->GetDownloadedSharedFileByIndex(index);
+	Result.v64 = galaxy::api::Storage()->GetDownloadedSharedFileByIndex(static_cast<uint32_t>(index));
 }

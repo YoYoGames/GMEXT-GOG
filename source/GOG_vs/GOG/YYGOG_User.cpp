@@ -4,7 +4,7 @@
 
 YYEXPORT void GOG_User_SignedIn(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     Result.kind = VALUE_BOOL;
     Result.val = galaxy::api::User()->SignedIn();
@@ -12,7 +12,7 @@ YYEXPORT void GOG_User_SignedIn(RValue& Result, CInstance* selfinst, CInstance* 
 
 YYEXPORT void GOG_User_GetGalaxyID(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_STRING
+    GOG_NotInitialisedReturn_STRING;
 
     RValue Struct = getStructFromGalaxyID(galaxy::api::User()->GetGalaxyID());
 
@@ -64,7 +64,7 @@ public:
 
 YYEXPORT void GOG_User_SignInCredentials(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     const char* login = YYGetString(arg, 0);
     const char* password = YYGetString(arg, 1);
@@ -76,7 +76,7 @@ YYEXPORT void GOG_User_SignInCredentials(RValue& Result, CInstance* selfinst, CI
 
 YYEXPORT void GOG_User_SignInToken(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     const char* refreshToken = YYGetString(arg, 0);
 
@@ -87,7 +87,7 @@ YYEXPORT void GOG_User_SignInToken(RValue& Result, CInstance* selfinst, CInstanc
 
 YYEXPORT void GOG_User_SignInLauncher(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     YYIAuthListener* callback = new YYIAuthListener();
     callback->event = "GOG_User_SignInLauncher";
@@ -101,7 +101,7 @@ YYEXPORT void GOG_User_SignInLauncher(RValue& Result, CInstance* selfinst, CInst
 
 YYEXPORT void GOG_User_SignInGalaxy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     bool requireOnline = YYGetBool(arg, 0);
     YYIAuthListener* callback = new YYIAuthListener();
@@ -119,7 +119,7 @@ YYEXPORT void GOG_User_SignInGalaxy(RValue& Result, CInstance* selfinst, CInstan
 
 YYEXPORT void GOG_User_SignInPS4(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     const char* ps4ClientID = YYGetString(arg, 0);
 
@@ -130,7 +130,7 @@ YYEXPORT void GOG_User_SignInPS4(RValue& Result, CInstance* selfinst, CInstance*
 
 YYEXPORT void GOG_User_SignInXB1(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     const char* xbocOneClientID = YYGetString(arg, 0);
 
@@ -141,7 +141,7 @@ YYEXPORT void GOG_User_SignInXB1(RValue& Result, CInstance* selfinst, CInstance*
 
 YYEXPORT void GOG_User_SignInXBLive(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     const char* token = YYGetString(arg, 0);
     const char* signature = YYGetString(arg, 1);
@@ -155,7 +155,7 @@ YYEXPORT void GOG_User_SignInXBLive(RValue& Result, CInstance* selfinst, CInstan
 
 YYEXPORT void GOG_User_SignInAnonymous(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     YYIAuthListener* callback = new YYIAuthListener();
     callback->event = "GOG_User_SignInAnonymous";
@@ -164,7 +164,7 @@ YYEXPORT void GOG_User_SignInAnonymous(RValue& Result, CInstance* selfinst, CIns
 
 YYEXPORT void GOG_User_SignInAnonymousTelemetry(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     YYIAuthListener* callback = new YYIAuthListener();
     callback->event = "GOG_User_SignInAnonymousTelemetry";
@@ -173,7 +173,7 @@ YYEXPORT void GOG_User_SignInAnonymousTelemetry(RValue& Result, CInstance* selfi
 
 YYEXPORT void GOG_User_SignInServerKey(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     const char* serverKey = YYGetString(arg, 0);
 
@@ -184,7 +184,7 @@ YYEXPORT void GOG_User_SignInServerKey(RValue& Result, CInstance* selfinst, CIns
 
 YYEXPORT void GOG_User_SignOut(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     galaxy::api::User()->SignOut();
 }
@@ -204,7 +204,7 @@ public:
 };
 YYEXPORT void GOG_User_RequestUserData(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     RValue* pV = &(arg[0]);
     galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
@@ -216,7 +216,7 @@ YYEXPORT void GOG_User_RequestUserData(RValue& Result, CInstance* selfinst, CIns
 
 YYEXPORT void GOG_User_IsUserDataAvailable(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     RValue* pV = &(arg[0]);
     galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
@@ -227,7 +227,7 @@ YYEXPORT void GOG_User_IsUserDataAvailable(RValue& Result, CInstance* selfinst, 
 
 YYEXPORT void GOG_User_GetUserData(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     const char* key = YYGetString(arg, 0);
 
@@ -244,7 +244,7 @@ YYEXPORT void GOG_User_GetUserData(RValue& Result, CInstance* selfinst, CInstanc
 
 YYEXPORT void GOG_User_SetUserData(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     const char* key = YYGetString(arg, 0);
     const char* value = YYGetString(arg, 1);
@@ -256,7 +256,7 @@ YYEXPORT void GOG_User_SetUserData(RValue& Result, CInstance* selfinst, CInstanc
 
 YYEXPORT void GOG_User_GetUserDataCount(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_REAL
+    GOG_NotInitialisedReturn_REAL;
 
     RValue* pV = &(arg[0]);
     galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
@@ -267,16 +267,16 @@ YYEXPORT void GOG_User_GetUserDataCount(RValue& Result, CInstance* selfinst, CIn
 
 YYEXPORT void GOG_User_GetUserDataByIndex(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_STRUCT
+    GOG_NotInitialisedReturn_STRUCT;
 
-    int index = YYGetReal(arg, 0);
+    double index = YYGetReal(arg, 0);
     RValue* pV = &(arg[1]);
     galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
     
     char key[9999];
     char value[9999];
 
-    galaxy::api::User()->GetUserDataByIndex(index,key,9999,value,9999,userID);
+    galaxy::api::User()->GetUserDataByIndex(static_cast<uint32_t>(index), key, 9999, value, 9999, userID);
 
     RValue Struct = { 0 };
     YYStructCreate(&Struct);
@@ -290,7 +290,7 @@ YYEXPORT void GOG_User_GetUserDataByIndex(RValue& Result, CInstance* selfinst, C
 
 YYEXPORT void GOG_User_DeleteUserData(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     const char* key = YYGetString(arg, 0);
 
@@ -301,7 +301,7 @@ YYEXPORT void GOG_User_DeleteUserData(RValue& Result, CInstance* selfinst, CInst
 
 YYEXPORT void GOG_User_IsLoggedOn(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     Result.kind = VALUE_BOOL;
     Result.val = galaxy::api::User()->IsLoggedOn();
@@ -337,7 +337,7 @@ YYEXPORT void GOG_User_RequestEncryptedAppTicket(RValue& Result, CInstance* self
     unsigned char* buffer_data;
     int buffer_size;
 
-    if (!BufferGetContent(bufferId, (void**)(&buffer_data), &buffer_size))
+    if (!BufferGetContent(static_cast<int32_t>(bufferId), (void**)(&buffer_data), &buffer_size))
     {
         DebugConsoleOutput("steam_user_request_encrypted_app_ticket() - error: specified buffer not found\n");
         Result.kind = VALUE_BOOL;
@@ -351,6 +351,8 @@ YYEXPORT void GOG_User_RequestEncryptedAppTicket(RValue& Result, CInstance* self
     callback->event = "GOG_User_RequestEncryptedAppTicket";
 
     galaxy::api::User()->RequestEncryptedAppTicket(buffer_data, buffer_size, callback);
+
+    YYFree(buffer_data);
 }
 
 YYEXPORT void GOG_User_GetEncryptedAppTicket(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -369,15 +371,15 @@ YYEXPORT void GOG_User_GetEncryptedAppTicket(RValue& Result, CInstance* selfinst
 
 YYEXPORT void GOG_User_GetSessionID(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_REAL
+    GOG_NotInitialisedReturn_REAL;
 
-    Result.kind = VALUE_REAL;
-    Result.val = galaxy::api::User()->GetSessionID();
+    Result.kind = VALUE_INT64;
+    Result.v64 = static_cast<uint64_t>(galaxy::api::User()->GetSessionID());
 }
 
 YYEXPORT void GOG_User_GetAccessToken(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_STRING
+    GOG_NotInitialisedReturn_STRING;
 
     YYCreateString(&Result, galaxy::api::User()->GetAccessToken());
 }
@@ -389,7 +391,7 @@ YYEXPORT void GOG_User_GetAccessToken(RValue& Result, CInstance* selfinst, CInst
 
 YYEXPORT void GOG_User_ReportInvalidAccessToken(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_BOOL
+    GOG_NotInitialisedReturn_BOOL;
 
     const char* accessToken = YYGetString(arg, 0);
     const char* info = YYGetString(arg, 1);
@@ -401,7 +403,7 @@ YYEXPORT void GOG_User_ReportInvalidAccessToken(RValue& Result, CInstance* selfi
 
 YYEXPORT void GOG_User_GetRefreshToken(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-    GOG_NotInitialisedReturn_STRING
+    GOG_NotInitialisedReturn_STRING;
 
     YYCreateString(&Result, galaxy::api::User()->GetRefreshToken());
 }

@@ -30,7 +30,7 @@ public:
 };
 YYEXPORT void GOG_Stats_RequestUserStatsAndAchievements(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	RValue* pV = &(arg[0]);
 
@@ -42,7 +42,7 @@ YYEXPORT void GOG_Stats_RequestUserStatsAndAchievements(RValue& Result, CInstanc
 
 YYEXPORT void GOG_Stats_GetStatInt(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_REAL
+	GOG_NotInitialisedReturn_REAL;
 
 	const char* name = YYGetString(arg, 0);
 
@@ -56,7 +56,7 @@ YYEXPORT void GOG_Stats_GetStatInt(RValue& Result, CInstance* selfinst, CInstanc
 
 YYEXPORT void GOG_Stats_GetStatFloat(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* name = YYGetString(arg, 0);
 
@@ -69,7 +69,7 @@ YYEXPORT void GOG_Stats_GetStatFloat(RValue& Result, CInstance* selfinst, CInsta
 
 YYEXPORT void GOG_Stats_SetStatInt(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* name = YYGetString(arg, 0);
 	int32_t value = (int32_t)YYGetReal(arg, 1);
@@ -79,7 +79,7 @@ YYEXPORT void GOG_Stats_SetStatInt(RValue& Result, CInstance* selfinst, CInstanc
 
 YYEXPORT void GOG_Stats_SetStatFloat(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* name = YYGetString(arg, 0);
 	double value = YYGetReal(arg, 1);
@@ -89,7 +89,7 @@ YYEXPORT void GOG_Stats_SetStatFloat(RValue& Result, CInstance* selfinst, CInsta
 
 YYEXPORT void GOG_Stats_UpdateAvgRateStat(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* name = YYGetString(arg, 0);
 	double countThisSession = YYGetReal(arg, 1);
@@ -100,7 +100,7 @@ YYEXPORT void GOG_Stats_UpdateAvgRateStat(RValue& Result, CInstance* selfinst, C
 
 YYEXPORT void GOG_Stats_GetAchievement(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_STRUCT
+	GOG_NotInitialisedReturn_STRUCT;
 
 	const char* name = YYGetString(arg, 0);
 
@@ -127,7 +127,7 @@ YYEXPORT void GOG_Stats_GetAchievement(RValue& Result, CInstance* selfinst, CIns
 
 YYEXPORT void GOG_Stats_SetAchievement(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* name = YYGetString(arg, 0);
 
@@ -136,7 +136,7 @@ YYEXPORT void GOG_Stats_SetAchievement(RValue& Result, CInstance* selfinst, CIns
 
 YYEXPORT void GOG_Stats_ClearAchievement(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* name = YYGetString(arg, 0);
 
@@ -167,7 +167,7 @@ public:
 };
 YYEXPORT void GOG_Stats_StoreStatsAndAchievements(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	YYIStatsAndAchievementsStoreListener* callback = new YYIStatsAndAchievementsStoreListener();
 	callback->event = "GOG_Stats_StoreStatsAndAchievements";
@@ -176,7 +176,7 @@ YYEXPORT void GOG_Stats_StoreStatsAndAchievements(RValue& Result, CInstance* sel
 
 YYEXPORT void GOG_Stats_ResetStatsAndAchievements(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	YYIStatsAndAchievementsStoreListener* callback = new YYIStatsAndAchievementsStoreListener();
 	callback->event = "GOG_Stats_ResetStatsAndAchievements";
@@ -185,7 +185,7 @@ YYEXPORT void GOG_Stats_ResetStatsAndAchievements(RValue& Result, CInstance* sel
 
 YYEXPORT void GOG_Stats_GetAchievementDisplayName(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_STRING
+	GOG_NotInitialisedReturn_STRING;
 
 	const char* name = YYGetString(arg, 0);
 
@@ -199,7 +199,7 @@ YYEXPORT void GOG_Stats_GetAchievementDisplayName(RValue& Result, CInstance* sel
 
 YYEXPORT void GOG_Stats_GetAchievementDescription(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_STRING
+	GOG_NotInitialisedReturn_STRING;
 
 	const char* name = YYGetString(arg, 0);
 
@@ -213,7 +213,7 @@ YYEXPORT void GOG_Stats_GetAchievementDescription(RValue& Result, CInstance* sel
 
 YYEXPORT void GOG_Stats_IsAchievementVisible(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* name = YYGetString(arg, 0);
 
@@ -223,7 +223,7 @@ YYEXPORT void GOG_Stats_IsAchievementVisible(RValue& Result, CInstance* selfinst
 
 YYEXPORT void GOG_Stats_IsAchievementVisibleWhileLocked(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* name = YYGetString(arg, 0);
 
@@ -254,7 +254,7 @@ public:
 };
 YYEXPORT void GOG_Stats_RequestLeaderboards(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	YYILeaderboardsRetrieveListener* callback = new YYILeaderboardsRetrieveListener();
 	galaxy::api::Stats()->RequestLeaderboards(callback);
@@ -262,7 +262,7 @@ YYEXPORT void GOG_Stats_RequestLeaderboards(RValue& Result, CInstance* selfinst,
 
 YYEXPORT void GOG_Stats_GetLeaderboardDisplayName(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_STRING
+	GOG_NotInitialisedReturn_STRING;
 
 	const char* name = YYGetString(arg, 0);
 
@@ -277,7 +277,7 @@ YYEXPORT void GOG_Stats_GetLeaderboardDisplayName(RValue& Result, CInstance* sel
 
 YYEXPORT void GOG_Stats_GetLeaderboardSortMethod(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* name = YYGetString(arg, 0);
 
@@ -287,7 +287,7 @@ YYEXPORT void GOG_Stats_GetLeaderboardSortMethod(RValue& Result, CInstance* self
 
 YYEXPORT void GOG_Stats_GetLeaderboardDisplayType(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_REAL
+	GOG_NotInitialisedReturn_REAL;
 
 	const char* name = YYGetString(arg, 0);
 
@@ -335,7 +335,6 @@ public:
 				YYFree(pData);
 			}
 
-			YYStructAddInt64(&entryStruct, "index", index);
 			YYStructAddDouble(&entryStruct, "rank", rank);
 			YYStructAddDouble(&entryStruct, "score", score);
 
@@ -366,7 +365,7 @@ public:
 
 YYEXPORT void GOG_Stats_RequestLeaderboardEntriesGlobal(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* name = YYGetString(arg, 0);
 	int32_t rangeStart = YYGetInt32(arg, 1);
@@ -379,7 +378,7 @@ YYEXPORT void GOG_Stats_RequestLeaderboardEntriesGlobal(RValue& Result, CInstanc
 
 YYEXPORT void GOG_Stats_RequestLeaderboardEntriesAroundUser(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* name = YYGetString(arg, 0);
 	int32_t countBefore = YYGetInt32(arg, 1);
@@ -429,7 +428,7 @@ public:
 };
 YYEXPORT void GOG_Stats_SetLeaderboardScore(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* name = YYGetString(arg, 0);
 	double score = YYGetReal(arg, 1);
@@ -442,7 +441,7 @@ YYEXPORT void GOG_Stats_SetLeaderboardScore(RValue& Result, CInstance* selfinst,
 
 YYEXPORT void GOG_Stats_SetLeaderboardScoreWithDetails(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	YYILeaderboardScoreUpdateListener* callback = new YYILeaderboardScoreUpdateListener();
 	callback->event = "GOG_Stats_SetLeaderboardScoreWithDetails";
@@ -466,7 +465,7 @@ YYEXPORT void GOG_Stats_SetLeaderboardScoreWithDetails(RValue& Result, CInstance
 
 YYEXPORT void GOG_Stats_GetLeaderboardEntryCount(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* name = YYGetString(arg, 0);
 
@@ -500,7 +499,7 @@ public:
 };
 YYEXPORT void GOG_Stats_FindLeaderboard(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* name = YYGetString(arg, 0);
 
@@ -511,7 +510,7 @@ YYEXPORT void GOG_Stats_FindLeaderboard(RValue& Result, CInstance* selfinst, CIn
 
 YYEXPORT void GOG_Stats_FindOrCreateLeaderboard(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	const char* name = YYGetString(arg, 0);
 	const char* displayName = YYGetString(arg, 1);
@@ -550,7 +549,7 @@ public:
 };
 YYEXPORT void GOG_Stats_RequestUserTimePlayed(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 
 	RValue* pV = &(arg[0]);
 	galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
@@ -561,7 +560,7 @@ YYEXPORT void GOG_Stats_RequestUserTimePlayed(RValue& Result, CInstance* selfins
 
 YYEXPORT void GOG_Stats_GetUserTimePlayed(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL
+	GOG_NotInitialisedReturn_BOOL;
 	
 	RValue* pV = &(arg[0]);
 	galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
