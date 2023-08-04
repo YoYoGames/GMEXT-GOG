@@ -166,7 +166,6 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="SimpleDesktopExample.cpp" />
     <ClCompile Include="YYGOG.cpp" />
     <ClCompile Include="YYGOG_Apps.cpp" />

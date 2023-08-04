@@ -72,7 +72,7 @@ YYEXPORT void GOG_Stats_SetStatInt(RValue& Result, CInstance* selfinst, CInstanc
 	GOG_NotInitialisedReturn_BOOL
 
 	const char* name = YYGetString(arg, 0);
-	int value = YYGetReal(arg, 1);
+	int32_t value = (int32_t)YYGetReal(arg, 1);
 
 	galaxy::api::Stats()->SetStatInt(name,value);
 }
@@ -84,7 +84,7 @@ YYEXPORT void GOG_Stats_SetStatFloat(RValue& Result, CInstance* selfinst, CInsta
 	const char* name = YYGetString(arg, 0);
 	double value = YYGetReal(arg, 1);
 
-	galaxy::api::Stats()->SetStatFloat(name, value);
+	galaxy::api::Stats()->SetStatFloat(name, static_cast<float>(value));
 }
 
 YYEXPORT void GOG_Stats_UpdateAvgRateStat(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -92,10 +92,10 @@ YYEXPORT void GOG_Stats_UpdateAvgRateStat(RValue& Result, CInstance* selfinst, C
 	GOG_NotInitialisedReturn_BOOL
 
 	const char* name = YYGetString(arg, 0);
-	float countThisSession = YYGetReal(arg, 1);
+	double countThisSession = YYGetReal(arg, 1);
 	double sessionLenght = YYGetReal(arg, 2);
 
-	galaxy::api::Stats()->UpdateAvgRateStat(name,countThisSession,sessionLenght);
+	galaxy::api::Stats()->UpdateAvgRateStat(name, static_cast<float>(countThisSession),sessionLenght);
 }
 
 YYEXPORT void GOG_Stats_GetAchievement(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -295,41 +295,34 @@ YYEXPORT void GOG_Stats_GetLeaderboardDisplayType(RValue& Result, CInstance* sel
 	Result.val = galaxy::api::Stats()->GetLeaderboardDisplayType(name);
 }
 
-void _SW_SetArrayOfRValue(RValue* _array, std::vector<RValue> values)
-{
-	for (int i = values.size() - 1; i >= 0; --i)
-	{
-		RValue tag = values[i];
-		SET_RValue(_array, &tag, NULL, i);
-		FREE_RValue(&tag);
-	}
-}
-
 class YYILeaderboardEntriesRetrieveListener : public galaxy::api::ILeaderboardEntriesRetrieveListener
 {
 public:
 	std::string event;
 	virtual void OnLeaderboardEntriesRetrieveSuccess(const char* name, uint32_t entryCount)
 	{
-		std::vector<RValue> vec{};
+		int map = CreateDsMap(0, 0);
+		DsMapAddString(map, "type", event.c_str());
+		DsMapAddString(map, "name", name);
+		DsMapAddDouble(map, "entryCount", entryCount);
 
-		for (auto i = 0; i < entryCount; i++)
+		RValue entriesArray = { 0 };
+		YYCreateArray(&entriesArray);
+
+		for (int32_t index = entryCount - 1; index >= 0; --index)
 		{
-			uint32_t index = 0;
-			uint32_t rank;// = YYGetReal(arg, 1);
-			int32_t score;// = YYGetReal(arg, 2);
+			uint32_t rank;
+			int32_t score;
 			galaxy::api::GalaxyID userID;
 
-			RValue Struct{};
-			YYStructCreate(&Struct);
-
-			//galaxy::api::Stats()->GetRequestedLeaderboardEntry(index, rank, score, userID);
+			RValue entryStruct = { 0 };
+			YYStructCreate(&entryStruct);
 
 			std::vector<uint8_t> data;
 			const int detailsSize = 3071;
 			data.reserve(detailsSize);//limit size
 			uint8_t* details = data.data();
-			//galaxy::api::Friends()->GetFriendAvatarImageRGBA(userID, (galaxy::api::AvatarType)avatarType, d, size);
+
 			uint32_t outDetailsSize;
 			galaxy::api::Stats()->GetRequestedLeaderboardEntryWithDetails(index, rank, score, details, detailsSize, outDetailsSize, userID);
 
@@ -338,29 +331,22 @@ public:
 				int dataSize = (int)(outDetailsSize * 4 / 3) + 1;
 				void* pData = YYAlloc(dataSize);
 				Base64Encode(details, outDetailsSize, pData, dataSize);
-				YYStructAddString(&Struct, "data", (const char*)pData);
+				YYStructAddString(&entryStruct, "data", (const char*)pData);
 				YYFree(pData);
 			}
 
-			YYStructAddInt64(&Struct, "index", index);
-			YYStructAddDouble(&Struct, "rank", rank);
-			YYStructAddDouble(&Struct, "score", score);
+			YYStructAddInt64(&entryStruct, "index", index);
+			YYStructAddDouble(&entryStruct, "rank", rank);
+			YYStructAddDouble(&entryStruct, "score", score);
 
 			RValue _struct = getStructFromGalaxyID(userID);
-			YYStructAddRValue(&Struct, "userID", &_struct);
+			YYStructAddRValue(&entryStruct, "userID", &_struct);
 
-			vec.push_back(Struct);
+			SET_RValue(&entriesArray, &entryStruct, NULL, index);
 		}
 
-		int map = CreateDsMap(0, 0);
-		DsMapAddString(map, "type", event.c_str());
-		DsMapAddString(map, "name", name);
-		DsMapAddDouble(map, "entryCount", entryCount);
+		DsMapAddRValue(map, "entries", &entriesArray);
 
-		RValue Struct{};
-		YYStructCreate(&Struct);
-		_SW_SetArrayOfRValue(&Struct,vec);
-		DsMapAddRValue(map, "entries", &Struct);
 		CreateAsyncEventWithDSMap(map, 70);
 	}
 	virtual void OnLeaderboardEntriesRetrieveFailure(const char* name, FailureReason failureReason)
@@ -383,12 +369,12 @@ YYEXPORT void GOG_Stats_RequestLeaderboardEntriesGlobal(RValue& Result, CInstanc
 	GOG_NotInitialisedReturn_BOOL
 
 	const char* name = YYGetString(arg, 0);
-	int32_t rangeStart = YYGetReal(arg, 1);
-	int32_t rangeEnd = YYGetReal(arg, 2);
+	int32_t rangeStart = YYGetInt32(arg, 1);
+	int32_t rangeEnd = YYGetInt32(arg, 2);
 
 	YYILeaderboardEntriesRetrieveListener* callback = new YYILeaderboardEntriesRetrieveListener();
 	callback->event = "GOG_Stats_RequestLeaderboardEntriesGlobal";
-	galaxy::api::Stats()->RequestLeaderboardEntriesGlobal(name, rangeStart, rangeEnd, callback);
+	galaxy::api::Stats()->RequestLeaderboardEntriesGlobal(name, static_cast<uint32_t>(rangeStart), static_cast<uint32_t>(rangeEnd), callback);
 }
 
 YYEXPORT void GOG_Stats_RequestLeaderboardEntriesAroundUser(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -396,15 +382,15 @@ YYEXPORT void GOG_Stats_RequestLeaderboardEntriesAroundUser(RValue& Result, CIns
 	GOG_NotInitialisedReturn_BOOL
 
 	const char* name = YYGetString(arg, 0);
-	int32_t countBefore = YYGetReal(arg, 1);
-	int32_t countAfter = YYGetReal(arg, 2);
+	int32_t countBefore = YYGetInt32(arg, 1);
+	int32_t countAfter = YYGetInt32(arg, 2);
 
 	RValue* pV = &(arg[3]);
 	galaxy::api::GalaxyID userID = GalaxyIDFromStruct(pV);
 
 	YYILeaderboardEntriesRetrieveListener* callback = new YYILeaderboardEntriesRetrieveListener();
 	callback->event = "GOG_Stats_RequestLeaderboardEntriesAroundUser";
-	galaxy::api::Stats()->RequestLeaderboardEntriesAroundUser(name, countBefore, countAfter,userID,callback);
+	galaxy::api::Stats()->RequestLeaderboardEntriesAroundUser(name, static_cast<uint32_t>(countBefore), static_cast<uint32_t>(countAfter), userID, callback);
 }
 
 //YYEXPORT void GOG_Stats_RequestLeaderboardEntriesForUsers(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -446,12 +432,12 @@ YYEXPORT void GOG_Stats_SetLeaderboardScore(RValue& Result, CInstance* selfinst,
 	GOG_NotInitialisedReturn_BOOL
 
 	const char* name = YYGetString(arg, 0);
-	uint32_t score = YYGetReal(arg, 1);
+	double score = YYGetReal(arg, 1);
 	bool forceUpdate = YYGetBool(arg, 2);
 	
 	YYILeaderboardScoreUpdateListener* callback = new YYILeaderboardScoreUpdateListener();
 	callback->event = "GOG_Stats_SetLeaderboardScore";
-	galaxy::api::Stats()->SetLeaderboardScore(name,score, forceUpdate,callback);
+	galaxy::api::Stats()->SetLeaderboardScore(name, static_cast<uint32_t>(score), forceUpdate,callback);
 }
 
 YYEXPORT void GOG_Stats_SetLeaderboardScoreWithDetails(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -462,9 +448,9 @@ YYEXPORT void GOG_Stats_SetLeaderboardScoreWithDetails(RValue& Result, CInstance
 	callback->event = "GOG_Stats_SetLeaderboardScoreWithDetails";
 
 	const char* name = YYGetString(arg, 0);
-	uint32_t score = YYGetReal(arg, 1);
+	double score = YYGetReal(arg, 1);
 	bool forceUpdate = YYGetBool(arg, 2);
-	double buffer = YYGetReal(arg, 3);
+	int32_t buffer = YYGetInt32(arg, 3);
 	//int32 size = YYGetInt32(arg, 1);
 
 	unsigned char* buffer_data;
@@ -475,7 +461,7 @@ YYEXPORT void GOG_Stats_SetLeaderboardScoreWithDetails(RValue& Result, CInstance
 		DebugConsoleOutput("GOG_Stats_SetLeaderboardScoreWithDetails - error: specified buffer not found\n");
 		return;
 	}
-	galaxy::api::Stats()->SetLeaderboardScoreWithDetails(name,score, buffer_data, buffer_size,forceUpdate);
+	galaxy::api::Stats()->SetLeaderboardScoreWithDetails(name, static_cast<uint32_t>(score), buffer_data, buffer_size,forceUpdate);
 }
 
 YYEXPORT void GOG_Stats_GetLeaderboardEntryCount(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -529,8 +515,8 @@ YYEXPORT void GOG_Stats_FindOrCreateLeaderboard(RValue& Result, CInstance* selfi
 
 	const char* name = YYGetString(arg, 0);
 	const char* displayName = YYGetString(arg, 1);
-	int sortMethod = YYGetReal(arg, 2);
-	int displayType = YYGetReal(arg, 3);
+	int sortMethod = YYGetInt32(arg, 2);
+	int displayType = YYGetInt32(arg, 3);
 
 	YYILeaderboardRetrieveListener* callback = new YYILeaderboardRetrieveListener();
 	callback->event = "GOG_Stats_FindOrCreateLeaderboard";
