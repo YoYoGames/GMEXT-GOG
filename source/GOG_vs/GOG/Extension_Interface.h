@@ -232,6 +232,9 @@ struct YYRunnerInterface
 	double (*extOptGetReal)(const char* _ext, const char* _opt);
 
 	bool (*isRunningFromIDE)();
+
+	// New function - putting it at the end to avoid disrupting the existing layout
+	int (*YYArrayGetLength)(RValue* pRValue);
 };
 
 #define __YYDEFINE_EXTENSION_FUNCTIONS__
@@ -389,6 +392,7 @@ inline double extOptGetReal(const char* _ext, const char* _opt) { return g_pYYRu
 
 inline bool isRunningFromIDE() { return g_pYYRunnerInterface->isRunningFromIDE(); };
 
+inline int YYArrayGetLength(RValue* pRValue) { return g_pYYRunnerInterface->YYArrayGetLength(pRValue); }
 
 #define g_LiveConnection	(*g_pYYRunnerInterface->pLiveConnection)
 #define g_HTTP_ID			(*g_pYYRunnerInterface->pHTTP_ID)

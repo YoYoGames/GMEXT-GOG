@@ -83,48 +83,13 @@ YYEXPORT void GOG_Telemetry_SetSamplingClass(RValue& Result, CInstance* selfinst
 	galaxy::api::Telemetry()->SetSamplingClass(name);
 }
 
-class YYITelemetryEventSendListener : public galaxy::api::ITelemetryEventSendListener
-{
-public:
-	std::string event;
-	virtual void OnTelemetryEventSendSuccess(const char* eventType, uint32_t sentEventIndex)
-	{
-		int map = CreateDsMap(0, 0);
-		DsMapAddString(map, "type", event.c_str());
-		DsMapAddString(map, "eventType", eventType);
-		DsMapAddDouble(map, "sentEventIndex", sentEventIndex);
-		CreateAsyncEventWithDSMap(map, 70);
-	}
-	virtual void OnTelemetryEventSendFailure(const char* eventType, uint32_t sentEventIndex, FailureReason failureReason)
-	{
-		int map = CreateDsMap(0, 0);
-		DsMapAddString(map, "type", event.c_str());
-		DsMapAddString(map, "eventType", eventType);
-		DsMapAddDouble(map, "sentEventIndex", sentEventIndex);
-		switch (failureReason)
-		{
-		case FailureReason::FAILURE_REASON_CONNECTION_FAILURE:DsMapAddString(map, "error", "FAILURE_REASON_CONNECTION_FAILURE"); break;
-		case FailureReason::FAILURE_REASON_UNDEFINED: DsMapAddString(map, "error", "FAILURE_REASON_UNDEFINED"); break;
-		case FailureReason::FAILURE_REASON_CLIENT_FORBIDDEN: DsMapAddString(map, "error", "FAILURE_REASON_CLIENT_FORBIDDEN"); break;
-		case FailureReason::FAILURE_REASON_INVALID_DATA: DsMapAddString(map, "error", "FAILURE_REASON_INVALID_DATA"); break;
-		case FailureReason::FAILURE_REASON_NO_SAMPLING_CLASS_IN_CONFIG: DsMapAddString(map, "error", "FAILURE_REASON_NO_SAMPLING_CLASS_IN_CONFIG"); break;
-		case FailureReason::FAILURE_REASON_SAMPLING_CLASS_FIELD_MISSING: DsMapAddString(map, "error", "FAILURE_REASON_SAMPLING_CLASS_FIELD_MISSING"); break;
-		case FailureReason::FAILURE_REASON_EVENT_SAMPLED_OUT: DsMapAddString(map, "error", "FAILURE_REASON_EVENT_SAMPLED_OUT"); break;
-		case FailureReason::FAILURE_REASON_SAMPLING_RESULT_ALREADY_EXIST: DsMapAddString(map, "error", "FAILURE_REASON_SAMPLING_RESULT_ALREADY_EXIST"); break;
-		case FailureReason::FAILURE_REASON_SAMPLING_INVALID_RESULT_PATH: DsMapAddString(map, "error", "FAILURE_REASON_SAMPLING_INVALID_RESULT_PATH"); break;
-		}
-		CreateAsyncEventWithDSMap(map, 70);
-	}
-};
 YYEXPORT void GOG_Telemetry_SendTelemetryEvent(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
 	GOG_NotInitialisedReturn_BOOL;
 
 	const char* eventType = YYGetString(arg, 0);
 
-	YYITelemetryEventSendListener* callback = new YYITelemetryEventSendListener();
-	callback->event = "GOG_Telemetry_SendTelemetryEvent";
-	galaxy::api::Telemetry()->SendTelemetryEvent(eventType, callback);
+	galaxy::api::Telemetry()->SendTelemetryEvent(eventType);
 }
 
 YYEXPORT void GOG_Telemetry_SendAnonymousTelemetryEvent(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -133,9 +98,7 @@ YYEXPORT void GOG_Telemetry_SendAnonymousTelemetryEvent(RValue& Result, CInstanc
 
 	const char* eventType = YYGetString(arg, 0);
 
-	YYITelemetryEventSendListener* callback = new YYITelemetryEventSendListener();
-	callback->event = "GOG_Telemetry_SendTelemetryEvent";
-	galaxy::api::Telemetry()->SendAnonymousTelemetryEvent(eventType,callback);
+	galaxy::api::Telemetry()->SendAnonymousTelemetryEvent(eventType);
 }
 
 YYEXPORT void GOG_Telemetry_GetVisitID(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -144,11 +107,6 @@ YYEXPORT void GOG_Telemetry_GetVisitID(RValue& Result, CInstance* selfinst, CIns
 
 	YYCreateString(&Result, galaxy::api::Telemetry()->GetVisitID());
 }
-
-//YYEXPORT void GOG_Telemetry_GetVisitIDCopy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-//{
-//	//galaxy::api::Telemetry()->GetVisitIDCopy
-//}
 
 YYEXPORT void GOG_Telemetry_ResetVisitID(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {

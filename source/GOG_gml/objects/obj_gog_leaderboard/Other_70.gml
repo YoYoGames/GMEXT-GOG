@@ -1,5 +1,6 @@
 
-if(async_load[?"type"] == "GOG_Stats_RequestLeaderboardEntriesGlobal")
+// this was "GOG_Stats_RequestLeaderboardEntriesGlobal" in older versions
+if(async_load[?"type"] == "GOG_Stats_RequestLeaderboardEntries")
 {
 	var array = async_load[? "entries"];
 	var lenght = array_length(array)
@@ -11,7 +12,8 @@ if(async_load[?"type"] == "GOG_Stats_RequestLeaderboardEntriesGlobal")
 	}
 }
 
-if(async_load[?"type"] == "GOG_Stats_SetLeaderboardScoreWithDetails")
+// this was "GOG_Stats_SetLeaderboardScoreWithDetails" in older versions
+if(async_load[?"type"] == "GOG_Stats_SetLeaderboardScore")
 {
 	GOG_Stats_RequestLeaderboardEntriesGlobal(api_key,0,4);
 }

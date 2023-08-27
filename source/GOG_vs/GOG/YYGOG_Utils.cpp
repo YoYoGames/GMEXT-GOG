@@ -7,8 +7,8 @@ YYEXPORT void GOG_Utils_GetImageSize(RValue& Result, CInstance* selfinst, CInsta
 	GOG_NotInitialisedReturn_STRUCT;
 
 	double imageID = YYGetReal(arg, 0);
-	int32_t width;
-	int32_t height;
+	int32_t width = 0;
+	int32_t height = 0;
 	galaxy::api::Utils()->GetImageSize(static_cast<uint32_t>(imageID), width, height);
 
 	RValue Struct = { 0 };
@@ -27,15 +27,17 @@ YYEXPORT void GOG_Utils_GetImageRGBA(RValue& Result, CInstance* selfinst, CInsta
 
 	double imageID = YYGetReal(arg, 0);
 
-	uint32 size = 32 * 32 * 4;
+	int32_t width = 0, height = 0;
+	galaxy::api::Utils()->GetImageSize(static_cast<uint32_t>(imageID), width, height);
+	size_t size = 4 * static_cast<size_t>(height) * static_cast<size_t>(width) * sizeof(char);
 	std::vector<uint8_t> data;
-	data.reserve(size);
+	data.resize(size);
 	uint8_t* d = data.data();
 
-	galaxy::api::Utils()->GetImageRGBA(static_cast<uint32_t>(imageID), d, size);
+	galaxy::api::Utils()->GetImageRGBA(static_cast<uint32_t>(imageID), d, static_cast<uint32_t>(size));
 
-	int bufferID = CreateBuffer(size, eBuffer_Format_Fixed, 1);
-	BufferWriteContent(bufferID, 0, d, size);
+	int bufferID = CreateBuffer(static_cast<int>(size), eBuffer_Format_Fixed, 1);
+	BufferWriteContent(bufferID, 0, d, static_cast<int>(size));
 
 	Result.kind = VALUE_REAL;
 	Result.val = bufferID;
@@ -52,17 +54,32 @@ YYEXPORT void GOG_Utils_RegisterForNotification(RValue& Result, CInstance* selfi
 
 YYEXPORT void GOG_Utils_GetNotification(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL;
+	GOG_NotInitialisedReturn_STRUCT;
 
 	uint64_t notificationID = YYGetInt64(arg, 0);
-	bool consumable;
-	char type[999];
-	uint32_t type_lenght = 999;
-	void* content[99999];
-	uint32_t content_size = 99999;
-	galaxy::api::Utils()->GetNotification(notificationID, consumable,type, type_lenght,content, content_size);
+	int bufferIdType = YYGetInt32(arg, 1);
+	int bufferIdContent = YYGetInt32(arg, 2);
 
-	//JZAVALA TODO
+	bool consumable = false;
+	
+	void* type = nullptr; int typeSize = 0;
+	void* content = nullptr; int contentSize = 0;
+	YYStructCreate(&Result);
+	if (BufferGetContent(bufferIdType, &type, &typeSize) && BufferGetContent(bufferIdContent, &content, &contentSize))
+	{
+		uint32_t wrote = galaxy::api::Utils()->GetNotification(
+			notificationID,
+			consumable,
+			reinterpret_cast<char*>(type),
+			typeSize,
+			content,
+			contentSize);
+		YYStructAddInt64(&Result, "notificationID", notificationID);
+		YYStructAddBool(&Result, "consumable", consumable);
+		YYStructAddDouble(&Result, "contentWrote", wrote);
+	}
+	YYFree(type);
+	YYFree(content);
 }
 
 YYEXPORT void GOG_Utils_ShowOverlayWithWebPage(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)

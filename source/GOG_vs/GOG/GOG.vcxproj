@@ -165,6 +165,7 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="YYGOG_Listener.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SimpleDesktopExample.cpp" />
@@ -173,6 +174,7 @@
     <ClCompile Include="YYGOG_Chat.cpp" />
     <ClCompile Include="YYGOG_CustomNetworking.cpp" />
     <ClCompile Include="YYGOG_Friends.cpp" />
+    <ClCompile Include="YYGOG_Listener.cpp" />
     <ClCompile Include="YYGOG_Logger.cpp" />
     <ClCompile Include="YYGOG_Matchmaking.cpp" />
     <ClCompile Include="YYGOG_Networking.cpp" />

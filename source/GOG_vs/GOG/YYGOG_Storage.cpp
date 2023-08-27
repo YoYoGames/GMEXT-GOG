@@ -11,8 +11,8 @@ YYEXPORT void GOG_Storage_FileWrite(RValue& Result, CInstance* selfinst, CInstan
 
 	DebugConsoleOutput("GOG_Storage_FileWrite buffer: %i\n", buffer);
 
-	unsigned char* buffer_data;
-	int buffer_size;
+	unsigned char* buffer_data = nullptr;
+	int buffer_size = 0;
 
 	if (!BufferGetContent(static_cast<int32_t>(buffer), (void**)(&buffer_data), &buffer_size))
 	{
@@ -20,8 +20,6 @@ YYEXPORT void GOG_Storage_FileWrite(RValue& Result, CInstance* selfinst, CInstan
 		return;
 	}
 
-	//if (size <= -1 || size > buffer_size) 
-	//	size = buffer_size;
 	DebugConsoleOutput("GOG_Storage_FileWrite size: %i\n", buffer_size);
 	galaxy::api::Storage()->FileWrite(fileName, buffer_data, buffer_size);
 
@@ -50,10 +48,11 @@ YYEXPORT void GOG_Storage_FileRead(RValue& Result, CInstance* selfinst, CInstanc
 	DebugConsoleOutput("GOG_Storage_FileRead size: %i\n",size);
 
 	std::vector<uint8_t> data;
-	data.reserve(size);
+	data.resize(size);
 	uint8_t* d = data.data();
 
-	galaxy::api::Storage()->FileRead(fileName, d, size);
+	// returns how many bytes were actually written
+	size = galaxy::api::Storage()->FileRead(fileName, d, size);
 
 	int bufferID = CreateBuffer(size, eBuffer_Format_Fixed, 1);
 	BufferWriteContent(bufferID, 0, d, size);
@@ -81,7 +80,7 @@ YYEXPORT void GOG_Storage_FileExists(RValue& Result, CInstance* selfinst, CInsta
 
 YYEXPORT void GOG_Storage_GetFileSize(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL;
+	GOG_NotInitialisedReturn_REAL;
 	
 	const char* fileName = YYGetString(arg, 0);
 	Result.kind = VALUE_REAL;
@@ -90,7 +89,7 @@ YYEXPORT void GOG_Storage_GetFileSize(RValue& Result, CInstance* selfinst, CInst
 
 YYEXPORT void GOG_Storage_GetFileTimestamp(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL;
+	GOG_NotInitialisedReturn_REAL;
 
 	const char* fileName = YYGetString(arg, 0);
 	Result.kind = VALUE_REAL;
@@ -99,7 +98,7 @@ YYEXPORT void GOG_Storage_GetFileTimestamp(RValue& Result, CInstance* selfinst, 
 
 YYEXPORT void GOG_Storage_GetFileCount(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL;
+	GOG_NotInitialisedReturn_REAL;
 
 	Result.kind = VALUE_REAL;
 	Result.val = galaxy::api::Storage()->GetFileCount();
@@ -107,83 +106,28 @@ YYEXPORT void GOG_Storage_GetFileCount(RValue& Result, CInstance* selfinst, CIns
 
 YYEXPORT void GOG_Storage_GetFileNameByIndex(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_BOOL;
+	GOG_NotInitialisedReturn_STRING;
 
 	double index = YYGetReal(arg, 0);
 	YYCreateString(&Result, galaxy::api::Storage()->GetFileNameByIndex(static_cast<uint32_t>(index)));
 }
 
-//YYEXPORT void GOG_Storage_GetFileNameCopyByIndex(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-//{
-//	//galaxy::api::Storage()->GetFileNameCopyByIndex();
-//}
-
-class YYIFileShareListener : public galaxy::api::IFileShareListener
-{
-public:
-	virtual void OnFileShareSuccess(const char* fileName, galaxy::api::SharedFileID sharedFileID)
-	{
-		int map = CreateDsMap(0, 0);
-		DsMapAddString(map, "type", "GOG_Storage_FileShare");
-		DsMapAddInt64(map, "sharedFileID", sharedFileID);
-		DsMapAddString(map, "fileName", fileName);
-		CreateAsyncEventWithDSMap(map, 70);
-	}
-	virtual void OnFileShareFailure(const char* fileName, FailureReason failureReason)
-	{
-		int map = CreateDsMap(0, 0);
-		DsMapAddString(map, "type", "GOG_Storage_FileShare");
-		DsMapAddString(map, "fileName", fileName);
-		switch (failureReason)
-		{
-		case FailureReason::FAILURE_REASON_CONNECTION_FAILURE:DsMapAddString(map, "error", "FAILURE_REASON_CONNECTION_FAILURE"); break;
-		case FailureReason::FAILURE_REASON_UNDEFINED: DsMapAddString(map, "error", "FAILURE_REASON_UNDEFINED"); break;
-		}
-		CreateAsyncEventWithDSMap(map, 70);
-	}
-};
 YYEXPORT void GOG_Storage_FileShare(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
 	GOG_NotInitialisedReturn_BOOL;
 
 	const char* fileName = YYGetString(arg, 0);
 
-	YYIFileShareListener* callback = new YYIFileShareListener();
-	galaxy::api::Storage()->FileShare(fileName, callback);
+	galaxy::api::Storage()->FileShare(fileName);
 }
 
-class YYISharedFileDownloadListener : public galaxy::api::ISharedFileDownloadListener
-{
-public:
-	virtual void OnSharedFileDownloadSuccess(galaxy::api::SharedFileID sharedFileID, const char* fileName)
-	{
-		int map = CreateDsMap(0, 0);
-		DsMapAddString(map, "type", "GOG_Storage_DownloadSharedFile");
-		DsMapAddInt64(map, "sharedFileID", sharedFileID);
-		DsMapAddString(map, "fileName", fileName);
-		CreateAsyncEventWithDSMap(map, 70);
-	}
-	virtual void OnSharedFileDownloadFailure(galaxy::api::SharedFileID sharedFileID, FailureReason failureReason)
-	{
-		int map = CreateDsMap(0, 0);
-		DsMapAddString(map, "type", "GOG_Storage_DownloadSharedFile");
-		DsMapAddInt64(map, "sharedFileID", sharedFileID);
-		switch (failureReason)
-		{
-		case FailureReason::FAILURE_REASON_CONNECTION_FAILURE:DsMapAddString(map, "error", "FAILURE_REASON_CONNECTION_FAILURE"); break;
-		case FailureReason::FAILURE_REASON_UNDEFINED: DsMapAddString(map, "error", "FAILURE_REASON_UNDEFINED"); break;
-		}
-		CreateAsyncEventWithDSMap(map, 70);
-	}
-};
 YYEXPORT void GOG_Storage_DownloadSharedFile(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
 	GOG_NotInitialisedReturn_BOOL;
 
 	uint64_t sharedFileID = YYGetInt64(arg, 0);
 
-	YYISharedFileDownloadListener* callback = new YYISharedFileDownloadListener();
-	galaxy::api::Storage()->DownloadSharedFile(sharedFileID, callback);
+	galaxy::api::Storage()->DownloadSharedFile(sharedFileID);
 }
 
 YYEXPORT void GOG_Storage_GetSharedFileName(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -193,11 +137,6 @@ YYEXPORT void GOG_Storage_GetSharedFileName(RValue& Result, CInstance* selfinst,
 	uint64_t sharedFileID = YYGetInt64(arg, 0);
 	YYCreateString(&Result, galaxy::api::Storage()->GetSharedFileName(sharedFileID));
 }
-
-//YYEXPORT void GOG_Storage_GetSharedFileNameCopy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-//{
-//	//galaxy::api::Storage()->GetSharedFileNameCopy
-//}
 
 YYEXPORT void GOG_Storage_GetSharedFileSize(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
@@ -231,10 +170,11 @@ YYEXPORT void GOG_Storage_SharedFileRead(RValue& Result, CInstance* selfinst, CI
 	int size = galaxy::api::Storage()->GetSharedFileSize(sharedFileID);
 
 	std::vector<uint8_t> data;
-	data.reserve(size);
+	data.resize(size);
 	uint8_t* d = data.data();
 
-	galaxy::api::Storage()->SharedFileRead(sharedFileID, d, size);
+	// returns the actual amount written to buffer
+	size = galaxy::api::Storage()->SharedFileRead(sharedFileID, d, size);
 
 	int bufferID = CreateBuffer(size, eBuffer_Format_Fixed, 1);
 	BufferWriteContent(bufferID, 0, d, size);
