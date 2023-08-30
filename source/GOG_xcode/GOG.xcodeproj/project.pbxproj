@@ -49,6 +49,9 @@
 		2B9DEE8D2863A4970090BDEF /* Ref.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B9DEE8A2863A4970090BDEF /* Ref.h */; };
 		2B9DEE8F2863BB460090BDEF /* SimpleDesktopExample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B9DEE8E2863BB460090BDEF /* SimpleDesktopExample.cpp */; };
 		6AEBD9C0292E870500765F3E /* libGOG.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B9DED2E28639F8F0090BDEF /* libGOG.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		84ED00F32A8E2AB500CF2006 /* YYGOG_Listener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84ED00F22A8E2AB500CF2006 /* YYGOG_Listener.cpp */; };
+		84ED00F52A8E2AD000CF2006 /* YYGOG.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ED00F42A8E2AD000CF2006 /* YYGOG.h */; };
+		84ED00F72A8E2ADF00CF2006 /* YYGOG_Listener.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 84ED00F62A8E2ADF00CF2006 /* YYGOG_Listener.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -107,6 +110,9 @@
 		2B9DEE892863A4970090BDEF /* Extension_Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Extension_Interface.h; path = ../GOG_vs/GOG/Extension_Interface.h; sourceTree = "<group>"; };
 		2B9DEE8A2863A4970090BDEF /* Ref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ref.h; path = ../GOG_vs/GOG/Ref.h; sourceTree = "<group>"; };
 		2B9DEE8E2863BB460090BDEF /* SimpleDesktopExample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpleDesktopExample.cpp; path = ../../GOG_vs/GOG/SimpleDesktopExample.cpp; sourceTree = "<group>"; };
+		84ED00F22A8E2AB500CF2006 /* YYGOG_Listener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YYGOG_Listener.cpp; sourceTree = "<group>"; };
+		84ED00F42A8E2AD000CF2006 /* YYGOG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYGOG.h; sourceTree = "<group>"; };
+		84ED00F62A8E2ADF00CF2006 /* YYGOG_Listener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = YYGOG_Listener.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,9 @@
 		2B744CFC292B4CFB00482223 /* GOG */ = {
 			isa = PBXGroup;
 			children = (
+				84ED00F62A8E2ADF00CF2006 /* YYGOG_Listener.hpp */,
+				84ED00F42A8E2AD000CF2006 /* YYGOG.h */,
+				84ED00F22A8E2AB500CF2006 /* YYGOG_Listener.cpp */,
 				2B9DEE8E2863BB460090BDEF /* SimpleDesktopExample.cpp */,
 				2B9DEE712863A4630090BDEF /* YYGOG_Apps.cpp */,
 				2B9DEE782863A4630090BDEF /* YYGOG_Chat.cpp */,
@@ -214,9 +223,11 @@
 				2B9DEE8C2863A4970090BDEF /* Extension_Interface.h in Headers */,
 				2B9DEE092863A41F0090BDEF /* INetworking.h in Headers */,
 				2B9DEE102863A41F0090BDEF /* ICustomNetworking.h in Headers */,
+				84ED00F52A8E2AD000CF2006 /* YYGOG.h in Headers */,
 				2B9DEE8B2863A4970090BDEF /* YYRValue.h in Headers */,
 				2B9DEE0D2863A41F0090BDEF /* ILogger.h in Headers */,
 				2B9DEE8D2863A4970090BDEF /* Ref.h in Headers */,
+				84ED00F72A8E2ADF00CF2006 /* YYGOG_Listener.hpp in Headers */,
 				2B9DEE032863A41F0090BDEF /* GalaxyGameServerApi.h in Headers */,
 				2B9DEE052863A41F0090BDEF /* GalaxyExceptionHelper.h in Headers */,
 				2B9DEE0E2863A41F0090BDEF /* GalaxyAllocator.h in Headers */,
@@ -298,6 +309,7 @@
 				2B9DEE8F2863BB460090BDEF /* SimpleDesktopExample.cpp in Sources */,
 				2B9DEE7C2863A4630090BDEF /* YYGOG_Storage.cpp in Sources */,
 				2B9DEE822863A4630090BDEF /* YYGOG_Logger.cpp in Sources */,
+				84ED00F32A8E2AB500CF2006 /* YYGOG_Listener.cpp in Sources */,
 				2B9DEE842863A4630090BDEF /* YYGOG_Utils.cpp in Sources */,
 				2B9DEE7D2863A4630090BDEF /* YYGOG_Telemetry.cpp in Sources */,
 				2B9DEE812863A4630090BDEF /* YYGOG_Networking.cpp in Sources */,
@@ -421,9 +433,9 @@
 		2B9DED3A28639F8F0090BDEF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C9E7J7HL3D;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXCLUDED_ARCHS = "";
@@ -441,9 +453,9 @@
 		2B9DED3B28639F8F0090BDEF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C9E7J7HL3D;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXCLUDED_ARCHS = "";

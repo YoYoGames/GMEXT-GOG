@@ -6,7 +6,9 @@ switch(async_load[?"type"])
 		if(async_load[?"success"])
 		{
 			var ticket = GOG_User_GetEncryptedAppTicket()
-			show_debug_message("GOG_User_GetEncryptedAppTicket: " + ticket)
+			// this returned a string in older versions, now it returns a buffer
+			show_debug_message("GOG_User_GetEncryptedAppTicket buffer = " + string(ticket))
+			buffer_delete(ticket)
 		}
 		
 	break

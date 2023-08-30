@@ -1,6 +1,8 @@
 
 #include "YYGOG.h"
 #include <string>
+#include "YYGOG_Listener.hpp"
+
 
 bool GOG_isInitialised = false;
 void OldPreGraphicsInitialisation()
@@ -10,8 +12,18 @@ void OldPreGraphicsInitialisation()
 	
 	galaxy::api::InitOptions options(clientID.c_str(), clientSecret.c_str());
 	galaxy::api::Init(options);
+	// poke it once so it registers
+	GMAsyncEventListener::Instance();
 
 	GOG_isInitialised = true;
+}
+
+YYEXPORT void GOG_Shutdown(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	GMAsyncEventListener::Unregister();
+	galaxy::api::Shutdown();
+	GOG_isInitialised = false;
+	DebugConsoleOutput("[GMEXT-GOG]: GOG_Shutdown is done\n");
 }
 
 YYEXPORT void GOG_ProcessData(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -48,19 +60,25 @@ RValue getStructFromGalaxyID(galaxy::api::GalaxyID ID)
 	RValue Struct = { 0 };
 	YYStructCreate(&Struct);
 
-	if (ID != NULL)
-	{
-		YYStructAddInt64(&Struct, "ID", ID.GetRealID());
-		YYStructAddInt(&Struct, "IDType", ID.GetIDType());
-	}
+	// `ID` is always passed by value, so it cannot be null
+	YYStructAddInt64(&Struct, "ID", ID.GetRealID());
+	YYStructAddInt(&Struct, "IDType", ID.GetIDType());
 
 	return Struct;
 }
 
 galaxy::api::GalaxyID GalaxyIDFromStruct(RValue* _struct)
 {
-	double type = YYStructGetMember(_struct, "IDType")->val;
-	uint64_t value = YYStructGetMember(_struct, "ID")->v64;
+	RValue *IDType, *ID;
+	if (_struct == NULL
+		|| ((IDType = YYStructGetMember(_struct, "IDType")) == NULL)
+		|| ((ID = YYStructGetMember(_struct, "ID")) == NULL))
+	{
+		return galaxy::api::GalaxyID();
+	}
+
+	double type = YYGetReal(IDType, 0);
+	uint64_t value = YYGetInt64(ID, 0);
 
 	return galaxy::api::GalaxyID::FromRealID((galaxy::api::GalaxyID::IDType)type, value);
 }

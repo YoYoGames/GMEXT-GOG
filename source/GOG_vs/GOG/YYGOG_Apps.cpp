@@ -1,5 +1,6 @@
 
 #include "YYGOG.h"
+#include "YYGOG_Listener.hpp"
 
 YYEXPORT void GOG_Apps_IsDlcInstalled(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
@@ -11,9 +12,18 @@ YYEXPORT void GOG_Apps_IsDlcInstalled(RValue& Result, CInstance* selfinst, CInst
 	Result.val = galaxy::api::Apps()->IsDlcInstalled((galaxy::api::ProductID)productID);
 }
 
+YYEXPORT void GOG_Apps_IsDlcOwned(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	GOG_NotInitialisedReturn_BOOL;
+
+	int64 productID = YYGetInt64(arg, 0);
+
+	galaxy::api::Apps()->IsDlcOwned((galaxy::api::ProductID)productID, GMAsyncEventListener::Instance());
+}
+
 YYEXPORT void GOG_Apps_GetCurrentGameLanguage(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
-	GOG_NotInitialisedReturn_INT64;
+	GOG_NotInitialisedReturn_STRING;
 
 	int64 productID = YYGetInt64(arg, 0);
 
@@ -22,8 +32,15 @@ YYEXPORT void GOG_Apps_GetCurrentGameLanguage(RValue& Result, CInstance* selfins
 	YYCreateString(&Result, GameLanguage);
 }
 
-//YYEXPORT void GOG_Apps_GetCurrentGameLanguageCopy(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
-//{
-//	galaxy::api::Apps()->GetCurrentGameLanguageCopy()
-//}
+YYEXPORT void GOG_Apps_GetCurrentGameLanguageCode(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
+{
+	GOG_NotInitialisedReturn_STRING;
+
+	int64 productID = YYGetInt64(arg, 0);
+
+	const char* GameLanguageCode = galaxy::api::Apps()->GetCurrentGameLanguageCode((galaxy::api::ProductID)productID);
+
+	YYCreateString(&Result, GameLanguageCode);
+}
+
 
