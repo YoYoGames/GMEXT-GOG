@@ -16,7 +16,11 @@ setupmacOS() {
         logError "Extension is not compatible with the macOS VM export, please use YYC."
         exit 1
     else
-        itemCopyTo $SDK_SOURCE "${YYprojectName}/${YYprojectName}/Supporting Files/libGalaxy64.dylib"
+        # Replace spaces with underscores
+        local _projectName
+        _projectName="${YYprojectName// /_}"
+
+        itemCopyTo $SDK_SOURCE "${_projectName}/${_projectName}/Supporting Files/libGalaxy64.dylib"
     fi
 }
 
