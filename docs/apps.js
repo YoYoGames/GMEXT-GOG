@@ -17,7 +17,7 @@
 /**
  * @func GOG_Apps_IsDlcInstalled
  * @desc This function checks if the specified DLC is installed.
- * @param {type.int64} productID 	The ID of the DLC to check.
+ * @param {type.int64} productID The ID of the DLC to check.
  * @returns {boolean}
  * 
  * @example
@@ -32,6 +32,7 @@
  */
 
 // MODULES
+
 /**
  * @module apps
  * @title Apps

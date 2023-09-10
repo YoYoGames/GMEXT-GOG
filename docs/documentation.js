@@ -1,14 +1,16 @@
 
 /**
  * @module home
- * @title GooglePlayServices
- * @desc This is the GooglePlayServices extension and it provides the developers with a set of tools for creating engaging and appealing games. Here you can find the full available API documentation and guides necessary to get you started with creating your games.
+ * @title GOG Extension
+ * @desc
+ * 
+ * ![](assets/GOGbanner.jpg)
  * 
  * Cross-platform services that make it easier and faster for developers to successfully launch, operate, and scale high-quality games.
  * See the [official page](https://docs.gog.com/galaxyapi/index.html) for more documentation.
  * 
- * @section Guides
- * @desc This section hosts the guides to get you up and running.
+ * @section Setup
+ * @desc Follow these guides to get yourself going on everything you need for your new game.
  * @reference page.setup
  * @section_end
  * 
