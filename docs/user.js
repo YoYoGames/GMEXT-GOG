@@ -53,7 +53,7 @@
  * @func GOG_User_GetGalaxyID
  * @desc This function returns the ID of the user, provided that the user is signed in.
  * 
- * @returns struct (GalaxyID)
+ * @returns {struct.GalaxyID}
  * 
  * @example
  * ```gml
@@ -98,7 +98,7 @@
  * [[WARNING: REQUIREMENT Retrieve the user data first by calling [GOG_User_RequestUserData](#GOG_User_RequestUserData).]]
  * 
  * @param {string} key The name of the property of the user data storage.
- * @param {GalaxyID} userID The ID of the user. It can be omitted when reading own data.
+ * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when reading own data.
  * 
  * @returns {string}
  * 
@@ -117,12 +117,9 @@
  * [[WARNING: REQUIREMENT Retrieve the user data first by calling [GOG_User_RequestUserData](#GOG_User_RequestUserData).]]
  * 
  * @param {real} index Index as an integer in the range of [0, number of entries).
- * @param {GalaxyID} userID The ID of the user. It can be omitted when reading own data.
+ * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when reading own data.
  * 
- * @returns {struct}
- * 
- * @member {string} key The name of the property of the user data storage.
- * @member {string} value The value of the property of the user data storage.
+ * @returns {struct.KeyValuePair}
  * 
  * @example
  * ```gml
@@ -175,7 +172,7 @@
  * 
  * [[warning: REQUIREMENT Retrieve the user data first by calling [GOG_User_RequestUserData](#GOG_User_RequestUserData).]]
  * 
- * @param {GalaxyID} userID The ID of the user. It can be omitted when reading own data.
+ * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when reading own data.
  * 
  * @returns {boolean}
  * 
@@ -210,7 +207,7 @@
  * @desc This function retrieves/refreshes user data storage.
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
- * @param {GalaxyID} userID The ID of the user. It can be omitted when reading own data.
+ * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when reading own data.
  * 
  * @event social
  * @member {string} type `"GOG_User_RequestUserData"`
@@ -244,7 +241,7 @@
  * 
  * @event social
  * @member {string} type `"GOG_User_SetUserData"`
- * @member {GalaxyID} userID The ID of the user.
+ * @member {struct.GalaxyID} userID The ID of the user.
  * @event_end
  * 
  * @example
@@ -284,35 +281,35 @@
  */
 
 /**
- @func GOG_User_SignInAnonymous
- @desc This function authenticates the Galaxy Game Server anonymously.
- This is an asynchronous function that will trigger a ${event.social} when the task is finished.
- 
- @event social
- @member {string} type `"GOG_User_SignInAnonymous"`
- @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
- @event_end
- 
- @example
- ```gml
- GOG_User_SignInAnonymous();
- ```
- The code sample above starts a task for signing in anonymously, which results can be caught inside a ${event.social}.
- 
- ```gml
- if (async_load[? "type"] == "GOG_User_SignInAnonymous")
- {
-     if (ds_map_exists(async_load, "error"))
-     {
-         show_debug_message(async_load[?"error"]);
-         exit;
-     }
- 
-     show_debug_message(" SignInAnonymous SUCCESS");
- }
- ```
- This code sample provides an example of handling the returned callback data.
- @func_end
+ * @func GOG_User_SignInAnonymous
+ * @desc This function authenticates the Galaxy Game Server anonymously.
+ * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
+ * 
+ * @event social
+ * @member {string} type `"GOG_User_SignInAnonymous"`
+ * @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
+ * @event_end
+ * 
+ * @example
+ * ```gml
+ * GOG_User_SignInAnonymous();
+ * ```
+ * The code sample above starts a task for signing in anonymously, which results can be caught inside a ${event.social}.
+ * 
+ * ```gml
+ * if (async_load[? "type"] == "GOG_User_SignInAnonymous")
+ * {
+ *     if (ds_map_exists(async_load, "error"))
+ *     {
+ *         show_debug_message(async_load[?"error"]);
+ *         exit;
+ *     }
+ * 
+ *     show_debug_message(" SignInAnonymous SUCCESS");
+ * }
+ * ```
+ * This code sample provides an example of handling the returned callback data.
+ * @func_end
  */
 
 /**
@@ -532,13 +529,24 @@
  */
 
 /**
-@struct GalaxyID
+ * @struct GalaxyID
  * @desc This structure represents a GOG ID (User or Lobby) and is used all across the GOG API as either a return value or function argument.
  * 
  * [[WARNING: These values shouldn't be used or changed and are to be passed back into the extension to perform the desired actions.]]
  * 
- * @param {real} ID The real ID value.
- * @param {real} IDType The type of the ID.
+ * @member {real} ID The real ID value.
+ * @member {real} IDType The type of the ID.
+ * 
+ * @struct_end
+ */
+
+/**
+ * @struct KeyValuePair
+ * @desc A struct containing a key-value pair.
+ * 
+ * @member {string} key The name of the property of the user data storage.
+ * @member {string} value The value of the property of the user data storage.
+ * 
  * @struct_end
  */
 

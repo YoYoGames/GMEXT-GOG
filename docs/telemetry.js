@@ -236,9 +236,10 @@
  * ```
  * The code above provides a simple usage example.
  * @func_end
- *  */
- * 
- * /**@func GOG_Telemetry_ResetVisitID
+ */
+ 
+/**
+ * @func GOG_Telemetry_ResetVisitID
  * @desc This function resets the current VisitID.
  * 
  * > **:information_source: NOTE**
@@ -339,5 +340,6 @@
  * @ref GOG_Telemetry_SendAnonymousTelemetryEvent
  * @ref GOG_Telemetry_SendTelemetryEvent
  * @ref GOG_Telemetry_SetSamplingClass
+ * @section_end
  * @module_end
  */

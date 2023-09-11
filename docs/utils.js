@@ -45,7 +45,7 @@
  * 
  * @param {real} imageID The ID of the image.
  * 
- * @returns {Id.Buffer}
+ * @returns {type.buffer}
  * 
  * @example 
  * ```gml
@@ -88,7 +88,7 @@
  * @func GOG_Utils_GetOverlayState
  * @desc This function returns the current state of the overlay.
  * 
- * @returns {real} OverlayState
+ * @returns {struct.OverlayState}
  * 
  * @example 
  * ```gml

@@ -85,7 +85,7 @@
  * 
  * @param {string} fileName The name of the file in the form of a path
  * 
- * @returns {id.buffer}
+ * @returns {type.buffer}
  * 
  * @example
  * ```gml
@@ -146,7 +146,7 @@
  * [[NOTE: The files created using this method will be stored in GOG Galaxy internal directory and should be accessed only via Galaxy SDK methods.]]
  * 
  * @param {string} fileName Name of the file
- * @param {id.buffer} buffer Buffer with data
+ * @param {type.buffer} buffer Buffer with data
  * 
  * @example
  * ```gml
@@ -314,7 +314,7 @@
 
 /**
  * @func GOG_Storage_GetSharedFileOwner
- * @desc This function gets the owner ([GalaxyID](User#GalaxyID)) of a downloaded shared file.
+ * @desc This function gets the owner ${struct.GalaxyID} of a downloaded shared file.
  * 
  * @param {int64} sharedFileID The ID of the shared file.
  * 
@@ -379,7 +379,7 @@
  * 
  * @param {int64} sharedFileID The ID of the shared file.
  * 
- * @returns {id.buffer}
+ * @returns {type.buffer}
  * 
  * @example
  * ```gml

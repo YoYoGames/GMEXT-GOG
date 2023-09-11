@@ -60,8 +60,8 @@
  * 
  * @param {string} name The name of the leaderboard.
  * @param {string} displayName The display name of the leaderboard.
- * @param {LeaderboardSortMethod} sortMethod The sort method of the leaderboard.
- * @param {LeaderboardDisplayType} displayType The display method of the leaderboard.
+ * @param {struct.LeaderboardSortMethod} sortMethod The sort method of the leaderboard.
+ * @param {struct.LeaderboardDisplayType} displayType The display method of the leaderboard.
  * 
  * @event social
  * @member {string} type `"GOG_Stats_FindOrCreateLeaderboard"`
@@ -99,9 +99,7 @@
  * 
  * @param {string} name The code name of the achievement.
  * 
- * @returns struct
- * @member {boolean} unlocked Indicates if the achievement has been unlocked.
- * @member {real} unlockedTime The time at which the achievement was unlocked.
+ * @returns {struct.UnlockedInfo}
  * 
  * @example
  * ```gml
@@ -179,7 +177,7 @@
  * 
  * @param {string} name The name of the leaderboard.
  * 
- * @returns {real} LeaderboardDisplayType
+ * @returns {struct.LeaderboardDisplayType}
  * 
  * @example
  * ```gml
@@ -214,7 +212,7 @@
  * 
  * @param {string} name The name of the leaderboard.
  * 
- * @returns {real} LeaderboardSortMethod
+ * @returns {struct.LeaderboardSortMethod}
  * 
  * @example
  * ```gml
@@ -231,7 +229,7 @@
  * [[WARNING: REQUIREMENT Retrieve the statistics first by calling [GOG_Stats_RequestUserStatsAndAchievements](#GOG_Stats_RequestUserStatsAndAchievements).]]
  * 
  * @param {string} name The code name of the statistic.
- * @param {GalaxyID} userID The ID of the user. It can be omitted when requesting for own data.
+ * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when requesting for own data.
  * 
  * @returns {real}
  * 
@@ -250,7 +248,7 @@
  * [[WARNING: REQUIREMENT Retrieve the statistics first by calling [GOG_Stats_RequestUserStatsAndAchievements](#GOG_Stats_RequestUserStatsAndAchievements).]]
  * 
  * @param {string} name The code name of the statistic.
- * @param {GalaxyID} userID The ID of the user. It can be omitted when requesting for own data.
+ * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when requesting for own data.
  * 
  * @returns {real}
  * 
@@ -268,7 +266,7 @@
  * 
  * [[WARNING: REQUIREMENT Retrieve the statistics first by calling [GOG_Stats_RequestUserTimePlayed](#GOG_Stats_RequestUserTimePlayed).]]
  * 
- * @param {GalaxyID} userID The ID of the user. It can be omitted when requesting for own data.|
+ * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when requesting for own data.
  * 
  * @returns {real}
  * 
@@ -286,7 +284,7 @@
  * 
  * [[WARNING: REQUIREMENT Retrieve the achievements first by calling [GOG_Stats_RequestUserStatsAndAchievements](#GOG_Stats_RequestUserStatsAndAchievements).]]
  * 
- * @param {string} name The name of the achievement.|
+ * @param {string} name The name of the achievement.
  * 
  * @returns {boolean}
  * 
@@ -342,7 +340,7 @@
  * @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
  * @member {string} name The name of the leaderboard being queried; only if request succeeded :eight_pointed_black_star: OPTIONAL
  * @member {real} entryCount The number of retrieved entries; only if request succeeded :eight_pointed_black_star: OPTIONAL
- * @member {array<LeaderboardEntry>} entries An array of LeaderboardEntry data for for each queried entry; only if request succeeded :eight_pointed_black_star: OPTIONAL
+ * @member {array[struct.LeaderboardEntry]} entries An array of LeaderboardEntry data for for each queried entry; only if request succeeded :eight_pointed_black_star: OPTIONAL
  * @event_end
  * 
  * @example
@@ -384,7 +382,7 @@
  * @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
  * @member {string} name The name of the leaderboard being queried; only if request succeeded :eight_pointed_black_star: OPTIONAL
  * @member {real} entryCount The number of retrieved entries; only if request succeeded :eight_pointed_black_star: OPTIONAL
- * @member {array<LeaderboardEntry>} entries An array of LeaderboardEntry data for each queried entry; only if request succeeded :eight_pointed_black_star: OPTIONAL
+ * @member {array[struct.LeaderboardEntry]} entries An array of LeaderboardEntry data for each queried entry; only if request succeeded :eight_pointed_black_star: OPTIONAL
  * @event_end
  * 
  * @example
@@ -416,8 +414,8 @@
  * This is an asynchronous function that will trigger the a ${event.social} when the task is finished.
  * 
  * @event social
- * @param {string} type `"GOG_Stats_RequestLeaderboards"`
- * @param {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
+ * @member {string} type `"GOG_Stats_RequestLeaderboards"`
+ * @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
  * @event_end
  * 
  * @example
@@ -448,7 +446,7 @@
  * @desc Performs a request for statistics and achievements of a specified user.
  * This is an asynchronous function that will trigger the a ${event.social} when the task is finished.
  * 
- * @param userID|[GalaxyID](User#GalaxyID)|The ID of the user. It can be omitted when requesting for own data.|
+ * @param {struct.GalaxyID} The ID of the user. It can be omitted when requesting for own data.
  * 
  * @event social
  * @member {string} type `"GOG_Stats_RequestUserStatsAndAchievements"`
@@ -483,7 +481,7 @@
  * @desc This function performs a request for user time played.
  * This is an asynchronous function that will trigger the a ${event.social} when the task is finished.
  * 
- * @param userID|[GalaxyID](User#GalaxyID)|The ID of the user. It can be omitted when requesting for own data.|
+ * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when requesting for own data.
  * 
  * @event social
  * @member {string} type `"GOG_Stats_RequestUserTimePlayed"`
@@ -567,18 +565,11 @@
  * @function GOG_Stats_SetLeaderboardScore
  * @desc This function updates the entry for own user in a specified leaderboard.
  * This is an asynchronous function that will trigger the a ${event.social} when the task is finished.
- *   <dl>
- *     <dd>
- * 
+ *
  * [[WARNING: REQUIREMENT Retrieve definition of this particular leaderboard first by calling either [GOG_Stats_FindLeaderboard](#GOG_Stats_FindLeaderboard)  or [GOG_Stats_FindOrCreateLeaderboard](#GOG_Stats_FindOrCreateLeaderboard), or definitions of all existing leaderboards by calling [GOG_Stats_RequestLeaderboards](#GOG_Stats_RequestLeaderboards).]]
- * 
- *     </dd>
- *     <dd>
  * 
  * [[NOTE: For this call to work while the user is logged off, the definition of the leaderboard must have been retrieved at least once while the user was logged on.]]
  * 
- *     </dd>
- *   </dl>
  * 
  * @param {string} name The name of the leaderboard.
  * @param {real} score The score to set.
@@ -616,23 +607,15 @@
  * @function GOG_Stats_SetLeaderboardScoreWithDetails
  * @desc This function updates entry with details for own user in a specified leaderboard.
  * This is an asynchronous function that will trigger the a ${event.social} when the task is finished.
- *   <dl>
- *     <dd>
  * 
  * [[WARNING: REQUIREMENT Retrieve the definition of this particular leaderboard first by calling either [GOG_Stats_FindLeaderboard](#GOG_Stats_FindLeaderboard)  or [GOG_Stats_FindOrCreateLeaderboard](#GOG_Stats_FindOrCreateLeaderboard), or definitions of all existing leaderboards by calling [GOG_Stats_RequestLeaderboards](#GOG_Stats_RequestLeaderboards).]]
  * 
- *     </dd>
- *     <dd>
- * 
  * [[ NOTE: For this call to work while the user is logged off, the definition of the leaderboard must have been retrieved at least once while the user was logged on.]]
- * 
- *     </dd>
- *   </dl>
  * 
  * @param {string} name The name of the leaderboard.
  * @param {real} score The score to set.
  * @param {boolean} forceUpdate If the update should be performed in case the score is worse than the previous score.
- * @param {id.buffer} details An extra game-defined information regarding how the user got that score with the limit of 3071 bytes.
+ * @param {type.buffer} details An extra game-defined information regarding how the user got that score with the limit of 3071 bytes.
  * 
  * @event social
  * @member {string} type `"GOG_Stats_SetLeaderboardScore "`
@@ -760,6 +743,15 @@
  * @member {string} data The base64 encoded string with the data provided when uploading scores
  * @member {real} score The score attributed to this entry
  * @member {struct.GalaxyID} userID The unique user id of the player for this entry
+ * @struct_end
+ */
+
+/**
+ * @struct struct.UnlockedInfo
+ * @desc This structure represents unlocked info about an achievement.
+ * 
+ * @member {boolean} unlocked Indicates if the achievement has been unlocked.
+ * @member {real} unlockedTime The time at which the achievement was unlocked.
  * @struct_end
  */
 

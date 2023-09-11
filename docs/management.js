@@ -60,5 +60,10 @@
  * @ref GOG_ProcessData
  * @section_end
  * 
+ * @section_struct
+ * @desc The following structs can be used: 
+ * @ref Error
+ * @section_end
+ * 
  * @module_end
  */

@@ -6,7 +6,7 @@
  * 
  * @event social
  * @member {string} type `"GOG_Friends_ClearRichPresence"`
- * @member {string} error The error message; only if the request failed ✴️ OPTIONAL
+ * @member {string} error The error message; only if the request failed OPTIONAL
  * @event_end
  * 
  * @example
@@ -37,7 +37,7 @@
  *@desc This function removes a user from the friend list.
  *This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  *
- *@param {[GalaxyID](User#GalaxyID)} userID The [GalaxyID](User#GalaxyID) of the user to be removed from the friend list.
+ *@param {struct.GalaxyID} userID The ${struct.GalaxyID} of the user to be removed from the friend list.
  *
  *@event social
  *@member {string} type `"GOG_Friends_DeleteFriend"`
@@ -87,7 +87,7 @@
  *```gml
  *if (async_load[? "type"] == "GOG_Friends_DeleteRichPresence")
  *{
- *    if (ds_map_exists(async_load,"error"))
+ *    if (ds_map_exists(async_load, "error"))
  *    {
  *        show_debug_message(async_load[?"error"]);
  *        exit;
@@ -110,24 +110,25 @@
  * @event social
  * @member {string} type `"GOG_Friends_FindUser"`
  * @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
- * @member {[GalaxyID](User#GalaxyID)} userID The ID of the user.
+ * @member {struct.GalaxyID} userID The ID of the user.
+ * @event_end
  * 
  * @example
  * ```gml
- * GOG_Friends_FindUser(userSpecifier)
+ * GOG_Friends_FindUser(userSpecifier);
  * ```
  * The code sample above starts a find user task which results can be caught inside a ${event.social}.
  * 
  * ```gml
  * if (async_load[? "type"] == "GOG_Friends_FindUser")
  * {
- *     if (ds_map_exists(async_load,"error"))
+ *     if (ds_map_exists(async_load, "error"))
  *     {
- *         show_debug_message(async_load[?"error"])
- *         exit
+ *         show_debug_message(async_load[?"error"]);
+ *         exit;
  *     }
- *     var user = async_load[?"userID"]
- *     show_debug_message("FindUser SUCCESS")
+ *     var _user = async_load[?"userID"];
+ *     show_debug_message("FindUser SUCCESS");
  * }
  * ```
  * This code sample provides an example of handling the returned callback data.
@@ -136,7 +137,7 @@
 
 /**
  * @func GOG_Friends_GetDefaultAvatarCriteria
- * @desc This function returns the default avatar criteria which is a ${type.real} with the bit sum of default [AvatarType](#AvatarType).
+ * @desc This function returns the default avatar criteria which is a ${type.real} with the bit sum of the default ${constant.AvatarType}.
  * @returns {real}
  * 
  * @example
@@ -153,8 +154,8 @@
  * >
  * > Retrieve the avatar image first by calling [GOG_Friends_RequestUserInformation](#GOG_Friends_RequestUserInformation) with appropriate avatar criteria.
  * 
- * @param {[GalaxyID](User#GalaxyID)} userID The ID of the user.
- * @param {[AvatarType](#AvatarType)} avatarType The type of avatar.
+ * @param {struct.GalaxyID} userID The ID of the user.
+ * @param {constant.AvatarType} avatarType The type of avatar.
  * 
  * @returns {real}
  * 
@@ -180,10 +181,10 @@
  * 
  * > <span class="warning">WARNING This function creates a new buffer everytime it is called you need to ensure you correctly delete the buffer when you don't need it anymore using the ${function.buffer_delete} function. Failing to do so will result in memory leaks.
  * 
- * @param {[GalaxyID](User#GalaxyID)} userID The ID of the user.
- * @param {[AvatarType](#AvatarType)} AvatarType The type of avatar.
+ * @param {struct.GalaxyID} userID The ID of the user.
+ * @param {constant.AvatarType} AvatarType The type of avatar.
  * 
- * @returns {id.buffer}
+ * @returns {type.buffer}
  * 
  * @example
  * ```gml
@@ -212,8 +213,8 @@
  * >
  * > You might need to retrieve the data first by calling [GOG_Friends_RequestUserInformation](#GOG_Friends_RequestUserInformation).
  * 
- * @param {[GalaxyID](User#GalaxyID)} userID The ID of the user.
- * @param {[AvatarType](#AvatarType)} avatarType The type of avatar.
+ * @param {struct.GalaxyID} userID The ID of the user.
+ * @param {constant.AvatarType} avatarType The type of avatar.
  * 
  * @returns {string}
  * 
@@ -225,11 +226,9 @@
  * @func_end
  * 
  * @func GOG_Friends_GetFriendByIndex
- * @desc This function returns the [GalaxyID](User#GalaxyID) for a friend.
+ * @desc This function returns the ${struct.GalaxyID} for a friend.
  * 
- * > **:warning: REQUIREMENT**
- * >
- * > Retrieve the list of friends first by calling [GOG_Friends_RequestFriendList](#GOG_Friends_RequestFriendList).
+ * [[WARNING: REQUIREMENT Retrieve the list of friends first by calling [GOG_Friends_RequestFriendList](#GOG_Friends_RequestFriendList).]]
  * 
  * @param {real} index Index as an integer in the range of [0, number of friends].
  * 
@@ -271,12 +270,11 @@
  * 
  * @param {real} index Index as an integer in the range of [0, number of friend invitations].
  * 
- * @returns {struct}
+ * @returns {struct.FriendInvitationDetails}
  * 
  * |Struct Member|Type|Description|
  * |----|----|----|
- * |userID|[GalaxyID](User#GalaxyID)|The ID of the user who sent the invitation.|
- * |sendTime|real|The time at which the friend invitation was sent.|
+ 
  * 
  * @example
  * ```gml
@@ -312,11 +310,9 @@
  * @func GOG_Friends_GetFriendPersonaName
  * @desc This function returns the nickname of a specified user.
  * 
- * > **:warning: REQUIREMENT**
- * >
- * > You might need to retrieve the data first by calling [GOG_Friends_RequestUserInformation](#GOG_Friends_RequestUserInformation).
+ * [[WARNING: REQUIREMENT You might need to retrieve the data first by calling [GOG_Friends_RequestUserInformation](#GOG_Friends_RequestUserInformation).]]
  * 
- * @param {[GalaxyID](User#GalaxyID)} userID The ID of the user.
+ * @param {struct.GalaxyID} userID The ID of the user.
  * 
  * @returns {string}
  * 
@@ -330,15 +326,13 @@
 
 /**
  * @func GOG_Friends_GetFriendPersonaState
- * @desc This function returns the state of a specified user, see [PersonaState](#PersonaState).
+ * @desc This function returns the state of a specified user, see ${constant.PersonaState}.
  * 
- * > **:warning: REQUIREMENT**
- * >
- * > You might need to retrieve the data first by calling [GOG_Friends_RequestUserInformation](#GOG_Friends_RequestUserInformation).
+ * [[WARNING: REQUIREMENT You might need to retrieve the data first by calling [GOG_Friends_RequestUserInformation](#GOG_Friends_RequestUserInformation).]]
  * 
- * @param {[GalaxyID](User#GalaxyID)} userID The ID of the user.
+ * @param {struct.GalaxyID} userID The ID of the user.
  * 
- * @returns {real} (PersonaState)
+ * @returns (constant.PersonaState)
  * 
  * @example
  * ```gml
@@ -369,7 +363,7 @@
 * @func GOG_Friends_GetPersonaState
 * @desc This function returns the user's state.
 * 
-* @returns {real} (PersonaState)
+* @returns {constant.PersonaState}
 * 
 * @example
 * ```gml
@@ -392,7 +386,7 @@
  * 
  * 
  * @param {string} key The name of the property of the user's rich presence.
- * @param {[GalaxyID](User#GalaxyID)} userID The ID of the user.
+ * @param {struct.GalaxyID} userID The ID of the user.
  * 
  * @returns {string}
  * 
@@ -413,12 +407,9 @@
  * > Retrieve the rich presence first by calling [GOG_Friends_RequestRichPresence](#GOG_Friends_RequestRichPresence).
  * 
  * @param {real} index Index as an integer in the range of [0, number of entries].
- * @param {[GalaxyID](User#GalaxyID)} userID The ID of the user.
+ * @param {struct.GalaxyID} userID The ID of the user.
  * 
- * @returns {struct}
- * 
- * |key|string|The name of the property of the user's rich presence.|
- * |value|string|The value of the property.|
+ * @returns {struct.RichPresenceProperty}
  * 
  * @example
  * ```gml
@@ -437,11 +428,9 @@
  * @func GOG_Friends_GetRichPresenceCount
  * @desc This function returns the number of retrieved properties in user's rich presence.
  * 
- * > **:warning: REQUIREMENT**
- * >
- * > Retrieve the rich presence first by calling [GOG_Friends_RequestRichPresence](#GOG_Friends_RequestRichPresence).
+ * [[warning: REQUIREMENT Retrieve the rich presence first by calling [GOG_Friends_RequestRichPresence](#GOG_Friends_RequestRichPresence).]]
  * 
- * @param {[GalaxyID](User#GalaxyID)} userID The ID of the user.
+ * @param {struct.GalaxyID} userID The ID of the user.
  * 
  * @returns {real}
  * 
@@ -463,12 +452,10 @@
  * @func GOG_Friends_GetRichPresenceKeyByIndex
  * @desc This function returns a key from the rich presence storage by index.
  * 
- * > **:warning: REQUIREMENT**
- * >
- * > Retrieve the rich presence first by calling [GOG_Friends_RequestRichPresence](#GOG_Friends_RequestRichPresence).
+ * [[WARNING: REQUIREMENT Retrieve the rich presence first by calling [GOG_Friends_RequestRichPresence](#GOG_Friends_RequestRichPresence).]]
  * 
  * @param {real} index Index as an integer in the range of [0, number of entries].
- * @param {[GalaxyID](User#GalaxyID)} userID The ID of the user.
+ * @param {struct.GalaxyID} userID The ID of the user.
  * 
  * @returns {string}
  * 
@@ -491,7 +478,7 @@
  * >
  * > Retrieve the list of friends first by calling [GOG_Friends_RequestFriendList](#GOG_Friends_RequestFriendList).
  * 
- * @param {[GalaxyID](User#GalaxyID)} userID The ID of the user.
+ * @param {struct.GalaxyID} userID The ID of the user.
  * 
  * @returns {boolean}
  * 
@@ -510,8 +497,8 @@
  * @func GOG_Friends_IsFriendAvatarImageRGBAAvailable
  * @desc This function checks if a specified avatar image is available.
  * 
- * @param {[GalaxyID](User#GalaxyID)} userID The ID of the user.
- * @param {[AvatarType](#AvatarType)} avatarID The type of avatar.
+ * @param {struct.GalaxyID} userID The ID of the user.
+ * @param {constant.AvatarType} avatarID The type of avatar.
  * 
  * @returns {bool}
  * 
@@ -519,15 +506,15 @@
  * ```gml
  * if (GOG_Friends_IsFriendAvatarImageRGBAAvailable(userID,GOG_AVATAR_TYPE_LARGE))
  * {
- *     var buff = GOG_Friends_GetFriendAvatarImageRGBA(userID,GOG_AVATAR_TYPE_LARGE)
+ *     var _buff = GOG_Friends_GetFriendAvatarImageRGBA(userID, GOG_AVATAR_TYPE_LARGE);
  * 
- *     var size = buffer_get_size(buff)
- *     var L = sqrt(size/4)
+ *     var _size = buffer_get_size(buff);
+ *     var _L = sqrt(_size/4);
  * 
- *     surf = surface_create(L,L)
- *     buffer_set_surface(buff,surf,0)
+ *     surf = surface_create(_L, _L);
+ *     buffer_set_surface(_buff, surf, 0);
  * 
- *     buffer_delete(buff)
+ *     buffer_delete(_buff);
  * }
  * ```
  * The code above provides a simple usage example.
@@ -538,7 +525,7 @@
  * @func GOG_Friends_IsUserInformationAvailable
  * @desc Checks if the information of specified user is available.
  * 
- * @param {[GalaxyID](User#GalaxyID)} userID The ID of the user.
+ * @param {struct.GalaxyID} userID The ID of the user.
  * 
  * @returns {bool}
  * 
@@ -546,7 +533,7 @@
  * ```gml
  * if (GOG_Friends_IsUserInformationAvailable(GOG_User_GetGalaxyID()))
  * {
- *    var name = GOG_Friends_GetPersonaName(GOG_User_GetGalaxyID())
+ *    var _name = GOG_Friends_GetPersonaName(GOG_User_GetGalaxyID());
  * }
  * ```
  * The code above provides a simple usage example.
@@ -557,12 +544,9 @@
  * @func GOG_Friends_IsUserInTheSameGame
  * @desc This function checks if a specified user is playing the same game.
  * 
- * > **:warning: REQUIREMENT**
- * >
- * > Retrieve the rich presence first by calling [GOG_Friends_RequestRichPresence](#GOG_Friends_RequestRichPresence).
+ * [[WARNING: REQUIREMENT Retrieve the rich presence first by calling [GOG_Friends_RequestRichPresence](#GOG_Friends_RequestRichPresence).]]
  * 
- * @param {[GalaxyID](User#GalaxyID) userID The ID of the user.
- * 
+ * @param {struct.GalaxyID} userID The ID of the user.
  * 
  * @returns {bool}
  * 
@@ -572,7 +556,7 @@
  * {
  *    if(GOG_Friends_IsUserInTheSameGame(friendID))
  *    {
- *        //my friend is on same game, do something
+ *        //my friend is on the same game, do something
  *    }
  * }
  * ```
@@ -583,11 +567,11 @@
 /**
  * @func GOG_Friends_RequestFriendInvitationList
  * @desc This function performs a request for the user's list of incoming friend invitations.
- * This is an asynchronous function that will trigger a ${even.social} when the task is finished.
+ * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
  * @event social
  * @member {string} type `"GOG_Friends_RequestFriendInvitationList"`
- * @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL|
+ * @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
  * @event_end
  * 
  * @example
@@ -599,13 +583,13 @@
  * ```gml
  * if (async_load[? "type"] == "GOG_Friends_RequestFriendInvitationList")
  * {
- *     if (ds_map_exists(async_load,"error"))
+ *     if (ds_map_exists(async_load, "error"))
  *     {
- *         show_debug_message(async_load[?"error"])
- *         exit
+ *         show_debug_message(async_load[?"error"]);
+ *         exit;
  *     }
  * 
- *     show_debug_message("RequestFriendInvitationList SUCCESS")
+ *     show_debug_message("RequestFriendInvitationList SUCCESS");
  * }
  * ```
  * This code sample provides an example of handling the returned callback data.
@@ -631,13 +615,13 @@
  * ```gml
  * if (async_load[? "type"] == "GOG_Friends_RequestFriendList")
  * {
- *     if (ds_map_exists(async_load,"error"))
+ *     if (ds_map_exists(async_load, "error"))
  *     {
- *         show_debug_message(async_load[?"error"])
- *         exit
+ *         show_debug_message(async_load[?"error"]);
+ *         exit;
  *     }
  * 
- *     show_debug_message("RequestFriendList SUCCESS")
+ *     show_debug_message("RequestFriendList SUCCESS");
  * }
  * ```
  * This code sample provides an example of handling the returned callback data.
@@ -649,7 +633,7 @@
  * @desc Performs a request for the user's rich presence.
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
- * @param {[GalaxyID](User#GalaxyID)} userID The ID of the user.
+ * @param {struct.GalaxyID} userID The ID of the user.
  * 
  * @event social
  * @member {string} type `"GOG_Friends_RequestRichPresence"`
@@ -665,13 +649,13 @@
  * ```gml
  * if (async_load[? "type"] == "GOG_Friends_RequestRichPresence")
  * {
- *     if (ds_map_exists(async_load,"error"))
+ *     if (ds_map_exists(async_load, "error"))
  *     {
- *         show_debug_message(async_load[?"error"])
- *         exit
+ *         show_debug_message(async_load[?"error"]);
+ *         exit;
  *     }
  * 
- *     show_debug_message("RequestRichPresence SUCCESS")
+ *     show_debug_message("RequestRichPresence SUCCESS");
  * }
  * ```
  * This code sample provides an example of handling the returned callback data.
@@ -697,13 +681,13 @@
  * ```gml
  * if (async_load[? "type"] == "GOG_Friends_RequestSentFriendInvitationList")
  * {
- *     if (ds_map_exists(async_load,"error"))
+ *     if (ds_map_exists(async_load, "error"))
  *     {
- *         show_debug_message(async_load[?"error"])
- *         exit
+ *         show_debug_message(async_load[?"error"]);
+ *         exit;
  *     }
  * 
- *     show_debug_message("RequestSentFriendInvitationList SUCCESS")
+ *     show_debug_message("RequestSentFriendInvitationList SUCCESS");
  * }
  * ```
  * This code sample provides an example of handling the returned callback data.
@@ -716,7 +700,7 @@
  * @desc This function performs a request for information about a specified user.
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
- * @param {[GalaxyID](User#GalaxyID)} userID The ID of the user.
+ * @param {struct.GalaxyID} userID The ID of the user.
  * 
  * @event social
  * @member {string} type `"GOG_Friends_RequestUserInformation"`
@@ -750,13 +734,13 @@
  * @desc This function responds to the friend invitation.
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
- * @param {[GalaxyID](User#GalaxyID)} userID The ID of the user who sent the friend invitation.
+ * @param {struct.GalaxyID} userID The ID of the user who sent the friend invitation.
  * @param {bool} accept True when accepting the invitation, false when declining.
  * 
  * @event social
  * @member {string} type`"GOG_Friends_RespondToFriendInvitation"`
  * @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
- * @member {[GalaxyID](User#GalaxyID)} userID The ID of the user.
+ * @member {struct.GalaxyID} userID The ID of the user.
  * @member {boolean} accept true to accept invitation, false to refuse.
  * @event_end
  * 
@@ -787,12 +771,12 @@
  * @desc This function sends a friend invitation.
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
- * @param {[GalaxyID](User#GalaxyID) userID The ID of the user.
+ * @param {struct.GalaxyID} userID The ID of the user.
  * 
  * @event social
  * @member {string} type `"GOG_Friends_SendFriendInvitation"`
  * @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
- * @member {[GalaxyID](User#GalaxyID)} userID The ID of the user.
+ * @member {struct.GalaxyID} userID The ID of the user.
  * @event_end
  * 
  * @example
@@ -804,13 +788,13 @@
  * ```gml
  * if(async_load[? "type"] == "GOG_Friends_SendFriendInvitation")
  * {
- *     if (ds_map_exists(async_load,"error"))
+ *     if (ds_map_exists(async_load, "error"))
  *     {
- *         show_debug_message(async_load[?"error"])
- *         exit
+ *         show_debug_message(async_load[?"error"]);
+ *         exit;
  *     }
  * 
- *     show_debug_message("SendFriendInvitationSUCCESS")
+ *     show_debug_message("SendFriendInvitationSUCCESS");
  * }
  * ```
  * This code sample provides an example of handling the returned callback data.
@@ -823,14 +807,15 @@
  * @desc This function sends a game invitation without using the overlay.
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
- * @param {[GalaxyID](User#GalaxyID)} userID The ID of the user.
+ * @param {struct.GalaxyID} userID The ID of the user.
  * @param {string} connectionString The string which contains connection info with the limit of 4095 bytes.
  * 
  * @event social
  * @member {string} type `"GOG_Friends_RespondToFriendInvitation"`
  * @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
- * @member {[GalaxyID](User#GalaxyID)} userID The ID of the user.
+ * @member {struct.GalaxyID} userID The ID of the user.
  * @member {string} connectionString connectionString
+ * @event_end
  * 
  * @example
  * ```gml
@@ -858,7 +843,7 @@
  * @func GOG_Friends_SetDefaultAvatarCriteria
  * @desc This function sets the default avatar criteria.
  * 
- * @param {real} defaultAvatarCriteria The bit sum of default [AvatarType](#AvatarType).
+ * @param {real} defaultAvatarCriteria The bit sum of the default ${constant.AvatarType}.
  * 
  * @example
  * ```gml
@@ -948,6 +933,28 @@
  * @const_end
  */
 
+// STRUCTS
+
+/**
+ * @struct FriendInvitationDetails
+ * @desc This struct contains details about a friend invitation.
+ * 
+ * @member {struct.GalaxyID} userID The ID of the user who sent the invitation.
+ * @member {real} sendTime The time at which the friend invitation was sent.
+ * 
+ * @struct_end
+ */
+
+/**
+ * @struct RichPresenceProperty
+ * @desc A struct containing the property of a rich presence.
+ * 
+ * @member {string} key The name of the property of the user's rich presence.
+ * @member {string} value The value of the property.
+ * 
+ * @struct_end
+ */
+
 // MODULES
 
 /**
@@ -994,6 +1001,11 @@
  * @section_const Constants
  * @ref PersonaState
  * @ref AvatarType
+ * @section_end
+ * @section_struct
+ * @desc Structs related to the Friends functionality.
+ * @ref FriendInvitationDetails
+ * @ref RichPresenceProperty
  * @section_end
  * @module_end
  */
