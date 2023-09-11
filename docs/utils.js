@@ -23,9 +23,9 @@
 
 /**
  * @func GOG_Utils_GetGogServicesConnectionState
- * @desc This function returns the current state of the connection to GOG services, see ${function.ServicesConnectionState}.
+ * @desc This function returns the current state of the connection to GOG services, see ${constant.ServicesConnectionState}.
  * 
- * @returns {real} (ServicesConnectionState)
+ * @returns {constant.ServicesConnectionState}
  * 
  * @example 
  * ```gml
@@ -88,7 +88,7 @@
  * @func GOG_Utils_GetOverlayState
  * @desc This function returns the current state of the overlay.
  * 
- * @returns {struct.OverlayState}
+ * @returns {constant.OverlayState}
  * 
  * @example 
  * ```gml

@@ -32,72 +32,72 @@
  */
 
 /**
- *@function GOG_Friends_DeleteFriend
+ * @function GOG_Friends_DeleteFriend
  *
- *@desc This function removes a user from the friend list.
- *This is an asynchronous function that will trigger a ${event.social} when the task is finished.
+ * @desc This function removes a user from the friend list.
+ * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  *
- *@param {struct.GalaxyID} userID The ${struct.GalaxyID} of the user to be removed from the friend list.
+ * @param {struct.GalaxyID} userID The ${struct.GalaxyID} of the user to be removed from the friend list.
  *
- *@event social
- *@member {string} type `"GOG_Friends_DeleteFriend"`
- *@member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
- *@member {struct} userID GOG Galaxy user identifier
- *@event_end
+ * @event social
+ * @member {string} type `"GOG_Friends_DeleteFriend"`
+ * @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
+ * @member {struct} userID GOG Galaxy user identifier
+ * @event_end
  *
- *@example
- *```gml
- *GOG_Friends_DeleteFriend(myFriendID)
- *```
- *  The code sample above starts a friend deletion task which result can be caught inside a ${event.social}.
- *
- *```gml
- *if (async_load[? "type"] == "GOG_Friends_DeleteFriend")
- *{
- *    if (ds_map_exists(async_load,"error"))
- *    {
- *        show_debug_message(async_load[?"error"])
- *        exit
- *    }
- *    var deletedFriend = async_load[?"userID"]
- *    show_debug_message("Friend Deleted")
- *}
- *```
- *This code sample provides an example of handling the returned callback data.
- *@function_end
+ * @example
+ * ```gml
+ * GOG_Friends_DeleteFriend(myFriendID)
+ * ```
+ *   The code sample above starts a friend deletion task which result can be caught inside a ${event.social}.
+ * 
+ * ```gml
+ * if (async_load[? "type"] == "GOG_Friends_DeleteFriend")
+ * {
+ *     if (ds_map_exists(async_load,"error"))
+ *     {
+ *         show_debug_message(async_load[?"error"])
+ *         exit
+ *     }
+ *     var deletedFriend = async_load[?"userID"]
+ *     show_debug_message("Friend Deleted")
+ * }
+ * ```
+ * This code sample provides an example of handling the returned callback data.
+ * @function_end
  */
 
 /**
- *@function GOG_Friends_DeleteRichPresence
- *@desc This function removes the variable value under a specified name. If the variable doesn't exist, the method call has no effect.
- *This is an asynchronous function that will trigger a ${event.social} when the task is finished.
- *
- *@param {string} key The name of the variable to be removed.
- *
- *@event social
- *@member {string} type `"GOG_Friends_DeleteRichPresence"`
- *@member {string} error The error message; only if the request failed :eight_pointed_black_star: OPTIONAL
- *@event_end
- *
- *@example
- *```gml
- *GOG_Friends_DeleteRichPresence("playing");
- *```
- *The code sample above starts a rich presence delete task of which the results can be caught inside an ${event.social}.
- *```gml
- *if (async_load[? "type"] == "GOG_Friends_DeleteRichPresence")
- *{
- *    if (ds_map_exists(async_load, "error"))
- *    {
- *        show_debug_message(async_load[?"error"]);
- *        exit;
- *    }
- *
- *    show_debug_message("DeleteRichPresence SUCCESS");
- *}
- *```
- *This code sample provides an example of handling the returned callback data.
- *@function_end
+ * @function GOG_Friends_DeleteRichPresence
+ * @desc This function removes the variable value under a specified name. If the variable doesn't exist, the method call has no effect.
+ * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
+ * 
+ * @param {string} key The name of the variable to be removed.
+ * 
+ * @event social
+ * @member {string} type `"GOG_Friends_DeleteRichPresence"`
+ * @member {string} error The error message; only if the request failed :eight_pointed_black_star: OPTIONAL
+ * @event_end
+ * 
+ * @example
+ * ```gml
+ * GOG_Friends_DeleteRichPresence("playing");
+ * ```
+ * The code sample above starts a rich presence delete task of which the results can be caught inside an ${event.social}.
+ * ```gml
+ * if (async_load[? "type"] == "GOG_Friends_DeleteRichPresence")
+ * {
+ *     if (ds_map_exists(async_load, "error"))
+ *     {
+ *         show_debug_message(async_load[?"error"]);
+ *         exit;
+ *     }
+ * 
+ *     show_debug_message("DeleteRichPresence SUCCESS");
+ * }
+ * ```
+ * This code sample provides an example of handling the returned callback data.
+ * @function_end
  */
 
 /**
@@ -224,7 +224,9 @@
  * ```
  * The code above provides a simple usage example.
  * @func_end
- * 
+ */
+
+/**
  * @func GOG_Friends_GetFriendByIndex
  * @desc This function returns the ${struct.GalaxyID} for a friend.
  * 
@@ -272,10 +274,6 @@
  * 
  * @returns {struct.FriendInvitationDetails}
  * 
- * |Struct Member|Type|Description|
- * |----|----|----|
- 
- * 
  * @example
  * ```gml
  * for(var i = 0 ; i < GOG_Friends_GetFriendInvitationCount() ; i++)
@@ -306,7 +304,9 @@
  * ```
  * The code above provides a simple usage example.
  * @func_end
- * 
+ */
+
+/**
  * @func GOG_Friends_GetFriendPersonaName
  * @desc This function returns the nickname of a specified user.
  * 
@@ -603,7 +603,7 @@
  * 
  * @event social
  * @member {string} type `"GOG_Friends_RequestFriendList"`
- * @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL|
+ * @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
  * @event_end
  * 
  * @example
@@ -696,8 +696,8 @@
 
 /**
  * @func GOG_Friends_RequestUserInformation
- * 
  * @desc This function performs a request for information about a specified user.
+ * 
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
  * @param {struct.GalaxyID} userID The ID of the user.
@@ -732,6 +732,7 @@
 /**
  * @func GOG_Friends_RespondToFriendInvitation
  * @desc This function responds to the friend invitation.
+ * 
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
  * @param {struct.GalaxyID} userID The ID of the user who sent the friend invitation.
@@ -799,7 +800,6 @@
  * ```
  * This code sample provides an example of handling the returned callback data.
  * @func_end
- 
  */
 
 /**
@@ -819,7 +819,7 @@
  * 
  * @example
  * ```gml
- * GOG_Friends_SendInvitation(userID,connectionString)
+ * GOG_Friends_SendInvitation(userID, connectionString);
  * ```
  * The code sample above starts task for sending a play invitation which results can be caught inside a ${event.social}.
  * 
@@ -898,9 +898,7 @@
  * @func GOG_Friends_ShowOverlayInviteDialog
  * @desc This function shows a game invitation dialog that allows to invite users to the game.
  * 
- * > **:information_source: NOTE**
- * >
- * > For this call to work, the overlay needs to be initialized first. To check whether the overlay is initialized, call [GOG_Utils_GetOverlayState](Utils#GOG_Utils_GetOverlayState).
+ * [[NOTE: For this call to work, the overlay needs to be initialized first. To check whether the overlay is initialized, call ${function.GOG_Utils_GetOverlayState}.]]
  * 
  * @param {string} connectionString The string which contains connection info with the limit of 4095 bytes.
  * 
@@ -961,7 +959,7 @@
  * @module friends
  * @title Friends
  * @section_func Functions
- * @desc 
+ * @desc Functions related to the Friends functionality.
  * @ref GOG_Friends_ClearRichPresence
  * @ref GOG_Friends_DeleteFriend
  * @ref GOG_Friends_DeleteRichPresence
@@ -999,6 +997,7 @@
  * @ref GOG_Friends_ShowOverlayInviteDialog
  * @section_end
  * @section_const Constants
+ * @desc Constants related to the Friends functionality.
  * @ref PersonaState
  * @ref AvatarType
  * @section_end

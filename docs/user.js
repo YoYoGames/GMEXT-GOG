@@ -136,7 +136,7 @@
  * 
  * [[WARNING: REQUIREMENT Retrieve the user data first by calling ${function.GOG_User_RequestUserData}.]]
  * 
- * @param {GalaxyID} userID The ID of the user. It can be omitted when reading own data.
+ * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when reading own data.
  * 
  * @returns {real}
  * 
@@ -580,6 +580,7 @@
  * @section_end
  * @section_struct
  * @ref GalaxyID
+ * @ref KeyValuePair
  * @section_end
  * @module_end
 */

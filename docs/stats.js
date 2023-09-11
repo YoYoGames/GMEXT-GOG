@@ -60,8 +60,8 @@
  * 
  * @param {string} name The name of the leaderboard.
  * @param {string} displayName The display name of the leaderboard.
- * @param {struct.LeaderboardSortMethod} sortMethod The sort method of the leaderboard.
- * @param {struct.LeaderboardDisplayType} displayType The display method of the leaderboard.
+ * @param {constant.LeaderboardSortMethod} sortMethod The sort method of the leaderboard.
+ * @param {constant.LeaderboardDisplayType} displayType The display method of the leaderboard.
  * 
  * @event social
  * @member {string} type `"GOG_Stats_FindOrCreateLeaderboard"`
@@ -177,7 +177,7 @@
  * 
  * @param {string} name The name of the leaderboard.
  * 
- * @returns {struct.LeaderboardDisplayType}
+ * @returns {constant.LeaderboardDisplayType}
  * 
  * @example
  * ```gml
@@ -202,7 +202,8 @@
  * var _count = GOG_Stats_GetLeaderboardEntryCount(name);
  * ```
  * The code above provides a simple usage example.
- * @function_end*/
+ * @function_end
+ */
 
 /**
  * @function GOG_Stats_GetLeaderboardSortMethod
@@ -212,7 +213,7 @@
  * 
  * @param {string} name The name of the leaderboard.
  * 
- * @returns {struct.LeaderboardSortMethod}
+ * @returns {constant.LeaderboardSortMethod}
  * 
  * @example
  * ```gml
@@ -733,7 +734,7 @@
  * @function_end
  */
 
-// CONST
+// STRUCTS
 
 /**
  * @struct LeaderboardEntry
@@ -747,13 +748,15 @@
  */
 
 /**
- * @struct struct.UnlockedInfo
+ * @struct UnlockedInfo
  * @desc This structure represents unlocked info about an achievement.
  * 
  * @member {boolean} unlocked Indicates if the achievement has been unlocked.
  * @member {real} unlockedTime The time at which the achievement was unlocked.
  * @struct_end
  */
+
+// CONSTANTS
 
 /**
  * @const LeaderboardDisplayType
@@ -775,3 +778,51 @@
  */
 
 // MODULES
+
+/**
+ * @module stats
+ * @title Stats
+ * 
+ * @section_func
+ * @ref GOG_Stats_ClearAchievement
+ * @ref GOG_Stats_FindLeaderboard
+ * @ref GOG_Stats_FindOrCreateLeaderboard
+ * @ref GOG_Stats_GetAchievement
+ * @ref GOG_Stats_GetAchievementDescription
+ * @ref GOG_Stats_GetAchievementDisplayName
+ * @ref GOG_Stats_GetLeaderboardDisplayName
+ * @ref GOG_Stats_GetLeaderboardDisplayType
+ * @ref GOG_Stats_GetLeaderboardEntryCount
+ * @ref GOG_Stats_GetLeaderboardSortMethod
+ * @ref GOG_Stats_GetStatFloat
+ * @ref GOG_Stats_GetStatInt
+ * @ref GOG_Stats_GetUserTimePlayed
+ * @ref GOG_Stats_IsAchievementVisible
+ * @ref GOG_Stats_IsAchievementVisibleWhileLocked
+ * @ref GOG_Stats_RequestLeaderboardEntriesAroundUser
+ * @ref GOG_Stats_RequestLeaderboardEntriesGlobal
+ * @ref GOG_Stats_RequestLeaderboards
+ * @ref GOG_Stats_RequestUserStatsAndAchievements
+ * @ref GOG_Stats_RequestUserTimePlayed
+ * @ref GOG_Stats_ResetStatsAndAchievements
+ * @ref GOG_Stats_SetAchievement
+ * @ref GOG_Stats_SetLeaderboardScore
+ * @ref GOG_Stats_SetLeaderboardScoreWithDetails
+ * @ref GOG_Stats_SetStatFloat
+ * @ref GOG_Stats_SetStatInt
+ * @ref GOG_Stats_StoreStatsAndAchievements
+ * @ref GOG_Stats_UpdateAvgRateStat
+ * @section_end
+ * 
+ * @section_struct
+ * @ref LeaderboardEntry
+ * @ref UnlockedInfo
+ * @section_end
+ * 
+ * @section_const
+ * @ref LeaderboardDisplayType
+ * @ref LeaderboardSortMethod
+ * @section_end
+ * 
+ * @module_end
+ */

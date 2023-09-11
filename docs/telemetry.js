@@ -94,7 +94,7 @@
  *   </dl>
  * 
  * @param {string} name The name of the parameter or **empty string** when adding a value to an array.
- * @param {int} value The value of the parameter.
+ * @param {real} value The value of the parameter.
  * 
  * @example
  * ```gml

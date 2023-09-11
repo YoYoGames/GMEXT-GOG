@@ -310,7 +310,8 @@
  * }
  * ```
  * The code above provides a simple usage example.
- * @func_end*/
+ * @func_end
+ */
 
 /**
  * @func GOG_Storage_GetSharedFileOwner
@@ -369,7 +370,8 @@
  * GOG_Storage_SharedFileClose(sharedFileID);
  * ```
  * The code above provides a simple usage example.
- * @func_end*/
+ * @func_end
+ */
 
 /**
  * @func GOG_Storage_SharedFileRead
