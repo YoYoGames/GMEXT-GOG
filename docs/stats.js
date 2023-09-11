@@ -4,9 +4,9 @@
  * @function GOG_Stats_ClearAchievement
  * @desc This function clears an achievement.
  * 
- * [[NOTE: In order to make this and other changes persistent, call [GOG_Stats_StoreStatsAndAchievements](#GOG_Stats_StoreStatsAndAchievements).]]
+ * [[NOTE: In order to make this and other changes persistent, call ${function.GOG_Stats_StoreStatsAndAchievements}.]]
  * 
- * [[WARNING: REQUIREMENT Retrieve the achievements first by calling [GOG_Stats_RequestUserStatsAndAchievements](#GOG_Stats_RequestUserStatsAndAchievements).]]
+ * [[WARNING: REQUIREMENT Retrieve the achievements first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
  * 
  * @param {string} name The code name of the achievement.
  * 
@@ -95,7 +95,7 @@
  * @function GOG_Stats_GetAchievement
  * @desc Reads the state of an achievement of a specified user.
  * 
- * [[WARNING: REQUIREMENT Retrieve the achievements first by calling [GOG_Stats_RequestUserStatsAndAchievements](#GOG_Stats_RequestUserStatsAndAchievements).]]
+ * [[WARNING: REQUIREMENT Retrieve the achievements first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
  * 
  * @param {string} name The code name of the achievement.
  * 
@@ -119,7 +119,7 @@
  * @function GOG_Stats_GetAchievementDescription
  * @desc This function returns the description of a specified achievement.
  * 
- * [[WARNING: REQUIREMENT Retrieve the achievements first by calling [GOG_Stats_RequestUserStatsAndAchievements](#GOG_Stats_RequestUserStatsAndAchievements).]]
+ * [[WARNING: REQUIREMENT Retrieve the achievements first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
  * 
  * @param {string} name The name of the achievement.
  * 
@@ -137,7 +137,7 @@
  * @function GOG_Stats_GetAchievementDisplayName
  * @desc This function returns the display name of a specified achievement.
  * 
- * [[WARNING: REQUIREMENT Retrieve the achievements first by calling [GOG_Stats_RequestUserStatsAndAchievements](#GOG_Stats_RequestUserStatsAndAchievements).]]
+ * [[WARNING: REQUIREMENT Retrieve the achievements first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
  * 
  * @param {string} name The name of the achievement.
  * 
@@ -155,7 +155,7 @@
  * @function GOG_Stats_GetLeaderboardDisplayName
  * @desc This function returns the display name of a specified leaderboard.
  * 
- * [[WARNING: REQUIREMENT Retrieve definition of this particular leaderboard first by calling either  [GOG_Stats_FindLeaderboard](#GOG_Stats_FindLeaderboard)  or [GOG_Stats_FindOrCreateLeaderboard](#GOG_Stats_FindOrCreateLeaderboard), or definitions of all existing leaderboards by calling [GOG_Stats_RequestLeaderboards](#GOG_Stats_RequestLeaderboards).]]
+ * [[WARNING: REQUIREMENT Retrieve definition of this particular leaderboard first by calling either  ${function.GOG_Stats_FindLeaderboard}  or ${function.GOG_Stats_FindOrCreateLeaderboard}, or definitions of all existing leaderboards by calling ${function.GOG_Stats_RequestLeaderboards}.]]
  * 
  * @param {string} name The name of the leaderboard.
  * 
@@ -173,7 +173,7 @@
  * @function GOG_Stats_GetLeaderboardDisplayType
  * @desc This function returns the display type of a specified leaderboard.
  * 
- * [[WARNING: REQUIREMENT Retrieve the definition of this particular leaderboard first by calling either  [GOG_Stats_FindLeaderboard](#GOG_Stats_FindLeaderboard)  or [GOG_Stats_FindOrCreateLeaderboard](#GOG_Stats_FindOrCreateLeaderboard), or definitions of all existing leaderboards by calling [GOG_Stats_RequestLeaderboards](#GOG_Stats_RequestLeaderboards).]]
+ * [[WARNING: REQUIREMENT Retrieve the definition of this particular leaderboard first by calling either  ${function.GOG_Stats_FindLeaderboard}  or ${function.GOG_Stats_FindOrCreateLeaderboard}, or definitions of all existing leaderboards by calling ${function.GOG_Stats_RequestLeaderboards}.]]
  * 
  * @param {string} name The name of the leaderboard.
  * 
@@ -191,7 +191,7 @@
  * @function GOG_Stats_GetLeaderboardEntryCount
  * @desc This function returns the leaderboard entry count for the requested leaderboard.
  * 
- * [[WARNING: REQUIREMENT In order to retrieve the leaderboard entry count, first you need to call [GOG_Stats_RequestLeaderboardEntriesGlobal](#GOG_Stats_RequestLeaderboardEntriesGlobal).]]
+ * [[WARNING: REQUIREMENT In order to retrieve the leaderboard entry count, first you need to call ${function.GOG_Stats_RequestLeaderboardEntriesGlobal}.]]
  * 
  * @param {string} name The name of the leaderboard.
  * 
@@ -208,7 +208,7 @@
  * @function GOG_Stats_GetLeaderboardSortMethod
  * @desc This function returns the sort method of a specified leaderboard.
  * 
- * [[WARNING: REQUIREMENT Retrieve definition of this particular leaderboard first by calling either  [GOG_Stats_FindLeaderboard](#GOG_Stats_FindLeaderboard)  or [GOG_Stats_FindOrCreateLeaderboard](#GOG_Stats_FindOrCreateLeaderboard), or definitions of all existing leaderboards by calling [GOG_Stats_RequestLeaderboards](#GOG_Stats_RequestLeaderboards).]]
+ * [[WARNING: REQUIREMENT Retrieve definition of this particular leaderboard first by calling either  ${function.GOG_Stats_FindLeaderboard}  or ${function.GOG_Stats_FindOrCreateLeaderboard}, or definitions of all existing leaderboards by calling ${function.GOG_Stats_RequestLeaderboards}.]]
  * 
  * @param {string} name The name of the leaderboard.
  * 
@@ -226,7 +226,7 @@
  * @function GOG_Stats_GetStatFloat
  * @desc This function reads a floating point value of a statistic of a specified user.
  * 
- * [[WARNING: REQUIREMENT Retrieve the statistics first by calling [GOG_Stats_RequestUserStatsAndAchievements](#GOG_Stats_RequestUserStatsAndAchievements).]]
+ * [[WARNING: REQUIREMENT Retrieve the statistics first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
  * 
  * @param {string} name The code name of the statistic.
  * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when requesting for own data.
@@ -245,7 +245,7 @@
  * @function GOG_Stats_GetStatInt
  * @desc This function reads an integer value of a statistic of a specified user.
  * 
- * [[WARNING: REQUIREMENT Retrieve the statistics first by calling [GOG_Stats_RequestUserStatsAndAchievements](#GOG_Stats_RequestUserStatsAndAchievements).]]
+ * [[WARNING: REQUIREMENT Retrieve the statistics first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
  * 
  * @param {string} name The code name of the statistic.
  * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when requesting for own data.
@@ -264,7 +264,7 @@
  * @function GOG_Stats_GetUserTimePlayed
  * @desc This function reads the number of seconds played by a specified user.
  * 
- * [[WARNING: REQUIREMENT Retrieve the statistics first by calling [GOG_Stats_RequestUserTimePlayed](#GOG_Stats_RequestUserTimePlayed).]]
+ * [[WARNING: REQUIREMENT Retrieve the statistics first by calling ${function.GOG_Stats_RequestUserTimePlayed}.]]
  * 
  * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when requesting for own data.
  * 
@@ -282,7 +282,7 @@
  * @function GOG_Stats_IsAchievementVisible
  * @desc This function returns the visibility status of a specified achievement.
  * 
- * [[WARNING: REQUIREMENT Retrieve the achievements first by calling [GOG_Stats_RequestUserStatsAndAchievements](#GOG_Stats_RequestUserStatsAndAchievements).]]
+ * [[WARNING: REQUIREMENT Retrieve the achievements first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
  * 
  * @param {string} name The name of the achievement.
  * 
@@ -303,7 +303,7 @@
  * @function GOG_Stats_IsAchievementVisibleWhileLocked
  * @desc This function returns the visibility status of a specified achievement before unlocking.
  * 
- * [[WARNING: REQUIREMENT Retrieve the achievements first by calling [GOG_Stats_RequestUserStatsAndAchievements](#GOG_Stats_RequestUserStatsAndAchievements).]]
+ * [[WARNING: REQUIREMENT Retrieve the achievements first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
  * 
  * @param {string} name The name of the achievement.
  * 
@@ -329,7 +329,7 @@
  * 
  * > **:warning: REQUIREMENT**
  * >
- * > Retrieve the definition of this particular leaderboard first by calling either [GOG_Stats_FindLeaderboard](#GOG_Stats_FindLeaderboard)  or [GOG_Stats_FindOrCreateLeaderboard](#GOG_Stats_FindOrCreateLeaderboard), or definitions of all existing leaderboards by calling [GOG_Stats_RequestLeaderboards](#GOG_Stats_RequestLeaderboards).
+ * > Retrieve the definition of this particular leaderboard first by calling either ${function.GOG_Stats_FindLeaderboard}  or ${function.GOG_Stats_FindOrCreateLeaderboard}, or definitions of all existing leaderboards by calling ${function.GOG_Stats_RequestLeaderboards}.
  * 
  * @param {string} name The name of the leaderboard.
  * @param {real} countBefore The number of entries placed before the user's entry to retrieve (hint).
@@ -371,7 +371,7 @@
  * @desc This function performs a request for entries of a specified leaderboard in a global scope, i.e. without any specific users in the scope of interest.
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
- * [[WARNING: REQUIREMENT Retrieve definition of this particular leaderboard first by calling either [GOG_Stats_FindLeaderboard](#GOG_Stats_FindLeaderboard)  or [GOG_Stats_FindOrCreateLeaderboard](#GOG_Stats_FindOrCreateLeaderboard), or definitions of all existing leaderboards by calling [GOG_Stats_RequestLeaderboards](#GOG_Stats_RequestLeaderboards).]]
+ * [[WARNING: REQUIREMENT Retrieve definition of this particular leaderboard first by calling either ${function.GOG_Stats_FindLeaderboard}  or ${function.GOG_Stats_FindOrCreateLeaderboard}, or definitions of all existing leaderboards by calling ${function.GOG_Stats_RequestLeaderboards}.]]
  * 
  * @param {real} name The name of the leaderboard.
  * @param {real} rangeStart The index position of the entry to start with.
@@ -515,7 +515,7 @@
  * @desc This function resets all statistics and achievements.
  * This is an asynchronous function that will trigger the a ${event.social} when the task is finished.
  * 
- * [[NOTE: This is the same as setting statistics and achievements to their initial values and calling [GOG_Stats_StoreStatsAndAchievements](#GOG_Stats_StoreStatsAndAchievements).]]
+ * [[NOTE: This is the same as setting statistics and achievements to their initial values and calling ${function.GOG_Stats_StoreStatsAndAchievements}.]]
  * 
  * @event social
  * @member {string} type `"GOG_Stats_ResetStatsAndAchievements "`
@@ -547,9 +547,9 @@
  * @function GOG_Stats_SetAchievement
  * @desc This function unlocks an achievement.
  * 
- * [[NOTE: In order to make this and other changes persistent, call [GOG_Stats_StoreStatsAndAchievements](#GOG_Stats_StoreStatsAndAchievements).]]
+ * [[NOTE: In order to make this and other changes persistent, call ${function.GOG_Stats_StoreStatsAndAchievements}.]]
  * 
- * [[WARNING: REQUIREMENT Retrieve the achievements first by calling [GOG_Stats_RequestUserStatsAndAchievements](#GOG_Stats_RequestUserStatsAndAchievements).]]
+ * [[WARNING: REQUIREMENT Retrieve the achievements first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
  * 
  * @param name|string|The code name of the achievement.
  * 
@@ -566,7 +566,7 @@
  * @desc This function updates the entry for own user in a specified leaderboard.
  * This is an asynchronous function that will trigger the a ${event.social} when the task is finished.
  *
- * [[WARNING: REQUIREMENT Retrieve definition of this particular leaderboard first by calling either [GOG_Stats_FindLeaderboard](#GOG_Stats_FindLeaderboard)  or [GOG_Stats_FindOrCreateLeaderboard](#GOG_Stats_FindOrCreateLeaderboard), or definitions of all existing leaderboards by calling [GOG_Stats_RequestLeaderboards](#GOG_Stats_RequestLeaderboards).]]
+ * [[WARNING: REQUIREMENT Retrieve definition of this particular leaderboard first by calling either ${function.GOG_Stats_FindLeaderboard}  or ${function.GOG_Stats_FindOrCreateLeaderboard}, or definitions of all existing leaderboards by calling ${function.GOG_Stats_RequestLeaderboards}.]]
  * 
  * [[NOTE: For this call to work while the user is logged off, the definition of the leaderboard must have been retrieved at least once while the user was logged on.]]
  * 
@@ -608,7 +608,7 @@
  * @desc This function updates entry with details for own user in a specified leaderboard.
  * This is an asynchronous function that will trigger the a ${event.social} when the task is finished.
  * 
- * [[WARNING: REQUIREMENT Retrieve the definition of this particular leaderboard first by calling either [GOG_Stats_FindLeaderboard](#GOG_Stats_FindLeaderboard)  or [GOG_Stats_FindOrCreateLeaderboard](#GOG_Stats_FindOrCreateLeaderboard), or definitions of all existing leaderboards by calling [GOG_Stats_RequestLeaderboards](#GOG_Stats_RequestLeaderboards).]]
+ * [[WARNING: REQUIREMENT Retrieve the definition of this particular leaderboard first by calling either ${function.GOG_Stats_FindLeaderboard}  or ${function.GOG_Stats_FindOrCreateLeaderboard}, or definitions of all existing leaderboards by calling ${function.GOG_Stats_RequestLeaderboards}.]]
  * 
  * [[ NOTE: For this call to work while the user is logged off, the definition of the leaderboard must have been retrieved at least once while the user was logged on.]]
  * 
@@ -649,9 +649,9 @@
  * @function GOG_Stats_SetStatFloat
  * @desc This function updates a statistic with a floating point value.
  * 
- * [[ NOTE: In order to make this and other changes persistent, call [GOG_Stats_StoreStatsAndAchievements](#GOG_Stats_StoreStatsAndAchievements).]]
+ * [[ NOTE: In order to make this and other changes persistent, call ${function.GOG_Stats_StoreStatsAndAchievements}.]]
  * 
- * [[ WARNING: REQUIREMENT Retrieve the statistics first by calling [GOG_Stats_RequestUserStatsAndAchievements](#GOG_Stats_RequestUserStatsAndAchievements).]]
+ * [[ WARNING: REQUIREMENT Retrieve the statistics first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
  * 
  * @param {string} name The code name of the statistic.
  * @param {real} value The value of the statistic to set.
@@ -668,9 +668,9 @@
  * @function GOG_Stats_SetStatInt
  * @desc This function updates a statistic with an integer value.
  * 
- * [[NOTE: In order to make this and other changes persistent, call [GOG_Stats_StoreStatsAndAchievements](#GOG_Stats_StoreStatsAndAchievements).]]
+ * [[NOTE: In order to make this and other changes persistent, call ${function.GOG_Stats_StoreStatsAndAchievements}.]]
  * 
- * [[WARNING: REQUIREMENT Retrieve the statistics first by calling [GOG_Stats_RequestUserStatsAndAchievements](#GOG_Stats_RequestUserStatsAndAchievements).]]
+ * [[WARNING: REQUIREMENT Retrieve the statistics first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
  * 
  * @param {string} name The code name of the statistic.
  * @param {real} value The value of the statistic to set.
@@ -719,7 +719,7 @@
  * @function GOG_Stats_UpdateAvgRateStat
  * @desc This function updates an average-rate statistic with a delta.
  * 
- * [[WARNING: REQUIREMENT Retrieve the statistics first by calling [GOG_Stats_RequestUserStatsAndAchievements](#GOG_Stats_RequestUserStatsAndAchievements).]]
+ * [[WARNING: REQUIREMENT Retrieve the statistics first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
  * 
  * @param {string} name The code name of the statistic.
  * @param {real} countThisSession The delta of the count.

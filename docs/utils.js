@@ -9,7 +9,7 @@
  * * `"friend_invitation"` - Friend request received, new user added to the friend list.
  * * `"game_invitation"` - Game invitation sent or received.
  * 
- * [[NOTE: For this call to work, the overlay needs to be initialized first. To check whether the overlay is initialized successfully, call [GOG_Utils_GetOverlayState](#GOG_Utils_GetOverlayState).]]
+ * [[NOTE: For this call to work, the overlay needs to be initialized first. To check whether the overlay is initialized successfully, call ${function.GOG_Utils_GetOverlayState}.]]
  * 
  * @param {string} popupGroup The name of the notification pop-up group.
  * 
@@ -23,7 +23,7 @@
 
 /**
  * @func GOG_Utils_GetGogServicesConnectionState
- * @desc This function returns the current state of the connection to GOG services, see [ServicesConnectionState](#ServicesConnectionState).
+ * @desc This function returns the current state of the connection to GOG services, see ${function.ServicesConnectionState}.
  * 
  * @returns {real} (ServicesConnectionState)
  * 
@@ -39,7 +39,7 @@
  * @func GOG_Utils_GetImageRGBA
  * @desc This function reads the image of a specified ID into a buffer.
  * 
- * [[NOTE: The size of the output buffer will be 4 * height * width (see function [GOG_Utils_GetImageSize](#GOG_Utils_GetImageSize)).]]
+ * [[NOTE: The size of the output buffer will be 4 * height * width (see function ${function.GOG_Utils_GetImageSize}).]]
  * 
  * [[WARNING: This function creates a new buffer everytime it is called you need to ensure you correctly delete the buffer when you don&#39;t need it anymore using the [buffer_delete](https://manual.yoyogames.com/GameMaker_Language/GML_Reference/Buffers/buffer_delete.htm) function. Failing to do so will result in memory leaks.]]
  * 

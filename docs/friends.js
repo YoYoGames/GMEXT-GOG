@@ -152,7 +152,7 @@
  * 
  * > **:warning: REQUIREMENT**
  * >
- * > Retrieve the avatar image first by calling [GOG_Friends_RequestUserInformation](#GOG_Friends_RequestUserInformation) with appropriate avatar criteria.
+ * > Retrieve the avatar image first by calling ${function.GOG_Friends_RequestUserInformation} with appropriate avatar criteria.
  * 
  * @param {struct.GalaxyID} userID The ID of the user.
  * @param {constant.AvatarType} avatarType The type of avatar.
@@ -173,7 +173,7 @@
  * 
  * > **:warning: REQUIREMENT**
  * >
- * > You might need to retrieve the data first by calling [GOG_Friends_RequestUserInformation](#GOG_Friends_RequestUserInformation).
+ * > You might need to retrieve the data first by calling ${function.GOG_Friends_RequestUserInformation}.
  * 
  * > **:information_source: NOTE**
  * >
@@ -211,7 +211,7 @@
  * 
  * > **:warning: REQUIREMENT**
  * >
- * > You might need to retrieve the data first by calling [GOG_Friends_RequestUserInformation](#GOG_Friends_RequestUserInformation).
+ * > You might need to retrieve the data first by calling ${function.GOG_Friends_RequestUserInformation}.
  * 
  * @param {struct.GalaxyID} userID The ID of the user.
  * @param {constant.AvatarType} avatarType The type of avatar.
@@ -228,7 +228,7 @@
  * @func GOG_Friends_GetFriendByIndex
  * @desc This function returns the ${struct.GalaxyID} for a friend.
  * 
- * [[WARNING: REQUIREMENT Retrieve the list of friends first by calling [GOG_Friends_RequestFriendList](#GOG_Friends_RequestFriendList).]]
+ * [[WARNING: REQUIREMENT Retrieve the list of friends first by calling ${function.GOG_Friends_RequestFriendList}.]]
  * 
  * @param {real} index Index as an integer in the range of [0, number of friends].
  * 
@@ -251,7 +251,7 @@
  * 
  * > **:warning: REQUIREMENT**
  * >
- * > Retrieve the list of friends first by calling [GOG_Friends_RequestFriendList](#GOG_Friends_RequestFriendList).
+ * > Retrieve the list of friends first by calling ${function.GOG_Friends_RequestFriendList}.
  * 
  * @returns {real}
  * 
@@ -310,7 +310,7 @@
  * @func GOG_Friends_GetFriendPersonaName
  * @desc This function returns the nickname of a specified user.
  * 
- * [[WARNING: REQUIREMENT You might need to retrieve the data first by calling [GOG_Friends_RequestUserInformation](#GOG_Friends_RequestUserInformation).]]
+ * [[WARNING: REQUIREMENT You might need to retrieve the data first by calling ${function.GOG_Friends_RequestUserInformation}.]]
  * 
  * @param {struct.GalaxyID} userID The ID of the user.
  * 
@@ -328,7 +328,7 @@
  * @func GOG_Friends_GetFriendPersonaState
  * @desc This function returns the state of a specified user, see ${constant.PersonaState}.
  * 
- * [[WARNING: REQUIREMENT You might need to retrieve the data first by calling [GOG_Friends_RequestUserInformation](#GOG_Friends_RequestUserInformation).]]
+ * [[WARNING: REQUIREMENT You might need to retrieve the data first by calling ${function.GOG_Friends_RequestUserInformation}.]]
  * 
  * @param {struct.GalaxyID} userID The ID of the user.
  * 
@@ -382,7 +382,7 @@
  * 
  * > **:warning: REQUIREMENT**
  * >
- * > Retrieve the rich presence first by calling [GOG_Friends_RequestRichPresence](#GOG_Friends_RequestRichPresence).
+ * > Retrieve the rich presence first by calling ${function.GOG_Friends_RequestRichPresence}.
  * 
  * 
  * @param {string} key The name of the property of the user's rich presence.
@@ -404,7 +404,7 @@
  * 
  * > **:warning: REQUIREMENT**
  * >
- * > Retrieve the rich presence first by calling [GOG_Friends_RequestRichPresence](#GOG_Friends_RequestRichPresence).
+ * > Retrieve the rich presence first by calling ${function.GOG_Friends_RequestRichPresence}.
  * 
  * @param {real} index Index as an integer in the range of [0, number of entries].
  * @param {struct.GalaxyID} userID The ID of the user.
@@ -428,7 +428,7 @@
  * @func GOG_Friends_GetRichPresenceCount
  * @desc This function returns the number of retrieved properties in user's rich presence.
  * 
- * [[warning: REQUIREMENT Retrieve the rich presence first by calling [GOG_Friends_RequestRichPresence](#GOG_Friends_RequestRichPresence).]]
+ * [[warning: REQUIREMENT Retrieve the rich presence first by calling ${function.GOG_Friends_RequestRichPresence}.]]
  * 
  * @param {struct.GalaxyID} userID The ID of the user.
  * 
@@ -452,7 +452,7 @@
  * @func GOG_Friends_GetRichPresenceKeyByIndex
  * @desc This function returns a key from the rich presence storage by index.
  * 
- * [[WARNING: REQUIREMENT Retrieve the rich presence first by calling [GOG_Friends_RequestRichPresence](#GOG_Friends_RequestRichPresence).]]
+ * [[WARNING: REQUIREMENT Retrieve the rich presence first by calling ${function.GOG_Friends_RequestRichPresence}.]]
  * 
  * @param {real} index Index as an integer in the range of [0, number of entries].
  * @param {struct.GalaxyID} userID The ID of the user.
@@ -476,7 +476,7 @@
  * 
  * > **:warning: REQUIREMENT**
  * >
- * > Retrieve the list of friends first by calling [GOG_Friends_RequestFriendList](#GOG_Friends_RequestFriendList).
+ * > Retrieve the list of friends first by calling ${function.GOG_Friends_RequestFriendList}.
  * 
  * @param {struct.GalaxyID} userID The ID of the user.
  * 
@@ -544,7 +544,7 @@
  * @func GOG_Friends_IsUserInTheSameGame
  * @desc This function checks if a specified user is playing the same game.
  * 
- * [[WARNING: REQUIREMENT Retrieve the rich presence first by calling [GOG_Friends_RequestRichPresence](#GOG_Friends_RequestRichPresence).]]
+ * [[WARNING: REQUIREMENT Retrieve the rich presence first by calling ${function.GOG_Friends_RequestRichPresence}.]]
  * 
  * @param {struct.GalaxyID} userID The ID of the user.
  * 
@@ -860,7 +860,7 @@
  * 
  * * `"status"` - The description visible in Galaxy Client with the limit of 3000 bytes.
  * * `"metadata"` - The metadata that describes the status to other instances of the game with the limit of 2048 bytes.
- * * `"connect"` - The string which contains connection info with the limit of 4095 bytes. It can be regarded as a passive version of [GOG_Friends_SendInvitation](#GOG_Friends_SendInvitation) because it allows friends that notice the rich presence to join a multiplayer game.
+ * * `"connect"` - The string which contains connection info with the limit of 4095 bytes. It can be regarded as a passive version of ${function.GOG_Friends_SendInvitation} because it allows friends that notice the rich presence to join a multiplayer game.
  * 
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
@@ -925,7 +925,7 @@
 /**
  * @const AvatarType
  * @desc These constants represent type of a user avatar.
- * They are used as a bit mask sum in the return value of [GOG_Friends_GetDefaultAvatarCriteria](#GOG_Friends_GetDefaultAvatarCriteria).
+ * They are used as a bit mask sum in the return value of ${function.GOG_Friends_GetDefaultAvatarCriteria}.
  * @member GOG_AVATAR_TYPE_NONE No avatar type specified.
  * @member GOG_AVATAR_TYPE_SMALL Avatar resolution size: 32x32.
  * @member GOG_AVATAR_TYPE_MEDIUM Avatar resolution size: 64x64.

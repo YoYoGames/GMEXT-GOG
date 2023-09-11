@@ -5,7 +5,7 @@
  * @desc This function clears a property of user data storage.
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
- * [[WARNING: REQUIREMENT Retrieve the user data first by calling [GOG_User_RequestUserData](#GOG_User_RequestUserData).
+ * [[WARNING: REQUIREMENT Retrieve the user data first by calling ${function.GOG_User_RequestUserData}.
  * 
  * @param {string} key The name of the property of the user data storage.
  * 
@@ -95,7 +95,7 @@
  * @func GOG_User_GetUserData
  * @desc This function returns an entry from the data storage of current user.
  * 
- * [[WARNING: REQUIREMENT Retrieve the user data first by calling [GOG_User_RequestUserData](#GOG_User_RequestUserData).]]
+ * [[WARNING: REQUIREMENT Retrieve the user data first by calling ${function.GOG_User_RequestUserData}.]]
  * 
  * @param {string} key The name of the property of the user data storage.
  * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when reading own data.
@@ -114,7 +114,7 @@
  * @func GOG_User_GetUserDataByIndex
  * @desc This function returns a property from the user data storage by index.
  * 
- * [[WARNING: REQUIREMENT Retrieve the user data first by calling [GOG_User_RequestUserData](#GOG_User_RequestUserData).]]
+ * [[WARNING: REQUIREMENT Retrieve the user data first by calling ${function.GOG_User_RequestUserData}.]]
  * 
  * @param {real} index Index as an integer in the range of [0, number of entries).
  * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when reading own data.
@@ -134,7 +134,7 @@
  * @func GOG_User_GetUserDataCount
  * @desc This function returns the number of entries in the user data storage.
  * 
- * [[WARNING: REQUIREMENT Retrieve the user data first by calling [GOG_User_RequestUserData](#GOG_User_RequestUserData).]]
+ * [[WARNING: REQUIREMENT Retrieve the user data first by calling ${function.GOG_User_RequestUserData}.]]
  * 
  * @param {GalaxyID} userID The ID of the user. It can be omitted when reading own data.
  * 
@@ -170,7 +170,7 @@
  * @func GOG_User_IsUserDataAvailable
  * @desc This function checks if user data exists.
  * 
- * [[warning: REQUIREMENT Retrieve the user data first by calling [GOG_User_RequestUserData](#GOG_User_RequestUserData).]]
+ * [[warning: REQUIREMENT Retrieve the user data first by calling ${function.GOG_User_RequestUserData}.]]
  * 
  * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when reading own data.
  * 
@@ -234,7 +234,7 @@
  * @func GOG_User_SetUserData
  * @desc This function creates or updates an entry in the user data storage.
  * 
- * [[WARNING: REQUIREMENT Retrieve the user data first by calling [GOG_User_RequestUserData](#GOG_User_RequestUserData).]]
+ * [[WARNING: REQUIREMENT Retrieve the user data first by calling ${function.GOG_User_RequestUserData}.]]
  * 
  * @param {string} key The name of the property of the user data storage with the limit of 1023 bytes.
  * @param {string} value The value of the property to set with the limit of 4095 bytes.

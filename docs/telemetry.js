@@ -2,7 +2,7 @@
 
 /**
  * @func GOG_Telemetry_AddArrayParam
- * @desc This function adds an array parameter to be applied next time you call [GOG_Telemetry_SendTelemetryEvent](#GOG_Telemetry_SendTelemetryEvent) or [GOG_Telemetry_SendAnonymousTelemetryEvent](#GOG_Telemetry_SendAnonymousTelemetryEvent).
+ * @desc This function adds an array parameter to be applied next time you call ${function.GOG_Telemetry_SendTelemetryEvent} or ${function.GOG_Telemetry_SendAnonymousTelemetryEvent}.
  * 
  * @param {string} name The name of the parameter
  * 
@@ -29,7 +29,7 @@
 
 /**
  * @func GOG_Telemetry_AddBoolParam
- * @desc This function adds a boolean parameter to be applied next time you call [GOG_Telemetry_SendTelemetryEvent](#GOG_Telemetry_SendTelemetryEvent) or [GOG_Telemetry_SendAnonymousTelemetryEvent](#GOG_Telemetry_SendAnonymousTelemetryEvent).
+ * @desc This function adds a boolean parameter to be applied next time you call ${function.GOG_Telemetry_SendTelemetryEvent} or ${function.GOG_Telemetry_SendAnonymousTelemetryEvent}.
  *   <dl>
  *   </dl>
  * 
@@ -59,7 +59,7 @@
 
 /**
  * @func GOG_Telemetry_AddFloatParam
- * @desc This function adds a float parameter to be applied next time you call [GOG_Telemetry_SendTelemetryEvent](#GOG_Telemetry_SendTelemetryEvent) or [GOG_Telemetry_SendAnonymousTelemetryEvent](#GOG_Telemetry_SendAnonymousTelemetryEvent).
+ * @desc This function adds a float parameter to be applied next time you call ${function.GOG_Telemetry_SendTelemetryEvent} or ${function.GOG_Telemetry_SendAnonymousTelemetryEvent}.
  *   <dl>
  *   </dl>
  * 
@@ -89,7 +89,7 @@
 
 /**
  * @func GOG_Telemetry_AddIntParam
- * @desc This function adds an integer parameter to be applied next time you call [GOG_Telemetry_SendTelemetryEvent](#GOG_Telemetry_SendTelemetryEvent) or [GOG_Telemetry_SendAnonymousTelemetryEvent](#GOG_Telemetry_SendAnonymousTelemetryEvent).
+ * @desc This function adds an integer parameter to be applied next time you call ${function.GOG_Telemetry_SendTelemetryEvent} or ${function.GOG_Telemetry_SendAnonymousTelemetryEvent}.
  *   <dl>
  *   </dl>
  * 
@@ -119,7 +119,7 @@
 
 /**
  * @func GOG_Telemetry_AddObjectParam
- * @desc This function adds an object parameter to be applied next time you call [GOG_Telemetry_SendTelemetryEvent](#GOG_Telemetry_SendTelemetryEvent) or [GOG_Telemetry_SendAnonymousTelemetryEvent](#GOG_Telemetry_SendAnonymousTelemetryEvent).
+ * @desc This function adds an object parameter to be applied next time you call ${function.GOG_Telemetry_SendTelemetryEvent} or ${function.GOG_Telemetry_SendAnonymousTelemetryEvent}.
  * 
  * @param {string} name The name of the parameter or **empty string** when adding a value to an array.
  * 
@@ -146,7 +146,7 @@
 
 /**
  * @func GOG_Telemetry_AddStringParam
- * @desc This function adds a string parameter to be applied next time you call [GOG_Telemetry_SendTelemetryEvent](#GOG_Telemetry_SendTelemetryEvent) or [GOG_Telemetry_SendAnonymousTelemetryEvent](#GOG_Telemetry_SendAnonymousTelemetryEvent).
+ * @desc This function adds a string parameter to be applied next time you call ${function.GOG_Telemetry_SendTelemetryEvent} or ${function.GOG_Telemetry_SendAnonymousTelemetryEvent}.
  * 
  * @param {string} name The name of the parameter or **empty string** when adding a value to an array.
  * @param {string} value The value of the parameter.
@@ -310,7 +310,7 @@
 
 /**
  * @func GOG_Telemetry_SetSamplingClass
- * @desc This function sets a sampling class to be applied next time you call [GOG_Telemetry_SendTelemetryEvent](#GOG_Telemetry_SendTelemetryEvent) or [GOG_Telemetry_SendAnonymousTelemetryEvent](#GOG_Telemetry_SendAnonymousTelemetryEvent).
+ * @desc This function sets a sampling class to be applied next time you call ${function.GOG_Telemetry_SendTelemetryEvent} or ${function.GOG_Telemetry_SendAnonymousTelemetryEvent}.
  * 
  * @param {string} name The name of the sampling class.
  * 
