@@ -82,7 +82,7 @@
  * 
  * [[WARNING: REQUIREMENT The name that specifies the file has to be provided in the form of a relative path that uses slashes as separators. Every part of the path must not refer to any special or restricted name on any of the supported platforms. Backslashes are not allowed.]]
  * 
- * [[WARNING This function creates a new buffer everytime it is called you need to ensure you correctly delete the buffer when you don&#39;t need it anymore using the ${function.buffer_delete} function. Failing to do so will result in memory leaks.]]
+ * [[WARNING: This function creates a new buffer everytime it is called you need to ensure you correctly delete the buffer when you don&#39;t need it anymore using the ${function.buffer_delete} function. Failing to do so will result in memory leaks.]]
  * 
  * @param {string} fileName The name of the file in the form of a path
  * 
@@ -169,7 +169,7 @@
  * ```gml
  * for(var i = 0 ; i < GetDownloadedSharedFileCount() ; i++)
  * {
- *    var _sharedFileID= GOG_Storage_GetDownloadedSharedFileByIndex(index);
+ *    var _sharedFileID= GOG_Storage_GetDownloadedSharedFileByIndex(i);
  *    var _fileName = GOG_Storage_GetSharedFileName(_sharedFileID);
  *    var _fileSize = GOG_Storage_GetSharedFileSize(_sharedFileID);
  *    var _owner = GOG_Storage_GetSharedFileOwner(_sharedFileID);
@@ -190,7 +190,7 @@
  * ```gml
  * for(var i = 0 ; i < GetDownloadedSharedFileCount() ; i++)
  * {
- *    var _sharedFileID = GOG_Storage_GetDownloadedSharedFileByIndex(index);
+ *    var _sharedFileID = GOG_Storage_GetDownloadedSharedFileByIndex(i);
  *    var _fileName = GOG_Storage_GetSharedFileName(_sharedFileID);
  *    var _fileSize = GOG_Storage_GetSharedFileSize(_sharedFileID);
  *    var _owner = GOG_Storage_GetSharedFileOwner(_sharedFileID);
@@ -225,7 +225,7 @@
  * @func GOG_Storage_GetFileNameByIndex
  * @desc This function returns the name of the file.
  * 
- * @param {int64} index The index as an integer in the range of [0, number of files)].
+ * @param {int64} index The index as an integer in the range of [0, number of files].
  * 
  * @returns {string}
  * 
@@ -303,7 +303,7 @@
  * ```gml
  * for(var i = 0 ; i < GetDownloadedSharedFileCount() ; i++)
  * {
- *    var _sharedFileID = GOG_Storage_GetDownloadedSharedFileByIndex(index);
+ *    var _sharedFileID = GOG_Storage_GetDownloadedSharedFileByIndex(i);
  *    var _fileName = GOG_Storage_GetSharedFileName(_sharedFileID);
  *    var _fileSize = GOG_Storage_GetSharedFileSize(_sharedFileID);
  *    var _owner = GOG_Storage_GetSharedFileOwner(_sharedFileID);
@@ -326,7 +326,7 @@
  * ```gml
  * for(var i = 0 ; i < GetDownloadedSharedFileCount() ; i++)
  * {
- *    var _sharedFileID = GOG_Storage_GetDownloadedSharedFileByIndex(index);
+ *    var _sharedFileID = GOG_Storage_GetDownloadedSharedFileByIndex(i);
  *    var _fileName = GOG_Storage_GetSharedFileName(sharedFileID);
  *    var _fileSize = GOG_Storage_GetSharedFileSize(sharedFileID);
  *    var _owner = GOG_Storage_GetSharedFileOwner(sharedFileID);
@@ -349,7 +349,7 @@
  * ```gml
  * for(var i = 0 ; i < GetDownloadedSharedFileCount() ; i++)
  * {
- *    var _sharedFileID = GOG_Storage_GetDownloadedSharedFileByIndex(index);
+ *    var _sharedFileID = GOG_Storage_GetDownloadedSharedFileByIndex(i);
  *    var _fileName = GOG_Storage_GetSharedFileName(_sharedFileID);
  *    var _fileSize = GOG_Storage_GetSharedFileSize(_sharedFileID);
  *    var _owner = GOG_Storage_GetSharedFileOwner(_sharedFileID);
@@ -388,7 +388,7 @@
  * ```gml
  * for(var i = 0 ; i < GetDownloadedSharedFileCount() ; i++)
  * {
- *    var _sharedFileID = GOG_Storage_GetDownloadedSharedFileByIndex(index);
+ *    var _sharedFileID = GOG_Storage_GetDownloadedSharedFileByIndex(i);
  *    var _fileName = GOG_Storage_GetSharedFileName(_sharedFileID);
  *    var _fileSize = GOG_Storage_GetSharedFileSize(_sharedFileID);
  *    var _owner = GOG_Storage_GetSharedFileOwner(_sharedFileID);

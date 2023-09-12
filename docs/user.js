@@ -28,7 +28,7 @@
  *         show_debug_message(async_load[?"error"]);
  *         exit;
  *     }
- *     show_debug_message(" DeleteUserData SUCCESS");
+ *     show_debug_message("DeleteUserData SUCCESS");
  * }
  * ```
  * This code sample provides an example of handling the returned callback data.
@@ -170,7 +170,7 @@
  * @func GOG_User_IsUserDataAvailable
  * @desc This function checks if user data exists.
  * 
- * [[warning: REQUIREMENT Retrieve the user data first by calling ${function.GOG_User_RequestUserData}.]]
+ * [[WARNING: REQUIREMENT Retrieve the user data first by calling ${function.GOG_User_RequestUserData}.]]
  * 
  * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when reading own data.
  * 
@@ -305,7 +305,7 @@
  *         exit;
  *     }
  * 
- *     show_debug_message(" SignInAnonymous SUCCESS");
+ *     show_debug_message("SignInAnonymous SUCCESS");
  * }
  * ```
  * This code sample provides an example of handling the returned callback data.
@@ -338,7 +338,7 @@
  *         exit;
  *     }
  * 
- *     show_debug_message(" SignInAnonymousTelemetry SUCCESS");
+ *     show_debug_message("SignInAnonymousTelemetry SUCCESS");
  * }
  * 
  * ```
@@ -408,7 +408,7 @@
  *         exit;
  *     }
  * 
- *     show_debug_message(" SignInGalaxy SUCCESS");
+ *     show_debug_message("SignInGalaxy SUCCESS");
  * }
  * ```
  * This code sample provides an example of handling the returned callback data.
@@ -490,7 +490,7 @@
  * @param {string} refreshToken The refresh token obtained from Galaxy login page.
  * 
  * @event social
- * @member {string} type "GOG_User_SignInToken"`
+ * @member {string} type `"GOG_User_SignInToken"`
  * @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
  * @event_end
  * 

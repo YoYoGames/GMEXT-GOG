@@ -184,7 +184,7 @@
  * 
  * @example
  * ```gml
- * if(GOG_Friends_IsFriendAvatarImageRGBAAvailable(userID,GOG_AVATAR_TYPE_LARGE))
+ * if(GOG_Friends_IsFriendAvatarImageRGBAAvailable(userID, GOG_AVATAR_TYPE_LARGE))
  * {
  *     var _buff = GOG_Friends_GetFriendAvatarImageRGBA(userID, GOG_AVATAR_TYPE_LARGE);
  * 
@@ -324,7 +324,7 @@
  * 
  * @param {struct.GalaxyID} userID The ID of the user.
  * 
- * @returns (constant.PersonaState)
+ * @returns {constant.PersonaState}
  * 
  * @example
  * ```gml
@@ -490,7 +490,7 @@
  * 
  * @example
  * ```gml
- * if (GOG_Friends_IsFriendAvatarImageRGBAAvailable(userID,GOG_AVATAR_TYPE_LARGE))
+ * if (GOG_Friends_IsFriendAvatarImageRGBAAvailable(userID, GOG_AVATAR_TYPE_LARGE))
  * {
  *     var _buff = GOG_Friends_GetFriendAvatarImageRGBA(userID, GOG_AVATAR_TYPE_LARGE);
  * 
@@ -563,7 +563,7 @@
  * 
  * @example
  * ```gml
- * GOG_Friends_RequestFriendInvitationList()
+ * GOG_Friends_RequestFriendInvitationList();
  * ```
  * The code sample above starts task for requesting friends invitation data which results can be caught inside a ${event.social}.
  * 
@@ -595,7 +595,7 @@
  * 
  * @example
  * ```gml
- * GOG_Friends_RequestFriendList()
+ * GOG_Friends_RequestFriendList();
  * ```
  * The code sample above starts task for requesting friends data which results can be caught inside a ${event.social}.
  * 
@@ -662,7 +662,7 @@
  * 
  * @example
  * ```gml
- * GOG_Friends_RequestSentFriendInvitationList() 
+ * GOG_Friends_RequestSentFriendInvitationList() ;
  * ```
  * The code sample above starts task for requesting sent friendship invitation data which results can be caught inside a ${event.social}.
  * 
@@ -697,7 +697,7 @@
  * 
  * @example
  * ```gml
- * GOG_Friends_RequestUserInformation() 
+ * GOG_Friends_RequestUserInformation();
  * ```
  * The code sample above starts task for requesting user information data which results can be caught inside a ${event.social}.
  * 
@@ -770,7 +770,7 @@
  * 
  * @example
  * ```gml
- * GOG_Friends_SendFriendInvitation (friendID);
+ * GOG_Friends_SendFriendInvitation(friendID);
  * ```
  * The code sample above starts a task for sending a friend invitation which results can be caught inside a ${event.social}.
  * 
@@ -910,8 +910,7 @@
 
 /**
  * @const AvatarType
- * @desc These constants represent type of a user avatar.
- * They are used as a bit mask sum in the return value of ${function.GOG_Friends_GetDefaultAvatarCriteria}.
+ * @desc These constants represent the type of a user avatar. They are used as a bit mask sum in the return value of ${function.GOG_Friends_GetDefaultAvatarCriteria}.
  * @member GOG_AVATAR_TYPE_NONE No avatar type specified.
  * @member GOG_AVATAR_TYPE_SMALL Avatar resolution size: 32x32.
  * @member GOG_AVATAR_TYPE_MEDIUM Avatar resolution size: 64x64.

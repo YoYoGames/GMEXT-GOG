@@ -447,7 +447,7 @@
  * @desc Performs a request for statistics and achievements of a specified user.
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
- * @param {struct.GalaxyID} The ID of the user. It can be omitted when requesting for own data.
+ * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when requesting for own data.
  * 
  * @event social
  * @member {string} type `"GOG_Stats_RequestUserStatsAndAchievements"`
@@ -461,7 +461,7 @@
  * The code sample above starts a task that requests data for stats and achievements which results can be caught inside a ${event.social}.
  * 
  * ```gml
- * if (async_load[? "type"] == "GOG_Stats_RequestUserStatsAndAchievements ")
+ * if (async_load[? "type"] == "GOG_Stats_RequestUserStatsAndAchievements")
  * {
  *     if (ds_map_exists(async_load, "error"));
  *     {
@@ -491,12 +491,12 @@
  * 
  * @example
  * ```gml
- * GOG_Stats_RequestUserTimePlayed (GOG_User_GetGalaxyID())
+ * GOG_Stats_RequestUserTimePlayed (GOG_User_GetGalaxyID());
  * ```
- * The code sample above starts a task that requests user&#39;s play time and which results can be caught inside a ${event.social}.
+ * The code sample above starts a task that requests the user's play time and which results can be caught inside a ${event.social}.
  * 
  * ```gml
- * if (async_load[? "type"] == "GOG_Stats_RequestUserTimePlayed ")
+ * if (async_load[? "type"] == "GOG_Stats_RequestUserTimePlayed")
  * {
  *     if (ds_map_exists(async_load, "error"))
  *     {
@@ -504,7 +504,7 @@
  *         exit;
  *     }
  *     var _userID = async_load[?"userID"];
- *     show_debug_message(" RequestUserTimePlayed SUCCESS");
+ *     show_debug_message("RequestUserTimePlayed SUCCESS");
  * }
  * ```
  * This code sample provides an example of handling the returned callback data.
@@ -530,14 +530,14 @@
  * The code sample above starts a task for resetting stats and achievements and which results can be caught inside a ${event.social}.
  * 
  * ```gml
- * if (async_load[? "type"] == "GOG_Stats_ResetStatsAndAchievements ")
+ * if (async_load[? "type"] == "GOG_Stats_ResetStatsAndAchievements")
  * {
  *     if (ds_map_exists(async_load, "error"))
  *     {
  *         show_debug_message(async_load[?"error"]);
  *         exit;
  *     }
- *     show_debug_message("ResetStatsAndAchievements     SUCCESS");
+ *     show_debug_message("ResetStatsAndAchievements SUCCESS");
  * }
  * ```
  * This code sample provides an example of handling the returned callback data.
@@ -590,14 +590,14 @@
  * The code sample above starts a task for updating the score of a given leaderboard, of which the results can be caught inside a ${event.social}.
  * 
  * ```gml
- * if (async_load[? "type"] == "GOG_Stats_SetLeaderboardScore ")
+ * if (async_load[? "type"] == "GOG_Stats_SetLeaderboardScore")
  * {
  *     if (ds_map_exists(async_load, "error"))
  *     {
  *         show_debug_message(async_load[?"error"]);
  *         exit;
  *     }
- *     show_debug_message("SetLeaderboardScore           SUCCESS");
+ *     show_debug_message("SetLeaderboardScore SUCCESS");
  * }
  * ```
  * This code sample provides an example of handling the returned callback data.
@@ -607,11 +607,12 @@
 /**
  * @function GOG_Stats_SetLeaderboardScoreWithDetails
  * @desc This function updates an entry with details for the current user in a specified leaderboard.
+ * 
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
- * [[WARNING: REQUIREMENT Retrieve the definition of this particular leaderboard first by calling either ${function.GOG_Stats_FindLeaderboard}  or ${function.GOG_Stats_FindOrCreateLeaderboard}, or definitions of all existing leaderboards by calling ${function.GOG_Stats_RequestLeaderboards}.]]
+ * [[WARNING: REQUIREMENT You have to retrieve the definition of this particular leaderboard first by calling either ${function.GOG_Stats_FindLeaderboard} or ${function.GOG_Stats_FindOrCreateLeaderboard}, or definitions of all existing leaderboards by calling ${function.GOG_Stats_RequestLeaderboards}.]]
  * 
- * [[ NOTE: For this call to work while the user is logged off, the definition of the leaderboard must have been retrieved at least once while the user was logged on.]]
+ * [[NOTE: For this call to work while the user is logged off, the definition of the leaderboard must have been retrieved at least once while the user was logged on.]]
  * 
  * @param {string} name The name of the leaderboard.
  * @param {real} score The score to set.
@@ -619,7 +620,7 @@
  * @param {type.buffer} details An extra game-defined information regarding how the user got that score with the limit of 3071 bytes.
  * 
  * @event social
- * @member {string} type `"GOG_Stats_SetLeaderboardScore "`
+ * @member {string} type `"GOG_Stats_SetLeaderboardScore"`
  * @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
  * @member {string} name The name of the Leaderboard
  * @member {real} score The score submitted
@@ -627,19 +628,19 @@
  * 
  * @example
  * ```gml
- * GOG_Stats_SetLeaderboardScore ("BestScores", 992, false);
+ * GOG_Stats_SetLeaderboardScore("BestScores", 992, false);
  * ```
  * The code sample above starts a task for updating the score (with extra details) of a given leaderboard, of which the results can be caught inside a ${event.social}.
  * 
  * ```gml
- * if (async_load[? "type"] == "GOG_Stats_SetLeaderboardScore ")
+ * if (async_load[? "type"] == "GOG_Stats_SetLeaderboardScore")
  * {
  *     if (ds_map_exists(async_load, "error"))
  *     {
  *         show_debug_message(async_load[?"error"]);
  *         exit;
  *     }
- *     show_debug_message("SetLeaderboardScore           SUCCESS");
+ *     show_debug_message("SetLeaderboardScore SUCCESS");
  * }
  * ```
  * This code sample provides an example of handling the returned callback data.
@@ -690,7 +691,7 @@
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
  * @event social
- * @member {string} type `"GOG_Stats_StoreStatsAndAchievements    "`
+ * @member {string} type `"GOG_Stats_StoreStatsAndAchievements"`
  * @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
  * @event_end
  * 
@@ -701,7 +702,7 @@
  * The code sample above starts a task to store stats and achievements data. The results can be caught inside a ${event.social}.
  * 
  * ```gml
- * if (async_load[? "type"] == "GOG_Stats_StoreStatsAndAchievements  ")
+ * if (async_load[? "type"] == "GOG_Stats_StoreStatsAndAchievements")
  * {
  *     if (ds_map_exists(async_load, "error"))
  *     {
@@ -709,7 +710,7 @@
  *         exit;
  *     }
  *     var _userID = async_load[?"userID"];
- *     show_debug_message(" StoreStatsAndAchievements     SUCCESS");
+ *     show_debug_message("StoreStatsAndAchievements SUCCESS");
  * }
  * ```
  * This code sample provides an example of handling the returned callback data.
@@ -739,7 +740,9 @@
 /**
  * @struct LeaderboardEntry
  * @desc A leaderboard entry struct's members.
+ * 
  * [[NOTE: The data member of this struct will be base64 encoded and so you will need to use the function ${function.buffer_base64_decode} on the data before reading from the buffer.]]
+ * 
  * @member {real} rank The rank of the entry on the specified leaderboard
  * @member {string} data The base64 encoded string with the data provided when uploading scores
  * @member {real} score The score attributed to this entry
