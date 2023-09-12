@@ -1,8 +1,5 @@
 * ### [GOG](Home)
 * ### [Setup](Setup)
-* ### [Management](#)
-  * ### [GOG_GetError](GOG_GetError)
-  * ### [GOG_ProcessData](GOG_ProcessData)
 * ### [Modules](#)
   * ### [Apps](Apps)
   * ### [Friends](Friends)
@@ -11,3 +8,4 @@
   * ### [Telemetry](Telemetry)
   * ### [User](User)
   * ### [Utils](Utils)
+  * ### [Management](Management)
