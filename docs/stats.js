@@ -21,7 +21,7 @@
 /**
  * @function GOG_Stats_FindLeaderboard
  * @desc This function performs a request for the definition of a specified leaderboard.
- * This is an asynchronous function that will trigger the a ${event.social} when the task is finished.
+ * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
  * @param {string} name The name of the leaderboard.
  * 
@@ -33,14 +33,14 @@
  * 
  * @example
  * ```gml
- * GOG_Stats_FindLeaderboard("BestScoresLeaderboard")
+ * GOG_Stats_FindLeaderboard("BestScoresLeaderboard");
  * ```
  * The code sample above starts a task for finding a leaderboard which results can be caught inside a ${event.social}.
  * 
  * ```gml
  * if (async_load[? "type"] == "GOG_Stats_FindLeaderboard")
  * {
- *     if (ds_map_exists(async_load,"error"))
+ *     if (ds_map_exists(async_load, "error"))
  *     {
  *         show_debug_message(async_load[?"error"]);
  *         exit;
@@ -55,7 +55,7 @@
 
 /**
  * @function GOG_Stats_FindOrCreateLeaderboard
- * @desc This function performs a request for definition of a specified leaderboard, creating it if there is no such leaderboard yet.
+ * @desc This function performs a request for definition of a specified leaderboard, creating it if there's no such leaderboard yet.
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
  * @param {string} name The name of the leaderboard.
@@ -155,7 +155,7 @@
  * @function GOG_Stats_GetLeaderboardDisplayName
  * @desc This function returns the display name of a specified leaderboard.
  * 
- * [[WARNING: REQUIREMENT Retrieve definition of this particular leaderboard first by calling either  ${function.GOG_Stats_FindLeaderboard}  or ${function.GOG_Stats_FindOrCreateLeaderboard}, or definitions of all existing leaderboards by calling ${function.GOG_Stats_RequestLeaderboards}.]]
+ * [[WARNING: REQUIREMENT You need to retrievethe  definition of this particular leaderboard first by calling either  ${function.GOG_Stats_FindLeaderboard}  or ${function.GOG_Stats_FindOrCreateLeaderboard}, or definitions of all existing leaderboards by calling ${function.GOG_Stats_RequestLeaderboards}.]]
  * 
  * @param {string} name The name of the leaderboard.
  * 
@@ -326,7 +326,7 @@
  * @desc This function performs a request for entries of a specified leaderboard for and near the specified user.
  * The specified numbers of entries before and after the specified user are treated as hints. If the requested range would go beyond the set of all leaderboard entries, it is shifted so that it fits in the set of all leaderboard entries and preserves its size if possible.
  * 
- * This is an asynchronous function that will trigger the a ${event.social} when the task is finished.
+ * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
  * > **:warning: REQUIREMENT**
  * >
@@ -395,13 +395,13 @@
  * ```gml
  * if (async_load[? "type"] == "GOG_Stats_RequestLeaderboardEntriesGlobal")
  * {
- *     if (ds_map_exists(async_load,"error"))
+ *     if (ds_map_exists(async_load, "error"))
  *     {
- *         show_debug_message(async_load[?"error"])
- *         exit
+ *         show_debug_message(async_load[?"error"]);
+ *         exit;
  *     }
  * 
- *     show_debug_message("DeleteRichPresence SUCCESS")
+ *     show_debug_message("DeleteRichPresence SUCCESS");
  * }
  * 
  * ```
@@ -412,7 +412,7 @@
 /**
  * @function GOG_Stats_RequestLeaderboards
  * @desc Performs a request for definitions of leaderboards.
- * This is an asynchronous function that will trigger the a ${event.social} when the task is finished.
+ * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
  * @event social
  * @member {string} type `"GOG_Stats_RequestLeaderboards"`
@@ -445,7 +445,7 @@
 /**
  * @function GOG_Stats_RequestUserStatsAndAchievements
  * @desc Performs a request for statistics and achievements of a specified user.
- * This is an asynchronous function that will trigger the a ${event.social} when the task is finished.
+ * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
  * @param {struct.GalaxyID} The ID of the user. It can be omitted when requesting for own data.
  * 
@@ -480,7 +480,7 @@
 /**
  * @function GOG_Stats_RequestUserTimePlayed
  * @desc This function performs a request for user time played.
- * This is an asynchronous function that will trigger the a ${event.social} when the task is finished.
+ * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
  * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when requesting for own data.
  * 
@@ -514,7 +514,7 @@
 /**
  * @function GOG_Stats_ResetStatsAndAchievements
  * @desc This function resets all statistics and achievements.
- * This is an asynchronous function that will trigger the a ${event.social} when the task is finished.
+ * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
  * [[NOTE: This is the same as setting statistics and achievements to their initial values and calling ${function.GOG_Stats_StoreStatsAndAchievements}.]]
  * 
@@ -552,7 +552,7 @@
  * 
  * [[WARNING: REQUIREMENT Retrieve the achievements first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
  * 
- * @param name|string|The code name of the achievement.
+ * @param {string} name The code name of the achievement.
  * 
  * @example
  * ```gml
@@ -565,9 +565,9 @@
 /**
  * @function GOG_Stats_SetLeaderboardScore
  * @desc This function updates the entry for own user in a specified leaderboard.
- * This is an asynchronous function that will trigger the a ${event.social} when the task is finished.
+ * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  *
- * [[WARNING: REQUIREMENT Retrieve definition of this particular leaderboard first by calling either ${function.GOG_Stats_FindLeaderboard}  or ${function.GOG_Stats_FindOrCreateLeaderboard}, or definitions of all existing leaderboards by calling ${function.GOG_Stats_RequestLeaderboards}.]]
+ * [[WARNING: REQUIREMENT Retrieve definition of this particular leaderboard first by calling either ${function.GOG_Stats_FindLeaderboard} or ${function.GOG_Stats_FindOrCreateLeaderboard}, or definitions of all existing leaderboards by calling ${function.GOG_Stats_RequestLeaderboards}.]]
  * 
  * [[NOTE: For this call to work while the user is logged off, the definition of the leaderboard must have been retrieved at least once while the user was logged on.]]
  * 
@@ -606,8 +606,8 @@
 
 /**
  * @function GOG_Stats_SetLeaderboardScoreWithDetails
- * @desc This function updates entry with details for own user in a specified leaderboard.
- * This is an asynchronous function that will trigger the a ${event.social} when the task is finished.
+ * @desc This function updates an entry with details for the current user in a specified leaderboard.
+ * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
  * [[WARNING: REQUIREMENT Retrieve the definition of this particular leaderboard first by calling either ${function.GOG_Stats_FindLeaderboard}  or ${function.GOG_Stats_FindOrCreateLeaderboard}, or definitions of all existing leaderboards by calling ${function.GOG_Stats_RequestLeaderboards}.]]
  * 
@@ -650,9 +650,9 @@
  * @function GOG_Stats_SetStatFloat
  * @desc This function updates a statistic with a floating point value.
  * 
- * [[ NOTE: In order to make this and other changes persistent, call ${function.GOG_Stats_StoreStatsAndAchievements}.]]
+ * [[NOTE: In order to make this and other changes persistent, call ${function.GOG_Stats_StoreStatsAndAchievements}.]]
  * 
- * [[ WARNING: REQUIREMENT Retrieve the statistics first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
+ * [[WARNING: REQUIREMENT Retrieve the statistics first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
  * 
  * @param {string} name The code name of the statistic.
  * @param {real} value The value of the statistic to set.
@@ -720,7 +720,7 @@
  * @function GOG_Stats_UpdateAvgRateStat
  * @desc This function updates an average-rate statistic with a delta.
  * 
- * [[WARNING: REQUIREMENT Retrieve the statistics first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
+ * [[WARNING: REQUIREMENT You have to retrieve the statistics first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
  * 
  * @param {string} name The code name of the statistic.
  * @param {real} countThisSession The delta of the count.

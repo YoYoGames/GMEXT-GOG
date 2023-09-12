@@ -2,7 +2,8 @@
 
 /**
  * @func GOG_GetError
- * @desc Retrieves error connected with the last API call on the local thread.
+ * @desc This function retrieves the error connected with the last API call on the local thread.
+ * 
  * [[NOTE: If there was no error the return struct will be empty.]]
  * @returns {struct.Error}
  *

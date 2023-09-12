@@ -6,7 +6,7 @@
  * 
  * @event social
  * @member {string} type `"GOG_Friends_ClearRichPresence"`
- * @member {string} error The error message; only if the request failed OPTIONAL
+ * @member {string} error The error message; only if the request failed :eight_pointed_black_star: OPTIONAL
  * @event_end
  * 
  * @example
@@ -42,25 +42,25 @@
  * @event social
  * @member {string} type `"GOG_Friends_DeleteFriend"`
  * @member {string} error The error message; only if request failed :eight_pointed_black_star: OPTIONAL
- * @member {struct} userID GOG Galaxy user identifier
+ * @member {struct.GalaxyID} userID GOG Galaxy user identifier
  * @event_end
  *
  * @example
  * ```gml
- * GOG_Friends_DeleteFriend(myFriendID)
+ * GOG_Friends_DeleteFriend(myFriendID);
  * ```
  *   The code sample above starts a friend deletion task which result can be caught inside a ${event.social}.
  * 
  * ```gml
  * if (async_load[? "type"] == "GOG_Friends_DeleteFriend")
  * {
- *     if (ds_map_exists(async_load,"error"))
+ *     if (ds_map_exists(async_load, "error"))
  *     {
- *         show_debug_message(async_load[?"error"])
- *         exit
+ *         show_debug_message(async_load[?"error"]);
+ *         exit;
  *     }
- *     var deletedFriend = async_load[?"userID"]
- *     show_debug_message("Friend Deleted")
+ *     var _deletedFriend = async_load[?"userID"];
+ *     show_debug_message("Friend Deleted");
  * }
  * ```
  * This code sample provides an example of handling the returned callback data.
@@ -161,7 +161,7 @@
  * 
  * @example
  * ```gml
- * var ImageID = GOG_Friends_GetFriendAvatarImageID(userID, GOG_AVATAR_TYPE_SMALL)
+ * var _ImageID = GOG_Friends_GetFriendAvatarImageID(userID, GOG_AVATAR_TYPE_SMALL);
  * ```
  * The code above provides a simple usage example.
  * @func_end
@@ -171,15 +171,11 @@
  * @func GOG_Friends_GetFriendAvatarImageRGBA
  * @desc This function copies the avatar of a specified user.
  * 
- * > **:warning: REQUIREMENT**
- * >
- * > You might need to retrieve the data first by calling ${function.GOG_Friends_RequestUserInformation}.
+ * [[WARNING: REQUIREMENT You might need to retrieve the data first by calling ${function.GOG_Friends_RequestUserInformation}.]]
  * 
- * > **:information_source: NOTE**
- * >
- * > The size of the output buffer will be 4 * height * width (check [AvatarType,](#AvatarType) for width and height values).
+ * [[NOTE: The size of the output buffer will be 4 * height * width (check [AvatarType,](#AvatarType) for width and height values).]]
  * 
- * > <span class="warning">WARNING This function creates a new buffer everytime it is called you need to ensure you correctly delete the buffer when you don't need it anymore using the ${function.buffer_delete} function. Failing to do so will result in memory leaks.
+ * [[WARNING: This function creates a new buffer everytime it is called you need to ensure you correctly delete the buffer when you don't need it anymore using the ${function.buffer_delete} function. Failing to do so will result in memory leaks.]]
  * 
  * @param {struct.GalaxyID} userID The ID of the user.
  * @param {constant.AvatarType} AvatarType The type of avatar.
@@ -190,15 +186,15 @@
  * ```gml
  * if(GOG_Friends_IsFriendAvatarImageRGBAAvailable(userID,GOG_AVATAR_TYPE_LARGE))
  * {
- *     var buff = GOG_Friends_GetFriendAvatarImageRGBA(userID,GOG_AVATAR_TYPE_LARGE)
+ *     var _buff = GOG_Friends_GetFriendAvatarImageRGBA(userID, GOG_AVATAR_TYPE_LARGE);
  * 
- *     var size = buffer_get_size(buff)
- *     var L = sqrt(size/4)
+ *     var _size = buffer_get_size(_buff);
+ *     var _L = sqrt(_size/4);
  * 
- *     surf = surface_create(L,L)
- *     buffer_set_surface(buff,surf,0)
+ *     surf = surface_create(_L, _L);
+ *     buffer_set_surface(_buff, surf, 0);
  * 
- *     buffer_delete(buff)
+ *     buffer_delete(_buff);
  * }
  * ```
  * The code above provides a simple usage example.
@@ -209,9 +205,7 @@
  * @func GOG_Friends_GetFriendAvatarUrl
  * @desc Returns the URL of the avatar of a specified user.
  * 
- * > **:warning: REQUIREMENT**
- * >
- * > You might need to retrieve the data first by calling ${function.GOG_Friends_RequestUserInformation}.
+ * [[WARNING: REQUIREMENT You might need to retrieve the data first by calling ${function.GOG_Friends_RequestUserInformation}.]]
  * 
  * @param {struct.GalaxyID} userID The ID of the user.
  * @param {constant.AvatarType} avatarType The type of avatar.
@@ -234,13 +228,13 @@
  * 
  * @param {real} index Index as an integer in the range of [0, number of friends].
  * 
- * @returns {struct} (GalaxyID)
+ * @returns {struct.GalaxyID}
  * 
  * @example
  * ```gml
  * for(var a = 0 ; a < GOG_Friends_GetFriendCount() ; a++)
  * {
- *     var _friendID = GOG_Friends_GetFriendByIndex(a),GOG_AVATAR_TYPE_LARGE);
+ *     var _friendID = GOG_Friends_GetFriendByIndex(a);
  * }
  * ```
  * The code above provides a simple usage example.
@@ -251,9 +245,7 @@
  * @func GOG_Friends_GetFriendCount
  * @desc This function returns the number of retrieved friends in the user's list of friends.
  * 
- * > **:warning: REQUIREMENT**
- * >
- * > Retrieve the list of friends first by calling ${function.GOG_Friends_RequestFriendList}.
+ * [[WARNING: REQUIREMENT Retrieve the list of friends first by calling ${function.GOG_Friends_RequestFriendList}.]]
  * 
  * @returns {real}
  * 
@@ -261,7 +253,7 @@
  * ```gml
  * for(var a = 0 ; a < GOG_Friends_GetFriendCount() ; a++)
  * {
- *     var friendID = GOG_Friends_GetFriendByIndex(a),GOG_AVATAR_TYPE_LARGE)
+ *     var _friendID = GOG_Friends_GetFriendByIndex(a);
  * }
  * ```
  * The code above provides a simple usage example.
@@ -278,9 +270,9 @@
  * ```gml
  * for(var i = 0 ; i < GOG_Friends_GetFriendInvitationCount() ; i++)
  * {
- *     var struct = GOG_Friends_GetFriendInvitationByIndex(i)
- *     var userID = struct.userID
- *     var sendTime = struct.sendTime
+ *     var _struct = GOG_Friends_GetFriendInvitationByIndex(i);
+ *     var _userID = _struct.userID;
+ *     var _sendTime = _struct.sendTime;
  * }
  * ```
  * The code above provides a simple usage example.
@@ -298,8 +290,8 @@
  * for(var i = 0 ; i < GOG_Friends_GetFriendInvitationCount() ; i++)
  * {
  *     var _struct = GOG_Friends_GetFriendInvitationByIndex(i);
- *     var _userID = struct.userID;
- *     var _sendTime = struct.sendTime;
+ *     var _userID = _struct.userID;
+ *     var _sendTime = _struct.sendTime;
  * }
  * ```
  * The code above provides a simple usage example.
@@ -380,9 +372,7 @@
  * @func GOG_Friends_GetRichPresence
  * @desc This function returns the rich presence of a specified user.
  * 
- * > **:warning: REQUIREMENT**
- * >
- * > Retrieve the rich presence first by calling ${function.GOG_Friends_RequestRichPresence}.
+ * [[WARNING: REQUIREMENT Retrieve the rich presence first by calling ${function.GOG_Friends_RequestRichPresence}.]]
  * 
  * 
  * @param {string} key The name of the property of the user's rich presence.
@@ -402,9 +392,7 @@
  * @func GOG_Friends_GetRichPresenceByIndex
  * @desc Returns a property from the rich presence storage by index.
  * 
- * > **:warning: REQUIREMENT**
- * >
- * > Retrieve the rich presence first by calling ${function.GOG_Friends_RequestRichPresence}.
+ * [[WARNING: REQUIREMENT Retrieve the rich presence first by calling ${function.GOG_Friends_RequestRichPresence}.]]
  * 
  * @param {real} index Index as an integer in the range of [0, number of entries].
  * @param {struct.GalaxyID} userID The ID of the user.
@@ -415,9 +403,9 @@
  * ```gml
  * for(var i = 0 ; i < GOG_Friends_GetRichPresenceCount(GOG_User_GetGalaxyID()) ; i++)
  * {
- *     var struct = GOG_Friends_GetRichPresenceByIndex(i,GOG_User_GetGalaxyID())
- *     var key = struct.key
- *     var value = struct.value
+ *     var _struct = GOG_Friends_GetRichPresenceByIndex(i, GOG_User_GetGalaxyID());
+ *     var _key = _struct.key;
+ *     var _value = _struct.value;
  * }
  * ```
  * The code above provides a simple usage example.
@@ -426,7 +414,7 @@
 
 /**
  * @func GOG_Friends_GetRichPresenceCount
- * @desc This function returns the number of retrieved properties in user's rich presence.
+ * @desc This function returns the number of retrieved properties in a user's rich presence.
  * 
  * [[warning: REQUIREMENT Retrieve the rich presence first by calling ${function.GOG_Friends_RequestRichPresence}.]]
  * 
@@ -438,9 +426,9 @@
  * ```gml
  * for(var i = 0 ; i < GOG_Friends_GetRichPresenceCount(GOG_User_GetGalaxyID()) ; i++)
  * {
- *     var _struct = GOG_Friends_GetRichPresenceByIndex(i,GOG_User_GetGalaxyID());
- *     var _key = struct.key;
- *     var _value = struct.value;
+ *     var _struct = GOG_Friends_GetRichPresenceByIndex(i, GOG_User_GetGalaxyID());
+ *     var _key = _struct.key;
+ *     var _value = _struct.value;
  * }
  * ```
  * The code above provides a simple usage example.
@@ -463,7 +451,7 @@
  * ```gml
  * for (var i = 0; i < GOG_Friends_GetRichPresenceCount(GOG_User_GetGalaxyID()); i++)
  * {
- *     var _key = GOG_Friends_GetRichPresenceKeyByIndex(i,GOG_User_GetGalaxyID());
+ *     var _key = GOG_Friends_GetRichPresenceKeyByIndex(i, GOG_User_GetGalaxyID());
  * }
  * ```
  * The code above provides a simple usage example.
@@ -474,9 +462,7 @@
  * @func GOG_Friends_IsFriend
  * @desc This function checks if a specified user is a friend.
  * 
- * > **:warning: REQUIREMENT**
- * >
- * > Retrieve the list of friends first by calling ${function.GOG_Friends_RequestFriendList}.
+ * [[WARNING: REQUIREMENT Retrieve the list of friends first by calling ${function.GOG_Friends_RequestFriendList}.]]
  * 
  * @param {struct.GalaxyID} userID The ID of the user.
  * 
@@ -508,7 +494,7 @@
  * {
  *     var _buff = GOG_Friends_GetFriendAvatarImageRGBA(userID, GOG_AVATAR_TYPE_LARGE);
  * 
- *     var _size = buffer_get_size(buff);
+ *     var _size = buffer_get_size(_buff);
  *     var _L = sqrt(_size/4);
  * 
  *     surf = surface_create(_L, _L);
@@ -567,6 +553,7 @@
 /**
  * @func GOG_Friends_RequestFriendInvitationList
  * @desc This function performs a request for the user's list of incoming friend invitations.
+ * 
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
  * @event social
@@ -631,6 +618,7 @@
 /**
  * @func GOG_Friends_RequestRichPresence
  * @desc Performs a request for the user's rich presence.
+ * 
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
  * @param {struct.GalaxyID} userID The ID of the user.

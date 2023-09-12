@@ -1,3 +1,5 @@
+@title Setup
+
 <a id="top"></a>
 <!-- Page HTML do not touch -->
 <a /><p align="right">[Back To Top](#top)</p>
@@ -7,7 +9,7 @@
 To use the GOG API extension you should follow these steps:
 
 1. Import this GOG API extension into your project, if you haven't done that already.
-2. The GOG Launcher needs to be **installed** , **running** and with an account **logged in** ([official site](https://www.gog.com/galaxy)).
+2. The GOG Launcher needs to be **installed**, **running** and with an account **logged in** ([official site](https://www.gog.com/galaxy)).
 3. Download GOG SDK (v1.150) from GOG's [developer portal](https://devportal.gog.com/welcome) and extract the contents of the zip into a directory of your choice (e.g.: `C:\GOG_sdk`).<br>
       ![](assets/gogSdkFolder.png)
 

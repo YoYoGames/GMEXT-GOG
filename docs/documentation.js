@@ -14,19 +14,13 @@
  * @reference page.setup
  * @section_end
  * 
- * @section Management
- * @desc These functions provide general management features:
- * @ref func.GOG_GetError
- * @ref func.GOG_ProcessData
- * @section_end
- * 
  * @section Modules
  * @desc This extension API presents a variety of modules that can be used to push your game to the next level. These are the included modules:
  * @reference module.apps
  * @reference module.friends
  * @reference module.stats
  * @reference module.storage
- * @reference module.temeletry
+ * @reference module.telemetry
  * @reference module.user
  * @reference module.utils
  * @reference module.management

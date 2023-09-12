@@ -5,7 +5,7 @@
  * @desc This function clears a property of user data storage.
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
- * [[WARNING: REQUIREMENT Retrieve the user data first by calling ${function.GOG_User_RequestUserData}.
+ * [[WARNING: REQUIREMENT Retrieve the user data first by calling ${function.GOG_User_RequestUserData}.]]
  * 
  * @param {string} key The name of the property of the user data storage.
  * 
@@ -104,7 +104,7 @@
  * 
  * @example
  * ```gml
- * Discord_Core_Create(appId);
+ * var _data = GOG_User_GetUserData("data", GOG_User_GetGalaxyID());
  * ```
  * The code above provides a simple usage example.
  * @func_end
@@ -116,7 +116,7 @@
  * 
  * [[WARNING: REQUIREMENT Retrieve the user data first by calling ${function.GOG_User_RequestUserData}.]]
  * 
- * @param {real} index Index as an integer in the range of [0, number of entries).
+ * @param {real} index Index as an integer in the range of [0, number of entries].
  * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when reading own data.
  * 
  * @returns {struct.KeyValuePair}
@@ -332,13 +332,13 @@
  * ```gml
  * if (async_load[? "type"] == "GOG_User_SignInAnonymousTelemetry")
  * {
- *     if (ds_map_exists(async_load,"error"))
+ *     if (ds_map_exists(async_load, "error"))
  *     {
- *         show_debug_message(async_load[?"error"])
- *         exit
+ *         show_debug_message(async_load[?"error"]);
+ *         exit;
  *     }
  * 
- *     show_debug_message(" SignInAnonymousTelemetry SUCCESS")
+ *     show_debug_message(" SignInAnonymousTelemetry SUCCESS");
  * }
  * 
  * ```
@@ -368,7 +368,7 @@
  * ```gml
  * if (async_load[? "type"] == "GOG_User_SignInCredentials")
  * {
- *     if (ds_map_exists(async_load,"error"))
+ *     if (ds_map_exists(async_load, "error"))
  *     {
  *         show_debug_message(async_load[?"error"]);
  *         exit;
@@ -402,7 +402,7 @@
  * ```gml
  * if (async_load[? "type"] == "GOG_User_SignInGalaxy")
  * {
- *     if (ds_map_exists(async_load,"error"))
+ *     if (ds_map_exists(async_load, "error"))
  *     {
  *         show_debug_message(async_load[?"error"]);
  *         exit;
@@ -434,7 +434,7 @@
  * ```gml
  * if (async_load[? "type"] == "GOG_User_SignInLauncher")
  * {
- *     if (ds_map_exists(async_load,"error"))
+ *     if (ds_map_exists(async_load, "error"))
  *     {
  *         show_debug_message(async_load[?"error"]);
  *         exit;
@@ -469,7 +469,7 @@
  * ```gml
  * if (async_load[? "type"] == "GOG_User_SignInServerKey")
  * {
- *     if (ds_map_exists(async_load,"error"))
+ *     if (ds_map_exists(async_load, "error"))
  *     {
  *         show_debug_message(async_load[?"error"]);
  *         exit;
@@ -496,14 +496,14 @@
  * 
  * @example
  * ```gml
- * GOG_User_SignInServerKey(refreshToken);
+ * GOG_User_SignInToken(refreshToken);
  * ```
  * The code sample above starts a task for signing in using a refresh token, which results can be caught inside a ${event.social}.
  * 
  * ```gml
  * if (async_load[? "type"] == "GOG_User_SignInToken")
  * {
- *     if (ds_map_exists(async_load,"error"))
+ *     if (ds_map_exists(async_load, "error"))
  *     {
  *         show_debug_message(async_load[?"error"]);
  *         exit;

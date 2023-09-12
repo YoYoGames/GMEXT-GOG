@@ -41,7 +41,7 @@
  * 
  * [[NOTE: The size of the output buffer will be 4 * height * width (see function ${function.GOG_Utils_GetImageSize}).]]
  * 
- * [[WARNING: This function creates a new buffer everytime it is called you need to ensure you correctly delete the buffer when you don&#39;t need it anymore using the [buffer_delete](https://manual.yoyogames.com/GameMaker_Language/GML_Reference/Buffers/buffer_delete.htm) function. Failing to do so will result in memory leaks.]]
+ * [[WARNING: This function creates a new buffer everytime it is called. You need to ensure you correctly delete the buffer when you don't need it anymore using the [buffer_delete](https://manual.yoyogames.com/GameMaker_Language/GML_Reference/Buffers/buffer_delete.htm) function. Failing to do so will result in memory leaks.]]
  * 
  * @param {real} imageID The ID of the image.
  * 
@@ -69,16 +69,13 @@
  * 
  * @param {real} imageID The ID of the image.
  * 
- * @returns {struct}
- * 
- * @param {real} width The width of the image.
- * @param {real} height The height of the image.
+ * @returns {struct.Size}
  * 
  * @example 
  * ```gml
  * var _struct = GOG_Utils_GetImageSize(imageID);
- * var _width = struct.width;
- * var _height = struct.height;
+ * var _width = _struct.width;
+ * var _height = _struct.height;
  * ```
  * The code above provides a simple usage example.
  * @func_end
@@ -132,6 +129,8 @@
  * @func_end
 */
 
+// CONSTANTS
+
 /**
  * @const OverlayState
  * @desc These constants represent the currect overlay state.
@@ -154,10 +153,23 @@
  * @const_end
 */
 
+// STRUCTS
+
+/**
+ * @struct Size
+ * @desc This struct contains an image's size
+ * 
+ * @member {real} width The width of the image.
+ * @member {real} height The height of the image.
+ * @struct_end
+ */
+
 /**
  * @module utils
  * @title Utils
+ * @description This is a module for managing various aspects of the framework (i.e.: overlay, images, services...).
  * @section_func
+ * @description The following functions are provided to interact with this module:
  * @ref GOG_Utils_DisableOverlayPopups
  * @ref GOG_Utils_GetGogServicesConnectionState
  * @ref GOG_Utils_GetImageRGBA
@@ -167,8 +179,12 @@
  * @ref GOG_Utils_ShowOverlayWithWebPage
  * @section_end
  * @section_const
+ * @description This module exposes the following constants:
  * @ref OverlayState
  * @ref ServicesConnectionState
+ * @section_end
+ * @section_struct
+ * @ref Size
  * @section_end
  * @module_end
 */

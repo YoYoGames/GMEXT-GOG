@@ -12,7 +12,7 @@
  * GOG_Telemetry_AddStringParam("hello", "world");
  * 
  * GOG_Telemetry_AddArrayParam (name);
- * GOG_Telemetry_AddIntParam("int",123);
+ * GOG_Telemetry_AddIntParam("int", 123);
  * GOG_Telemetry_AddFloatParam("float", 987.765);
  * GOG_Telemetry_CloseParam();
  * 
@@ -129,7 +129,7 @@
  * GOG_Telemetry_AddStringParam("hello", "world");
  * 
  * GOG_Telemetry_AddArrayParam (name);
- * GOG_Telemetry_AddIntParam("int",123);
+ * GOG_Telemetry_AddIntParam("int", 123);
  * GOG_Telemetry_AddFloatParam("float", 987.765);
  * GOG_Telemetry_CloseParam();
  * 
@@ -157,7 +157,7 @@
  * GOG_Telemetry_AddStringParam("hello", "world");
  * 
  * GOG_Telemetry_AddArrayParam (name);
- * GOG_Telemetry_AddIntParam("int",123);
+ * GOG_Telemetry_AddIntParam("int", 123);
  * GOG_Telemetry_AddFloatParam("float", 987.765);
  * GOG_Telemetry_CloseParam();
  * 
