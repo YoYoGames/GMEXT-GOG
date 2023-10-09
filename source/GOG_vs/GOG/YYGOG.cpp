@@ -70,9 +70,11 @@ RValue getStructFromGalaxyID(galaxy::api::GalaxyID ID)
 galaxy::api::GalaxyID GalaxyIDFromStruct(RValue* _struct)
 {
 	RValue *IDType, *ID;
-	if (_struct == NULL
+	if ((_struct == NULL)
 		|| ((IDType = YYStructGetMember(_struct, "IDType")) == NULL)
-		|| ((ID = YYStructGetMember(_struct, "ID")) == NULL))
+		|| ((ID = YYStructGetMember(_struct, "ID")) == NULL)
+		|| (ID->v64 == 0)
+		|| (IDType->v64 == 0))
 	{
 		return galaxy::api::GalaxyID();
 	}

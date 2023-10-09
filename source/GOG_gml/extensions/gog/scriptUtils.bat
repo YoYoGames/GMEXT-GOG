@@ -127,7 +127,7 @@ exit /b 0
 
     for /f "delims=" %%a in ('dir /b /a:-d "%~1" 2^>nul') do (
         if "%%~a" == "%~nx1" (
-            powershell -NoLogo -NoProfile -Command "New-Item -ItemType Directory -Force -Path (Split-Path -Parent $env:PS_DESTINATION); Copy-Item -Path $env:PS_SRCPATH -Destination $env:PS_DESTINATION -Force"
+            powershell -NoLogo -NoProfile -Command "New-Item -ItemType Directory -Force -Path (Split-Path -Parent $env:PS_DESTINATION); Remove-Item -Path $env:PS_DESTINATION -ErrorAction Ignore; Copy-Item -Path $env:PS_SRCPATH -Destination $env:PS_DESTINATION -Force"
         )
     )
 

@@ -64,7 +64,7 @@ exit /b %errorlevel%
       call %Utils% logError "Extension is not compatible with the macOS VM export, please use YYC."
    ) else (
       :: This is used from YYC compilation
-      call %Utils% itemCopyTo %SDK_SOURCE% "%YYprojectName%\%YYprojectName%\Supporting Files\libGalaxy.dylib"
+      call %Utils% itemCopyTo %SDK_SOURCE% "%YYprojectName%\%YYprojectName%\Supporting Files\libGalaxy64.dylib"
    )
 
 exit /b %errorlevel%
