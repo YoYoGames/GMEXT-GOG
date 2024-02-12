@@ -1,14 +1,18 @@
-[
-    {
-        "projectFile": "source/GOG_gml/GOG.yyp",
-        "extensionFile": "source/GOG_gml/extensions/gog/gog.yy",
-        "packageId": "com.yoyogames.gogext",
-        "packageName": "GOG Ext",
-        "packageVersion": "1.4.1",
-        "includeFolders": null,
-        "includeResources": null,
-        "excludeFolders": null,
-        "excludeResources": null,
-        "format": "LTS22"
-    }
-]
+{
+    "gitHubUrl": "https://github.com/YoYoGames/GMEXT-GOG",
+    "projectFile": "source/GOG_gml/GOG.yyp",
+    "projectVersion": "LTS22",
+    "releaseTemplate": "templates/release_body.md",
+    "extensionMetaData": [
+        {
+            "extensionFile": "source/GOG_gml/extensions/gog/gog.yy",
+            "packageId": "com.yoyogames.gogext",
+            "packageName": "GOG Ext",
+            "packageVersion": "1.4.0",
+            "packageFormat": "LTS22",
+            "includeFolders": null,
+            "includeResources": null,
+            "excludeResources": null
+        }
+    ]
+}
