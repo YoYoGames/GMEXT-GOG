@@ -175,10 +175,12 @@
  * 
  * [[NOTE: The size of the output buffer will be 4 * height * width (check [AvatarType,](#AvatarType) for width and height values).]]
  * 
- * [[WARNING: This function creates a new buffer everytime it is called you need to ensure you correctly delete the buffer when you don't need it anymore using the ${function.buffer_delete} function. Failing to do so will result in memory leaks.]]
+ * [[WARNING: This function creates a new buffer everytime it is called, unless a buffer is already specified. You need to ensure you correctly delete the buffer when you don't need it anymore using the ${function.buffer_delete} function. Failing to do so will result in memory leaks.]]
  * 
  * @param {struct.GalaxyID} userID The ID of the user.
  * @param {constant.AvatarType} AvatarType The type of avatar.
+ * @param {type.buffer} [bufferID] OPTIONAL: use an existing buffer instead of allocating a new one
+ * @param {real} [byteOffset] OPTIONAL: write data to a specific offset in the buffer
  * 
  * @returns {type.buffer}
  * 

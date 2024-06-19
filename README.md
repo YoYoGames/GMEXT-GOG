@@ -22,7 +22,7 @@ Do not download from the **main branch** this branch is a work in place branch a
 
 ## Requirements
 
-In order to compile for Windows/macOS you are required to [download the GOG Galaxy SDK v1.152.6](https://devportal.gog.com/welcome) and place it inside `source/GOG_sdk/`
+In order to compile for Windows/macOS you are required to [download the GOG Galaxy SDK v1.152.10](https://devportal.gog.com/galaxy/components/sdk) and place it inside `source/GOG_sdk/`
 
 ---
 

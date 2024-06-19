@@ -447,7 +447,7 @@
  * @desc Performs a request for statistics and achievements of a specified user.
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
- * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when requesting for own data.
+ * @param {struct.GalaxyID} [userID] The ID of the user. It can be omitted when requesting for own data.
  * 
  * @event social
  * @member {string} type `"GOG_Stats_RequestUserStatsAndAchievements"`
@@ -482,7 +482,7 @@
  * @desc This function performs a request for user time played.
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
- * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when requesting for own data.
+ * @param {struct.GalaxyID} [userID] The ID of the user. It can be omitted when requesting for own data.
  * 
  * @event social
  * @member {string} type `"GOG_Stats_RequestUserTimePlayed"`
@@ -574,7 +574,7 @@
  * 
  * @param {string} name The name of the leaderboard.
  * @param {real} score The score to set.
- * @param {boolean} forceUpdate If the update should be performed in case the score is worse than the previous score.
+ * @param {boolean} [forceUpdate] If the update should be performed in case the score is worse than the previous score.
  * 
  * @event social
  * @member {string} type `"GOG_Stats_SetLeaderboardScore "`
@@ -735,6 +735,44 @@
  * @function_end
  */
 
+/**
+ * @function GOG_Stats_GetAchievementsNumber
+ * @desc This function returns the total amount of achievements registered in the GOG DevPortal.
+ * 
+ * [[WARNING: REQUIREMENT You have to retrieve the statistics first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
+ * 
+ * @returns {real} amount of registered achievements
+ * @example
+ * ```gml
+ * var count = GOG_Stats_GetAchievementsNumber();
+ * ```
+ * The code above provides a simple usage example.
+ * @function_end
+ */
+
+/**
+ * @function GOG_Stats_GetAchievementName
+ * @desc This function returns the name of an achievement from an index, where index is a value from 0 to ${function.GOG_Stats_RequestUserStatsAndAchievements} exclusive.
+ * 
+ * [[WARNING: REQUIREMENT You have to retrieve the statistics first by calling ${function.GOG_Stats_RequestUserStatsAndAchievements}.]]
+ * 
+ * @param {real} index Index of the achievement
+ *
+ * @returns {string} API Name of the achievement
+ * @example
+ * ```gml
+ * // print all registered achievements for debugging
+ * var count = GOG_Stats_GetAchievementsNumber();
+ * for (var index = 0; index < count; ++index) {
+ *     // use this name with other Stats functions as needed
+ *     var name = GOG_Stats_GetAchievementName(index);
+ *     show_debug_message(name);
+ * }
+ * ```
+ * The code above provides a simple usage example.
+ * @function_end
+ */
+
 // STRUCTS
 
 /**
@@ -815,6 +853,8 @@
  * @ref GOG_Stats_SetStatInt
  * @ref GOG_Stats_StoreStatsAndAchievements
  * @ref GOG_Stats_UpdateAvgRateStat
+ * @ref GOG_Stats_GetAchievementsNumber
+ * @ref GOG_Stats_GetAchievementName
  * @section_end
  * 
  * @section_struct

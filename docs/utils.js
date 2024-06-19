@@ -41,9 +41,11 @@
  * 
  * [[NOTE: The size of the output buffer will be 4 * height * width (see function ${function.GOG_Utils_GetImageSize}).]]
  * 
- * [[WARNING: This function creates a new buffer everytime it is called. You need to ensure you correctly delete the buffer when you don't need it anymore using the [buffer_delete](https://manual.yoyogames.com/GameMaker_Language/GML_Reference/Buffers/buffer_delete.htm) function. Failing to do so will result in memory leaks.]]
+ * [[WARNING: This function creates a new buffer everytime it is called, unless a buffer is already specified. You need to ensure you correctly delete the buffer when you don't need it anymore using the [buffer_delete](https://manual.yoyogames.com/GameMaker_Language/GML_Reference/Buffers/buffer_delete.htm) function. Failing to do so will result in memory leaks.]]
  * 
  * @param {real} imageID The ID of the image.
+ * @param {type.buffer} [bufferID] OPTIONAL: use an existing buffer instead of allocating a new one
+ * @param {real} [byteOffset] OPTIONAL: write data to a specific offset in the buffer
  * 
  * @returns {type.buffer}
  * 
