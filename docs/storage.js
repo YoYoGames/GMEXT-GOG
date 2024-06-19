@@ -82,9 +82,11 @@
  * 
  * [[WARNING: REQUIREMENT The name that specifies the file has to be provided in the form of a relative path that uses slashes as separators. Every part of the path must not refer to any special or restricted name on any of the supported platforms. Backslashes are not allowed.]]
  * 
- * [[WARNING: This function creates a new buffer everytime it is called you need to ensure you correctly delete the buffer when you don&#39;t need it anymore using the ${function.buffer_delete} function. Failing to do so will result in memory leaks.]]
+ * [[WARNING: This function creates a new buffer everytime it is called, unless a buffer is already specified. You need to ensure you correctly delete the buffer when you don&#39;t need it anymore using the ${function.buffer_delete} function. Failing to do so will result in memory leaks.]]
  * 
  * @param {string} fileName The name of the file in the form of a path
+ * @param {type.buffer} [bufferID] OPTIONAL: use an existing buffer instead of allocating a new one
+ * @param {real} [byteOffset] OPTIONAL: write data to a specific offset in the buffer
  * 
  * @returns {type.buffer}
  * 
@@ -225,7 +227,7 @@
  * @func GOG_Storage_GetFileNameByIndex
  * @desc This function returns the name of the file.
  * 
- * @param {int64} index The index as an integer in the range of [0, number of files].
+ * @param {real} index The index as an integer in the range of [0, number of files].
  * 
  * @returns {string}
  * 
@@ -378,9 +380,11 @@
  * @func GOG_Storage_SharedFileRead
  * @desc This function reads the given downloaded shared file's contents into the buffer.
  * 
- * [[WARNING: This function creates a new buffer everytime it is called you need to ensure you correctly delete the buffer when you don't need it anymore using the ${function.buffer_delete} function. Failing to do so will result in memory leaks.]]
+ * [[WARNING: This function creates a new buffer everytime it is called, unless a buffer is already specified. You need to ensure you correctly delete the buffer when you don't need it anymore using the ${function.buffer_delete} function. Failing to do so will result in memory leaks.]]
  * 
  * @param {int64} sharedFileID The ID of the shared file.
+ * @param {type.buffer} [bufferID] OPTIONAL: use an existing buffer instead of allocating a new one
+ * @param {real} [byteOffset] OPTIONAL: write data to a specific offset in the buffer
  * 
  * @returns {type.buffer}
  * 

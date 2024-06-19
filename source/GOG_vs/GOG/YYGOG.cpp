@@ -62,7 +62,7 @@ RValue getStructFromGalaxyID(galaxy::api::GalaxyID ID)
 
 	// `ID` is always passed by value, so it cannot be null
 	YYStructAddInt64(&Struct, "ID", ID.GetRealID());
-	YYStructAddInt(&Struct, "IDType", ID.GetIDType());
+	YYStructAddDouble(&Struct, "IDType", ID.GetIDType());
 
 	return Struct;
 }
@@ -70,17 +70,18 @@ RValue getStructFromGalaxyID(galaxy::api::GalaxyID ID)
 galaxy::api::GalaxyID GalaxyIDFromStruct(RValue* _struct)
 {
 	RValue *IDType, *ID;
+	double type;
+	uint64_t value;
+
 	if ((_struct == NULL)
+		|| (KIND_RValue(_struct) != VALUE_OBJECT)
 		|| ((IDType = YYStructGetMember(_struct, "IDType")) == NULL)
 		|| ((ID = YYStructGetMember(_struct, "ID")) == NULL)
-		|| (ID->v64 == 0)
-		|| (IDType->v64 == 0))
+		|| ((value = YYGetInt64(ID, 0)) == 0)
+		|| ((type = YYGetReal(IDType, 0)) == 0))
 	{
 		return galaxy::api::GalaxyID();
 	}
 
-	double type = YYGetReal(IDType, 0);
-	uint64_t value = YYGetInt64(ID, 0);
-
-	return galaxy::api::GalaxyID::FromRealID((galaxy::api::GalaxyID::IDType)type, value);
+	return galaxy::api::GalaxyID::FromRealID(static_cast<galaxy::api::GalaxyID::IDType>(type), value);
 }

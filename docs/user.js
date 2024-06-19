@@ -98,7 +98,7 @@
  * [[WARNING: REQUIREMENT Retrieve the user data first by calling ${function.GOG_User_RequestUserData}.]]
  * 
  * @param {string} key The name of the property of the user data storage.
- * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when reading own data.
+ * @param {struct.GalaxyID} [userID] The ID of the user. It can be omitted when reading own data.
  * 
  * @returns {string}
  * 
@@ -117,7 +117,7 @@
  * [[WARNING: REQUIREMENT Retrieve the user data first by calling ${function.GOG_User_RequestUserData}.]]
  * 
  * @param {real} index Index as an integer in the range of [0, number of entries].
- * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when reading own data.
+ * @param {struct.GalaxyID} [userID] The ID of the user. It can be omitted when reading own data.
  * 
  * @returns {struct.KeyValuePair}
  * 
@@ -136,7 +136,7 @@
  * 
  * [[WARNING: REQUIREMENT Retrieve the user data first by calling ${function.GOG_User_RequestUserData}.]]
  * 
- * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when reading own data.
+ * @param {struct.GalaxyID} [userID] The ID of the user. It can be omitted when reading own data.
  * 
  * @returns {real}
  * 
@@ -172,7 +172,7 @@
  * 
  * [[WARNING: REQUIREMENT Retrieve the user data first by calling ${function.GOG_User_RequestUserData}.]]
  * 
- * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when reading own data.
+ * @param {struct.GalaxyID} [userID] The ID of the user. It can be omitted when reading own data.
  * 
  * @returns {boolean}
  * 
@@ -207,7 +207,7 @@
  * @desc This function retrieves/refreshes user data storage.
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
- * @param {struct.GalaxyID} userID The ID of the user. It can be omitted when reading own data.
+ * @param {struct.GalaxyID} [userID] The ID of the user. It can be omitted when reading own data.
  * 
  * @event social
  * @member {string} type `"GOG_User_RequestUserData"`
@@ -386,7 +386,8 @@
  * @desc This function authenticates the Galaxy Peer based on Galaxy Client authentication.
  * This is an asynchronous function that will trigger a ${event.social} when the task is finished.
  * 
- * @param {boolean} requireOnline Indicates if sing in with Galaxy backend is required.
+ * @param {boolean} [requireOnline] OPTIONAL: Indicates if sing in with Galaxy backend is required.
+ * @param {real} [timeout] OPTIONAL: How much time to wait until giving up the login process
  * 
  * @event social
  * @member {string} type `"GOG_User_SignInGalaxy"`
@@ -395,7 +396,7 @@
  * 
  * @example
  * ```gml
- * GOG_User_SignInGalaxy();
+ * GOG_User_SignInGalaxy(false, 4); // don't require online, wait at least 4 seconds before giving up
  * ```
  * The code sample above starts a task for signing in with galaxy client authentication, which results can be caught inside a ${event.social}.
  * 
