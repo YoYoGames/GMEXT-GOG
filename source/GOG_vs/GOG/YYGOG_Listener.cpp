@@ -1,5 +1,6 @@
 #include "YYGOG_Listener.hpp"
 #include <memory>
+#include <vector>
 
 std::unique_ptr<GMAsyncEventListener> GMAsyncEventListener::SingletonInstance;
 
@@ -418,17 +419,17 @@ void GMAsyncEventListener::OnLeaderboardEntriesRetrieveSuccess(const char* name,
 
 	for (int32_t index = entryCount - 1; index >= 0; --index)
 	{
-		uint32_t rank;
-		int32_t score;
+		uint32_t rank = 0;
+		int32_t score = 0;
 		galaxy::api::GalaxyID userID;
 
 		RValue entryStruct = { 0 };
 		YYStructCreate(&entryStruct);
 
-		const int detailsSize = 3071;
-		char pDetails[detailsSize];
+		const int detailsSize = 3071 + 1;
+		uint8_t pDetails[detailsSize] = { 0 };
 
-		uint32_t outDetailsSize;
+		uint32_t outDetailsSize = 0;
 		galaxy::api::Stats()->GetRequestedLeaderboardEntryWithDetails(index, rank, score, pDetails, detailsSize, outDetailsSize, userID);
 
 		if (outDetailsSize > 0)
@@ -801,9 +802,34 @@ void GMAsyncEventListener::OnNotificationReceived(galaxy::api::NotificationID no
 	int map = CreateDsMap(0, 0);
 	DsMapAddString(map, "type", "GOG_Utils_NotificationReceived");
 	DsMapAddInt64(map, "notificationID", notificationID);
+
+	bool consumable = false;
+	std::vector<char> typeVec;
+	typeVec.resize(static_cast<size_t>(typeLength) + 1);
+	std::vector<uint8_t> contentVec;
+	contentVec.resize(static_cast<size_t>(contentSize) + 1);
+	uint32_t contentWrote = galaxy::api::Utils()->GetNotification(
+		notificationID,
+		consumable,
+		typeVec.data(),
+		typeLength,
+		contentVec.data(),
+		contentSize
+	);
+	DsMapAddBool(map, "consumable", consumable);
 	DsMapAddDouble(map, "typeLength", typeLength);
-	DsMapAddDouble(map, "contentSize", contentSize);
-	CreateAsyncEventWithDSMap(map, 70);
+	DsMapAddDouble(map, "contentSize", contentWrote);
+	DsMapAddString(map, "type", typeVec.data()); // this is a char* so a string it seems
+	if (contentWrote > 0) {
+		int contentBuff = CreateBuffer(static_cast<int>(contentWrote), eBuffer_Format_Grow, 1);
+		BufferWriteContent(contentBuff, 0, contentVec.data(), static_cast<int>(contentWrote), true);
+		DsMapAddDouble(map, "content", contentBuff);
+		CreateAsyncEventWithDSMapAndBuffer(map, contentBuff, 70);
+	}
+	else {
+		DsMapAddDouble(map, "content", -1.0);
+		CreateAsyncEventWithDSMap(map, 70);
+	}
 }
 
 void GMAsyncEventListener::OnConnectionStateChange(galaxy::api::GogServicesConnectionState connectionState)

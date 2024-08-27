@@ -4,7 +4,7 @@ switch(async_load[?"type"])
 {
 	case "GOG_Stats_RequestUserTimePlayed":
 	
-		show_debug_message("GOG_Stats_GetUserTimePlayed: " + string(GOG_Stats_GetUserTimePlayed(GOG_User_GetGalaxyID())))
+		show_debug_message("GOG_Stats_GetUserTimePlayed: " + string(GOG_Stats_GetUserTimePlayed()))
 		
 	break
 	

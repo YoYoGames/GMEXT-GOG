@@ -10,7 +10,7 @@ YYEXPORT void GOG_Apps_IsDlcInstalled(RValue& Result, CInstance* selfinst, CInst
 	int64 productID = YYGetInt64(arg, 0);
 
 	Result.kind = VALUE_BOOL;
-	Result.val = galaxy::api::Apps()->IsDlcInstalled((galaxy::api::ProductID)productID);
+	Result.val = galaxy::api::Apps()->IsDlcInstalled(static_cast<galaxy::api::ProductID>(productID));
 }
 
 YYEXPORT void GOG_Apps_IsDlcOwned(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -20,7 +20,9 @@ YYEXPORT void GOG_Apps_IsDlcOwned(RValue& Result, CInstance* selfinst, CInstance
 
 	int64 productID = YYGetInt64(arg, 0);
 
-	galaxy::api::Apps()->IsDlcOwned((galaxy::api::ProductID)productID, GMAsyncEventListener::Instance());
+	galaxy::api::Apps()->IsDlcOwned(static_cast<galaxy::api::ProductID>(productID), GMAsyncEventListener::Instance());
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Apps_GetCurrentGameLanguage(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -29,7 +31,7 @@ YYEXPORT void GOG_Apps_GetCurrentGameLanguage(RValue& Result, CInstance* selfins
 
 	int64 productID = (argc > 0) ? YYGetInt64(arg, 0) : 0;
 
-	const char* GameLanguage = galaxy::api::Apps()->GetCurrentGameLanguage((galaxy::api::ProductID)productID);
+	const char* GameLanguage = galaxy::api::Apps()->GetCurrentGameLanguage(static_cast<galaxy::api::ProductID>(productID));
 
 	YYCreateString(&Result, GameLanguage);
 }
@@ -40,7 +42,7 @@ YYEXPORT void GOG_Apps_GetCurrentGameLanguageCode(RValue& Result, CInstance* sel
 
 	int64 productID = (argc > 0) ? YYGetInt64(arg, 0) : 0;
 
-	const char* GameLanguageCode = galaxy::api::Apps()->GetCurrentGameLanguageCode((galaxy::api::ProductID)productID);
+	const char* GameLanguageCode = galaxy::api::Apps()->GetCurrentGameLanguageCode(static_cast<galaxy::api::ProductID>(productID));
 
 	YYCreateString(&Result, GameLanguageCode);
 }

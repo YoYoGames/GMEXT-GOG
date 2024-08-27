@@ -1,7 +1,7 @@
 
 event_inherited();
 
-text = "SetUserData"
+text = "Encrypted App Ticket"
 request_key = noone
 request_value = noone
 key = ""

@@ -5,6 +5,6 @@ api_key ??= "ERROR"
 
 text = api_key// no function to get the name....
 
-value = GOG_Stats_GetStatFloat(api_key,GOG_User_GetGalaxyID())
+value = GOG_Stats_GetStatFloat(api_key)
 
 request = noone
