@@ -6,7 +6,7 @@ event_inherited();
 
 text = GOG_Stats_GetAchievementDisplayName(api_key)
 
-var _struct = GOG_Stats_GetAchievement(api_key,GOG_User_GetGalaxyID())//unlocked,unlockTime
+var _struct = GOG_Stats_GetAchievement(api_key)//unlocked,unlockTime
 show_debug_message(_struct)
 if(_struct.unlocked)
 	locked = true

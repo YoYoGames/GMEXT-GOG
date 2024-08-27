@@ -10,10 +10,10 @@ YYEXPORT void GOG_Storage_FileWrite(RValue& Result, CInstance* selfinst, CInstan
 	const char* fileName = YYGetString(arg, 0);
 	double buffer = YYGetReal(arg, 1);
 
-	unsigned char* buffer_data = nullptr;
+	void* buffer_data = nullptr;
 	int buffer_size = 0;
 
-	if (!BufferGetContent(static_cast<int32_t>(buffer), (void**)(&buffer_data), &buffer_size))
+	if (!BufferGetContent(static_cast<int32_t>(buffer), &buffer_data, &buffer_size))
 	{
 		DebugConsoleOutput("[GMEXT-GOG]: GOG_Storage_FileWrite - error: specified buffer not found\n");
 		return;
@@ -22,6 +22,8 @@ YYEXPORT void GOG_Storage_FileWrite(RValue& Result, CInstance* selfinst, CInstan
 	galaxy::api::Storage()->FileWrite(fileName, buffer_data, buffer_size);
 
 	YYFree(buffer_data);
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Storage_FileRead(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -29,30 +31,35 @@ YYEXPORT void GOG_Storage_FileRead(RValue& Result, CInstance* selfinst, CInstanc
 	GOG_NotInitialisedReturn_REAL;
 	GOG_EnsureArgc(1);
 
+	Result.kind = VALUE_REAL;
+	Result.val = -1;
+
 	const char* fileName = YYGetString(arg, 0);
 	int bufferID = (argc > 1) ? YYGetInt32(arg, 1) : -1;
 	int byteOffset = (argc > 2) ? YYGetInt32(arg, 2) : 0;
 
 	if (!galaxy::api::Storage()->FileExists(fileName))
 	{
-		Result.kind = VALUE_REAL;
-		Result.val = -1;
 		return;
 	}
 
 	uint32_t size = galaxy::api::Storage()->GetFileSize(fileName);
+	if (size == 0)
+		return;
 	std::vector<uint8_t> data;
 	data.resize(size);
 	uint8_t* d = data.data();
 
 	// returns how many bytes were actually written
 	size = galaxy::api::Storage()->FileRead(fileName, d, size);
-
+	if (size == 0)
+		return;
 	if (bufferID < 0)
 	{
-		bufferID = CreateBuffer(size, eBuffer_Format_Fixed, 1);
+		bufferID = CreateBuffer(size, eBuffer_Format_Grow, 1);
+		byteOffset = 0;
 	}
-	BufferWriteContent(bufferID, byteOffset, d, size);
+	BufferWriteContent(bufferID, byteOffset, d, size, true);
 
 	Result.kind = VALUE_REAL;
 	Result.val = bufferID;
@@ -65,6 +72,8 @@ YYEXPORT void GOG_Storage_FileDelete(RValue& Result, CInstance* selfinst, CInsta
 
 	const char* fileName = YYGetString(arg, 0);
 	galaxy::api::Storage()->FileDelete(fileName);
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Storage_FileExists(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -122,6 +131,8 @@ YYEXPORT void GOG_Storage_FileShare(RValue& Result, CInstance* selfinst, CInstan
 	const char* fileName = YYGetString(arg, 0);
 
 	galaxy::api::Storage()->FileShare(fileName);
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Storage_DownloadSharedFile(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -132,6 +143,8 @@ YYEXPORT void GOG_Storage_DownloadSharedFile(RValue& Result, CInstance* selfinst
 	uint64_t sharedFileID = YYGetInt64(arg, 0);
 
 	galaxy::api::Storage()->DownloadSharedFile(sharedFileID);
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Storage_GetSharedFileName(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -173,24 +186,30 @@ YYEXPORT void GOG_Storage_SharedFileRead(RValue& Result, CInstance* selfinst, CI
 	GOG_NotInitialisedReturn_REAL;
 	GOG_EnsureArgc(1);
 
+	Result.kind = VALUE_REAL;
+	Result.val = -1;
+
 	uint64_t sharedFileID = YYGetInt64(arg, 0);
 	int bufferID = (argc > 1) ? YYGetInt32(arg, 1) : -1;
 	int byteOffset = (argc > 2) ? YYGetInt32(arg, 2) : 0;
 	
 	uint32_t size = galaxy::api::Storage()->GetSharedFileSize(sharedFileID);
-
+	if (size == 0)
+		return;
 	std::vector<uint8_t> data;
 	data.resize(size);
 	uint8_t* d = data.data();
 
 	// returns the actual amount written to buffer
 	size = galaxy::api::Storage()->SharedFileRead(sharedFileID, d, size);
-
+	if (size == 0)
+		return;
 	if (bufferID < 0)
 	{
-		bufferID = CreateBuffer(size, eBuffer_Format_Fixed, 1);
+		bufferID = CreateBuffer(size, eBuffer_Format_Grow, 1);
+		byteOffset = 0;
 	}
-	BufferWriteContent(bufferID, byteOffset, d, size);
+	BufferWriteContent(bufferID, byteOffset, d, size, true);
 
 	Result.kind = VALUE_REAL;
 	Result.val = bufferID;
@@ -203,6 +222,8 @@ YYEXPORT void GOG_Storage_SharedFileClose(RValue& Result, CInstance* selfinst, C
 
 	uint64_t sharedFileID = YYGetInt64(arg, 0);
 	galaxy::api::Storage()->SharedFileClose(sharedFileID);
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Storage_GetDownloadedSharedFileCount(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)

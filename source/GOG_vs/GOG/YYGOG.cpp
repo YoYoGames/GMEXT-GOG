@@ -7,6 +7,8 @@
 bool GOG_isInitialised = false;
 void OldPreGraphicsInitialisation()
 {
+	if (GOG_isInitialised)
+		return;
 	std::string clientID = extOptGetString("GOG", "clientID");
 	std::string clientSecret = extOptGetString("GOG", "clientSecret");
 	
@@ -30,6 +32,9 @@ YYEXPORT void GOG_ProcessData(RValue& Result, CInstance* selfinst, CInstance* ot
 {
 	GOG_NotInitialisedReturn_BOOL;
 
+	// return true if GOG is initialized
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 	galaxy::api::ProcessData();
 }
 

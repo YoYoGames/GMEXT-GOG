@@ -7,10 +7,11 @@
 YYEXPORT void GOG_Stats_RequestUserStatsAndAchievements(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
 {
 	GOG_NotInitialisedReturn_BOOL;
-	GOG_EnsureArgc(1);
 
 	galaxy::api::GalaxyID userID = GOG_GetOptUserId(0);
 	galaxy::api::Stats()->RequestUserStatsAndAchievements(userID);
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Stats_GetStatInt(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -46,6 +47,8 @@ YYEXPORT void GOG_Stats_SetStatInt(RValue& Result, CInstance* selfinst, CInstanc
 	int32_t value = static_cast<int32_t>(YYGetReal(arg, 1));
 
 	galaxy::api::Stats()->SetStatInt(name,value);
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Stats_SetStatFloat(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -57,6 +60,8 @@ YYEXPORT void GOG_Stats_SetStatFloat(RValue& Result, CInstance* selfinst, CInsta
 	double value = YYGetReal(arg, 1);
 
 	galaxy::api::Stats()->SetStatFloat(name, static_cast<float>(value));
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Stats_UpdateAvgRateStat(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -69,6 +74,8 @@ YYEXPORT void GOG_Stats_UpdateAvgRateStat(RValue& Result, CInstance* selfinst, C
 	double sessionLenght = YYGetReal(arg, 2);
 
 	galaxy::api::Stats()->UpdateAvgRateStat(name, static_cast<float>(countThisSession),sessionLenght);
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Stats_GetAchievement(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -86,10 +93,7 @@ YYEXPORT void GOG_Stats_GetAchievement(RValue& Result, CInstance* selfinst, CIns
 
 	YYStructCreate(&Result);
 	YYStructAddBool(&Result, "unlocked", unlocked);
-	if (unlocked)
-	{
-		YYStructAddDouble(&Result, "unlockTime", unlockTime);
-	}
+	YYStructAddDouble(&Result, "unlockTime", unlockTime);
 }
 
 YYEXPORT void GOG_Stats_SetAchievement(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -100,6 +104,8 @@ YYEXPORT void GOG_Stats_SetAchievement(RValue& Result, CInstance* selfinst, CIns
 	const char* name = YYGetString(arg, 0);
 
 	galaxy::api::Stats()->SetAchievement(name);
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Stats_ClearAchievement(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -110,6 +116,8 @@ YYEXPORT void GOG_Stats_ClearAchievement(RValue& Result, CInstance* selfinst, CI
 	const char* name = YYGetString(arg, 0);
 
 	galaxy::api::Stats()->ClearAchievement(name);
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Stats_StoreStatsAndAchievements(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -117,6 +125,8 @@ YYEXPORT void GOG_Stats_StoreStatsAndAchievements(RValue& Result, CInstance* sel
 	GOG_NotInitialisedReturn_BOOL;
 
 	galaxy::api::Stats()->StoreStatsAndAchievements();
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Stats_ResetStatsAndAchievements(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -124,6 +134,8 @@ YYEXPORT void GOG_Stats_ResetStatsAndAchievements(RValue& Result, CInstance* sel
 	GOG_NotInitialisedReturn_BOOL;
 
 	galaxy::api::Stats()->ResetStatsAndAchievements();
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Stats_GetAchievementDisplayName(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -173,6 +185,8 @@ YYEXPORT void GOG_Stats_RequestLeaderboards(RValue& Result, CInstance* selfinst,
 	GOG_NotInitialisedReturn_BOOL;
 
 	galaxy::api::Stats()->RequestLeaderboards();
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Stats_GetLeaderboardDisplayName(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -217,6 +231,8 @@ YYEXPORT void GOG_Stats_RequestLeaderboardEntriesGlobal(RValue& Result, CInstanc
 	double rangeEnd = YYGetReal(arg, 2);
 
 	galaxy::api::Stats()->RequestLeaderboardEntriesGlobal(name, static_cast<uint32_t>(rangeStart), static_cast<uint32_t>(rangeEnd));
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Stats_RequestLeaderboardEntriesAroundUser(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -231,6 +247,8 @@ YYEXPORT void GOG_Stats_RequestLeaderboardEntriesAroundUser(RValue& Result, CIns
 	galaxy::api::GalaxyID userID = GOG_GetOptUserId(3);
 
 	galaxy::api::Stats()->RequestLeaderboardEntriesAroundUser(name, static_cast<uint32_t>(countBefore), static_cast<uint32_t>(countAfter), userID);
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Stats_RequestLeaderboardEntriesForUsers(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -258,6 +276,8 @@ YYEXPORT void GOG_Stats_RequestLeaderboardEntriesForUsers(RValue& Result, CInsta
 		name,
 		users.data(),
 		static_cast<uint32_t>(users.size()));
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Stats_SetLeaderboardScore(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -270,6 +290,8 @@ YYEXPORT void GOG_Stats_SetLeaderboardScore(RValue& Result, CInstance* selfinst,
 	bool forceUpdate = (argc > 2) ? YYGetBool(arg, 2) : false;
 	
 	galaxy::api::Stats()->SetLeaderboardScore(name, static_cast<int32_t>(score), forceUpdate);
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Stats_SetLeaderboardScoreWithDetails(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -282,10 +304,10 @@ YYEXPORT void GOG_Stats_SetLeaderboardScoreWithDetails(RValue& Result, CInstance
 	bool forceUpdate = YYGetBool(arg, 2);
 	int32_t buffer = YYGetInt32(arg, 3);
 
-	unsigned char* buffer_data = nullptr;
+	void* buffer_data = nullptr;
 	int buffer_size = 0;
 
-	if (!BufferGetContent(buffer, (void**)(&buffer_data), &buffer_size))
+	if (!BufferGetContent(buffer, &buffer_data, &buffer_size))
 	{
 		DebugConsoleOutput("GOG_Stats_SetLeaderboardScoreWithDetails - error: specified buffer not found\n");
 		return;
@@ -293,6 +315,8 @@ YYEXPORT void GOG_Stats_SetLeaderboardScoreWithDetails(RValue& Result, CInstance
     
     galaxy::api::Stats()->SetLeaderboardScoreWithDetails(name, static_cast<int32_t>(score), buffer_data, buffer_size, forceUpdate);
 	YYFree(buffer_data);
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Stats_GetLeaderboardEntryCount(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -314,6 +338,8 @@ YYEXPORT void GOG_Stats_FindLeaderboard(RValue& Result, CInstance* selfinst, CIn
 	const char* name = YYGetString(arg, 0);
 
 	galaxy::api::Stats()->FindLeaderboard(name);
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Stats_FindOrCreateLeaderboard(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -327,6 +353,8 @@ YYEXPORT void GOG_Stats_FindOrCreateLeaderboard(RValue& Result, CInstance* selfi
 	int displayType = YYGetInt32(arg, 3);
 
 	galaxy::api::Stats()->FindOrCreateLeaderboard(name,displayName,(galaxy::api::LeaderboardSortMethod)sortMethod,(galaxy::api::LeaderboardDisplayType)displayType);
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Stats_RequestUserTimePlayed(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -336,6 +364,8 @@ YYEXPORT void GOG_Stats_RequestUserTimePlayed(RValue& Result, CInstance* selfins
 	galaxy::api::GalaxyID userID = GOG_GetOptUserId(0);
 
 	galaxy::api::Stats()->RequestUserTimePlayed(userID);
+	Result.kind = VALUE_BOOL;
+	Result.val = 1;
 }
 
 YYEXPORT void GOG_Stats_GetUserTimePlayed(RValue& Result, CInstance* selfinst, CInstance* otherinst, int argc, RValue* arg)
@@ -361,7 +391,7 @@ YYEXPORT void GOG_Stats_GetAchievementName(RValue& Result, CInstance* selfinst, 
 	GOG_NotInitialisedReturn_STRING;
 	GOG_EnsureArgc(1);
 
-	int index = YYGetInt32(arg, 0);
+	double index = YYGetReal(arg, 0);
 
-	YYCreateString(&Result, galaxy::api::Stats()->GetAchievementName(index));
+	YYCreateString(&Result, galaxy::api::Stats()->GetAchievementName(static_cast<uint32_t>(index)));
 }
