@@ -150,7 +150,7 @@
  * @func GOG_Friends_GetFriendAvatarImageID
  * @desc This function returns the ID of the avatar of a specified user.
  * 
- * [[Note: This function returns the ID used internally by the GOG SDK. To get an actual avatar image as a sprite you can either get the image data using ${function.GOG_Friends_GetFriendAvatarImageRGBA} and create a sprite from the buffer data (indirectly using ${function.buffer_set_surface}) or add the sprite directly using ${function.sprite_add} from the URL returned by ${function.GOG_Friends_GetFriendAvatarUrl}.]]
+ * [[Note: This function returns the ID used internally by the GOG SDK. To get an actual avatar image as a sprite you can either get the image data using ${function.GOG_Friends_GetFriendAvatarImageRGBA} and create a sprite from the buffer data (using ${function.buffer_set_surface} and ${function.sprite_create_from_surface}) or add the sprite directly using ${function.sprite_add} from the URL returned by ${function.GOG_Friends_GetFriendAvatarUrl}.]]
  * 
  * [[WARNING: REQUIREMENT Retrieve the avatar image first by calling ${function.GOG_Friends_RequestUserInformation} with appropriate avatar criteria.]]
  * 
