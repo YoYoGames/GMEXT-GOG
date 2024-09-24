@@ -148,11 +148,11 @@
  * @func_end
  * 
  * @func GOG_Friends_GetFriendAvatarImageID
- * @desc Returns the ID of the avatar of a specified user.
+ * @desc This function returns the ID of the avatar of a specified user.
  * 
- * > **:warning: REQUIREMENT**
- * >
- * > Retrieve the avatar image first by calling ${function.GOG_Friends_RequestUserInformation} with appropriate avatar criteria.
+ * [[Note: This function returns the ID used internally by the GOG SDK. To get an actual avatar image as a sprite you can either get the image data using ${function.GOG_Friends_GetFriendAvatarImageRGBA} and create a sprite from the buffer data (using ${function.buffer_set_surface} and ${function.sprite_create_from_surface}) or add the sprite directly using ${function.sprite_add} from the URL returned by ${function.GOG_Friends_GetFriendAvatarUrl}.]]
+ * 
+ * [[WARNING: REQUIREMENT Retrieve the avatar image first by calling ${function.GOG_Friends_RequestUserInformation} with appropriate avatar criteria.]]
  * 
  * @param {struct.GalaxyID} userID The ID of the user.
  * @param {constant.AvatarType} avatarType The type of avatar.
@@ -173,7 +173,7 @@
  * 
  * [[WARNING: REQUIREMENT You might need to retrieve the data first by calling ${function.GOG_Friends_RequestUserInformation}.]]
  * 
- * [[NOTE: The size of the output buffer will be 4 * height * width (check [AvatarType,](#AvatarType) for width and height values).]]
+ * [[NOTE: The size of the output buffer will be 4 * height * width (check ${constant.AvatarType} for width and height values).]]
  * 
  * [[WARNING: This function creates a new buffer everytime it is called, unless a buffer is already specified. You need to ensure you correctly delete the buffer when you don't need it anymore using the ${function.buffer_delete} function. Failing to do so will result in memory leaks.]]
  * 
