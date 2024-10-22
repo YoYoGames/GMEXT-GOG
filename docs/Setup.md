@@ -10,7 +10,7 @@ To use the GOG API extension you should follow these steps:
 
 1. Import this GOG API extension into your project, if you haven't done that already.
 2. The GOG Launcher needs to be **installed**, **running** and with an account **logged in** ([official site](https://www.gog.com/galaxy)).
-3. Download GOG SDK (v1.152.6) from GOG's [developer portal](https://devportal.gog.com/welcome) and extract the contents of the zip into a directory of your choice (e.g.: `C:\GOG_sdk`).<br>
+3. Download GOG SDK (v1.152.10) from GOG's [developer portal](https://devportal.gog.com/welcome) and extract the contents of the zip into a directory of your choice (e.g.: `C:\GOG_sdk`).<br>
       ![](assets/gogSdkFolder.png)
 
 4. To set up your game properties, double click on the GOG extension in your Asset Browser in the IDE.<br>
