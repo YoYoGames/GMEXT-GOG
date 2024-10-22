@@ -11,7 +11,6 @@ XCODE SOURCE: `source/GOG_xcode/`
 
 After compilation the exported dll/dylib file is automatically copied into the extension folder inside the included GameMaker project folder.
 
-
 ---
 
 ## Important
@@ -28,4 +27,10 @@ In order to compile for Windows/macOS you are required to [download the GOG Gala
 
 ## Documentation
 
-We provide both a PDF version of the documentation included with the extension and inside the demo project (datafiles) and a fully converted version to the [Github Wiki](https://github.com/YoYoGames/GMEXT-GOG/wiki) format (the latter will be the most up-to-date version, the other will follow shortly after). *If there are any PR requests with new feature implementation please make sure you also provide the documentation for the implemented features.*
+* Check [the documentation](../../wiki)
+
+The online documentation is regularly updated to ensure it contains the most current information. For those who prefer a different format, we also offer a HTML version. This HTML is directly converted from the GitHub Wiki content, ensuring consistency, although it may follow slightly behind in updates.
+
+We encourage users to refer primarily to the GitHub Wiki for the latest information and updates. The HTML version, included with the extension and within the demo project's data files, serves as a secondary, static reference.
+
+Additionally, if you're contributing new features through PR (Pull Requests), we kindly ask that you also provide accompanying documentation for these features, to maintain the comprehensiveness and usefulness of our resources.
