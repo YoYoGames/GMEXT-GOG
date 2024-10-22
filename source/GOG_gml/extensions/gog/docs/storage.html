@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Storage - GMEXT-GOG</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+        <link href="assets/css/gmext_style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Storage";
+        var mkdocs_page_input_path = "storage.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/gml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> GMEXT-GOG
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="home.html">GOG</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="apps.html">Apps</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="friends.html">Friends</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="stats.html">Stats</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Storage</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="telemetry.html">Telemetry</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="user.html">User</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="utils.html">Utils</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="management.html">Management</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">GMEXT-GOG</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Storage</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/YoYoGames/GMEXT-GOG/edit/master/docs/storage.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p><a id="top"></a></p>
+<h1 id="storage"><strong>Storage</strong></h1>
+<p>This is a module for managing cloud storage files.</p>
+<h2 id="functions">Functions</h2>
+<p>This module offers a collection of functions designed to address specific tasks and provide utilities for various purposes. Explore the available functions to make the most of the functionalities provided by this module.</p>
+<ul>
+<li><a href="storage.html#gog_storage_downloadsharedfile">GOG_Storage_DownloadSharedFile</a></li>
+<li><a href="storage.html#gog_storage_filedelete">GOG_Storage_FileDelete</a></li>
+<li><a href="storage.html#gog_storage_fileexists">GOG_Storage_FileExists</a></li>
+<li><a href="storage.html#gog_storage_fileread">GOG_Storage_FileRead</a></li>
+<li><a href="storage.html#gog_storage_fileshare">GOG_Storage_FileShare</a></li>
+<li><a href="storage.html#gog_storage_filewrite">GOG_Storage_FileWrite</a></li>
+<li><a href="storage.html#gog_storage_getdownloadedsharedfilebyindex">GOG_Storage_GetDownloadedSharedFileByIndex</a></li>
+<li><a href="storage.html#gog_storage_getdownloadedsharedfilecount">GOG_Storage_GetDownloadedSharedFileCount</a></li>
+<li><a href="storage.html#gog_storage_getfilecount">GOG_Storage_GetFileCount</a></li>
+<li><a href="storage.html#gog_storage_getfilenamebyindex">GOG_Storage_GetFileNameByIndex</a></li>
+<li><a href="storage.html#gog_storage_getfilesize">GOG_Storage_GetFileSize</a></li>
+<li><a href="storage.html#gog_storage_getfiletimestamp">GOG_Storage_GetFileTimestamp</a></li>
+<li><a href="storage.html#gog_storage_getsharedfilename">GOG_Storage_GetSharedFileName</a></li>
+<li><a href="storage.html#gog_storage_getsharedfileowner">GOG_Storage_GetSharedFileOwner</a></li>
+<li><a href="storage.html#gog_storage_getsharedfilesize">GOG_Storage_GetSharedFileSize</a></li>
+<li><a href="storage.html#gog_storage_sharedfileclose">GOG_Storage_SharedFileClose</a></li>
+<li><a href="storage.html#gog_storage_sharedfileread">GOG_Storage_SharedFileRead</a></li>
+</ul>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_storage_downloadsharedfile">GOG_Storage_DownloadSharedFile</h1>
+<p>This function downloads a previously shared file.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Storage_DownloadSharedFile(sharedFileID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sharedFileID</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Int64</a></td>
+<td>The ID of the shared file.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Storage_DownloadSharedFile"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+<tr>
+<td>sharedFileID</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The ID of the shared file.</td>
+</tr>
+<tr>
+<td>fileName</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>Name of the shared file</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Storage_DownloadSharedFile(sharedFileID);</code></pre>
+The code sample above starts a task to download a shared file. The results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> event.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Storage_DownloadSharedFile")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    var _sharedFileID = async_load[?"sharedFileID"];
+    var _fileName = async_load[?"fileName"];
+
+    show_debug_message("DownloadSharedFile SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_storage_filedelete">GOG_Storage_FileDelete</h1>
+<p>This function deletes the given file.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT The name that specifies the file has to be provided in the form of a relative path that uses slashes as separators. Every part of the path must not refer to any special or restricted name on any of the supported platforms. Backslashes are not allowed.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Storage_FileDelete(fileName)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fileName</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the file in the form of a path</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Storage_FileDelete(fileName);</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_storage_fileexists">GOG_Storage_FileExists</h1>
+<p>This function returns if the given file exists.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT The name that specifies the file has to be provided in the form of a relative path that uses slashes as separators. Every part of the path must not refer to any special or restricted name on any of the supported platforms. Backslashes are not allowed.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Storage_FileExists(fileName)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fileName</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the file in the form of a path</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Boolean</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">if(GOG_Storage_FileExists(fileName))
+{
+   //File exists, do something
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_storage_fileread">GOG_Storage_FileRead</h1>
+<p>This function reads file content into the buffer.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT The name that specifies the file has to be provided in the form of a relative path that uses slashes as separators. Every part of the path must not refer to any special or restricted name on any of the supported platforms. Backslashes are not allowed.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This function creates a new buffer everytime it is called, unless a buffer is already specified. You need to ensure you correctly delete the buffer when you don&#39;t need it anymore using the <a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Buffers/buffer_delete.htm">buffer_delete</a> function. Failing to do so will result in memory leaks.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Storage_FileRead(fileName, bufferID=undefined, byteOffset=undefined)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fileName</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the file in the form of a path</td>
+</tr>
+<tr>
+<td>bufferID</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Buffers/Buffers.htm">Buffer</a></td>
+<td>OPTIONAL: use an existing buffer instead of allocating a new one</td>
+</tr>
+<tr>
+<td>byteOffset</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>OPTIONAL: write data to a specific offset in the buffer</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Buffers/Buffers.htm">Buffer</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _buffer = GOG_Storage_FileRead(fileName);</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_storage_fileshare">GOG_Storage_FileShare</h1>
+<p>This function uploads the file for sharing.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT The name that specifies the file has to be provided in the form of a relative path that uses slashes as separators. Every part of the path must not refer to any special or restricted name on any of the supported platforms. Backslashes are not allowed.</p>
+</div>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Storage_FileShare(fileName)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fileName</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the file in the form of a path</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Storage_FileShare"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+<tr>
+<td>sharedFileID</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The ID of the shared file.</td>
+</tr>
+<tr>
+<td>fileName</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>Name of the shared file</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Storage_FileShare(fileName);</code></pre>
+The code sample above starts a task for sharing a file, which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> event.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Storage_FileShare")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    var _sharedFileID = async_load[?"sharedFileID"];
+    var _fileName = async_load[?"fileName"];
+
+    show_debug_message("FileShare SUCCESS");
+}
+</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_storage_filewrite">GOG_Storage_FileWrite</h1>
+<p>This function writes data into the file.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT The name that specifies the file has to be provided in the form of a relative path that uses slashes as separators. Every part of the path must not refer to any special or restricted name on any of the supported platforms. Backslashes are not allowed.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The files created using this method will be stored in GOG Galaxy internal directory and should be accessed only via Galaxy SDK methods.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Storage_FileWrite(fileName, buffer)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fileName</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>Name of the file</td>
+</tr>
+<tr>
+<td>buffer</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Buffers/Buffers.htm">Buffer</a></td>
+<td>Buffer with data</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Storage_FileWrite(fileName, buffer);</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_storage_getdownloadedsharedfilebyindex">GOG_Storage_GetDownloadedSharedFileByIndex</h1>
+<p>This function returns the ID of the open downloaded shared file.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Storage_GetDownloadedSharedFileByIndex(index)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>Index as an integer in the range of [0, number of open downloaded shared files].</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(var i = 0 ; i &lt; GetDownloadedSharedFileCount() ; i++)
+{
+   var _sharedFileID= GOG_Storage_GetDownloadedSharedFileByIndex(i);
+   var _fileName = GOG_Storage_GetSharedFileName(_sharedFileID);
+   var _fileSize = GOG_Storage_GetSharedFileSize(_sharedFileID);
+   var _owner = GOG_Storage_GetSharedFileOwner(_sharedFileID);
+   var _buffer = GOG_Storage_SharedFileRead(_sharedFileID);
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_storage_getdownloadedsharedfilecount">GOG_Storage_GetDownloadedSharedFileCount</h1>
+<p>This function returns the number of open downloaded shared files.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Storage_GetDownloadedSharedFileCount()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(var i = 0 ; i &lt; GetDownloadedSharedFileCount() ; i++)
+{
+   var _sharedFileID = GOG_Storage_GetDownloadedSharedFileByIndex(i);
+   var _fileName = GOG_Storage_GetSharedFileName(_sharedFileID);
+   var _fileSize = GOG_Storage_GetSharedFileSize(_sharedFileID);
+   var _owner = GOG_Storage_GetSharedFileOwner(_sharedFileID);
+   var _buffer = GOG_Storage_SharedFileRead(_sharedFileID);
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_storage_getfilecount">GOG_Storage_GetFileCount</h1>
+<p>This function returns the number of files in the storage.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Storage_GetFileCount()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(i = 0 ; i &lt; GOG_Storage_GetFileCount() ; i++)
+{
+   var _filename = GOG_Storage_GetFileNameByIndex(i);
+   var _fileSize = GOG_Storage_GetFileSize(_filename);
+   var _fileTimestamp = GOG_Storage_GetFileTimestamp(_filename);
+   var _fileSize = GOG_Storage_GetSharedFileSize(_filename);
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_storage_getfilenamebyindex">GOG_Storage_GetFileNameByIndex</h1>
+<p>This function returns the name of the file.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Storage_GetFileNameByIndex(index)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The index as an integer in the range of [0, number of files].</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(i = 0 ; i &lt; GOG_Storage_GetFileCount() ; i++)
+{
+   var _filename = GOG_Storage_GetFileNameByIndex(i);
+   var _fileSize = GOG_Storage_GetFileSize(__filename);
+   var _fileTimestamp = GOG_Storage_GetFileTimestamp(_filename);
+   var _fileSize = GOG_Storage_GetSharedFileSize(_filename);
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_storage_getfilesize">GOG_Storage_GetFileSize</h1>
+<p>This function returns the size of the file.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT The name that specifies the file has to be provided in the form of a relative path that uses slashes as separators. Every part of the path must not refer to any special or restricted name on any of the supported platforms. Backslashes are not allowed.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Storage_GetFileSize(filename)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filename</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the file in the form of a path.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(i = 0 ; i &lt; GOG_Storage_GetFileCount() ; i++)
+{
+   var _filename = GOG_Storage_GetFileNameByIndex(i);
+   var _fileSize = GOG_Storage_GetFileSize(_filename);
+   var _fileTimestamp = GOG_Storage_GetFileTimestamp(_filename);
+   var _fileSize = GOG_Storage_GetSharedFileSize(_filename);
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_storage_getfiletimestamp">GOG_Storage_GetFileTimestamp</h1>
+<p>This function returns the timestamp of the last file modification.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT The name that specifies the file has to be provided in the form of a relative path that uses slashes as separators. Every part of the path must not refer to any special or restricted name on any of the supported platforms. Backslashes are not allowed.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Storage_GetFileTimestamp(filename)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filename</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the file in the form of a path.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(i = 0 ; i &lt; GOG_Storage_GetFileCount() ; i++)
+{
+   var _filename = GOG_Storage_GetFileNameByIndex(i);
+   var _fileSize = GOG_Storage_GetFileSize(_filename);
+   var _fileTimestamp = GOG_Storage_GetFileTimestamp(_filename);
+   var _fileSize = GOG_Storage_GetSharedFileSize(_filename);
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_storage_getsharedfilename">GOG_Storage_GetSharedFileName</h1>
+<p>This function gets the name of a downloaded shared file.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Storage_GetSharedFileName(sharedFileID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sharedFileID</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Int64</a></td>
+<td>The ID of the shared file.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(var i = 0 ; i &lt; GetDownloadedSharedFileCount() ; i++)
+{
+   var _sharedFileID = GOG_Storage_GetDownloadedSharedFileByIndex(i);
+   var _fileName = GOG_Storage_GetSharedFileName(_sharedFileID);
+   var _fileSize = GOG_Storage_GetSharedFileSize(_sharedFileID);
+   var _owner = GOG_Storage_GetSharedFileOwner(_sharedFileID);
+   var _buffer = GOG_Storage_SharedFileRead(_sharedFileID);
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_storage_getsharedfileowner">GOG_Storage_GetSharedFileOwner</h1>
+<p>This function gets the owner <a href="user.html#galaxyid">GalaxyID</a> of a downloaded shared file.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Storage_GetSharedFileOwner(sharedFileID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sharedFileID</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Int64</a></td>
+<td>The ID of the shared file.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="user.html#galaxyid">GalaxyID</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(var i = 0 ; i &lt; GetDownloadedSharedFileCount() ; i++)
+{
+   var _sharedFileID = GOG_Storage_GetDownloadedSharedFileByIndex(i);
+   var _fileName = GOG_Storage_GetSharedFileName(sharedFileID);
+   var _fileSize = GOG_Storage_GetSharedFileSize(sharedFileID);
+   var _owner = GOG_Storage_GetSharedFileOwner(sharedFileID);
+   var _buffer = GOG_Storage_SharedFileRead(sharedFileID);
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_storage_getsharedfilesize">GOG_Storage_GetSharedFileSize</h1>
+<p>This function gets the size of a downloaded shared file.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Storage_GetSharedFileSize(sharedFileID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sharedFileID</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Int64</a></td>
+<td>The ID of the shared file.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(var i = 0 ; i &lt; GetDownloadedSharedFileCount() ; i++)
+{
+   var _sharedFileID = GOG_Storage_GetDownloadedSharedFileByIndex(i);
+   var _fileName = GOG_Storage_GetSharedFileName(_sharedFileID);
+   var _fileSize = GOG_Storage_GetSharedFileSize(_sharedFileID);
+   var _owner = GOG_Storage_GetSharedFileOwner(_sharedFileID);
+   var _buffer = GOG_Storage_SharedFileRead(_sharedFileID);
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_storage_sharedfileclose">GOG_Storage_SharedFileClose</h1>
+<p>This function closes the given downloaded shared file and frees the memory.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Storage_SharedFileClose(sharedFileID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sharedFileID</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Int64</a></td>
+<td>The ID of the shared file.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Storage_SharedFileClose(sharedFileID);</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_storage_sharedfileread">GOG_Storage_SharedFileRead</h1>
+<p>This function reads the given downloaded shared file's contents into the buffer.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This function creates a new buffer everytime it is called, unless a buffer is already specified. You need to ensure you correctly delete the buffer when you don't need it anymore using the <a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Buffers/buffer_delete.htm">buffer_delete</a> function. Failing to do so will result in memory leaks.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Storage_SharedFileRead(sharedFileID, bufferID=undefined, byteOffset=undefined)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sharedFileID</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Int64</a></td>
+<td>The ID of the shared file.</td>
+</tr>
+<tr>
+<td>bufferID</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Buffers/Buffers.htm">Buffer</a></td>
+<td>OPTIONAL: use an existing buffer instead of allocating a new one</td>
+</tr>
+<tr>
+<td>byteOffset</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>OPTIONAL: write data to a specific offset in the buffer</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Buffers/Buffers.htm">Buffer</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(var i = 0 ; i &lt; GetDownloadedSharedFileCount() ; i++)
+{
+   var _sharedFileID = GOG_Storage_GetDownloadedSharedFileByIndex(i);
+   var _fileName = GOG_Storage_GetSharedFileName(_sharedFileID);
+   var _fileSize = GOG_Storage_GetSharedFileSize(_sharedFileID);
+   var _owner = GOG_Storage_GetSharedFileOwner(_sharedFileID);
+   var _buffer = GOG_Storage_SharedFileRead(_sharedFileID);
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="stats.html" class="btn btn-neutral float-left" title="Stats"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="telemetry.html" class="btn btn-neutral float-right" title="Telemetry">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p><p align="center">GameMaker 2024</p></p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/YoYoGames/GMEXT-GOG" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="stats.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="telemetry.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/gml.min.js"></script>
+      <script src="assets/js/gmext_script.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Stats - GMEXT-GOG</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+        <link href="assets/css/gmext_style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Stats";
+        var mkdocs_page_input_path = "stats.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/gml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> GMEXT-GOG
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="home.html">GOG</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="apps.html">Apps</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="friends.html">Friends</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Stats</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#structs">Structs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#constants">Constants</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="storage.html">Storage</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="telemetry.html">Telemetry</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="user.html">User</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="utils.html">Utils</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="management.html">Management</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">GMEXT-GOG</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Stats</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/YoYoGames/GMEXT-GOG/edit/master/docs/stats.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p><a id="top"></a></p>
+<h1 id="stats"><strong>Stats</strong></h1>
+<h2 id="functions">Functions</h2>
+<p>This module offers a collection of functions designed to address specific tasks and provide utilities for various purposes. Explore the available functions to make the most of the functionalities provided by this module.</p>
+<ul>
+<li><a href="stats.html#gog_stats_clearachievement">GOG_Stats_ClearAchievement</a></li>
+<li><a href="stats.html#gog_stats_findleaderboard">GOG_Stats_FindLeaderboard</a></li>
+<li><a href="stats.html#gog_stats_findorcreateleaderboard">GOG_Stats_FindOrCreateLeaderboard</a></li>
+<li><a href="stats.html#gog_stats_getachievement">GOG_Stats_GetAchievement</a></li>
+<li><a href="stats.html#gog_stats_getachievementdescription">GOG_Stats_GetAchievementDescription</a></li>
+<li><a href="stats.html#gog_stats_getachievementdisplayname">GOG_Stats_GetAchievementDisplayName</a></li>
+<li><a href="stats.html#gog_stats_getleaderboarddisplayname">GOG_Stats_GetLeaderboardDisplayName</a></li>
+<li><a href="stats.html#gog_stats_getleaderboarddisplaytype">GOG_Stats_GetLeaderboardDisplayType</a></li>
+<li><a href="stats.html#gog_stats_getleaderboardentrycount">GOG_Stats_GetLeaderboardEntryCount</a></li>
+<li><a href="stats.html#gog_stats_getleaderboardsortmethod">GOG_Stats_GetLeaderboardSortMethod</a></li>
+<li><a href="stats.html#gog_stats_getstatfloat">GOG_Stats_GetStatFloat</a></li>
+<li><a href="stats.html#gog_stats_getstatint">GOG_Stats_GetStatInt</a></li>
+<li><a href="stats.html#gog_stats_getusertimeplayed">GOG_Stats_GetUserTimePlayed</a></li>
+<li><a href="stats.html#gog_stats_isachievementvisible">GOG_Stats_IsAchievementVisible</a></li>
+<li><a href="stats.html#gog_stats_isachievementvisiblewhilelocked">GOG_Stats_IsAchievementVisibleWhileLocked</a></li>
+<li><a href="stats.html#gog_stats_requestleaderboardentriesarounduser">GOG_Stats_RequestLeaderboardEntriesAroundUser</a></li>
+<li><a href="stats.html#gog_stats_requestleaderboardentriesglobal">GOG_Stats_RequestLeaderboardEntriesGlobal</a></li>
+<li><a href="stats.html#gog_stats_requestleaderboards">GOG_Stats_RequestLeaderboards</a></li>
+<li><a href="stats.html#gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</a></li>
+<li><a href="stats.html#gog_stats_requestusertimeplayed">GOG_Stats_RequestUserTimePlayed</a></li>
+<li><a href="stats.html#gog_stats_resetstatsandachievements">GOG_Stats_ResetStatsAndAchievements</a></li>
+<li><a href="stats.html#gog_stats_setachievement">GOG_Stats_SetAchievement</a></li>
+<li><a href="stats.html#gog_stats_setleaderboardscore">GOG_Stats_SetLeaderboardScore</a></li>
+<li><a href="stats.html#gog_stats_setleaderboardscorewithdetails">GOG_Stats_SetLeaderboardScoreWithDetails</a></li>
+<li><a href="stats.html#gog_stats_setstatfloat">GOG_Stats_SetStatFloat</a></li>
+<li><a href="stats.html#gog_stats_setstatint">GOG_Stats_SetStatInt</a></li>
+<li><a href="stats.html#gog_stats_storestatsandachievements">GOG_Stats_StoreStatsAndAchievements</a></li>
+<li><a href="stats.html#gog_stats_updateavgratestat">GOG_Stats_UpdateAvgRateStat</a></li>
+<li><a href="stats.html#gog_stats_getachievementsnumber">GOG_Stats_GetAchievementsNumber</a></li>
+<li><a href="stats.html#gog_stats_getachievementname">GOG_Stats_GetAchievementName</a></li>
+</ul>
+<h2 id="structs">Structs</h2>
+<p>This module offers a collection of structs, which serve as custom data models for organizing and structuring data. Explore the provided structs to better understand the relationships between data elements and simplify your data manipulation tasks.</p>
+<ul>
+<li><a href="stats.html#leaderboardentry">LeaderboardEntry</a></li>
+<li><a href="stats.html#unlockedinfo">UnlockedInfo</a></li>
+</ul>
+<h2 id="constants">Constants</h2>
+<p>This module includes a set of predefined constants that can be utilized for various purposes. Browse through the available constants to find values relevant to your needs and enhance the efficiency of your code.</p>
+<ul>
+<li><a href="stats.html#leaderboarddisplaytype">LeaderboardDisplayType</a></li>
+<li><a href="stats.html#leaderboardsortmethod">LeaderboardSortMethod</a></li>
+</ul>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_clearachievement">GOG_Stats_ClearAchievement</h1>
+<p>This function clears an achievement.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to make this and other changes persistent, call <a href="stats.html#gog_stats_storestatsandachievements">GOG_Stats_StoreStatsAndAchievements</a>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the achievements first by calling <a href="stats.html#gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_ClearAchievement(name)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The code name of the achievement.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_ClearAchievement("100kills");</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_findleaderboard">GOG_Stats_FindLeaderboard</h1>
+<p>This function performs a request for the definition of a specified leaderboard.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_FindLeaderboard(name)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the leaderboard.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Stats_FindLeaderboard"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>Name of the leaderboard</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_FindLeaderboard("BestScoresLeaderboard");</code></pre>
+The code sample above starts a task for finding a leaderboard which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Stats_FindLeaderboard")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+    var _name = async_load[?"name"];
+    show_debug_message(" FindLeaderboard SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_findorcreateleaderboard">GOG_Stats_FindOrCreateLeaderboard</h1>
+<p>This function performs a request for definition of a specified leaderboard, creating it if there's no such leaderboard yet.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_FindOrCreateLeaderboard(name, displayName, sortMethod, displayType)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the leaderboard.</td>
+</tr>
+<tr>
+<td>displayName</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The display name of the leaderboard.</td>
+</tr>
+<tr>
+<td>sortMethod</td>
+<td><a href="stats.html#leaderboardsortmethod">LeaderboardSortMethod</a></td>
+<td>The sort method of the leaderboard.</td>
+</tr>
+<tr>
+<td>displayType</td>
+<td><a href="stats.html#leaderboarddisplaytype">LeaderboardDisplayType</a></td>
+<td>The display method of the leaderboard.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Stats_FindOrCreateLeaderboard"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>Name of the leaderboard</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_FindOrCreateLeaderboard("BestScoresLeaderboard");</code></pre>
+The code sample above starts a task for finding or creating a leaderboard which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Stats_FindOrCreateLeaderboard")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+    var _name = async_load[?"name"];
+    show_debug_message(" FindOrCreateLeaderboard SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_getachievement">GOG_Stats_GetAchievement</h1>
+<p>Reads the state of an achievement of a specified user.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the achievements first by calling <a href="stats.html#gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_GetAchievement(name)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The code name of the achievement.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="stats.html#unlockedinfo">UnlockedInfo</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _struct = GOG_Stats_GetAchievement("100kills");
+var _unlocked = _struct.unlocked;
+if(_unlocked)
+{
+    unlockTime = _struct.unlockTime;
+    //Achievement unlocked, do something....
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_getachievementdescription">GOG_Stats_GetAchievementDescription</h1>
+<p>This function returns the description of a specified achievement.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the achievements first by calling <a href="stats.html#gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_GetAchievementDescription(name)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the achievement.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _description = GOG_Stats_GetAchievementDescription("100kills");</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_getachievementdisplayname">GOG_Stats_GetAchievementDisplayName</h1>
+<p>This function returns the display name of a specified achievement.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the achievements first by calling <a href="stats.html#gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_GetAchievementDisplayName(name)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the achievement.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _displayName = GOG_Stats_GetAchievementDisplayName("100kills");</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_getleaderboarddisplayname">GOG_Stats_GetLeaderboardDisplayName</h1>
+<p>This function returns the display name of a specified leaderboard.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT You need to retrievethe  definition of this particular leaderboard first by calling either  <a href="stats.html#gog_stats_findleaderboard">GOG_Stats_FindLeaderboard</a>  or <a href="stats.html#gog_stats_findorcreateleaderboard">GOG_Stats_FindOrCreateLeaderboard</a>, or definitions of all existing leaderboards by calling <a href="stats.html#gog_stats_requestleaderboards">GOG_Stats_RequestLeaderboards</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_GetLeaderboardDisplayName(name)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the leaderboard.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _displayName = GOG_Stats_GetLeaderboardDisplayName("100kills");</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_getleaderboarddisplaytype">GOG_Stats_GetLeaderboardDisplayType</h1>
+<p>This function returns the display type of a specified leaderboard.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the definition of this particular leaderboard first by calling either  <a href="stats.html#gog_stats_findleaderboard">GOG_Stats_FindLeaderboard</a>  or <a href="stats.html#gog_stats_findorcreateleaderboard">GOG_Stats_FindOrCreateLeaderboard</a>, or definitions of all existing leaderboards by calling <a href="stats.html#gog_stats_requestleaderboards">GOG_Stats_RequestLeaderboards</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_GetLeaderboardDisplayType(name)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the leaderboard.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="stats.html#leaderboarddisplaytype">LeaderboardDisplayType</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _displayType = GOG_Stats_GetLeaderboardDisplayType(name);</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_getleaderboardentrycount">GOG_Stats_GetLeaderboardEntryCount</h1>
+<p>This function returns the leaderboard entry count for the requested leaderboard.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT In order to retrieve the leaderboard entry count, first you need to call <a href="stats.html#gog_stats_requestleaderboardentriesglobal">GOG_Stats_RequestLeaderboardEntriesGlobal</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_GetLeaderboardEntryCount(name)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the leaderboard.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _count = GOG_Stats_GetLeaderboardEntryCount(name);</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_getleaderboardsortmethod">GOG_Stats_GetLeaderboardSortMethod</h1>
+<p>This function returns the sort method of a specified leaderboard.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve definition of this particular leaderboard first by calling either  <a href="stats.html#gog_stats_findleaderboard">GOG_Stats_FindLeaderboard</a>  or <a href="stats.html#gog_stats_findorcreateleaderboard">GOG_Stats_FindOrCreateLeaderboard</a>, or definitions of all existing leaderboards by calling <a href="stats.html#gog_stats_requestleaderboards">GOG_Stats_RequestLeaderboards</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_GetLeaderboardSortMethod(name)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the leaderboard.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="stats.html#leaderboardsortmethod">LeaderboardSortMethod</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_GetLeaderboardSortMethod(name);</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_getstatfloat">GOG_Stats_GetStatFloat</h1>
+<p>This function reads a floating point value of a statistic of a specified user.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the statistics first by calling <a href="stats.html#gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_GetStatFloat(name, userID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The code name of the statistic.</td>
+</tr>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user. It can be omitted when requesting for own data.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _value = GOG_Stats_GetStatFloat(nameStat, GOG_User_GetGalaxyID());</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_getstatint">GOG_Stats_GetStatInt</h1>
+<p>This function reads an integer value of a statistic of a specified user.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the statistics first by calling <a href="stats.html#gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_GetStatInt(name, userID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The code name of the statistic.</td>
+</tr>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user. It can be omitted when requesting for own data.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _value = GOG_Stats_GetStatInt(name, GOG_User_GetGalaxyID());</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_getusertimeplayed">GOG_Stats_GetUserTimePlayed</h1>
+<p>This function reads the number of seconds played by a specified user.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the statistics first by calling <a href="stats.html#gog_stats_requestusertimeplayed">GOG_Stats_RequestUserTimePlayed</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_GetUserTimePlayed(userID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user. It can be omitted when requesting for own data.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_GetUserTimePlayed(GOG_User_GetGalaxyID());</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_isachievementvisible">GOG_Stats_IsAchievementVisible</h1>
+<p>This function returns the visibility status of a specified achievement.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the achievements first by calling <a href="stats.html#gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_IsAchievementVisible(name)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the achievement.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Boolean</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">if(GOG_Stats_IsAchievementVisible(name))
+{
+    //Achievement is visible, do something...
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_isachievementvisiblewhilelocked">GOG_Stats_IsAchievementVisibleWhileLocked</h1>
+<p>This function returns the visibility status of a specified achievement before unlocking.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the achievements first by calling <a href="stats.html#gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_IsAchievementVisibleWhileLocked(name)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the achievement.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Boolean</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">if(GOG_Stats_IsAchievementVisibleWhileLocked(appId))
+{
+    //Achievement visible while locked
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_requestleaderboardentriesarounduser">GOG_Stats_RequestLeaderboardEntriesAroundUser</h1>
+<p>This function performs a request for entries of a specified leaderboard for and near the specified user.
+The specified numbers of entries before and after the specified user are treated as hints. If the requested range would go beyond the set of all leaderboard entries, it is shifted so that it fits in the set of all leaderboard entries and preserves its size if possible.</p>
+<p>This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<blockquote>
+<p><strong><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a0.png" title=":warning:" /> REQUIREMENT</strong></p>
+<p>Retrieve the definition of this particular leaderboard first by calling either <a href="stats.html#gog_stats_findleaderboard">GOG_Stats_FindLeaderboard</a>  or <a href="stats.html#gog_stats_findorcreateleaderboard">GOG_Stats_FindOrCreateLeaderboard</a>, or definitions of all existing leaderboards by calling <a href="stats.html#gog_stats_requestleaderboards">GOG_Stats_RequestLeaderboards</a>.</p>
+</blockquote>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_RequestLeaderboardEntriesAroundUser(name, countBefore, countAfter)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the leaderboard.</td>
+</tr>
+<tr>
+<td>countBefore</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The number of entries placed before the user's entry to retrieve (hint).</td>
+</tr>
+<tr>
+<td>countAfter</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The number of entries placed after the user's entry to retrieve (hint).</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Stats_RequestLeaderboardEntriesAroundUser"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the leaderboard being queried; only if request succeeded <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+<tr>
+<td>entryCount</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The number of retrieved entries; only if request succeeded <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+<tr>
+<td>entries</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Arrays.htm">Array</a> of <a href="stats.html#leaderboardentry">LeaderboardEntry</a></td>
+<td>An array of LeaderboardEntry data for for each queried entry; only if request succeeded <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_RequestLeaderboardEntriesAroundUser("NearScores", 1, 10);</code></pre>
+The code sample above starts a task that requests leaderboard entries around user which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Stats_RequestLeaderboardEntriesAroundUser")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("DeleteRichPresence SUCCESS");
+}
+</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_requestleaderboardentriesglobal">GOG_Stats_RequestLeaderboardEntriesGlobal</h1>
+<p>This function performs a request for entries of a specified leaderboard in a global scope, i.e. without any specific users in the scope of interest.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve definition of this particular leaderboard first by calling either <a href="stats.html#gog_stats_findleaderboard">GOG_Stats_FindLeaderboard</a>  or <a href="stats.html#gog_stats_findorcreateleaderboard">GOG_Stats_FindOrCreateLeaderboard</a>, or definitions of all existing leaderboards by calling <a href="stats.html#gog_stats_requestleaderboards">GOG_Stats_RequestLeaderboards</a>.</p>
+</div>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_RequestLeaderboardEntriesGlobal(name, rangeStart, rangeEnd)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The name of the leaderboard.</td>
+</tr>
+<tr>
+<td>rangeStart</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The index position of the entry to start with.</td>
+</tr>
+<tr>
+<td>rangeEnd</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The index position of the entry to finish with.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Stats_RequestLeaderboardEntriesGlobal"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the leaderboard being queried; only if request succeeded <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+<tr>
+<td>entryCount</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The number of retrieved entries; only if request succeeded <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+<tr>
+<td>entries</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Arrays.htm">Array</a> of <a href="stats.html#leaderboardentry">LeaderboardEntry</a></td>
+<td>An array of LeaderboardEntry data for each queried entry; only if request succeeded <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_RequestLeaderboardEntriesGlobal("BestScores", 1, 10);</code></pre>
+The code sample above starts a task that requests global leadboard entries which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Stats_RequestLeaderboardEntriesGlobal")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("DeleteRichPresence SUCCESS");
+}
+</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_requestleaderboards">GOG_Stats_RequestLeaderboards</h1>
+<p>Performs a request for definitions of leaderboards.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_RequestLeaderboards()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Stats_RequestLeaderboards"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_RequestLeaderboards();</code></pre>
+The code sample above starts a task that requests all leadboard definitions which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Stats_RequestLeaderboards")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("RequestLeaderboards SUCCESS");
+}
+</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</h1>
+<p>Performs a request for statistics and achievements of a specified user.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_RequestUserStatsAndAchievements(userID=undefined)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user. It can be omitted when requesting for own data.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Stats_RequestUserStatsAndAchievements"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_RequestUserStatsAndAchievements(GOG_User_GetGalaxyID());</code></pre>
+The code sample above starts a task that requests data for stats and achievements which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Stats_RequestUserStatsAndAchievements")
+{
+    if (ds_map_exists(async_load, "error"));
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("RequestUserStatsAndAchievements SUCCESS");
+}
+</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_requestusertimeplayed">GOG_Stats_RequestUserTimePlayed</h1>
+<p>This function performs a request for user time played.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_RequestUserTimePlayed(userID=undefined)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user. It can be omitted when requesting for own data.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Stats_RequestUserTimePlayed"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_RequestUserTimePlayed (GOG_User_GetGalaxyID());</code></pre>
+The code sample above starts a task that requests the user's play time and which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Stats_RequestUserTimePlayed")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+    var _userID = async_load[?"userID"];
+    show_debug_message("RequestUserTimePlayed SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_resetstatsandachievements">GOG_Stats_ResetStatsAndAchievements</h1>
+<p>This function resets all statistics and achievements.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is the same as setting statistics and achievements to their initial values and calling <a href="stats.html#gog_stats_storestatsandachievements">GOG_Stats_StoreStatsAndAchievements</a>.</p>
+</div>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_ResetStatsAndAchievements()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Stats_ResetStatsAndAchievements "</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_ResetStatsAndAchievements();</code></pre>
+The code sample above starts a task for resetting stats and achievements and which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Stats_ResetStatsAndAchievements")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+    show_debug_message("ResetStatsAndAchievements SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_setachievement">GOG_Stats_SetAchievement</h1>
+<p>This function unlocks an achievement.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to make this and other changes persistent, call <a href="stats.html#gog_stats_storestatsandachievements">GOG_Stats_StoreStatsAndAchievements</a>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the achievements first by calling <a href="stats.html#gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_SetAchievement(name)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The code name of the achievement.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_SetAchievement("100kills");</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_setleaderboardscore">GOG_Stats_SetLeaderboardScore</h1>
+<p>This function updates the entry for own user in a specified leaderboard.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve definition of this particular leaderboard first by calling either <a href="stats.html#gog_stats_findleaderboard">GOG_Stats_FindLeaderboard</a> or <a href="stats.html#gog_stats_findorcreateleaderboard">GOG_Stats_FindOrCreateLeaderboard</a>, or definitions of all existing leaderboards by calling <a href="stats.html#gog_stats_requestleaderboards">GOG_Stats_RequestLeaderboards</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For this call to work while the user is logged off, the definition of the leaderboard must have been retrieved at least once while the user was logged on.</p>
+</div>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_SetLeaderboardScore(name, score, forceUpdate=undefined)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the leaderboard.</td>
+</tr>
+<tr>
+<td>score</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The score to set.</td>
+</tr>
+<tr>
+<td>forceUpdate</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Boolean</a></td>
+<td>If the update should be performed in case the score is worse than the previous score.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Stats_SetLeaderboardScore "</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the Leaderboard</td>
+</tr>
+<tr>
+<td>score</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The score submitted</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_SetLeaderboardScore ("BestScores", 992, false);</code></pre>
+The code sample above starts a task for updating the score of a given leaderboard, of which the results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Stats_SetLeaderboardScore")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+    show_debug_message("SetLeaderboardScore SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_setleaderboardscorewithdetails">GOG_Stats_SetLeaderboardScoreWithDetails</h1>
+<p>This function updates an entry with details for the current user in a specified leaderboard.</p>
+<p>This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT You have to retrieve the definition of this particular leaderboard first by calling either <a href="stats.html#gog_stats_findleaderboard">GOG_Stats_FindLeaderboard</a> or <a href="stats.html#gog_stats_findorcreateleaderboard">GOG_Stats_FindOrCreateLeaderboard</a>, or definitions of all existing leaderboards by calling <a href="stats.html#gog_stats_requestleaderboards">GOG_Stats_RequestLeaderboards</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For this call to work while the user is logged off, the definition of the leaderboard must have been retrieved at least once while the user was logged on.</p>
+</div>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_SetLeaderboardScoreWithDetails(name, score, forceUpdate, details)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the leaderboard.</td>
+</tr>
+<tr>
+<td>score</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The score to set.</td>
+</tr>
+<tr>
+<td>forceUpdate</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Boolean</a></td>
+<td>If the update should be performed in case the score is worse than the previous score.</td>
+</tr>
+<tr>
+<td>details</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Buffers/Buffers.htm">Buffer</a></td>
+<td>An extra game-defined information regarding how the user got that score with the limit of 3071 bytes.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Stats_SetLeaderboardScore"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the Leaderboard</td>
+</tr>
+<tr>
+<td>score</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The score submitted</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_SetLeaderboardScore("BestScores", 992, false);</code></pre>
+The code sample above starts a task for updating the score (with extra details) of a given leaderboard, of which the results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Stats_SetLeaderboardScore")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+    show_debug_message("SetLeaderboardScore SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_setstatfloat">GOG_Stats_SetStatFloat</h1>
+<p>This function updates a statistic with a floating point value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to make this and other changes persistent, call <a href="stats.html#gog_stats_storestatsandachievements">GOG_Stats_StoreStatsAndAchievements</a>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the statistics first by calling <a href="stats.html#gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_SetStatFloat(name, value)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The code name of the statistic.</td>
+</tr>
+<tr>
+<td>value</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The value of the statistic to set.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_SetStatFloat("speed", 12.2);</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_setstatint">GOG_Stats_SetStatInt</h1>
+<p>This function updates a statistic with an integer value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to make this and other changes persistent, call <a href="stats.html#gog_stats_storestatsandachievements">GOG_Stats_StoreStatsAndAchievements</a>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the statistics first by calling <a href="stats.html#gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_SetStatInt(name, value)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The code name of the statistic.</td>
+</tr>
+<tr>
+<td>value</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The value of the statistic to set.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_SetStatInt("attack", 100);</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_storestatsandachievements">GOG_Stats_StoreStatsAndAchievements</h1>
+<p>This function persists all changes in statistics and achievements.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_StoreStatsAndAchievements()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Stats_StoreStatsAndAchievements"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_StoreStatsAndAchievements();</code></pre>
+The code sample above starts a task to store stats and achievements data. The results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Stats_StoreStatsAndAchievements")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+    var _userID = async_load[?"userID"];
+    show_debug_message("StoreStatsAndAchievements SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_updateavgratestat">GOG_Stats_UpdateAvgRateStat</h1>
+<p>This function updates an average-rate statistic with a delta.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT You have to retrieve the statistics first by calling <a href="stats.html#gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_UpdateAvgRateStat(name, countThisSession, sessionLenght)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The code name of the statistic.</td>
+</tr>
+<tr>
+<td>countThisSession</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The delta of the count.</td>
+</tr>
+<tr>
+<td>sessionLenght</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The delta of the session.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Stats_UpdateAvgRateStat("coins", 100, 1000);</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_getachievementsnumber">GOG_Stats_GetAchievementsNumber</h1>
+<p>This function returns the total amount of achievements registered in the GOG DevPortal.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT You have to retrieve the statistics first by calling <a href="stats.html#gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_GetAchievementsNumber()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var count = GOG_Stats_GetAchievementsNumber();</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_stats_getachievementname">GOG_Stats_GetAchievementName</h1>
+<p>This function returns the name of an achievement from an index, where index is a value from 0 to <a href="stats.html#gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</a> exclusive.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT You have to retrieve the statistics first by calling <a href="stats.html#gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Stats_GetAchievementName(index)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>Index of the achievement</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">// print all registered achievements for debugging
+var count = GOG_Stats_GetAchievementsNumber();
+for (var index = 0; index &lt; count; ++index) {
+    // use this name with other Stats functions as needed
+    var name = GOG_Stats_GetAchievementName(index);
+    show_debug_message(name);
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="leaderboarddisplaytype">LeaderboardDisplayType</h1>
+<p>These constants represent the display type of the leaderboard data.</p>
+<p>These constants are referenced by the following functions:</p>
+<ul>
+<li><a href="stats.html#gog_stats_findorcreateleaderboard">GOG_Stats_FindOrCreateLeaderboard</a></li>
+<li><a href="stats.html#gog_stats_getleaderboarddisplaytype">GOG_Stats_GetLeaderboardDisplayType</a></li>
+</ul>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GOG_LEADERBOARD_DISPLAY_TYPE_NONE</code></td>
+<td>No display type specified.</td>
+</tr>
+<tr>
+<td><code>GOG_LEADERBOARD_DISPLAY_TYPE_NUMBER</code></td>
+<td>Simple numerical score.</td>
+</tr>
+<tr>
+<td><code>GOG_LEADERBOARD_DISPLAY_TYPE_TIME_SECONDS</code></td>
+<td>The score represents time, in seconds.</td>
+</tr>
+<tr>
+<td><code>GOG_LEADERBOARD_DISPLAY_TYPE_TIME_MILLISECONDS</code></td>
+<td>The score represents time, in milliseconds.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="leaderboardsortmethod">LeaderboardSortMethod</h1>
+<p>These constants represent the method used to sort scores within a leaderboard.</p>
+<p>These constants are referenced by the following functions:</p>
+<ul>
+<li><a href="stats.html#gog_stats_findorcreateleaderboard">GOG_Stats_FindOrCreateLeaderboard</a></li>
+<li><a href="stats.html#gog_stats_getleaderboardsortmethod">GOG_Stats_GetLeaderboardSortMethod</a></li>
+</ul>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GOG_LEADERBOARD_SORT_METHOD_NONE</code></td>
+<td>No sorting method specified.</td>
+</tr>
+<tr>
+<td><code>GOG_LEADERBOARD_SORT_METHOD_ASCENDING</code></td>
+<td>Top score is lowest number.</td>
+</tr>
+<tr>
+<td><code>GOG_LEADERBOARD_SORT_METHOD_DESCENDING</code></td>
+<td>Top score is highest number.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="leaderboardentry">LeaderboardEntry</h1>
+<p>A leaderboard entry struct's members.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The data member of this struct will be base64 encoded and so you will need to use the function <a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Buffers/buffer_base64_decode.htm">buffer_base64_decode</a> on the data before reading from the buffer.</p>
+</div>
+<p>This struct is referenced by the following functions:</p>
+<ul>
+<li><a href="stats.html#gog_stats_requestleaderboardentriesarounduser">GOG_Stats_RequestLeaderboardEntriesAroundUser</a></li>
+<li><a href="stats.html#gog_stats_requestleaderboardentriesglobal">GOG_Stats_RequestLeaderboardEntriesGlobal</a></li>
+</ul>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rank</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The rank of the entry on the specified leaderboard</td>
+</tr>
+<tr>
+<td>data</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The base64 encoded string with the data provided when uploading scores</td>
+</tr>
+<tr>
+<td>score</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The score attributed to this entry</td>
+</tr>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The unique user id of the player for this entry</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="unlockedinfo">UnlockedInfo</h1>
+<p>This structure represents unlocked info about an achievement.</p>
+<p>This struct is referenced by the following functions:</p>
+<ul>
+<li><a href="stats.html#gog_stats_getachievement">GOG_Stats_GetAchievement</a></li>
+</ul>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>unlocked</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Boolean</a></td>
+<td>Indicates if the achievement has been unlocked.</td>
+</tr>
+<tr>
+<td>unlockedTime</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The time at which the achievement was unlocked.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="friends.html" class="btn btn-neutral float-left" title="Friends"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="storage.html" class="btn btn-neutral float-right" title="Storage">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p><p align="center">GameMaker 2024</p></p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/YoYoGames/GMEXT-GOG" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="friends.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="storage.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/gml.min.js"></script>
+      <script src="assets/js/gmext_script.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

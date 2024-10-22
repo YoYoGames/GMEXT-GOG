@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>User - GMEXT-GOG</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+        <link href="assets/css/gmext_style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "User";
+        var mkdocs_page_input_path = "user.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/gml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> GMEXT-GOG
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="home.html">GOG</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="apps.html">Apps</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="friends.html">Friends</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="stats.html">Stats</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="storage.html">Storage</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="telemetry.html">Telemetry</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">User</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#structs">Structs</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="utils.html">Utils</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="management.html">Management</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">GMEXT-GOG</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">User</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/YoYoGames/GMEXT-GOG/edit/master/docs/user.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p><a id="top"></a></p>
+<h1 id="user"><strong>User</strong></h1>
+<p>This is a module for handling the user account.</p>
+<h2 id="functions">Functions</h2>
+<p>This module offers a collection of functions designed to address specific tasks and provide utilities for various purposes. Explore the available functions to make the most of the functionalities provided by this module.</p>
+<ul>
+<li><a href="user.html#gog_user_deleteuserdata">GOG_User_DeleteUserData</a></li>
+<li><a href="user.html#gog_user_getaccesstoken">GOG_User_GetAccessToken</a></li>
+<li><a href="user.html#gog_user_getgalaxyid">GOG_User_GetGalaxyID</a></li>
+<li><a href="user.html#gog_user_getrefreshtoken">GOG_User_GetRefreshToken</a></li>
+<li><a href="user.html#gog_user_getsessionid">GOG_User_GetSessionID</a></li>
+<li><a href="user.html#gog_user_getuserdata">GOG_User_GetUserData</a></li>
+<li><a href="user.html#gog_user_getuserdatabyindex">GOG_User_GetUserDataByIndex</a></li>
+<li><a href="user.html#gog_user_getuserdatacount">GOG_User_GetUserDataCount</a></li>
+<li><a href="user.html#gog_user_isloggedon">GOG_User_IsLoggedOn</a></li>
+<li><a href="user.html#gog_user_isuserdataavailable">GOG_User_IsUserDataAvailable</a></li>
+<li><a href="user.html#gog_user_reportinvalidaccesstoken">GOG_User_ReportInvalidAccessToken</a></li>
+<li><a href="user.html#gog_user_requestuserdata">GOG_User_RequestUserData</a></li>
+<li><a href="user.html#gog_user_setuserdata">GOG_User_SetUserData</a></li>
+<li><a href="user.html#gog_user_signedin">GOG_User_SignedIn</a></li>
+<li><a href="user.html#gog_user_signinanonymous">GOG_User_SignInAnonymous</a></li>
+<li><a href="user.html#gog_user_signinanonymoustelemetry">GOG_User_SignInAnonymousTelemetry</a></li>
+<li><a href="user.html#gog_user_signincredentials">GOG_User_SignInCredentials</a></li>
+<li><a href="user.html#gog_user_signingalaxy">GOG_User_SignInGalaxy</a></li>
+<li><a href="user.html#gog_user_signinlauncher">GOG_User_SignInLauncher</a></li>
+<li><a href="user.html#gog_user_signinserverkey">GOG_User_SignInServerKey</a></li>
+<li><a href="user.html#gog_user_signintoken">GOG_User_SignInToken</a></li>
+<li><a href="user.html#gog_user_signout">GOG_User_SignOut</a></li>
+</ul>
+<h2 id="structs">Structs</h2>
+<p>This module offers a collection of structs, which serve as custom data models for organizing and structuring data. Explore the provided structs to better understand the relationships between data elements and simplify your data manipulation tasks.</p>
+<ul>
+<li><a href="user.html#galaxyid">GalaxyID</a></li>
+<li><a href="user.html#keyvaluepair">KeyValuePair</a></li>
+</ul>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_deleteuserdata">GOG_User_DeleteUserData</h1>
+<p>This function clears a property of user data storage.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the user data first by calling <a href="user.html#gog_user_requestuserdata">GOG_User_RequestUserData</a>.</p>
+</div>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_DeleteUserData(key)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the property of the user data storage.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_User_DeleteUserData"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_User_DeleteUserData("weapon");</code></pre>
+The code sample above starts a task for deleting user data, which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_User_DeleteUserData")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+    show_debug_message("DeleteUserData SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_getaccesstoken">GOG_User_GetAccessToken</h1>
+<p>This function returns the access token for current session.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_GetAccessToken()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _accessToken = GOG_User_GetAccessToken();</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_getgalaxyid">GOG_User_GetGalaxyID</h1>
+<p>This function returns the ID of the user, provided that the user is signed in.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_GetGalaxyID()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="user.html#galaxyid">GalaxyID</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _myUsedID = GOG_User_GetGalaxyID();</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_getsessionid">GOG_User_GetSessionID</h1>
+<p>This function returns the ID of current session.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_GetSessionID()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _sessionID = GOG_User_GetSessionID();</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_getrefreshtoken">GOG_User_GetRefreshToken</h1>
+<p>This function returns the refresh token for the current version.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_GetRefreshToken()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _refreshToken = GOG_User_GetRefreshToken();</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_getuserdata">GOG_User_GetUserData</h1>
+<p>This function returns an entry from the data storage of current user.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the user data first by calling <a href="user.html#gog_user_requestuserdata">GOG_User_RequestUserData</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_GetUserData(key, userID=undefined)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the property of the user data storage.</td>
+</tr>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user. It can be omitted when reading own data.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _data = GOG_User_GetUserData("data", GOG_User_GetGalaxyID());</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_getuserdatabyindex">GOG_User_GetUserDataByIndex</h1>
+<p>This function returns a property from the user data storage by index.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the user data first by calling <a href="user.html#gog_user_requestuserdata">GOG_User_RequestUserData</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_GetUserDataByIndex(index, userID=undefined)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>Index as an integer in the range of [0, number of entries].</td>
+</tr>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user. It can be omitted when reading own data.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="user.html#keyvaluepair">KeyValuePair</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(var a = 0 ; a &lt; GOG_User_GetUserDataCount(GOG_User_GetGalaxyID()) ; a ++ )
+    draw_text(100, 220 + a*30, GOG_User_GetUserDataByIndex(a, GOG_User_GetGalaxyID()));</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_getuserdatacount">GOG_User_GetUserDataCount</h1>
+<p>This function returns the number of entries in the user data storage.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the user data first by calling <a href="user.html#gog_user_requestuserdata">GOG_User_RequestUserData</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_GetUserDataCount(userID=undefined)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user. It can be omitted when reading own data.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(var a = 0 ; a &lt; GOG_User_GetUserDataCount(GOG_User_GetGalaxyID()) ; a ++ )
+    draw_text(100, 220 + a*30, GOG_User_GetUserDataByIndex(a, GOG_User_GetGalaxyID()));</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_isloggedon">GOG_User_IsLoggedOn</h1>
+<p>This function checks if the user is logged on to Galaxy backend services.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_IsLoggedOn()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Boolean</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">if(GOG_User_IsLoggedOn())
+{
+   //User is logged, do something...
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_isuserdataavailable">GOG_User_IsUserDataAvailable</h1>
+<p>This function checks if user data exists.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the user data first by calling <a href="user.html#gog_user_requestuserdata">GOG_User_RequestUserData</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_IsUserDataAvailable(userID=undefined)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user. It can be omitted when reading own data.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Boolean</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">if(GOG_User_IsUserDataAvailable())
+{
+   //User data is available, do something
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_reportinvalidaccesstoken">GOG_User_ReportInvalidAccessToken</h1>
+<p>This function reports the current access token as no longer working.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_ReportInvalidAccessToken(accessToken, info)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accessToken</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The invalid access token.</td>
+</tr>
+<tr>
+<td>info</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>Additional information.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_User_ReportInvalidAccessToken(accessToken, "A hacker wanna be...");</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_requestuserdata">GOG_User_RequestUserData</h1>
+<p>This function retrieves/refreshes user data storage.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_RequestUserData(userID=undefined)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user. It can be omitted when reading own data.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_User_RequestUserData"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_User_RequestUserData("BestScoresLeaderboard");</code></pre>
+The code sample above starts a task for requesting user data, which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_User_RequestUserData")
+{
+    show_debug_message("RequestUserData SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_setuserdata">GOG_User_SetUserData</h1>
+<p>This function creates or updates an entry in the user data storage.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the user data first by calling <a href="user.html#gog_user_requestuserdata">GOG_User_RequestUserData</a>.</p>
+</div>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_SetUserData(key, value)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the property of the user data storage with the limit of 1023 bytes.</td>
+</tr>
+<tr>
+<td>value</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The value of the property to set with the limit of 4095 bytes.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_User_SetUserData"</code></td>
+</tr>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_User_SetUserData("weapon", "sword");</code></pre>
+The code sample above starts a task for setting user data, which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_User_SetUserData")
+{
+    show_debug_message("User data was set for user {0}", async_load[? "userID"]);
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_signedin">GOG_User_SignedIn</h1>
+<p>This function checks if the user is signed in to Galaxy.
+The user should be reported as signed in as soon as the authentication process is finished.
+If the user is not able to sign in or gets signed out, there might be either a networking issue or a limited availability of Galaxy backend services.
+After loosing authentication the user needs to sign in again in order for the Galaxy Peer to operate.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_SignedIn()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Boolean</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">if(GOG_User_SignedIn())
+{
+   //user signed in, do something
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_signinanonymous">GOG_User_SignInAnonymous</h1>
+<p>This function authenticates the Galaxy Game Server anonymously.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_SignInAnonymous()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_User_SignInAnonymous"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_User_SignInAnonymous();</code></pre>
+The code sample above starts a task for signing in anonymously, which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_User_SignInAnonymous")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("SignInAnonymous SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_signinanonymoustelemetry">GOG_User_SignInAnonymousTelemetry</h1>
+<p>This function authenticates the Galaxy Peer anonymously.
+This authentication method enables the peer to send anonymous telemetry events.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_SignInAnonymousTelemetry()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_User_SignInAnonymousTelemetry"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if the request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_User_SignInAnonymousTelemetry();</code></pre>
+The code sample above starts a task for signing in anonymously (with anonymous telemetry), which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_User_SignInAnonymousTelemetry")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("SignInAnonymousTelemetry SUCCESS");
+}
+</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_signincredentials">GOG_User_SignInCredentials</h1>
+<p>This function authenticates the Galaxy Peer with specified user credentials.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_SignInCredentials(login, password)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>login</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The user's login.</td>
+</tr>
+<tr>
+<td>password</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The user's password.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_User_SignInCredentials"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_User_SignInServerKey(refreshToken);</code></pre>
+The code sample above starts a task for signing in with credentials, which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_User_SignInCredentials")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("SignInToken SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_signingalaxy">GOG_User_SignInGalaxy</h1>
+<p>This function authenticates the Galaxy Peer based on Galaxy Client authentication.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_SignInGalaxy(requireOnline=undefined, timeout=undefined)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>requireOnline</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Boolean</a></td>
+<td>OPTIONAL: Indicates if sing in with Galaxy backend is required.</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>OPTIONAL: How much time to wait until giving up the login process</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_User_SignInGalaxy"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_User_SignInGalaxy(false, 4); // don't require online, wait at least 4 seconds before giving up</code></pre>
+The code sample above starts a task for signing in with galaxy client authentication, which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_User_SignInGalaxy")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("SignInGalaxy SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_signinlauncher">GOG_User_SignInLauncher</h1>
+<p>This function authenticates the Galaxy Peer based on launcher authentication.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_SignInLauncher()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_User_SignInLauncher"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_User_SignInLauncher();</code></pre>
+The code sample above starts a task for signing in with launcher authentication, which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_User_SignInLauncher")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("SignInLauncher SUCCESS");
+}
+</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_signinserverkey">GOG_User_SignInServerKey</h1>
+<p>This function authenticates the Galaxy Peer with a specified server key.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_SignInServerKey(key)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The server key.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_User_SignInServerKey"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_User_SignInServerKey(key);</code></pre>
+The code sample above starts a task for signing in using a server key, which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_User_SignInServerKey")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("SignInServerKey SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_signintoken">GOG_User_SignInToken</h1>
+<p>This function authenticates the Galaxy Peer with refresh token.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_SignInToken(refreshToken)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>refreshToken</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The refresh token obtained from Galaxy login page.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_User_SignInToken"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_User_SignInToken(refreshToken);</code></pre>
+The code sample above starts a task for signing in using a refresh token, which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_User_SignInToken")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("SignInToken SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_user_signout">GOG_User_SignOut</h1>
+<p>This function signs the Galaxy Peer out.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_User_SignOut()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_User_SignOut();</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="galaxyid">GalaxyID</h1>
+<p>This structure represents a GOG ID (User or Lobby) and is used all across the GOG API as either a return value or function argument.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>These values shouldn't be used or changed and are to be passed back into the extension to perform the desired actions.</p>
+</div>
+<p>This struct is referenced by the following functions:</p>
+<ul>
+<li><a href="friends.html#gog_friends_deletefriend">GOG_Friends_DeleteFriend</a></li>
+<li><a href="friends.html#gog_friends_finduser">GOG_Friends_FindUser</a></li>
+<li><a href="friends.html#gog_friends_getfriendavatarimageid">GOG_Friends_GetFriendAvatarImageID</a></li>
+<li><a href="friends.html#gog_friends_getfriendavatarimagergba">GOG_Friends_GetFriendAvatarImageRGBA</a></li>
+<li><a href="friends.html#gog_friends_getfriendavatarurl">GOG_Friends_GetFriendAvatarUrl</a></li>
+<li><a href="friends.html#gog_friends_getfriendbyindex">GOG_Friends_GetFriendByIndex</a></li>
+<li><a href="friends.html#gog_friends_getfriendpersonaname">GOG_Friends_GetFriendPersonaName</a></li>
+<li><a href="friends.html#gog_friends_getfriendpersonastate">GOG_Friends_GetFriendPersonaState</a></li>
+<li><a href="friends.html#gog_friends_getrichpresence">GOG_Friends_GetRichPresence</a></li>
+<li><a href="friends.html#gog_friends_getrichpresencebyindex">GOG_Friends_GetRichPresenceByIndex</a></li>
+<li><a href="friends.html#gog_friends_getrichpresencecount">GOG_Friends_GetRichPresenceCount</a></li>
+<li><a href="friends.html#gog_friends_getrichpresencekeybyindex">GOG_Friends_GetRichPresenceKeyByIndex</a></li>
+<li><a href="friends.html#gog_friends_isfriend">GOG_Friends_IsFriend</a></li>
+<li><a href="friends.html#gog_friends_isfriendavatarimagergbaavailable">GOG_Friends_IsFriendAvatarImageRGBAAvailable</a></li>
+<li><a href="friends.html#gog_friends_isuserinformationavailable">GOG_Friends_IsUserInformationAvailable</a></li>
+<li><a href="friends.html#gog_friends_isuserinthesamegame">GOG_Friends_IsUserInTheSameGame</a></li>
+<li><a href="friends.html#gog_friends_requestrichpresence">GOG_Friends_RequestRichPresence</a></li>
+<li><a href="friends.html#gog_friends_requestuserinformation">GOG_Friends_RequestUserInformation</a></li>
+<li><a href="friends.html#gog_friends_respondtofriendinvitation">GOG_Friends_RespondToFriendInvitation</a></li>
+<li><a href="friends.html#gog_friends_sendfriendinvitation">GOG_Friends_SendFriendInvitation</a></li>
+<li><a href="friends.html#gog_friends_sendinvitation">GOG_Friends_SendInvitation</a></li>
+<li><a href="stats.html#gog_stats_getstatfloat">GOG_Stats_GetStatFloat</a></li>
+<li><a href="stats.html#gog_stats_getstatint">GOG_Stats_GetStatInt</a></li>
+<li><a href="stats.html#gog_stats_getusertimeplayed">GOG_Stats_GetUserTimePlayed</a></li>
+<li><a href="stats.html#gog_stats_requestuserstatsandachievements">GOG_Stats_RequestUserStatsAndAchievements</a></li>
+<li><a href="stats.html#gog_stats_requestusertimeplayed">GOG_Stats_RequestUserTimePlayed</a></li>
+<li><a href="storage.html#gog_storage_getsharedfileowner">GOG_Storage_GetSharedFileOwner</a></li>
+<li><a href="user.html#gog_user_getgalaxyid">GOG_User_GetGalaxyID</a></li>
+<li><a href="user.html#gog_user_getuserdata">GOG_User_GetUserData</a></li>
+<li><a href="user.html#gog_user_getuserdatabyindex">GOG_User_GetUserDataByIndex</a></li>
+<li><a href="user.html#gog_user_getuserdatacount">GOG_User_GetUserDataCount</a></li>
+<li><a href="user.html#gog_user_isuserdataavailable">GOG_User_IsUserDataAvailable</a></li>
+<li><a href="user.html#gog_user_requestuserdata">GOG_User_RequestUserData</a></li>
+<li><a href="user.html#gog_user_setuserdata">GOG_User_SetUserData</a></li>
+</ul>
+<p>This struct is referenced by the following structs:</p>
+<ul>
+<li><a href="friends.html#friendinvitationdetails">FriendInvitationDetails</a></li>
+<li><a href="stats.html#leaderboardentry">LeaderboardEntry</a></li>
+</ul>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The real ID value.</td>
+</tr>
+<tr>
+<td>IDType</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The type of the ID.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="keyvaluepair">KeyValuePair</h1>
+<p>A struct containing a key-value pair.</p>
+<p>This struct is referenced by the following functions:</p>
+<ul>
+<li><a href="user.html#gog_user_getuserdatabyindex">GOG_User_GetUserDataByIndex</a></li>
+</ul>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the property of the user data storage.</td>
+</tr>
+<tr>
+<td>value</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The value of the property of the user data storage.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="telemetry.html" class="btn btn-neutral float-left" title="Telemetry"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="utils.html" class="btn btn-neutral float-right" title="Utils">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p><p align="center">GameMaker 2024</p></p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/YoYoGames/GMEXT-GOG" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="telemetry.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="utils.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/gml.min.js"></script>
+      <script src="assets/js/gmext_script.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

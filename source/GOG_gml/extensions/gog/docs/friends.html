@@ -1,0 +1,2319 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Friends - GMEXT-GOG</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+        <link href="assets/css/gmext_style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Friends";
+        var mkdocs_page_input_path = "friends.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/gml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> GMEXT-GOG
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="home.html">GOG</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="apps.html">Apps</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Friends</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#constants">Constants</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#structs">Structs</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="stats.html">Stats</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="storage.html">Storage</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="telemetry.html">Telemetry</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="user.html">User</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="utils.html">Utils</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="management.html">Management</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">GMEXT-GOG</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Friends</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/YoYoGames/GMEXT-GOG/edit/master/docs/friends.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p><a id="top"></a></p>
+<h1 id="friends"><strong>Friends</strong></h1>
+<h2 id="functions">Functions</h2>
+<p>Functions related to the Friends functionality.</p>
+<ul>
+<li><a href="friends.html#gog_friends_clearrichpresence">GOG_Friends_ClearRichPresence</a></li>
+<li><a href="friends.html#gog_friends_deletefriend">GOG_Friends_DeleteFriend</a></li>
+<li><a href="friends.html#gog_friends_deleterichpresence">GOG_Friends_DeleteRichPresence</a></li>
+<li><a href="friends.html#gog_friends_finduser">GOG_Friends_FindUser</a></li>
+<li><a href="friends.html#gog_friends_getdefaultavatarcriteria">GOG_Friends_GetDefaultAvatarCriteria</a></li>
+<li><a href="friends.html#gog_friends_getfriendavatarimageid">GOG_Friends_GetFriendAvatarImageID</a></li>
+<li><a href="friends.html#gog_friends_getfriendavatarimagergba">GOG_Friends_GetFriendAvatarImageRGBA</a></li>
+<li><a href="friends.html#gog_friends_getfriendavatarurl">GOG_Friends_GetFriendAvatarUrl</a></li>
+<li><a href="friends.html#gog_friends_getfriendbyindex">GOG_Friends_GetFriendByIndex</a></li>
+<li><a href="friends.html#gog_friends_getfriendcount">GOG_Friends_GetFriendCount</a></li>
+<li><a href="friends.html#gog_friends_getfriendinvitationbyindex">GOG_Friends_GetFriendInvitationByIndex</a></li>
+<li><a href="friends.html#gog_friends_getfriendinvitationcount">GOG_Friends_GetFriendInvitationCount</a></li>
+<li><a href="friends.html#gog_friends_getfriendpersonaname">GOG_Friends_GetFriendPersonaName</a></li>
+<li><a href="friends.html#gog_friends_getfriendpersonastate">GOG_Friends_GetFriendPersonaState</a></li>
+<li><a href="friends.html#gog_friends_getpersonaname">GOG_Friends_GetPersonaName</a></li>
+<li><a href="friends.html#gog_friends_getpersonastate">GOG_Friends_GetPersonaState</a></li>
+<li><a href="friends.html#gog_friends_getrichpresence">GOG_Friends_GetRichPresence</a></li>
+<li><a href="friends.html#gog_friends_getrichpresencebyindex">GOG_Friends_GetRichPresenceByIndex</a></li>
+<li><a href="friends.html#gog_friends_getrichpresencecount">GOG_Friends_GetRichPresenceCount</a></li>
+<li><a href="friends.html#gog_friends_getrichpresencekeybyindex">GOG_Friends_GetRichPresenceKeyByIndex</a></li>
+<li><a href="friends.html#gog_friends_isfriend">GOG_Friends_IsFriend</a></li>
+<li><a href="friends.html#gog_friends_isfriendavatarimagergbaavailable">GOG_Friends_IsFriendAvatarImageRGBAAvailable</a></li>
+<li><a href="friends.html#gog_friends_isuserinformationavailable">GOG_Friends_IsUserInformationAvailable</a></li>
+<li><a href="friends.html#gog_friends_isuserinthesamegame">GOG_Friends_IsUserInTheSameGame</a></li>
+<li><a href="friends.html#gog_friends_requestfriendinvitationlist">GOG_Friends_RequestFriendInvitationList</a></li>
+<li><a href="friends.html#gog_friends_requestfriendlist">GOG_Friends_RequestFriendList</a></li>
+<li><a href="friends.html#gog_friends_requestrichpresence">GOG_Friends_RequestRichPresence</a></li>
+<li><a href="friends.html#gog_friends_requestsentfriendinvitationlist">GOG_Friends_RequestSentFriendInvitationList</a></li>
+<li><a href="friends.html#gog_friends_requestuserinformation">GOG_Friends_RequestUserInformation</a></li>
+<li><a href="friends.html#gog_friends_respondtofriendinvitation">GOG_Friends_RespondToFriendInvitation</a></li>
+<li><a href="friends.html#gog_friends_sendfriendinvitation">GOG_Friends_SendFriendInvitation</a></li>
+<li><a href="friends.html#gog_friends_sendinvitation">GOG_Friends_SendInvitation</a></li>
+<li><a href="friends.html#gog_friends_setdefaultavatarcriteria">GOG_Friends_SetDefaultAvatarCriteria</a></li>
+<li><a href="friends.html#gog_friends_setrichpresence">GOG_Friends_SetRichPresence</a></li>
+<li><a href="friends.html#gog_friends_showoverlayinvitedialog">GOG_Friends_ShowOverlayInviteDialog</a></li>
+</ul>
+<h2 id="constants">Constants</h2>
+<p>Constants related to the Friends functionality.</p>
+<ul>
+<li><a href="friends.html#personastate">PersonaState</a></li>
+<li><a href="friends.html#avatartype">AvatarType</a></li>
+</ul>
+<h2 id="structs">Structs</h2>
+<p>Structs related to the Friends functionality.</p>
+<ul>
+<li><a href="friends.html#friendinvitationdetails">FriendInvitationDetails</a></li>
+<li><a href="friends.html#richpresenceproperty">RichPresenceProperty</a></li>
+</ul>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_clearrichpresence">GOG_Friends_ClearRichPresence</h1>
+<p>Removes all rich presence data for the user. This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_ClearRichPresence()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Friends_ClearRichPresence"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if the request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Friends_ClearRichPresence();</code></pre>
+The code sample above starts a clear rich presence task which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Friends_ClearRichPresence")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("ClearRichPresence SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_deletefriend">GOG_Friends_DeleteFriend</h1>
+<p>This function removes a user from the friend list.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_DeleteFriend(userID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The <a href="user.html#galaxyid">GalaxyID</a> of the user to be removed from the friend list.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Friends_DeleteFriend"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>GOG Galaxy user identifier</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Friends_DeleteFriend(myFriendID);</code></pre>
+  The code sample above starts a friend deletion task which result can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Friends_DeleteFriend")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+    var _deletedFriend = async_load[?"userID"];
+    show_debug_message("Friend Deleted");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_deleterichpresence">GOG_Friends_DeleteRichPresence</h1>
+<p>This function removes the variable value under a specified name. If the variable doesn't exist, the method call has no effect.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_DeleteRichPresence(key)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the variable to be removed.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Friends_DeleteRichPresence"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if the request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Friends_DeleteRichPresence("playing");</code></pre>
+The code sample above starts a rich presence delete task of which the results can be caught inside an <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.
+<pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Friends_DeleteRichPresence")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("DeleteRichPresence SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_finduser">GOG_Friends_FindUser</h1>
+<p>This function finds a specified user.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_FindUser(userSpecifier)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userSpecifier</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The specifier of the user.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Friends_FindUser"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Friends_FindUser(userSpecifier);</code></pre>
+The code sample above starts a find user task which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Friends_FindUser")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+    var _user = async_load[?"userID"];
+    show_debug_message("FindUser SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_getdefaultavatarcriteria">GOG_Friends_GetDefaultAvatarCriteria</h1>
+<p>This function returns the default avatar criteria which is a <a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a> with the bit sum of the default <a href="friends.html#avatartype">AvatarType</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_GetDefaultAvatarCriteria()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _AvatarCriteria = GOG_Friends_GetDefaultAvatarCriteria();</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_getfriendavatarimageid">GOG_Friends_GetFriendAvatarImageID</h1>
+<p>This function returns the ID of the avatar of a specified user.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function returns the ID used internally by the GOG SDK. To get an actual avatar image as a sprite you can either get the image data using <a href="friends.html#gog_friends_getfriendavatarimagergba">GOG_Friends_GetFriendAvatarImageRGBA</a> and create a sprite from the buffer data (using <a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Buffers/buffer_set_surface.htm">buffer_set_surface</a> and <a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Asset_Management/Sprites/Sprite_Manipulation/sprite_create_from_surface.htm">sprite_create_from_surface</a>) or add the sprite directly using <a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Asset_Management/Sprites/Sprite_Manipulation/sprite_add.htm">sprite_add</a> from the URL returned by <a href="friends.html#gog_friends_getfriendavatarurl">GOG_Friends_GetFriendAvatarUrl</a>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the avatar image first by calling <a href="friends.html#gog_friends_requestuserinformation">GOG_Friends_RequestUserInformation</a> with appropriate avatar criteria.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_GetFriendAvatarImageID(userID, avatarType)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td>avatarType</td>
+<td><a href="friends.html#avatartype">AvatarType</a></td>
+<td>The type of avatar.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _ImageID = GOG_Friends_GetFriendAvatarImageID(userID, GOG_AVATAR_TYPE_SMALL);</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_getfriendavatarimagergba">GOG_Friends_GetFriendAvatarImageRGBA</h1>
+<p>This function copies the avatar of a specified user.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT You might need to retrieve the data first by calling <a href="friends.html#gog_friends_requestuserinformation">GOG_Friends_RequestUserInformation</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The size of the output buffer will be 4 * height * width (check <a href="friends.html#avatartype">AvatarType</a> for width and height values).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This function creates a new buffer everytime it is called, unless a buffer is already specified. You need to ensure you correctly delete the buffer when you don't need it anymore using the <a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Buffers/buffer_delete.htm">buffer_delete</a> function. Failing to do so will result in memory leaks.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_GetFriendAvatarImageRGBA(userID, AvatarType, bufferID=undefined, byteOffset=undefined)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td>AvatarType</td>
+<td><a href="friends.html#avatartype">AvatarType</a></td>
+<td>The type of avatar.</td>
+</tr>
+<tr>
+<td>bufferID</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Buffers/Buffers.htm">Buffer</a></td>
+<td>OPTIONAL: use an existing buffer instead of allocating a new one</td>
+</tr>
+<tr>
+<td>byteOffset</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>OPTIONAL: write data to a specific offset in the buffer</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Buffers/Buffers.htm">Buffer</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">if(GOG_Friends_IsFriendAvatarImageRGBAAvailable(userID, GOG_AVATAR_TYPE_LARGE))
+{
+    var _buff = GOG_Friends_GetFriendAvatarImageRGBA(userID, GOG_AVATAR_TYPE_LARGE);
+
+    var _size = buffer_get_size(_buff);
+    var _L = sqrt(_size/4);
+
+    surf = surface_create(_L, _L);
+    buffer_set_surface(_buff, surf, 0);
+
+    buffer_delete(_buff);
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_getfriendavatarurl">GOG_Friends_GetFriendAvatarUrl</h1>
+<p>Returns the URL of the avatar of a specified user.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT You might need to retrieve the data first by calling <a href="friends.html#gog_friends_requestuserinformation">GOG_Friends_RequestUserInformation</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_GetFriendAvatarUrl(userID, avatarType)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td>avatarType</td>
+<td><a href="friends.html#avatartype">AvatarType</a></td>
+<td>The type of avatar.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _url = GOG_Friends_GetFriendAvatarUrl(userID, GOG_AVATAR_TYPE_SMALL);</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_getfriendbyindex">GOG_Friends_GetFriendByIndex</h1>
+<p>This function returns the <a href="user.html#galaxyid">GalaxyID</a> for a friend.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the list of friends first by calling <a href="friends.html#gog_friends_requestfriendlist">GOG_Friends_RequestFriendList</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_GetFriendByIndex(index)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>Index as an integer in the range of [0, number of friends].</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="user.html#galaxyid">GalaxyID</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(var a = 0 ; a &lt; GOG_Friends_GetFriendCount() ; a++)
+{
+    var _friendID = GOG_Friends_GetFriendByIndex(a);
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_getfriendcount">GOG_Friends_GetFriendCount</h1>
+<p>This function returns the number of retrieved friends in the user's list of friends.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the list of friends first by calling <a href="friends.html#gog_friends_requestfriendlist">GOG_Friends_RequestFriendList</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_GetFriendCount()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(var a = 0 ; a &lt; GOG_Friends_GetFriendCount() ; a++)
+{
+    var _friendID = GOG_Friends_GetFriendByIndex(a);
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_getfriendinvitationbyindex">GOG_Friends_GetFriendInvitationByIndex</h1>
+<p>This function reads the details of the friend invitation.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_GetFriendInvitationByIndex(index)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>Index as an integer in the range of [0, number of friend invitations].</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="friends.html#friendinvitationdetails">FriendInvitationDetails</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(var i = 0 ; i &lt; GOG_Friends_GetFriendInvitationCount() ; i++)
+{
+    var _struct = GOG_Friends_GetFriendInvitationByIndex(i);
+    var _userID = _struct.userID;
+    var _sendTime = _struct.sendTime;
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_getfriendinvitationcount">GOG_Friends_GetFriendInvitationCount</h1>
+<p>This function returns the number of retrieved friend invitations.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_GetFriendInvitationCount()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(var i = 0 ; i &lt; GOG_Friends_GetFriendInvitationCount() ; i++)
+{
+    var _struct = GOG_Friends_GetFriendInvitationByIndex(i);
+    var _userID = _struct.userID;
+    var _sendTime = _struct.sendTime;
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_getfriendpersonaname">GOG_Friends_GetFriendPersonaName</h1>
+<p>This function returns the nickname of a specified user.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT You might need to retrieve the data first by calling <a href="friends.html#gog_friends_requestuserinformation">GOG_Friends_RequestUserInformation</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_GetFriendPersonaName(userID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _name = GOG_Friends_GetFriendPersonaName(GOG_User_GetGalaxyID());</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_getfriendpersonastate">GOG_Friends_GetFriendPersonaState</h1>
+<p>This function returns the state of a specified user, see <a href="friends.html#personastate">PersonaState</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT You might need to retrieve the data first by calling <a href="friends.html#gog_friends_requestuserinformation">GOG_Friends_RequestUserInformation</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_GetFriendPersonaState(userID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="friends.html#personastate">PersonaState</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">if (GOG_Friends_GetFriendPersonaState(myFriendID) == GOG_PERSONA_STATE_ONLINE)
+{
+    //My friend is online, do something
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_getpersonaname">GOG_Friends_GetPersonaName</h1>
+<p>This function returns the user's nickname.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_GetPersonaName()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _name = GOG_Friends_GetPersonaName();</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_getpersonastate">GOG_Friends_GetPersonaState</h1>
+<p>This function returns the user's state.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_GetPersonaState()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="friends.html#personastate">PersonaState</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">if(GOG_Friends_GetPersonaState() == GOG_PERSONA_STATE_ONLINE)
+{
+    // I'm online right now
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_getrichpresence">GOG_Friends_GetRichPresence</h1>
+<p>This function returns the rich presence of a specified user.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the rich presence first by calling <a href="friends.html#gog_friends_requestrichpresence">GOG_Friends_RequestRichPresence</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_GetRichPresence(key, userID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the property of the user's rich presence.</td>
+</tr>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">var _value = GOG_Friends_GetRichPresence("playing", GOG_User_GetGalaxyID());</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_getrichpresencebyindex">GOG_Friends_GetRichPresenceByIndex</h1>
+<p>Returns a property from the rich presence storage by index.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the rich presence first by calling <a href="friends.html#gog_friends_requestrichpresence">GOG_Friends_RequestRichPresence</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_GetRichPresenceByIndex(index, userID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>Index as an integer in the range of [0, number of entries].</td>
+</tr>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="friends.html#richpresenceproperty">RichPresenceProperty</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(var i = 0 ; i &lt; GOG_Friends_GetRichPresenceCount(GOG_User_GetGalaxyID()) ; i++)
+{
+    var _struct = GOG_Friends_GetRichPresenceByIndex(i, GOG_User_GetGalaxyID());
+    var _key = _struct.key;
+    var _value = _struct.value;
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_getrichpresencecount">GOG_Friends_GetRichPresenceCount</h1>
+<p>This function returns the number of retrieved properties in a user's rich presence.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the rich presence first by calling <a href="friends.html#gog_friends_requestrichpresence">GOG_Friends_RequestRichPresence</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_GetRichPresenceCount(userID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for(var i = 0 ; i &lt; GOG_Friends_GetRichPresenceCount(GOG_User_GetGalaxyID()) ; i++)
+{
+    var _struct = GOG_Friends_GetRichPresenceByIndex(i, GOG_User_GetGalaxyID());
+    var _key = _struct.key;
+    var _value = _struct.value;
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_getrichpresencekeybyindex">GOG_Friends_GetRichPresenceKeyByIndex</h1>
+<p>This function returns a key from the rich presence storage by index.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the rich presence first by calling <a href="friends.html#gog_friends_requestrichpresence">GOG_Friends_RequestRichPresence</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_GetRichPresenceKeyByIndex(index, userID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>Index as an integer in the range of [0, number of entries].</td>
+</tr>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">for (var i = 0; i &lt; GOG_Friends_GetRichPresenceCount(GOG_User_GetGalaxyID()); i++)
+{
+    var _key = GOG_Friends_GetRichPresenceKeyByIndex(i, GOG_User_GetGalaxyID());
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_isfriend">GOG_Friends_IsFriend</h1>
+<p>This function checks if a specified user is a friend.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the list of friends first by calling <a href="friends.html#gog_friends_requestfriendlist">GOG_Friends_RequestFriendList</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_IsFriend(userID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Boolean</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">if (GOG_Friends_IsFriend(friendID))
+{
+    //Is my friend, do something
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_isfriendavatarimagergbaavailable">GOG_Friends_IsFriendAvatarImageRGBAAvailable</h1>
+<p>This function checks if a specified avatar image is available.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_IsFriendAvatarImageRGBAAvailable(userID, avatarID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td>avatarID</td>
+<td><a href="friends.html#avatartype">AvatarType</a></td>
+<td>The type of avatar.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Boolean</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">if (GOG_Friends_IsFriendAvatarImageRGBAAvailable(userID, GOG_AVATAR_TYPE_LARGE))
+{
+    var _buff = GOG_Friends_GetFriendAvatarImageRGBA(userID, GOG_AVATAR_TYPE_LARGE);
+
+    var _size = buffer_get_size(_buff);
+    var _L = sqrt(_size/4);
+
+    surf = surface_create(_L, _L);
+    buffer_set_surface(_buff, surf, 0);
+
+    buffer_delete(_buff);
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_isuserinformationavailable">GOG_Friends_IsUserInformationAvailable</h1>
+<p>Checks if the information of specified user is available.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_IsUserInformationAvailable(userID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Boolean</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">if (GOG_Friends_IsUserInformationAvailable(GOG_User_GetGalaxyID()))
+{
+   var _name = GOG_Friends_GetPersonaName(GOG_User_GetGalaxyID());
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_isuserinthesamegame">GOG_Friends_IsUserInTheSameGame</h1>
+<p>This function checks if a specified user is playing the same game.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>REQUIREMENT Retrieve the rich presence first by calling <a href="friends.html#gog_friends_requestrichpresence">GOG_Friends_RequestRichPresence</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_IsUserInTheSameGame(userID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Boolean</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">if(GOG_Friends_IsUserInformationAvailable(friendID))
+{
+   if(GOG_Friends_IsUserInTheSameGame(friendID))
+   {
+       //my friend is on the same game, do something
+   }
+}</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_requestfriendinvitationlist">GOG_Friends_RequestFriendInvitationList</h1>
+<p>This function performs a request for the user's list of incoming friend invitations.</p>
+<p>This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_RequestFriendInvitationList()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Friends_RequestFriendInvitationList"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Friends_RequestFriendInvitationList();</code></pre>
+The code sample above starts task for requesting friends invitation data which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Friends_RequestFriendInvitationList")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("RequestFriendInvitationList SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_requestfriendlist">GOG_Friends_RequestFriendList</h1>
+<p>This function performs a request for the user's list of friends.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_RequestFriendList()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Friends_RequestFriendList"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Friends_RequestFriendList();</code></pre>
+The code sample above starts task for requesting friends data which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Friends_RequestFriendList")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("RequestFriendList SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_requestrichpresence">GOG_Friends_RequestRichPresence</h1>
+<p>Performs a request for the user's rich presence.</p>
+<p>This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_RequestRichPresence(userID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Friends_RequestRichPresence"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Friends_RequestRichPresence();</code></pre>
+The code sample above starts task for requesting rich presence data which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Friends_RequestRichPresence")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("RequestRichPresence SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_requestsentfriendinvitationlist">GOG_Friends_RequestSentFriendInvitationList</h1>
+<p>This function performs a request for the user's list of outgoing friend invitations.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_RequestSentFriendInvitationList()</code></pre>
+</blockquote>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Friends_RequestSentFriendInvitationList"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Friends_RequestSentFriendInvitationList() ;</code></pre>
+The code sample above starts task for requesting sent friendship invitation data which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Friends_RequestSentFriendInvitationList")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("RequestSentFriendInvitationList SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_requestuserinformation">GOG_Friends_RequestUserInformation</h1>
+<p>This function performs a request for information about a specified user.</p>
+<p>This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_RequestUserInformation(userID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Friends_RequestUserInformation"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Friends_RequestUserInformation();</code></pre>
+The code sample above starts task for requesting user information data which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Friends_RequestUserInformation")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("GOG_Friends_RequestUserInformation SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_respondtofriendinvitation">GOG_Friends_RespondToFriendInvitation</h1>
+<p>This function responds to the friend invitation.</p>
+<p>This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_RespondToFriendInvitation(userID, accept)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user who sent the friend invitation.</td>
+</tr>
+<tr>
+<td>accept</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Boolean</a></td>
+<td>True when accepting the invitation, false when declining.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Friends_RespondToFriendInvitation"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td>accept</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Boolean</a></td>
+<td>true to accept invitation, false to refuse.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Friends_RespondToFriendInvitation()</code></pre>
+The code sample above starts task for responding to a pending invitation which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Friends_RespondToFriendInvitation")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("RespondToFriendInvitation SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_sendfriendinvitation">GOG_Friends_SendFriendInvitation</h1>
+<p>This function sends a friend invitation.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_SendFriendInvitation(userID)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Friends_SendFriendInvitation"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Friends_SendFriendInvitation(friendID);</code></pre>
+The code sample above starts a task for sending a friend invitation which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if(async_load[? "type"] == "GOG_Friends_SendFriendInvitation")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("SendFriendInvitationSUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_sendinvitation">GOG_Friends_SendInvitation</h1>
+<p>This function sends a game invitation without using the overlay.
+This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_SendInvitation(userID, connectionString)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td>connectionString</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The string which contains connection info with the limit of 4095 bytes.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Friends_RespondToFriendInvitation"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The error message; only if request failed <img alt="✴️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/2734.png" title=":eight_pointed_black_star:" /> OPTIONAL</td>
+</tr>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user.</td>
+</tr>
+<tr>
+<td>connectionString</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>connectionString</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Friends_SendInvitation(userID, connectionString);</code></pre>
+The code sample above starts task for sending a play invitation which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Friends_RespondToFriendInvitation")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+    show_debug_message("SendInvitation SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_setdefaultavatarcriteria">GOG_Friends_SetDefaultAvatarCriteria</h1>
+<p>This function sets the default avatar criteria.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_SetDefaultAvatarCriteria(defaultAvatarCriteria)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>defaultAvatarCriteria</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The bit sum of the default <a href="friends.html#avatartype">AvatarType</a>.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Friends_SetDefaultAvatarCriteria(GOG_AVATAR_TYPE_SMALL);</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_setrichpresence">GOG_Friends_SetRichPresence</h1>
+<p>This function sets the variable value under a specified name.
+There are three keys that can be used:</p>
+<ul>
+<li><code>"status"</code> - The description visible in Galaxy Client with the limit of 3000 bytes.</li>
+<li><code>"metadata"</code> - The metadata that describes the status to other instances of the game with the limit of 2048 bytes.</li>
+<li><code>"connect"</code> - The string which contains connection info with the limit of 4095 bytes. It can be regarded as a passive version of <a href="friends.html#gog_friends_sendinvitation">GOG_Friends_SendInvitation</a> because it allows friends that notice the rich presence to join a multiplayer game.</li>
+</ul>
+<p>This is an asynchronous function that will trigger a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a> when the task is finished.</p>
+<p>This function operates asynchronously, which means that it does not immediately return the requested result. Instead, upon completion of the task, it will trigger the <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_SetRichPresence(key, value)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the property of the user's rich presence (see above).</td>
+</tr>
+<tr>
+<td>value</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The value of the property to set.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Triggers:</strong></p>
+<blockquote>
+<p><a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td><code>"GOG_Friends_RespondToFriendInvitation"</code></td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>Only if the request failed</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Friends_RespondToFriendInvitation();</code></pre>
+The code sample above starts task for setting the rich presence value which results can be caught inside a <a href="https://manual.gamemaker.io/monthly/en/The_Asset_Editors/Object_Properties/Async_Events/Social.htm">Social Async Event</a>.</p>
+<p><pre class="highlight"><code class="language-gml">if (async_load[? "type"] == "GOG_Friends_SetRichPresence")
+{
+    if (ds_map_exists(async_load, "error"))
+    {
+        show_debug_message(async_load[?"error"]);
+        exit;
+    }
+
+   show_debug_message("SetRichPresence SUCCESS");
+}</code></pre>
+This code sample provides an example of handling the returned callback data.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="gog_friends_showoverlayinvitedialog">GOG_Friends_ShowOverlayInviteDialog</h1>
+<p>This function shows a game invitation dialog that allows to invite users to the game.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For this call to work, the overlay needs to be initialized first. To check whether the overlay is initialized, call <a href="utils.html#gog_utils_getoverlaystate">GOG_Utils_GetOverlayState</a>.</p>
+</div>
+<p><br></p>
+<p><strong>Syntax:</strong></p>
+<blockquote>
+<pre class="highlight"><code class="language-gml">GOG_Friends_ShowOverlayInviteDialog(connectionString)</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectionString</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The string which contains connection info with the limit of 4095 bytes.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>N/A</p>
+</blockquote>
+<p><br></p>
+<p><strong>Example:</strong></p>
+<p><pre class="highlight"><code class="language-gml">GOG_Friends_ShowOverlayInviteDialog(connectionString);</code></pre>
+The code above provides a simple usage example.</p>
+<p><br></p>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="personastate">PersonaState</h1>
+<p>These constants represent the state of a user.</p>
+<p>These constants are referenced by the following functions:</p>
+<ul>
+<li><a href="friends.html#gog_friends_getfriendpersonastate">GOG_Friends_GetFriendPersonaState</a></li>
+<li><a href="friends.html#gog_friends_getpersonastate">GOG_Friends_GetPersonaState</a></li>
+</ul>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GOG_PERSONA_STATE_OFFLINE</code></td>
+<td>User is not currently logged on.</td>
+</tr>
+<tr>
+<td><code>GOG_PERSONA_STATE_ONLINE</code></td>
+<td>User is logged on.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="avatartype">AvatarType</h1>
+<p>These constants represent the type of a user avatar. They are used as a bit mask sum in the return value of <a href="friends.html#gog_friends_getdefaultavatarcriteria">GOG_Friends_GetDefaultAvatarCriteria</a>.</p>
+<p>These constants are referenced by the following functions:</p>
+<ul>
+<li><a href="friends.html#gog_friends_getfriendavatarimageid">GOG_Friends_GetFriendAvatarImageID</a></li>
+<li><a href="friends.html#gog_friends_getfriendavatarimagergba">GOG_Friends_GetFriendAvatarImageRGBA</a></li>
+<li><a href="friends.html#gog_friends_getfriendavatarurl">GOG_Friends_GetFriendAvatarUrl</a></li>
+<li><a href="friends.html#gog_friends_isfriendavatarimagergbaavailable">GOG_Friends_IsFriendAvatarImageRGBAAvailable</a></li>
+</ul>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GOG_AVATAR_TYPE_NONE</code></td>
+<td>No avatar type specified.</td>
+</tr>
+<tr>
+<td><code>GOG_AVATAR_TYPE_SMALL</code></td>
+<td>Avatar resolution size: 32x32.</td>
+</tr>
+<tr>
+<td><code>GOG_AVATAR_TYPE_MEDIUM</code></td>
+<td>Avatar resolution size: 64x64.</td>
+</tr>
+<tr>
+<td><code>GOG_AVATAR_TYPE_LARGE</code></td>
+<td>Avatar resolution size: 184x184.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="friendinvitationdetails">FriendInvitationDetails</h1>
+<p>This struct contains details about a friend invitation.</p>
+<p>This struct is referenced by the following functions:</p>
+<ul>
+<li><a href="friends.html#gog_friends_getfriendinvitationbyindex">GOG_Friends_GetFriendInvitationByIndex</a></li>
+</ul>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userID</td>
+<td><a href="user.html#galaxyid">GalaxyID</a></td>
+<td>The ID of the user who sent the invitation.</td>
+</tr>
+<tr>
+<td>sendTime</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Overview/Data_Types.htm">Real</a></td>
+<td>The time at which the friend invitation was sent.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<hr />
+<p align="right"><a href="#top">Back To Top</a></p>
+
+<h1 id="richpresenceproperty">RichPresenceProperty</h1>
+<p>A struct containing the property of a rich presence.</p>
+<p>This struct is referenced by the following functions:</p>
+<ul>
+<li><a href="friends.html#gog_friends_getrichpresencebyindex">GOG_Friends_GetRichPresenceByIndex</a></li>
+</ul>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The name of the property of the user's rich presence.</td>
+</tr>
+<tr>
+<td>value</td>
+<td><a href="https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Strings/Strings.htm">String</a></td>
+<td>The value of the property.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="apps.html" class="btn btn-neutral float-left" title="Apps"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="stats.html" class="btn btn-neutral float-right" title="Stats">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p><p align="center">GameMaker 2024</p></p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/YoYoGames/GMEXT-GOG" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="apps.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="stats.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/gml.min.js"></script>
+      <script src="assets/js/gmext_script.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

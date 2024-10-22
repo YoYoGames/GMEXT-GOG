@@ -1,11 +1,11 @@
-* ### [GOG](Home)
-* ### [Setup](Setup)
-* ### [Modules](#)
-  * ### [Apps](Apps)
-  * ### [Friends](Friends)
-  * ### [Stats](Stats)
-  * ### [Storage](Storage)
-  * ### [Telemetry](Telemetry)
-  * ### [User](User)
-  * ### [Utils](Utils)
-  * ### [Management](Management)
+* ### [GOG](home)
+* ### [Setup](setup)
+* ### Modules
+  * ### ${module.apps}
+  * ### ${module.friends}
+  * ### ${module.stats}
+  * ### ${module.storage}
+  * ### ${module.telemetry}
+  * ### ${module.user}
+  * ### ${module.utils}
+  * ### ${module.management}
