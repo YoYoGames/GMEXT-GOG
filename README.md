@@ -5,9 +5,12 @@ This repository was created with the intent of presenting users with the latest 
 
 This extension will work on Windows and macOS.
 
-VISUAL STUDIO SOURCE: `source/GOG_vs/`
+SOURCE CODE: `source/gog_gml/extensions/gog/gog_cpp/`
 
-XCODE SOURCE: `source/GOG_xcode/`
+VISUAL STUDIO PROJECT: `source/gog_gml/extensions/gog/gog_windows/`
+
+XCODE PROJECT: `source/gog_gml/extensions/gog/gog_macos/`
+
 
 After compilation the exported dll/dylib file is automatically copied into the extension folder inside the included GameMaker project folder.
 
