@@ -39,7 +39,7 @@
         {"$GMExtensionConstant":"","%Name":"GOG_OVERLAY_STATE_DISABLED","hidden":false,"name":"GOG_OVERLAY_STATE_DISABLED","resourceType":"GMExtensionConstant","resourceVersion":"2.0","value":"2",},
         {"$GMExtensionConstant":"","%Name":"GOG_OVERLAY_STATE_FAILED_TO_INITIALIZE","hidden":false,"name":"GOG_OVERLAY_STATE_FAILED_TO_INITIALIZE","resourceType":"GMExtensionConstant","resourceVersion":"2.0","value":"3",},
         {"$GMExtensionConstant":"","%Name":"GOG_OVERLAY_STATE_INITIALIZED","hidden":false,"name":"GOG_OVERLAY_STATE_INITIALIZED","resourceType":"GMExtensionConstant","resourceVersion":"2.0","value":"4",},
-      ],"copyToTargets":66,"filename":"GOG.dll","final":"","functions":[
+      ],"copyToTargets":66,"filename":"GOG.ext","final":"","functions":[
         {"$GMExtensionFunction":"","%Name":"GOG_ProcessData","argCount":0,"args":[],"documentation":"@returns {bool}","externalName":"GOG_ProcessData","help":"GOG_ProcessData()","hidden":false,"kind":1,"name":"GOG_ProcessData","resourceType":"GMExtensionFunction","resourceVersion":"2.0","returnType":1,},
         {"$GMExtensionFunction":"","%Name":"GOG_GetError","argCount":0,"args":[],"documentation":"@returns {struct}","externalName":"GOG_GetError","help":"GOG_GetError()","hidden":false,"kind":1,"name":"GOG_GetError","resourceType":"GMExtensionFunction","resourceVersion":"2.0","returnType":1,},
         {"$GMExtensionFunction":"","%Name":"GOG_Apps_IsDlcInstalled","argCount":0,"args":[],"documentation":"@param {real} productID The ID of the DLC to check.\r\n@returns {bool}","externalName":"GOG_Apps_IsDlcInstalled","help":"GOG_Apps_IsDlcInstalled(productID)","hidden":false,"kind":1,"name":"GOG_Apps_IsDlcInstalled","resourceType":"GMExtensionFunction","resourceVersion":"2.0","returnType":1,},
@@ -309,8 +309,9 @@
         {"name":"GOG_Stats_FindOrCreateLeaderboard","path":"extensions/GOG/GOG.yy",},
       ],"origname":"","ProxyFiles":[
         {"$GMProxyFile":"","%Name":"libGOG.dylib","name":"libGOG.dylib","resourceType":"GMProxyFile","resourceVersion":"2.0","TargetMask":1,},
+        {"$GMProxyFile":"","%Name":"GOG_x64.dll","name":"GOG_x64.dll","resourceType":"GMProxyFile","resourceVersion":"2.0","TargetMask":6,},
       ],"resourceType":"GMExtensionFile","resourceVersion":"2.0","uncompress":false,"usesRunnerInterface":true,},
-    {"$GMExtensionFile":"","%Name":"","constants":[],"copyToTargets":2,"filename":"libGalaxy64.dylib","final":"","functions":[],"init":"","kind":1,"name":"","order":[],"origname":"","ProxyFiles":[],"resourceType":"GMExtensionFile","resourceVersion":"2.0","uncompress":false,"usesRunnerInterface":false,},
+    {"$GMExtensionFile":"","%Name":"","constants":[],"copyToTargets":2,"filename":"libGalaxy.dylib","final":"","functions":[],"init":"","kind":1,"name":"","order":[],"origname":"","ProxyFiles":[],"resourceType":"GMExtensionFile","resourceVersion":"2.0","uncompress":false,"usesRunnerInterface":false,},
   ],
   "gradleinject":"",
   "hasConvertedCodeInjection":true,

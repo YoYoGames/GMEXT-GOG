@@ -29,7 +29,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.800.0.613",
+    "IDEVersion":"2024.1100.0.634",
   },
   "name":"GOG",
   "resources":[
@@ -37,7 +37,6 @@
     {"id":{"name":"Font_YoYo_20","path":"fonts/Font_YoYo_20/Font_YoYo_20.yy",},},
     {"id":{"name":"Font_YoYo_30","path":"fonts/Font_YoYo_30/Font_YoYo_30.yy",},},
     {"id":{"name":"Font_YoYo_50","path":"fonts/Font_YoYo_50/Font_YoYo_50.yy",},},
-    {"id":{"name":"changelog","path":"notes/changelog/changelog.yy",},},
     {"id":{"name":"STORAGE_MODULE_NOT_WORKING","path":"notes/STORAGE_MODULE_NOT_WORKING/STORAGE_MODULE_NOT_WORKING.yy",},},
     {"id":{"name":"Obj_Button_GoTo","path":"objects/Obj_Button_GoTo/Obj_Button_GoTo.yy",},},
     {"id":{"name":"Obj_GOG_Achievement","path":"objects/Obj_GOG_Achievement/Obj_GOG_Achievement.yy",},},

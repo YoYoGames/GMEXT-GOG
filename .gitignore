@@ -17,7 +17,7 @@ source/*_sdk/
 source/*_gml/options/
 
 # Build solutions (temp & output)
-source/*_gml/extensions/*_windows/**/x64/
+source/*_gml/extensions/**/*_windows/**/x64/
 
 # MacOS
 .DS_Store

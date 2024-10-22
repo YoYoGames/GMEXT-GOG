@@ -78,11 +78,13 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>..\..\GOG_gml\extensions\gog\</OutDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)_x64</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\..\GOG_gml\extensions\gog\</OutDir>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)_x64</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -127,16 +129,19 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\..\GOG_sdk\Include\galaxy\;..\..\json-c-0.9\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\GOG_sdk\Include\galaxy\;$(SolutionDir)..\gog_cpp;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>..\..\GOG_sdk\Libraries\;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\GOG_sdk\Libraries\;</AdditionalLibraryDirectories>
       <AdditionalDependencies>Galaxy64.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(TargetPath)" "$(ProjectDir)..\..\$(TargetFileName)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -150,7 +155,7 @@
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>..\..\GOG_sdk\Include\galaxy\;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\GOG_sdk\Include\galaxy\;$(SolutionDir)..\gog_cpp;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -158,31 +163,19 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>..\..\GOG_sdk\Libraries\;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\GOG_sdk\Libraries\;</AdditionalLibraryDirectories>
       <AdditionalDependencies>Galaxy64.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(TargetPath)" "$(ProjectDir)..\..\$(TargetFileName)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h" />
-    <ClInclude Include="pch.h" />
-    <ClInclude Include="YYGOG_Listener.hpp" />
+    <ClInclude Include="..\..\gog_cpp\*.h" />
+    <ClInclude Include="..\..\gog_cpp\*.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SimpleDesktopExample.cpp" />
-    <ClCompile Include="YYGOG.cpp" />
-    <ClCompile Include="YYGOG_Apps.cpp" />
-    <ClCompile Include="YYGOG_Chat.cpp" />
-    <ClCompile Include="YYGOG_CustomNetworking.cpp" />
-    <ClCompile Include="YYGOG_Friends.cpp" />
-    <ClCompile Include="YYGOG_Listener.cpp" />
-    <ClCompile Include="YYGOG_Logger.cpp" />
-    <ClCompile Include="YYGOG_Matchmaking.cpp" />
-    <ClCompile Include="YYGOG_Networking.cpp" />
-    <ClCompile Include="YYGOG_Stats.cpp" />
-    <ClCompile Include="YYGOG_Storage.cpp" />
-    <ClCompile Include="YYGOG_Telemetry.cpp" />
-    <ClCompile Include="YYGOG_User.cpp" />
-    <ClCompile Include="YYGOG_Utils.cpp" />
+    <ClCompile Include="..\..\gog_cpp\*.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
