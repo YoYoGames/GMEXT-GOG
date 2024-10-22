@@ -14,7 +14,7 @@
   "copyToTargets":66,
   "description":"",
   "exportToGame":true,
-  "extensionVersion":"1.4.0",
+  "extensionVersion":"2.0.0",
   "files":[
     {"$GMExtensionFile":"","%Name":"","constants":[
         {"$GMExtensionConstant":"","%Name":"GOG_AVATAR_TYPE_NONE","hidden":false,"name":"GOG_AVATAR_TYPE_NONE","resourceType":"GMExtensionConstant","resourceVersion":"2.0","value":"0",},

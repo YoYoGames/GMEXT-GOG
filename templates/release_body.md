@@ -2,7 +2,7 @@
 
 - This extension version will be compatible with the GM 2022.0.1 LTSr1 (upon release)
 - This extension is to be used with GM 2023.1 and future releases.
-- Requires GOG Galaxy SDK version 1.152.6 (August 24, 2023 14:54)
+- Requires GOG Galaxy SDK version v1.152.10 (March 25, 2024 06:20)
 - Works with **Windows** (VM/YYC) and **macOS** (YYC)
 
 ## CHANGES SINCE ${releaseOldVersion}
