@@ -32,3 +32,6 @@ xcuserdata/
 # Output and Build folders
 output/
 source/*_gml/Build/
+source/GOG_gml/extensions/gog/scriptUtils.bat.bak
+
+source/GOG_gml/extensions/gog/scriptUtils.sh.bak
