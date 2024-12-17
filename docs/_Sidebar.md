@@ -1,5 +1,5 @@
-* ### [GOG](home)
-* ### [Setup](setup)
+* ### GOG
+* ### ${page.setup}
 * ### Modules
   * ### ${module.apps}
   * ### ${module.friends}
